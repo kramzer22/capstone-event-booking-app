@@ -1,5 +1,7 @@
 import { useRef } from "react";
 
+import "./header.css";
+
 function Header({ logInState }) {
   const loginContainerRef = useRef(null);
 
