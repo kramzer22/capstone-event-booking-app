@@ -4,7 +4,7 @@ function Header({ logInState }) {
   const loginContainerRef = useRef(null);
 
   const showLoginForm = () => {
-    logInState.login_function(loggedIn ? false : true);
+    logInState.login_function(logInState.login_value ? false : true);
   };
 
   if (loginContainerRef.current) {
@@ -35,12 +35,12 @@ function Header({ logInState }) {
           <li>
             <button>Book Now</button>
           </li>
-          <li onClick={() => showLoginForm()}>Log in</li>
+          <li onClick={showLoginForm}>Log in</li>
         </ul>
         <div ref={loginContainerRef} className="login-container">
           <div className="login-header">
             <h3>Login</h3>
-            <button onClick={() => showLoginForm()}>x</button>
+            <button onClick={showLoginForm}>x</button>
           </div>
           <form className="login-form">
             <input type="email" placeholder="email address" />
