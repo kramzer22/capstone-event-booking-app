@@ -1,4 +1,8 @@
 .app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   background-image: url(./assets/sample-bg.jpg);
   background-size: cover;
   width: 100vw;
