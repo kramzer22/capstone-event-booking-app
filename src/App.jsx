@@ -6,6 +6,8 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const loginContainerRef = useRef(null);
+  const messagingChat = useRef(null);
+  const messagingButton = useRef(null);
 
   const showLoginForm = () => {
     setLoggedIn(loggedIn ? false : true);
@@ -24,6 +26,20 @@ function App() {
       }, 300);
     }
   }
+
+  const showMessagingPopUp = () => {
+    if (messagingChat.current) {
+      messagingButton.current.style.display = "none";
+      messagingChat.current.style.display = "flex";
+    }
+  };
+
+  const hideMessagingPopUp = () => {
+    if (messagingChat.current) {
+      messagingButton.current.style.display = "flex";
+      messagingChat.current.style.display = "none";
+    }
+  };
 
   return (
     <div className="app-container">
@@ -75,8 +91,28 @@ function App() {
       </div>
 
       <div className="instant-messaging-container">
-        <div className="instant-messaging-box"></div>
-        <div className="instant-messaging-tail"></div>
+        <div ref={messagingChat} className="messaging-chat-container">
+          <div className="messaging-chat-header">
+            <h2>Customer Support</h2>
+            <button onClick={hideMessagingPopUp}>X</button>
+          </div>
+
+          <ul></ul>
+          <div className="message-input-container">
+            <input type="text" placeholder="message here" />
+            <button>send</button>
+          </div>
+        </div>
+        <div
+          ref={messagingButton}
+          className="instant-messaging-button"
+          onClick={showMessagingPopUp}
+        >
+          <div className="instant-messaging-box">
+            <p>• • •</p>
+          </div>
+          <div className="instant-messaging-tail"></div>
+        </div>
       </div>
     </div>
   );

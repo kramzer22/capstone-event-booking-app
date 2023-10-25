@@ -56,13 +56,17 @@
 .navigation-links ul {
   display: flex;
   align-items: center;
-  gap: 10px;
 
   height: 100%;
   list-style: none;
 }
 
 .navigation-links ul li {
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+
+  height: 100%;
   font-size: 18px;
   transition: font-size 0.15s ease-in-out;
 }
@@ -76,11 +80,13 @@
   text-decoration: underline;
   padding: 10px 10px;
   font-size: 22px;
+  cursor: pointer;
 }
 
 .navigation-links ul li button:hover {
   padding: 2px;
   font-size: 22px;
+  cursor: pointer;
 }
 
 /* login form styling */
@@ -167,17 +173,78 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
-  width: 60px;
-  height: 60px;
+.messaging-chat-container {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+
+  background-color: antiquewhite;
+  padding: 10px 10px 30px 10px;
+}
+
+.messaging-chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.messaging-chat-header button {
+  width: 40px;
+  height: 40px;
+}
+
+.messaging-chat-container ul {
+  height: 400px;
+  width: 360px;
+  background-color: aliceblue;
+}
+
+.message-input-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.message-input-container input {
+  flex-grow: 1;
+  height: 40px;
+}
+
+.message-input-container button {
+  padding: 0 10px;
 }
 
 .instant-messaging-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   height: 48px;
   width: 60px;
   background-color: #d3d3d3;
 
   border-radius: 16px;
+
+  transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+}
+
+.instant-messaging-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instant-messaging-box:hover {
+  height: 54px;
+  width: 66px;
+  cursor: pointer;
+}
+
+.instant-messaging-box p {
+  font-size: 20px;
 }
 
 .instant-messaging-tail {
