@@ -149,3 +149,75 @@ small {
   max-width: 100%;
   flex: 0 0 50%;
 }
+
+/* start of section */
+.section-container {
+  background-color: #9e9cfc87;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2em 7em;
+  width: 100%;
+  max-width: 100%;
+  /* flex: 0 0 45%; */
+}
+
+.section-details {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  width: 100%;
+  max-width: 100%;
+  gap: 5em;
+}
+
+.section-description {
+  width: 500px;
+  max-width: 100%;
+  color: var(--text);
+}
+
+.section-paragraph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  width: 500px;
+  max-width: 100%;
+
+  color: var(--text2);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* start of ad container */
+.ad-ctr {
+  display: flex;
+  flex-direction: row;
+  padding: 3em;
+  justify-content: space-around;
+}
+
+.ad-details {
+  display: flex;
+  align-items: center;
+  gap: 3em;
+  padding: 1em 2em;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.ad-btn {
+  padding: 0.8rem 1.5em;
+  width: fit-content;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+
+  font-weight: bold;
+  font-family: "Lato";
+  letter-spacing: 0.5px;
+  color: var(--background);
+  background-color: var(--primary);
+}

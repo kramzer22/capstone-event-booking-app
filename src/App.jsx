@@ -29,7 +29,7 @@ function App() {
       <AboutUs />
       {displayContent}
       <InstantMessaging />
-      <Footer />
+      {/* <Footer />  */}
     </div>
   );
 }

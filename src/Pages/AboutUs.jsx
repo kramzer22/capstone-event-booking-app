@@ -35,20 +35,30 @@ function AboutUs() {
         </div>
       </div>
 
-      <div className="about-container">
-        <div className="about-description">
-          <h2>Hello</h2>
+      <div className="section-container">
+        <div className="section-details">
+          <div className="section-description">
+            <h2>Stress-free experience for all.</h2>
+          </div>
+
+          <div className="section-paragraph">
+            <p>
+              We are dedicated to making event planning and attendance
+              hassle-free.
+            </p>
+            <p>
+              Our platform serves as the bridge between event organizers and
+              users, streamlining the process and ensuring a memorable and
+              stress-free experience for all.
+            </p>
+          </div>
         </div>
-        <div className="about-paragraph">
-          <p>
-            We are dedicated to making event planning and attendance
-            hassle-free.{" "}
-          </p>
-          <p>
-            Our platform serves as the bridge between event organizers and
-            users, streamlining the process and ensuring a memorable and
-            stress-free experience for all. 1 / 1 Page 1 of 1.
-          </p>
+      </div>
+
+      <div className="ad-ctr">
+        <div className="ad-details">
+          <h5>Curious about “CName’s” platform, pricing, and integrations?</h5>
+          <button className="ad-btn">Contact Us</button>
         </div>
       </div>
     </div>
