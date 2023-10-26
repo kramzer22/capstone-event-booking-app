@@ -33,6 +33,9 @@ function Header({ logInState, selectedPageState }) {
       </div>
       <div className="navigation-links">
         <ul>
+          <li onClick={() => selectedPageState.selectedpage_function("/")}>
+            Home
+          </li>
           <li>Venues</li>
           <li>Promos</li>
           <li onClick={() => selectedPageState.selectedpage_function("/about")}>
