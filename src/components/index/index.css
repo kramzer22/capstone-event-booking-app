@@ -1,3 +1,12 @@
+.index-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 140px;
+  width: 100%;
+}
+
 .index-article-container {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -48,4 +57,17 @@
   grid-column: 2 / 3;
 
   content: url("https://dummyimage.com/640x480/000/fff.png&text=image+640x480");
+}
+
+.left img {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.left div {
+  grid-column: 2/ 3;
+}
+
+.left .index-article {
+  padding: 20px 80px 20px 20px;
 }

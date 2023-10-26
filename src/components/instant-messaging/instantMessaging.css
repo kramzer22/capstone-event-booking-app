@@ -1,11 +1,12 @@
 .instant-messaging-container {
   position: fixed;
   right: 30px;
-  bottom: 120px;
+  bottom: 60px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 10;
 }
 
 .messaging-chat-container {
@@ -22,6 +23,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
+}
+
+.messaging-chat-header h2 {
+  font-size: 24px;
 }
 
 .messaging-chat-header button {
