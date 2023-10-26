@@ -288,16 +288,18 @@ small {
   gap: 1em;
   width: 40%;
   max-width: fit-content;
-  background-color: #eceaff;
-  border-radius: 10px;
+  background-color: var(--secondary);
+  /* background-color: #eceaff; */
+  border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .mission-title,
 .goal-title {
-  letter-spacing: 4px;
-  color: var(--text);
+  color: var(--accent);
+  letter-spacing: 2px;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -306,8 +308,50 @@ small {
   width: 250px;
 
   font-size: 0.8rem;
-  font-weight: 400;
+  font-weight: bold;
   color: var(--text);
   text-align: justify;
   line-height: 1.5;
+}
+
+/* start of feature */
+.feature-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   
+  padding: 2em 7em;
+  width: 100%;
+}
+
+.feature-title {
+  padding: 1em 0;
+}
+
+.feature-card-ctr {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  padding: 1em;
+}
+
+.feature-img {
+  flex: none;
+  background-color: black;
+  width: 50px;
+  height: 50px;
+}
+
+.feature-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  font-size: 0.8rem;
 }

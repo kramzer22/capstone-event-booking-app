@@ -93,13 +93,10 @@ function AboutUs() {
 
       <div className="mission-goal-container">
         <div className="mission-card">
-          <div className="mission-title">
-            <small>OUR MISSION</small>
-          </div>
-
           <div className="mission-description">
             <p>
-              To transform the event planning and booking experience by
+              <span className="mission-title">OUR MISSION </span>
+              is to transform the event planning and booking experience by
               providing a user-friendly, secure, and transparent platform that
               benefits both event organizers and clients. We aim to simplify the
               process, fostering seamless connections and memorable event
@@ -109,19 +106,111 @@ function AboutUs() {
         </div>
 
         <div className="goal-card">
-          <div className="goal-title">
-            <small>OUR GOAL</small>
-          </div>
-
           <div className="goal-description">
             <p>
-              To redefine event management, making it easier for event
+              <span className="goal-title">OUR GOAL </span>
+              is to redefine event management, making it easier for event
               organizers to showcase their offerings and for users to discover
               and enjoy events effortlessly. We are committed to maintaining a
               positive and trustworthy environment, where fairness and
               accountability prevail. Event Reservation App is your trusted
               partner for all your event needs.
             </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="feature-container">
+        <h2 className="feature-title">Our Features</h2>
+
+        <div className="feature-card-ctr">
+          <div className="feature-card">
+            <img className="feature-img" src="" alt="" />
+            <div className="feature-details">
+              <h5>Event Organizer Registration</h5>
+              <p>
+                Event place organizers or holders can easily register via
+                invitation links. We've simplified the onboarding process to get
+                you started quickly.
+              </p>
+            </div>
+          </div>
+
+          <div className="feature-card">
+            <img className="feature-img" src="" alt="" />
+            <div className="feature-details">
+              <h5>Comprehensive Event Management</h5>
+              <p>
+                Event handlers have full control of their event listings. They
+                can manage event photos, descriptions, package inclusions, date
+                and time availability, and terms of agreement, including grace
+                periods for cancellations and cancellation fees.
+              </p>
+            </div>
+          </div>
+
+          <div className="feature-card">
+            <img className="feature-img" src="" alt="" />
+            <div className="feature-details">
+              <h5>User-Friendly Experience</h5>
+              <p>
+                Users can register an account or book an appointment without an
+                account. Our intuitive interface allows easy navigation through
+                event places, viewing of packages, and the option to filter by
+                price range and location.
+              </p>
+            </div>
+          </div>
+
+          <div className="feature-card">
+            <img className="feature-img" src="" alt="" />
+            <div className="feature-details">
+              <h5>Effortless Booking</h5>
+              <p>
+                Users can effortlessly select an event place, choose a package,
+                pick a date and time, and proceed to payment in just a few
+                clicks.
+              </p>
+            </div>
+          </div>
+
+          <div className="feature-card">
+            <img className="feature-img" src="" alt="" />
+            <div className="feature-details">
+              <h5>Admin Support</h5>
+              <p>
+                Our dedicated team of administrators acts as the intermediary,
+                handling cancellations and ensuring fair play. They monitor
+                event management, client behavior, and address any issues that
+                may arise, such as damages incurred by clients that violate the
+                terms of agreement.
+              </p>
+            </div>
+          </div>
+
+          <div className="feature-card">
+            <img className="feature-img" src="" alt="" />
+            <div className="feature-details">
+              <h5>Security Deposit</h5>
+              <p>
+                To protect both organizers and clients, payments include an
+                additional deposit. This deposit serves as a safeguard against
+                damages or policy breaches. If damages occur, the deposit covers
+                the cost.
+              </p>
+            </div>
+          </div>
+          <div className="feature-card">
+            <img className="feature-img" src="" alt="" />
+            <div className="feature-details">
+              <h5>Seamless Payment</h5>
+              <p>
+                When the event concludes, payments are sent to the event
+                organizers and handlers, ensuring a smooth and prompt payout.
+                Meanwhile, the deposit fee is returned to the client, promoting
+                trust and accountability.
+              </p>
+            </div>
           </div>
         </div>
       </div>
