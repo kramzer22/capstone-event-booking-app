@@ -1,7 +1,22 @@
-.index-review-container {
+.review-container {
   display: flex;
-  margin: 0 100px 60px 100px;
-  max-width: calc(100% - 30em);
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+
+  margin: 0 160px 80px;
+  padding: 40px 100px 60px;
+  width: calc(100% - 320px);
+  background-color: azure;
+}
+
+.review-container h2 {
+  font-size: 50px;
+}
+
+.review-carousel-container {
+  display: flex;
+  width: calc(100%);
   overflow: hidden;
 }
 

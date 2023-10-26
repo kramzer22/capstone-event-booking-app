@@ -57,7 +57,12 @@ function IndexReview({}) {
     });
   };
 
-  return <div className="index-review-container">{createReviewCarousel()}</div>;
+  return (
+    <div className="review-container">
+      <h2>Hear from our host and clients</h2>
+      <div className="review-carousel-container">{createReviewCarousel()}</div>
+    </div>
+  );
 }
 
 export default IndexReview;
