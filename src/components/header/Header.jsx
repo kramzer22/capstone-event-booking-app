@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 import "./header.css";
 
-function Header({ logInState }) {
+function Header({ logInState, selectedPageState }) {
   const loginContainerRef = useRef(null);
 
   const showLoginForm = () => {
@@ -26,14 +26,19 @@ function Header({ logInState }) {
   return (
     <div className="navigation-container">
       <div className="navigation-background"></div>
-      <div className="logo-container">
+      <div
+        className="logo-container"
+        onClick={() => selectedPageState.selectedpage_function("/")}
+      >
         <p>Logo here or App name</p>
       </div>
       <div className="navigation-links">
         <ul>
           <li>Venues</li>
           <li>Promos</li>
-          <li>About Us</li>
+          <li onClick={() => selectedPageState.selectedpage_function("/about")}>
+            About Us
+          </li>
           <li>
             <button>Book Now</button>
           </li>
