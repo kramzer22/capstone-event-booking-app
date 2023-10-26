@@ -7,6 +7,7 @@ import InstantMessaging from "./components/instant-messaging/InstantMessaging";
 import Header from "./components/header/Header";
 
 import navPathSelector from "./scripts/mainScript";
+import AboutUs from "./Pages/AboutUs";
 
 function App() {
   const currentPath = window.location.pathname;
@@ -25,6 +26,7 @@ function App() {
       <Header
         logInState={{ login_value: loggedIn, login_function: setLoggedIn }}
       />
+      <AboutUs />
       {displayContent}
       <InstantMessaging />
       <Footer />
