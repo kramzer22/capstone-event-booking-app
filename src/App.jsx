@@ -31,7 +31,7 @@ function App() {
       />
       {displayContent}
       <InstantMessaging />
-      {/* <Footer />  */}
+      <Footer />
     </div>
   );
 }

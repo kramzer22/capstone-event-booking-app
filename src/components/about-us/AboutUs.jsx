@@ -61,6 +61,39 @@ function AboutUs() {
           <button className="ad-btn">Contact Us</button>
         </div>
       </div>
+
+      <div className="history-container">
+        <div className="history-img">
+          <img src="https://dummyimage.com/1500x700/000/fff" alt="" />
+        </div>
+
+        <div className="history-details">
+          <div className="history-title">
+            <small>OUR HISTORY</small>
+          </div>
+
+          <div className="history-description">
+            <h2>The Story of Company Name</h2>
+          </div>
+
+          <div className="history-paragraph">
+            <p>
+              Founded in 2023, Event Reservation App has been on a journey to
+              simplify and enhance the event planning and booking process. We've
+              worked tirelessly to develop a user-friendly platform that
+              empowers event organizers and ensures memorable, stress-free event
+              experiences for all, while maintaining our commitment to
+              transparency and accountability. With each passing day, our
+              dedication to excellence remains strong, and we look forward to
+              shaping the future of event management.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="mission-goal-container">
+        
+      </div>
     </div>
   );
 }
