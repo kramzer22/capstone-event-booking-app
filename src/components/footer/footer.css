@@ -1,8 +1,12 @@
-.footer-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.footer {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+}
 
+.footer-container {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
 
