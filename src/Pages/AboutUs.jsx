@@ -31,7 +31,24 @@ function AboutUs() {
         </div>
 
         <div className="about-img">
-          <img src={imgSample} alt="sample-img" />
+          <img src="https://dummyimage.com/600x400/000/fff" alt="sample-img" />
+        </div>
+      </div>
+
+      <div className="about-container">
+        <div className="about-description">
+          <h2>Hello</h2>
+        </div>
+        <div className="about-paragraph">
+          <p>
+            We are dedicated to making event planning and attendance
+            hassle-free.{" "}
+          </p>
+          <p>
+            Our platform serves as the bridge between event organizers and
+            users, streamlining the process and ensuring a memorable and
+            stress-free experience for all. 1 / 1 Page 1 of 1.
+          </p>
         </div>
       </div>
     </div>

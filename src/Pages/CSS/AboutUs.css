@@ -1,27 +1,39 @@
-/* reset */
+/* Google Font Family */
 @import url("https://fonts.googleapis.com/css?family=Lato:700|Poppins:400");
 
+/* reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Font Color */
 :root {
   --text: #020128;
-  --text2: rgb(100, 100, 100);
+  --text2: #646464;
   --background: #ffffff;
   --primary: #5e5cfa;
   --secondary: #9e9cfc;
   --accent: #0906c6;
 }
+:root[data-theme="dark"] {
+  --text: #d9d7fe;
+  --text2: #646464;
+  --background: #000000;
+  --primary: #0805a3;
+  --secondary: #050363;
+  --accent: #3c39f9;
+}
 
+/* Body */
 body {
   font-size: 20px;
   font-family: "Poppins";
   font-weight: 400;
 }
 
+/* text heading */
 h1,
 h2,
 h3,
@@ -35,6 +47,7 @@ html {
   font-size: 100%;
 } /* 16px */
 
+/* Font Size fixed-standard */
 h1 {
   font-size: 4.21rem; /* 67.36px */
 }
@@ -61,8 +74,7 @@ small {
 
 .about-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-evenly;
   gap: 1em;
   padding: 3em 7em;
   width: 100%;
@@ -128,9 +140,12 @@ small {
   color: var(--background);
 }
 
+.about-img {
+  display: flex;
+}
+
 .about-img > img {
   width: 640px;
-  height: 400px;
   max-width: 100%;
   flex: 0 0 50%;
 }
