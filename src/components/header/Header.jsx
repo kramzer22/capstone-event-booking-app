@@ -45,19 +45,21 @@ function Header({ logInState, selectedPageState }) {
         </ul>
         <div ref={loginContainerRef} className="login-container">
           <div className="login-header">
-            <h3>Login</h3>
-            <button onClick={showLoginForm}>x</button>
+            <h4>Login</h4>
+            <button onClick={showLoginForm}>✖</button>
           </div>
           <form className="login-form">
             <input type="email" placeholder="email address" />
             <input type="password" placeholder="passowrd" />
-            <p>Forgot password?</p>
+            <a href="#" target="_self">
+              Forgot password?
+            </a>
             <button type="submit">Login</button>
           </form>
-          <div>
-            <span>Not a member? </span>
+          <div className="sign-up">
+            <span>Not a member?</span>
             <a href="#" target="_self">
-              Sign up
+              Sign Up
             </a>
           </div>
         </div>

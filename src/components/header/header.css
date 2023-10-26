@@ -1,29 +1,94 @@
+/* Google Font Family */
+@import url("https://fonts.googleapis.com/css?family=Lato:700|Poppins:400");
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Font Color */
+:root {
+  --text: #020128;
+  --text2: #646464;
+  --background: #ffffff;
+  --primary: #5e5cfa;
+  --secondary: #9e9cfc;
+  --accent: #0906c6;
+}
+:root[data-theme="dark"] {
+  --text: #d9d7fe;
+  --text2: #646464;
+  --background: #000000;
+  --primary: #0805a3;
+  --secondary: #050363;
+  --accent: #3c39f9;
+}
+
+/* Body */
+body {
+  font-size: 20px;
+  font-family: "Poppins";
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+/* text heading */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Lato";
+  font-weight: 700;
+}
+
+html {
+  font-size: 100%;
+} /* 16px */
+
+/* Font Size fixed-standard */
+h1 {
+  font-size: 4.21rem; /* 67.36px */
+}
+
+h2 {
+  font-size: 3.158rem; /* 50.56px */
+}
+
+h3 {
+  font-size: 2.369rem; /* 37.92px */
+}
+
+h4 {
+  font-size: 1.777rem; /* 28.48px */
+}
+
+h5 {
+  font-size: 1.333rem; /* 21.28px */
+}
+
+small {
+  font-size: 0.75rem; /* 12px */
+}
+
 .navigation-container {
-  position: fixed;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-
-  width: 100%;
-  max-width: 1980px;
-
-  padding: 0 20px;
-  height: 80px;
-  background-color: rgba(15, 6, 37, 0.7);
-}
-
-.navigation-background {
-  position: absolute;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 
-  padding: 10px;
-  opacity: 0.7;
-  background-color: #0f0625;
-  z-index: 0;
+  /* height: 4rem; */
+  padding: 1em 7rem;
+
+  border-end-start-radius: 5px;
+  border-end-end-radius: 5px;
+  background-color: rgba(15, 6, 37, 0.7);
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 6px, rgba(0, 0, 0, 0.23) 0px 0px 6px;
 }
 
 .logo-container {
@@ -34,9 +99,6 @@
   color: #d3d3d3;
   border: 3px solid #d3d3d3;
   z-index: 1;
-}
-
-.logo-container:hover {
   cursor: pointer;
 }
 
@@ -45,43 +107,44 @@
   align-items: center;
   height: 100%;
   color: #d3d3d3;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .navigation-links ul {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 2em;
 
-  height: 100%;
+  /* height: 100%; */
   list-style: none;
 }
 
 .navigation-links ul li {
-  display: flex;
-  align-items: center;
-  padding: 0 5px;
-
-  height: 100%;
-  font-size: 18px;
+  font-size: 14px;
+  padding: 1rem 0;
   transition: font-size 0.15s ease-in-out;
+  cursor: pointer;
 }
 
 .navigation-links ul li button {
-  font-size: 18px;
-  transition: font-size 0.15s ease-in-out;
+  font-size: 14px;
+  padding: 0 0.5em;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  /* transition: font-size 0.15s ease-in-out; */
 }
 
 .navigation-links ul li:hover {
-  text-decoration: underline;
-  padding: 10px 10px;
-  font-size: 22px;
-  cursor: pointer;
+  color: #d3d3d3;
+  border-bottom: 2px solid #d3d3d3;
+  /* font-size: 16px; */
+  /* cursor: pointer; */
 }
 
 .navigation-links ul li button:hover {
-  padding: 2px;
-  font-size: 22px;
-  cursor: pointer;
+  border-bottom: 0;
 }
 
 /* login form styling */
@@ -95,19 +158,31 @@
   flex-direction: column;
   gap: 10px;
 
-  padding: 20px;
-  width: 400px;
+  padding: 1em 2em;
+  width: 300px;
   color: #0f0625;
-  background-color: #d3d3d3;
+  background-color: var(--secondary);
   transition: right 0.3s ease-in-out;
+  border-radius: 10px;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.5em;
 
   width: 100%;
+}
+
+.login-form > a {
+  align-self: flex-end;
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.login-form > a:hover {
+  color: var(--accent);
 }
 
 .login-header {
@@ -117,19 +192,43 @@
 }
 
 .login-header button {
-  height: 36px;
-  width: 40px;
+  position: absolute;
+  right: 10px;
+  top: -10px;
+  height: 30px;
+  width: 30px;
+
+  font-weight: bold;
+}
+
+.login-header button:hover {
+  background-color: rgb(255, 150, 150);
 }
 
 .login-form input {
-  padding: 0px 10px;
+  padding: 0px 1em;
   height: 36px;
+  border-radius: 5px;
+  border: none;
 }
 
 .login-form button {
   height: 36px;
+  border-radius: 5px;
 }
 
 .login-container div:last-of-type {
   text-align: right;
+}
+
+.sign-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+}
+
+.sign-up > a {
+  text-decoration: none;
 }
