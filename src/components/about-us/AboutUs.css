@@ -273,7 +273,7 @@ small {
   display: flex;
   justify-content: center;
   padding: 0 7em;
-  padding-bottom: 2rem;
+  padding-bottom: 5em;
   gap: 3em;
   width: 100%;
   max-width: 100%;
@@ -288,7 +288,7 @@ small {
   gap: 1em;
   width: 40%;
   max-width: fit-content;
-  background-color: var(--secondary);
+  /* background-color: var(--secondary); */
   /* background-color: #eceaff; */
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
@@ -318,13 +318,14 @@ small {
 .feature-container {
   display: flex;
   flex-direction: column;
-  align-items: center;   
-  padding: 2em 7em;
+  align-items: center;
   width: 100%;
+  padding: 2em 7em;
+  background-color: var(--primary);
 }
 
 .feature-title {
-  padding: 1em 0;
+  /* padding: 1em 0; */
 }
 
 .feature-card-ctr {
@@ -332,6 +333,7 @@ small {
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   justify-content: center;
+  padding: 1em 0;
 }
 
 .feature-card {
