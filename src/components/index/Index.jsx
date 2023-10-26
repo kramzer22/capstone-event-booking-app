@@ -2,7 +2,7 @@ import "./index.css";
 
 function Index({}) {
   return (
-    <>
+    <div className="index-container">
       <div className="index-article-container">
         <div className="index-article">
           <h2>Company Name</h2>
@@ -65,7 +65,7 @@ function Index({}) {
         </div>
         <img alt="" />
       </div>
-    </>
+    </div>
   );
 }
 

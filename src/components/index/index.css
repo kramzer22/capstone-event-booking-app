@@ -1,3 +1,12 @@
+.index-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 140px;
+  width: 100%;
+}
+
 .index-article-container {
   display: grid;
   grid-template-columns: 1fr auto;
