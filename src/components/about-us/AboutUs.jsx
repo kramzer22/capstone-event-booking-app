@@ -92,7 +92,38 @@ function AboutUs() {
       </div>
 
       <div className="mission-goal-container">
-        
+        <div className="mission-card">
+          <div className="mission-title">
+            <small>OUR MISSION</small>
+          </div>
+
+          <div className="mission-description">
+            <p>
+              To transform the event planning and booking experience by
+              providing a user-friendly, secure, and transparent platform that
+              benefits both event organizers and clients. We aim to simplify the
+              process, fostering seamless connections and memorable event
+              experiences.
+            </p>
+          </div>
+        </div>
+
+        <div className="goal-card">
+          <div className="goal-title">
+            <small>OUR GOAL</small>
+          </div>
+
+          <div className="goal-description">
+            <p>
+              To redefine event management, making it easier for event
+              organizers to showcase their offerings and for users to discover
+              and enjoy events effortlessly. We are committed to maintaining a
+              positive and trustworthy environment, where fairness and
+              accountability prevail. Event Reservation App is your trusted
+              partner for all your event needs.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
