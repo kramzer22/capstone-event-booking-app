@@ -2,16 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: 40px;
 
   margin: 0 160px 80px;
   padding: 40px 100px 60px;
   width: calc(100% - 320px);
-  background-color: azure;
 }
 
 .review-container h2 {
   font-size: 50px;
+  color: #d3d3d3;
 }
 
 .review-carousel-container {
@@ -27,13 +27,13 @@
   gap: 40px;
 
   padding: 50px 80px 40px 80px;
-  height: 420px;
-  background-color: antiquewhite;
+  color: #d3d3d3;
+  background-color: rgba(51, 50, 49, 0.4);
 
   transition: transform 0.5s;
 }
 
-.index-review p {
+.index-review p:first-of-type {
   font-size: 30px;
 }
 

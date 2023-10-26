@@ -50,7 +50,7 @@ function IndexReview({}) {
           <p>&ldquo;{review.comment}&rdquo;</p>
           <div>
             {<p>{stars}</p>}
-            <p>{review.name}</p>
+            <p>-{review.name}</p>
           </div>
         </div>
       );
@@ -59,7 +59,7 @@ function IndexReview({}) {
 
   return (
     <div className="review-container">
-      <h2>Hear from our host and clients</h2>
+      <h2>What people say about us</h2>
       <div className="review-carousel-container">{createReviewCarousel()}</div>
     </div>
   );
