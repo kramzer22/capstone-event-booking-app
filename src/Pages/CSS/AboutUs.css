@@ -1,0 +1,136 @@
+/* reset */
+@import url("https://fonts.googleapis.com/css?family=Lato:700|Poppins:400");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text: #020128;
+  --text2: rgb(100, 100, 100);
+  --background: #ffffff;
+  --primary: #5e5cfa;
+  --secondary: #9e9cfc;
+  --accent: #0906c6;
+}
+
+body {
+  font-size: 20px;
+  font-family: "Poppins";
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Lato";
+  font-weight: 700;
+}
+
+html {
+  font-size: 100%;
+} /* 16px */
+
+h1 {
+  font-size: 4.21rem; /* 67.36px */
+}
+
+h2 {
+  font-size: 3.158rem; /* 50.56px */
+}
+
+h3 {
+  font-size: 2.369rem; /* 37.92px */
+}
+
+h4 {
+  font-size: 1.777rem; /* 28.48px */
+}
+
+h5 {
+  font-size: 1.333rem; /* 21.28px */
+}
+
+small {
+  font-size: 0.75rem; /* 12px */
+}
+
+.about-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  padding: 3em 7em;
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 45%;
+  background-color: var(--background);
+}
+
+.about-details {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  max-width: 100%;
+}
+
+.about-title {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--text2);
+  font-weight: bold;
+}
+
+.about-description {
+  color: var(--text);
+  width: 65%;
+  max-width: 100%;
+}
+
+.about-paragraph {
+  color: var(--text2);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  width: 65%;
+  max-width: 100%;
+  padding: 1rem 0;
+}
+
+.about-btns {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.about-btns > button {
+  padding: 0.8rem 1.5em;
+  width: fit-content;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+
+  font-weight: bold;
+  font-family: "Lato";
+  letter-spacing: 0.5px;
+}
+
+.learn-btn {
+  color: var(--text);
+  background-color: var(--secondary);
+}
+
+.book-btn {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+.about-img > img {
+  width: 640px;
+  height: 400px;
+  max-width: 100%;
+  flex: 0 0 50%;
+}
