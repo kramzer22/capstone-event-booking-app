@@ -1,5 +1,7 @@
 import "./index.css";
 
+import IndexReview from "../index-review/IndexReview";
+
 function Index({}) {
   return (
     <div className="index-container">
@@ -65,6 +67,8 @@ function Index({}) {
         </div>
         <img alt="" />
       </div>
+
+      <IndexReview />
     </div>
   );
 }
