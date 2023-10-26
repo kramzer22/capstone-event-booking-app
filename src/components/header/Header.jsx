@@ -25,7 +25,6 @@ function Header({ logInState, selectedPageState }) {
 
   return (
     <div className="navigation-container">
-      <div className="navigation-background"></div>
       <div
         className="logo-container"
         onClick={() => selectedPageState.selectedpage_function("/")}
