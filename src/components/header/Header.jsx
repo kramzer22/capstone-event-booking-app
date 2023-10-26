@@ -33,7 +33,7 @@ function Header({ logInState, selectedPageState }) {
         <p>Logo here or App name</p>
       </div>
       <div className="navigation-links">
-        <ul>
+        <ul> 
           <li>Venues</li>
           <li>Promos</li>
           <li onClick={() => selectedPageState.selectedpage_function("/about")}>
