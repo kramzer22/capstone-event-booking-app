@@ -26,53 +26,6 @@
   --accent: #3c39f9;
 }
 
-/* Body */
-body {
-  font-size: 20px;
-  font-family: "Poppins";
-  font-weight: 400;
-  overflow-x: hidden;
-}
-
-/* text heading */
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: "Lato";
-  font-weight: 700;
-}
-
-html {
-  font-size: 100%;
-} /* 16px */
-
-/* Font Size fixed-standard */
-h1 {
-  font-size: 4.21rem; /* 67.36px */
-}
-
-h2 {
-  font-size: 3.158rem; /* 50.56px */
-}
-
-h3 {
-  font-size: 2.369rem; /* 37.92px */
-}
-
-h4 {
-  font-size: 1.777rem; /* 28.48px */
-}
-
-h5 {
-  font-size: 1.333rem; /* 21.28px */
-}
-
-small {
-  font-size: 0.75rem; /* 12px */
-}
-
 .navigation-container {
   display: flex;
   flex-direction: row;
@@ -106,7 +59,6 @@ small {
   display: flex;
   align-items: center;
   height: 100%;
-  color: #d3d3d3;
   /* z-index: 1; */
 }
 
@@ -122,29 +74,42 @@ small {
 
 .navigation-links ul li {
   font-size: 14px;
-  padding: 1rem 0;
   transition: font-size 0.15s ease-in-out;
   cursor: pointer;
 }
 
-.navigation-links ul li button {
-  font-size: 14px;
-  padding: 0 0.5em;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  /* transition: font-size 0.15s ease-in-out; */
+.nav-link {
+  color: #d3d3d3;
+  padding: 0.73em 0;
+  text-decoration: none;
 }
 
-.navigation-links ul li:hover {
+.nav-link:hover {
   color: #d3d3d3;
   border-bottom: 2px solid #d3d3d3;
   /* font-size: 16px; */
   /* cursor: pointer; */
 }
 
-.navigation-links ul li button:hover {
-  border-bottom: 0;
+.nav-link:visited {
+  color: #d3d3d3;
+}
+
+.nav-button-link {
+  font-size: 14px;
+  border-radius: 6px;
+  padding: 4px 10px !important;
+  margin: 2px;
+
+  cursor: pointer;
+  color: var(--text);
+  background-color: #d3d3d3;
+  /* transition: font-size 0.15s ease-in-out; */
+}
+
+.nav-button-link:hover {
+  color: var(--text) !important;
+  text-decoration: none !important;
 }
 
 /* login form styling */

@@ -9,6 +9,10 @@ function Header({ logInState, selectedPageState }) {
     logInState.login_function(logInState.login_value ? false : true);
   };
 
+  const selectPage = (pageLink) => {
+    selectedPageState.selectedpage_function(pageLink);
+  };
+
   if (loginContainerRef.current) {
     if (logInState.login_value) {
       loginContainerRef.current.style.display = "flex";
@@ -25,27 +29,45 @@ function Header({ logInState, selectedPageState }) {
 
   return (
     <div className="navigation-container">
-      <div
-        className="logo-container"
-        onClick={() => selectedPageState.selectedpage_function("/")}
-      >
+      <div className="logo-container" onClick={() => {}}>
         <p>Logo here or App name</p>
       </div>
       <div className="navigation-links">
         <ul>
-          <li onClick={() => selectedPageState.selectedpage_function("/")}>
-            Home
-          </li>
-          <li>Venues</li>
-          <li>Promos</li>
-          <li onClick={() => selectedPageState.selectedpage_function("/about")}>
-            About Us
+          <li>
+            <a className="nav-link" href="" onClick={() => selectPage("/")}>
+              Home
+            </a>
           </li>
           <li>
-            <button>Book Now</button>
+            <a className="nav-link" href="#">
+              Venues
+            </a>
           </li>
-          <li onClick={showLoginForm}>Log in</li>
+          <li>
+            <a className="nav-link" href="#">
+              Promos
+            </a>
+          </li>
+          <li>
+            <a
+              className="nav-link"
+              href=""
+              onClick={() => selectPage("/about")}
+            >
+              About Us
+            </a>
+          </li>
+          <li>
+            <a className="nav-button-link">Book Now</a>
+          </li>
+          <li>
+            <a className="nav-link" onClick={showLoginForm}>
+              Log in
+            </a>
+          </li>
         </ul>
+
         <div ref={loginContainerRef} className="login-container">
           <div className="login-header">
             <h4>Login</h4>

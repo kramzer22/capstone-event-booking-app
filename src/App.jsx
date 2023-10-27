@@ -17,8 +17,8 @@ function App() {
     pageViewValue: currentPath,
     pageViewFunction: setSelectedPageView,
   });
-
-  window.history.pushState({}, "", selectedPageView);
+  console.log(selectedPageView.replace("#", ""));
+  window.history.pushState({}, "", selectedPageView.replace("#", ""));
 
   return (
     <div className="app-container">
