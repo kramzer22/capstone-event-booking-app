@@ -6,7 +6,7 @@ import Footer from "./components/footer/Footer";
 import InstantMessaging from "./components/instant-messaging/InstantMessaging";
 import Header from "./components/header/Header";
 
-import navPathSelector from "./scripts/mainScript";
+import navPathSelector from "./scripts/mainDisplay";
 
 function App() {
   const currentPath = window.location.pathname;
