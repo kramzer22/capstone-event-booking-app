@@ -12,10 +12,16 @@
 .messaging-chat-container {
   display: none;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
+
+  padding: 10px 20px 20px;
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
 
   background-color: antiquewhite;
-  padding: 10px 10px 30px 10px;
+
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
 }
 
 .messaging-chat-header {
@@ -35,8 +41,7 @@
 }
 
 .messaging-chat-container ul {
-  height: 400px;
-  width: 360px;
+  flex-grow: 1;
   background-color: aliceblue;
 }
 

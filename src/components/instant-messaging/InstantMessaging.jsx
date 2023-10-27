@@ -10,13 +10,21 @@ function InstantMessaging({}) {
     if (messagingChat.current) {
       messagingButton.current.style.display = "none";
       messagingChat.current.style.display = "flex";
+      setTimeout(() => {
+        messagingChat.current.style.width = "440px";
+        messagingChat.current.style.height = "600px";
+      }, 10);
     }
   };
 
   const hideMessagingPopUp = () => {
     if (messagingChat.current) {
-      messagingButton.current.style.display = "flex";
-      messagingChat.current.style.display = "none";
+      messagingChat.current.style.width = "10px";
+      messagingChat.current.style.height = "10px";
+      setTimeout(() => {
+        messagingButton.current.style.display = "flex";
+        messagingChat.current.style.display = "none";
+      }, 500);
     }
   };
 
