@@ -1,8 +1,8 @@
-import "./index.css";
+import "./home.css";
 
 import IndexReview from "../index-review/IndexReview";
 
-function Index({}) {
+function Home({}) {
   return (
     <div className="index-container">
       <div className="index-article-container">
@@ -73,4 +73,4 @@ function Index({}) {
   );
 }
 
-export default Index;
+export default Home;

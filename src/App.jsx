@@ -31,7 +31,12 @@ function App() {
       />
       {displayContent}
       <InstantMessaging />
-      <Footer />
+      <Footer
+        selectedPageState={{
+          selectedpage_value: selectedPageView,
+          selectedpage_function: setSelectedPageView,
+        }}
+      />
     </div>
   );
 }
