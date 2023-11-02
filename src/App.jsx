@@ -6,14 +6,14 @@ import Footer from "./components/footer/Footer";
 import InstantMessaging from "./components/instant-messaging/InstantMessaging";
 import Header from "./components/header/Header";
 
-import navPathSelector from "./scripts/mainDisplay";
+import display from "./components/display/Display";
 
 function App() {
   const currentPath = window.location.pathname;
   const [loggedIn, setLoggedIn] = useState(false);
   const [selectedPageView, setSelectedPageView] = useState(currentPath);
 
-  const displayContent = navPathSelector({
+  const viewDisplay = display({
     pageViewValue: currentPath,
     pageViewFunction: setSelectedPageView,
   });
@@ -29,7 +29,7 @@ function App() {
           selectedpage_function: setSelectedPageView,
         }}
       />
-      {displayContent}
+      {viewDisplay}
       <InstantMessaging />
       <Footer
         selectedPageState={{

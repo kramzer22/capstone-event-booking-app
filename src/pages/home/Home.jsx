@@ -1,6 +1,6 @@
 import "./home.css";
 
-import IndexReview from "./index-review/IndexReview";
+import IndexReview from "./home-components/IndexReview";
 
 function Home({}) {
   return (

@@ -1,5 +1,8 @@
 import "./footer.css";
 
+import Contact from "../../pages/contact/Contact";
+import Disclaimer from "../../pages/disclaimer/Disclaimer";
+
 function Footer({ selectedPageState }) {
   const selectPage = (pageLink) => {
     selectedPageState.selectedpage_function(pageLink);
@@ -9,8 +12,12 @@ function Footer({ selectedPageState }) {
     <div className="footer">
       <div className="footer-container">
         <div className="footer-main-container">
-          <a href="">&gt; contact us</a>
-          <a href="">&gt; disclaimer</a>
+          <a href="" onClick={() => selectPage("/contact")}>
+            &gt; contact us
+          </a>
+          <a href="" onClick={() => selectPage("/disclaimer")}>
+            &gt; disclaimer
+          </a>
 
           <a href="" onClick={() => selectPage("/about")}>
             &gt; about us

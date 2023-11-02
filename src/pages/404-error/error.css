@@ -1,8 +1,10 @@
 .error-container {
-  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin-top: 200px;
+  width: 100%;
 }
 
 .error-container div {
@@ -14,8 +16,8 @@
   height: fit-content;
   padding: 20px;
   margin: 40px;
-  color: #d3d3d3;
-  border: 4px solid #d3d3d3;
+  color: #1d1c1c;
+  border: 4px solid #1d1c1c;
 }
 
 .error-container h1 {

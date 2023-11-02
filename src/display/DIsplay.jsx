@@ -1,6 +1,6 @@
-import Home from "../components/index/home";
-import AboutUs from "../components/about-us/AboutUs";
-import Error from "../components/404-error/Error";
+import Home from "../../pages/Home";
+import AboutUs from "../../pages/about/AboutUs";
+import Error from "../../pages/404-error/Error";
 
 const navPathSelector = (pageViewState) => {
   let displayView;
