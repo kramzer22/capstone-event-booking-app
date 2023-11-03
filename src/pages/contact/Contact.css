@@ -1,0 +1,10 @@
+.contact-container{
+    display: flex;
+  justify-content: space-evenly;
+  gap: 1em;
+  padding: 160px 7em 3em;
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 45%;
+  background-color: var(--accent);
+}
