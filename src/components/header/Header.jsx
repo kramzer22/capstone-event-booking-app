@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 import "./header.css";
 
-function Header({ logInState, selectedPageState }) {
+function Header({ logInState, selectedPageViewState }) {
   const loginContainerRef = useRef(null);
 
   const showLoginForm = () => {
@@ -10,7 +10,12 @@ function Header({ logInState, selectedPageState }) {
   };
 
   const selectPage = (pageLink) => {
-    selectedPageState.selectedpage_function(pageLink);
+    selectedPageViewState.setSelectedPageView(pageLink);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   if (loginContainerRef.current) {
@@ -35,7 +40,7 @@ function Header({ logInState, selectedPageState }) {
       <div className="navigation-links">
         <ul>
           <li>
-            <a className="nav-link" href="" onClick={() => selectPage("/")}>
+            <a className="nav-link" onClick={() => selectPage("/")}>
               Home
             </a>
           </li>
@@ -50,11 +55,7 @@ function Header({ logInState, selectedPageState }) {
             </a>
           </li>
           <li>
-            <a
-              className="nav-link"
-              href=""
-              onClick={() => selectPage("/about")}
-            >
+            <a className="nav-link" onClick={() => selectPage("/about")}>
               About Us
             </a>
           </li>
@@ -64,6 +65,11 @@ function Header({ logInState, selectedPageState }) {
           <li>
             <a className="nav-link" onClick={showLoginForm}>
               Log in
+            </a>
+          </li>
+          <li>
+            <a className="nav-link" onClick={() => selectPage("/sign-up")}>
+              Register
             </a>
           </li>
         </ul>
@@ -83,9 +89,7 @@ function Header({ logInState, selectedPageState }) {
           </form>
           <div className="sign-up">
             <span>Not a member?</span>
-            <a href="#" target="_self">
-              Sign Up
-            </a>
+            <a>Sign Up</a>
           </div>
         </div>
       </div>
