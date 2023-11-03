@@ -26,8 +26,6 @@
   --accent: #3c39f9;
 }
 
-<<<<<<< HEAD
-=======
 /* Body */
 body {
   font-size: 20px;
@@ -75,13 +73,11 @@ small {
   font-size: 0.75rem; /* 12px */
 }
 
->>>>>>> 2a2d04eccb1aae50b97cc46536fef7bce9314dab
 .navigation-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-<<<<<<< HEAD
   width: 100%;
   position: fixed;
   top: 0;
@@ -95,18 +91,6 @@ small {
 
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 6px, rgba(0, 0, 0, 0.23) 0px 0px 6px;
   z-index: 9;
-=======
-  position: sticky;
-  top: 0;
-
-  /* height: 4rem; */
-  padding: 0 7rem;
-
-  border-end-start-radius: 5px;
-  border-end-end-radius: 5px;
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 6px, rgba(0, 0, 0, 0.23) 0px 0px 6px;
->>>>>>> 2a2d04eccb1aae50b97cc46536fef7bce9314dab
 }
 
 .logo-container {
@@ -116,10 +100,6 @@ small {
 
   color: #d3d3d3;
   border: 3px solid #d3d3d3;
-<<<<<<< HEAD
-=======
-  z-index: 1;
->>>>>>> 2a2d04eccb1aae50b97cc46536fef7bce9314dab
   cursor: pointer;
 }
 
@@ -127,11 +107,8 @@ small {
   display: flex;
   align-items: center;
   height: 100%;
-<<<<<<< HEAD
-=======
-  color: var(--text);
+  color: #d3d3d3;
   /* z-index: 1; */
->>>>>>> 2a2d04eccb1aae50b97cc46536fef7bce9314dab
 }
 
 .navigation-links ul {
@@ -144,17 +121,22 @@ small {
   list-style: none;
 }
 
-.navigation-links ul li {
+.nav-link {
   font-size: 14px;
-<<<<<<< HEAD
+  padding: 1rem 0;
   transition: font-size 0.15s ease-in-out;
   cursor: pointer;
 }
 
-.nav-link {
-  color: #d3d3d3;
-  padding: 0.73em 0;
-  text-decoration: none;
+.nav-button-link {
+  font-size: 16px;
+  padding: 0.5em;
+  border-radius: 6px;
+  border: none;
+  color: #020128;
+  background-color: #d3d3d3;
+  cursor: pointer;
+  /* transition: font-size 0.15s ease-in-out; */
 }
 
 .nav-link:hover {
@@ -165,48 +147,8 @@ small {
 }
 
 .nav-link:visited {
-  color: #d3d3d3;
-}
-
-.nav-button-link {
-  font-size: 14px;
-  border-radius: 6px;
-  padding: 4px 10px !important;
-  margin: 2px;
-
-  cursor: pointer;
-  color: var(--text);
-  background-color: #d3d3d3;
-  /* transition: font-size 0.15s ease-in-out; */
-}
-
-.nav-button-link:hover {
-  color: var(--text) !important;
   text-decoration: none !important;
-=======
-  padding: 1rem 0;
-  transition: font-size 0.15s ease-in-out;
-  cursor: pointer;
-}
-
-.navigation-links ul li button {
-  font-size: 14px;
-  padding: 0 0.5em;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  /* transition: font-size 0.15s ease-in-out; */
-}
-
-.navigation-links ul li:hover {
-  color: var(--accent);
-  border-bottom: 2px solid var(--accent);
-  /* font-size: 16px; */
-  /* cursor: pointer; */
-}
-
-.navigation-links ul li button:hover {
->>>>>>> 2a2d04eccb1aae50b97cc46536fef7bce9314dab
+  color: #d3d3d3;
 }
 
 /* login form styling */
