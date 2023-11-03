@@ -81,15 +81,10 @@ function Header({ logInState, selectedPageViewState }) {
           <div className="login-header">
             <h4>Login</h4>
             <button onClick={showLoginForm}>✖</button>
-            <h4>Login</h4>
-            <button onClick={showLoginForm}>✖</button>
           </div>
           <form className="login-form">
             <input type="email" placeholder="email address" />
             <input type="password" placeholder="passowrd" />
-            <a href="#" target="_self">
-              Forgot password?
-            </a>
             <a href="#" target="_self">
               Forgot password?
             </a>
