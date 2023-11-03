@@ -1,0 +1,162 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding: 160px 7em 3em;
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 45%;
+  background-color: var(--background);
+}
+
+.contact-form-ctr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+
+  background-color: #fff;
+  padding: 0 3.5em 3em;
+  border-radius: 7px;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.contact-img-heads {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+  margin-top: -50px;
+}
+
+.contact-img-heads > img {
+  object-fit: cover;
+  height: 90px;
+  width: 90px;
+  background-color: var(--secondary);
+  border: 4px solid #fff;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+}
+
+.contact-img-heads > img:nth-child(1) {
+  z-index: 10;
+}
+
+.contact-img-heads > img:nth-child(2) {
+  z-index: 9;
+  margin-left: -20px;
+}
+
+.contact-img-heads > img:nth-child(3) {
+  z-index: 8;
+  margin-left: -20px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  padding: 2em 0 3em;
+
+  text-align: center;
+  font-size: 14px;
+}
+
+.contact-details p {
+  color: var(--text2);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.contact-name {
+  display: flex;
+  gap: 1em;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+form {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.contact-form input {
+  padding: 0 16px 0 12px;
+  width: 100%;
+  line-height: 30px;
+  height: 32px;
+  border: 1px solid #dddbda;
+  border-radius: 4px;
+  background-color: #fff;
+  color: rgb(8, 7, 7);
+  transition: border 0.1s linear, background-color 0.1s linear;
+
+  &:focus {
+    border-color: var(--accent);
+    box-shadow: var(--accent) 0px 0px 5px 0px;
+  }
+}
+
+.contact-label span {
+  color: red;
+}
+
+.contact-submit-btn {
+  outline: none;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 0;
+  padding: 8px 12px;
+  background: var(--accent);
+
+  line-height: 1.15;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--background);
+
+  &:hover {
+    transition: all 0.1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 3px var(--accent);
+  }
+}
+
+/* map details here */
+.map-details-container {
+  display: flex;
+  gap: 3em;
+  padding: 10em 3em;
+}
+
+.map-details {
+  display: flex;
+  gap: 2em;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.map-details h4 {
+  color: var(--text);
+  padding: 0.5em 0;
+}
+
+.map-details p {
+  color: var(--text2);
+  font-size: 14px;
+  line-height: 1.5;
+}
