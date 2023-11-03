@@ -1,19 +1,19 @@
 /* Font Color */
 :root {
-  --text: #020128;
+  --text: #020005;
   --text2: #646464;
-  --background: #ffffff;
-  --primary: #5e5cfa;
-  --secondary: #9e9cfc;
-  --accent: #0906c6;
+  --background: #fcfaff;
+  --primary: #fc985a;
+  --secondary: #c19bfd;
+  --accent: #03c94f;
 }
 :root[data-theme="dark"] {
-  --text: #d9d7fe;
+  --text: #fcfaff;
   --text2: #646464;
-  --background: #000000;
-  --primary: #0805a3;
-  --secondary: #050363;
-  --accent: #3c39f9;
+  --background: #020005;
+  --primary: #a54103;
+  --secondary: #280264;
+  --accent: #36fc82;
 }
 
 .navigation-container {
@@ -22,18 +22,20 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+
   position: fixed;
+  right: 0;
   top: 0;
 
   /* height: 4rem; */
-  padding: 1em 7rem;
+  padding: 0 9%;
 
   border-end-start-radius: 5px;
   border-end-end-radius: 5px;
-  background-color: rgba(15, 6, 37, 0.7);
+  background-color: rgba(252, 250, 255, 0.834);
 
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 6px, rgba(0, 0, 0, 0.23) 0px 0px 6px;
-  z-index: 9;
+  z-index: 1000;
 }
 
 .logo-container {
@@ -50,8 +52,7 @@
   display: flex;
   align-items: center;
   height: 100%;
-  color: #d3d3d3;
-  /* z-index: 1; */
+  /* color: #d3d3d3; */
 }
 
 .navigation-links ul {
@@ -65,33 +66,29 @@
 }
 
 .nav-link {
-  font-size: 14px;
-  padding: 1rem 0;
-  transition: font-size 0.15s ease-in-out;
+  padding: 0.2rem;
   cursor: pointer;
+
+  color: var(--text);
+  font-size: 14px;
+  text-decoration: none;
+
+  transition: all 0.55s ease;
+  border-bottom: 2px solid transparent;
 }
 
-.nav-button-link {
-  font-size: 16px;
-  padding: 0.5em;
-  border-radius: 6px;
-  border: none;
+.nav-link.book-btn {
+  border: 2px solid transparent;
+  border-radius: 10px;
   color: #020128;
-  background-color: #d3d3d3;
+  background-color: var(--primary);
   cursor: pointer;
   /* transition: font-size 0.15s ease-in-out; */
 }
 
 .nav-link:hover {
-  color: #d3d3d3;
-  border-bottom: 2px solid #d3d3d3;
-  /* font-size: 16px; */
-  /* cursor: pointer; */
-}
-
-.nav-link:visited {
-  text-decoration: none !important;
-  color: #d3d3d3;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
 }
 
 /* login form styling */

@@ -47,24 +47,29 @@ function Header({ logInState, selectedPageViewState }) {
               Home
             </a>
           </li>
+
           <li>
-            <a className="nav-link" href="#">
+            <a href="" className="nav-link">
               Venues
             </a>
           </li>
+
           <li>
             <a className="nav-link" href="#">
               Promos
             </a>
           </li>
+
           <li>
             <a className="nav-link" onClick={() => selectPage("/about")}>
               About Us
             </a>
           </li>
+
           <li>
-            <a className="nav-button-link">Book Now</a>
+            <a className="nav-link book-btn">Book Now</a>
           </li>
+
           <li>
             <a className="nav-link" onClick={showLoginForm}>
               Log in
