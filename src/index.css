@@ -10,20 +10,20 @@
 
 /* Font Color */
 :root {
-  --text: #020128;
+  --text: #020005;
   --text2: #646464;
-  --background: #ffffff;
-  --primary: #5e5cfa;
-  --secondary: #9e9cfc;
-  --accent: #0906c6;
+  --background: #fcfaff;
+  --primary: #fc985a;
+  --secondary: #c19bfd;
+  --accent: #03c94f;
 }
 :root[data-theme="dark"] {
-  --text: #d9d7fe;
+  --text: #fcfaff;
   --text2: #646464;
-  --background: #000000;
-  --primary: #0805a3;
-  --secondary: #050363;
-  --accent: #3c39f9;
+  --background: #020005;
+  --primary: #a54103;
+  --secondary: #280264;
+  --accent: #36fc82;
 }
 
 /* Body */
