@@ -1,6 +1,8 @@
 .contact-container {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 1em;
   padding: 160px 7em 3em;
   width: 100%;
@@ -14,6 +16,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 600px;
 
   background-color: #fff;
   padding: 0 3.5em 3em;
@@ -130,4 +134,29 @@ form {
     transition: all 0.1s ease;
     box-shadow: 0 0 0 0 #fff, 0 0 0 3px var(--accent);
   }
+}
+
+/* map details here */
+.map-details-container {
+  display: flex;
+  gap: 3em;
+  padding: 10em 3em;
+}
+
+.map-details {
+  display: flex;
+  gap: 2em;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.map-details h4 {
+  color: var(--text);
+  padding: 0.5em 0;
+}
+
+.map-details p {
+  color: var(--text2);
+  font-size: 14px;
+  line-height: 1.5;
 }

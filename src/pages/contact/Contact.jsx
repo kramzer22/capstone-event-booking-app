@@ -72,6 +72,37 @@ function Contact({}) {
           </button>
         </form>
       </div>
+
+      <div className="map-details-container">
+        <div className="google-map">
+          <img
+            src="https://dummyimage.com/555x358/000/fff.png&text=image+555x358+Google+Map+Here"
+            alt=""
+          />
+        </div>
+        <div className="map-details">
+          <div className="map-office">
+            <h4>Office Location</h4>
+            <p>123 Main St,</p>
+            <p>Anytown USA</p>
+            <p>Zip Code Here</p>
+            <p>+6391234567</p>
+          </div>
+
+          <div className="map-cti">
+            <h4>Contact Information</h4>
+            <p>
+              Support: <a href="#">support@email.com</a>
+            </p>
+            <p>
+              Sales: <a href="#">sales@email.com</a>
+            </p>
+            <p>
+              General: <a href="#">info@email.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
