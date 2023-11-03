@@ -28,14 +28,64 @@ function Footer({ selectedPageViewState }) {
       </div>
 
       <div className="footer-container">
-        <div className="footer-main-container">
-          <a onClick={() => selectPage("/contact")}>&gt; contact us</a>
-          <a onClick={() => selectPage("/disclaimer")}>&gt; disclaimer</a>
+        <div className="footer-about-container">
+          <h5>LOGO HERE</h5>
+          <p>
+            Hassle-free, worry-free, stress-free &ndash; it&apos;s that simple.
+          </p>
+          <div className="social-links">
+            <a href="#">
+              <i class="ri-facebook-fill"></i>
+            </a>
 
-          <a onClick={() => selectPage("/about")}>&gt; about us</a>
-          <p>&gt; privacy & cookie statement</p>
-          <p>&gt; general terms and agreement</p>
+            <a href="#">
+              <i class="ri-twitter-x-line"></i>
+            </a>
+            <a href="#">
+              <i class="ri-messenger-line"></i>
+            </a>
+            <a href="#">
+              <i class="ri-google-fill"></i>
+            </a>
+          </div>
         </div>
+
+        <div className="footer-page-links">
+          <h6>LEARN MORE</h6>
+          <a href="#">Sign in</a>
+          <a onClick={() => selectPage("/contact")}>Contact Us</a>
+          <a onClick={() => selectPage("/about")}>About Us</a>
+        </div>
+
+        <div className="footer-page-links">
+          <h6>USEFUL LINK</h6>
+          <a href="#">Promos</a>
+          <a href="#">Venues</a>
+          <a href="#">Book Now</a>
+        </div>
+
+        <div className="footer-page-links">
+          <h6>LEGAL</h6>
+          <a onClick={() => selectPage("/disclaimer")}>Privacy Policy</a>
+        </div>
+
+        <div className="footer-newsletter">
+          <h5>News Letter</h5>
+          <p>
+            Want to know what we're up to? Sign up for the newsletter and join
+            our fam!
+          </p>
+          <div className="newsletter-input">
+            <input type="email" name="" id="" />
+            <button type="submit">SUBSCRIBE</button>
+          </div>
+        </div>
+
+        {/* <p>&gt; privacy & cookie statement</p>
+          <p>&gt; general terms and agreement</p> */}
+      </div>
+      <div className="footer-copyright">
+        <p>Copyright &copy;2023 "COMPANY"</p>
       </div>
     </div>
   );
