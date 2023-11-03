@@ -44,7 +44,7 @@
   gap: 0.5em;
 }
 
-.about-btns > button {
+.about-btns button {
   padding: 0.8rem 1.5em;
   width: fit-content;
   cursor: pointer;
@@ -78,7 +78,7 @@
 
 /* start of section */
 .section-container {
-  background-color: #9e9cfc5c;
+  background-color: var(--secondary-trans);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -247,7 +247,7 @@
   align-items: center;
   width: 100%;
   padding: 2em 7em;
-  background-color: var(--secondary);
+  background-color: var(--secondary-trans);
 }
 
 .feature-title {

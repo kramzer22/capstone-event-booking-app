@@ -1,21 +1,3 @@
-/* Font Color */
-:root {
-  --text: #020005;
-  --text2: #646464;
-  --background: #fcfaff;
-  --primary: #fc985a;
-  --secondary: #c19bfd;
-  --accent: #03c94f;
-}
-:root[data-theme="dark"] {
-  --text: #fcfaff;
-  --text2: #646464;
-  --background: #020005;
-  --primary: #a54103;
-  --secondary: #280264;
-  --accent: #36fc82;
-}
-
 .navigation-container {
   display: flex;
   flex-direction: row;

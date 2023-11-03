@@ -16,6 +16,10 @@
   --primary: #fc985a;
   --secondary: #c19bfd;
   --accent: #03c94f;
+
+  --primary-trans: #fc985aac;
+  --secondary-trans: #c19bfdb6;
+  --accent-trans: #03c94f94;
 }
 :root[data-theme="dark"] {
   --text: #fcfaff;
