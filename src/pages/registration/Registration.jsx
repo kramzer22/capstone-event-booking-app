@@ -6,7 +6,10 @@ function Registration({}) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
-  return <div className="registration-container"></div>;
+  let formDisplay;
+
+  return;
+  <div className="registration-container">{formDisplay}</div>;
 }
 
 export default Registration;
