@@ -59,14 +59,9 @@ function Contact({}) {
             <label className="contact-label" htmlFor="notes">
               Notes: <span>*</span>
             </label>
-            <input type="text" />
+            <textarea name="" id="" cols="30" rows="6"></textarea>
           </div>
-          <div className="contact address">
-            <label className="contact-label" htmlFor="address">
-              Address: <span>*</span>
-            </label>
-            <input type="text" />
-          </div>
+
           <button className="contact-submit-btn" type="submit">
             SUBMIT
           </button>
