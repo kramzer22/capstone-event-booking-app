@@ -89,7 +89,7 @@ function Header({ logInState, selectedPageViewState }) {
           </div>
           <form className="login-form">
             <input type="email" placeholder="email address" />
-            <input type="password" placeholder="passowrd" />
+            <input type="password" placeholder="password" />
             <a href="#" target="_self">
               Forgot password?
             </a>
@@ -97,7 +97,7 @@ function Header({ logInState, selectedPageViewState }) {
           </form>
           <div className="sign-up">
             <span>Not a member?</span>
-            <a>Sign Up</a>
+            <a href="#">Sign Up</a>
           </div>
         </div>
       </div>

@@ -56,23 +56,29 @@
   font-size: 14px;
   text-decoration: none;
 
-  transition: all 0.55s ease;
-  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+
+  &:hover {
+    color: var(--accent);
+    border-bottom: 3px solid var(--accent);
+    transform: translateY(-5px);
+  }
 }
 
 .nav-link.book-btn {
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   border-radius: 10px;
-  color: #020128;
-  background-color: var(--secondary);
+  color: var(--background);
+  background-color: var(--primary);
   cursor: pointer;
-  /* transition: font-size 0.15s ease-in-out; */
-}
 
-.nav-link:hover {
-  color: var(--accent);
-  border-bottom: 2px solid var(--accent);
-  transform: translateY(-5px);
+  &:hover {
+    border-bottom: 3px solid var(--accent);
+
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+      rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  }
 }
 
 /* login form styling */
