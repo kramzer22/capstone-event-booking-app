@@ -28,6 +28,13 @@ function Footer({ selectedPageViewState }) {
       </div>
 
       <div className="footer-container">
+        {/* waves here */}
+        <div className="footer-waves">
+          <div className="wave" id="wave1"></div>
+          <div className="wave" id="wave2"></div>
+          <div className="wave" id="wave3"></div>
+          <div className="wave" id="wave4"></div>
+        </div>
         <div className="footer-about-container">
           <h5>LOGO HERE</h5>
           <p>
