@@ -48,6 +48,7 @@
 }
 
 .nav-link {
+  display: inline-block;
   padding: 0.2rem;
   cursor: pointer;
 
@@ -63,7 +64,7 @@
   border: 2px solid transparent;
   border-radius: 10px;
   color: #020128;
-  background-color: var(--primary);
+  background-color: var(--secondary);
   cursor: pointer;
   /* transition: font-size 0.15s ease-in-out; */
 }
@@ -71,6 +72,7 @@
 .nav-link:hover {
   color: var(--accent);
   border-bottom: 2px solid var(--accent);
+  transform: translateY(-5px);
 }
 
 /* login form styling */
