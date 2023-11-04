@@ -60,26 +60,46 @@ function Footer({ selectedPageViewState }) {
           </div>
 
           <div className="footer-page-links">
-            <h6>LEARN MORE</h6>
+            <h6>
+              LEARN MORE{" "}
+              <div className="underline">
+                <span></span>
+              </div>
+            </h6>
             <a href="#">Sign in</a>
             <a onClick={() => selectPage("/contact")}>Contact Us</a>
             <a onClick={() => selectPage("/about")}>About Us</a>
           </div>
 
           <div className="footer-page-links">
-            <h6>USEFUL LINK</h6>
+            <h6>
+              USEFUL LINK
+              <div className="underline">
+                <span></span>
+              </div>
+            </h6>
             <a href="#">Promos</a>
             <a href="#">Venues</a>
             <a href="#">Book Now</a>
           </div>
 
           <div className="footer-page-links">
-            <h6>LEGAL</h6>
+            <h6>
+              LEGAL
+              <div className="underline">
+                <span></span>
+              </div>
+            </h6>
             <a onClick={() => selectPage("/disclaimer")}>Privacy Policy</a>
           </div>
 
           <div className="footer-newsletter">
-            <h5>News Letter</h5>
+            <h6>
+              News Letter
+              <div className="underline">
+                <span></span>
+              </div>
+            </h6>
             <p>
               Want to know what we're up to? Sign up for the newsletter and join
               our fam!
