@@ -5,46 +5,74 @@ import IndexReview from "./home-components/IndexReview";
 function Home({}) {
   return (
     <div className="index-container">
-      <div className="index-article-container">
-        <div className="index-article">
-          <h2>Company Name</h2>
-          <h3>Elevating event experience for everyone</h3>
-          <p>
-            Welcome to our Event Reservation App, the ultimate solution for
-            event organizers, event holders, and users seeking seamless event
-            booking and management. We've reimagined the way events are
-            organized and experienced, and we're excited to introduce you to our
-            platform.
-          </p>
-          <p>
-            With our app, you can experience event booking like never before.
-          </p>
-          <div>
-            <button>For organizers click here</button>
-            <button>Register now</button>
-          </div>
+      <div className="index-article-container main">
+        <div className="index-title">
+          <h1>
+            Hassle-free{" "}
+            <span className="title-design">event &amp; booking management</span>{" "}
+            for<span className="title-design"> organizers, attendees, </span>
+            &amp;<span className="title-design"> event enthusiasts.</span>
+          </h1>
         </div>
-        <img alt="" />
+        <div className="index-btn">
+          <button>Get Started</button>
+          <button>Book Now</button>
+        </div>
+        <img
+          className="index-img"
+          src="https://dummyimage.com/1320x680/000/fff&text=1320x680"
+          alt=""
+        />
       </div>
 
-      <div className="index-article-container left">
-        <div className="index-article">
-          <h3>Hassle-Free Booking</h3>
-          <p>
-            Say goodbye to long lines and complicated reservations. Our
-            user-friendly interface makes booking events a breeze, giving you
-            more time to enjoy the experiences that matter.
-          </p>
-          <p>
-            Users can effortlessly select an event place, choose a package, pick
-            a date and time, and proceed to payment in just a few clicks.
-          </p>
-          <div>
-            <button>Book now</button>
-            <button>Register now</button>
+      <div className="index-article-container second">
+        <small>WHAT WE DO</small>
+        <h2>
+          Flexible event and booking management for hosts and clients at every
+          stage of your event business.
+        </h2>
+        <div className="index-card-container">
+          <div className="index-card client">
+            <div className="index-card-details">
+              <h4>
+                <span>Start</span> my business
+              </h4>
+              <p>
+                Join us today and unlock a world of hassle-free event planning
+                and booking.
+              </p>
+            </div>
+            <div className="pic-btn">
+              <picture>
+                <img src="https://dummyimage.com/240x240/000/fff" alt="" />
+              </picture>
+              <div className="card-btn">
+                <button>
+                  For Clients <i class="ri-arrow-right-s-line"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="index-card user">
+            <div className="index-card-details">
+              <h4>
+                <span>Start</span> expoloring
+              </h4>
+              <p>Discover and book your dream events. Sign up now!</p>
+            </div>
+            <div className="pic-btn">
+              <picture>
+                <img src="https://dummyimage.com/240x240/000/fff" alt="" />
+              </picture>
+              <div className="card-btn">
+                <button>
+                  For Users <i class="ri-arrow-right-s-line"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <img alt="" />
       </div>
 
       <div className="index-article-container">
@@ -65,7 +93,6 @@ function Home({}) {
             <button>Apply now</button>
           </div>
         </div>
-        <img alt="" />
       </div>
 
       <IndexReview />

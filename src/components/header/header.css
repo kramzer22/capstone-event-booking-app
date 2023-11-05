@@ -59,7 +59,7 @@
   transition: all 0.3s ease;
   border-bottom: 3px solid transparent;
 
-  &:hover {
+  &:hover , &:focus {
     color: var(--accent);
     border-bottom: 3px solid var(--accent);
     transform: translateY(-5px);
@@ -73,7 +73,7 @@
   background-color: var(--primary);
   cursor: pointer;
 
-  &:hover {
+  &:hover,  {
     border-bottom: 3px solid var(--accent);
 
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
