@@ -132,16 +132,20 @@
 .footer-page-links {
   display: inline-flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
   letter-spacing: 1px;
-  gap: 0.6rem;
   color: var(--background);
 }
 
 .footer-page-links a {
+  position: relative;
   text-decoration: none;
   color: var(--background);
   font-size: 12px;
   letter-spacing: 0;
+  cursor: pointer;
 }
 
 .footer-newsletter {

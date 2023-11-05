@@ -67,7 +67,9 @@ function Footer({ selectedPageViewState }) {
               </div>
             </h6>
             <a href="#">Sign in</a>
+
             <a onClick={() => selectPage("/contact")}>Contact Us</a>
+
             <a onClick={() => selectPage("/about")}>About Us</a>
           </div>
 
