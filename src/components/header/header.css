@@ -34,6 +34,7 @@
   display: flex;
   align-items: center;
   height: 100%;
+  width: fit-content;
   /* color: #d3d3d3; */
 }
 
@@ -76,7 +77,6 @@
 
   &:hover {
     border-bottom: 3px solid var(--accent);
-
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
       rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   }
