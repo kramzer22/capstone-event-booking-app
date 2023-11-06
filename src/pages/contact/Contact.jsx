@@ -53,7 +53,7 @@ function Contact({}) {
             <label className="contact-label" htmlFor="eMail">
               Email Address: <span>*</span>
             </label>
-            <input type="email" />
+            <input type="email" required />
           </div>
           <div className="contact notes">
             <label className="contact-label" htmlFor="notes">
