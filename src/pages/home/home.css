@@ -7,13 +7,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 100px 7em 3em;
   width: 100%;
   max-width: 100%;
   flex: 0 0 45%;
 }
 
 .index-article-container.main {
+  padding: 130px 7em 3em;
   gap: 2em;
 }
 
@@ -85,6 +85,7 @@
 
 /* second & card */
 .index-article-container.second {
+  padding: 4rem 7em 3em;
   gap: 0.5rem;
 }
 
@@ -119,7 +120,8 @@
   padding: 2rem;
   border-radius: 32px;
 
-  box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+  box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%),
+    0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
 }
 
 .index-card-details {
