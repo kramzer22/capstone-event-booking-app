@@ -3,11 +3,12 @@ function RegFormTwo({
   firstNameState,
   lastNameState,
   mobileState,
+  submitClientFormHandler,
 }) {
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
-    currentFormState.setCurrentForm(2);
+    submitClientFormHandler();
   };
 
   const backClickHandler = () => {
