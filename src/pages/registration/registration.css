@@ -1,0 +1,52 @@
+.registration-container {
+  display: flex;
+  justify-content: center;
+
+  padding-top: 180px;
+}
+
+.registration-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  padding: 40px;
+  background-color: antiquewhite;
+}
+
+.registration-container form h2 {
+  align-self: center;
+  font-size: 38px;
+}
+
+.registration-container form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.registration-container form div p {
+  font-size: 26px;
+}
+
+.registration-container form div input {
+  padding: 10px;
+  height: 40px;
+  width: 580px;
+  font-size: 18px;
+}
+
+.registration-container form button {
+  height: 42px;
+  width: 200px;
+  font-size: 24px;
+}
+
+.registration-container form button:nth-of-type(-1) {
+  align-self: flex-end;
+}
+
+.registration-container form div:last-of-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
