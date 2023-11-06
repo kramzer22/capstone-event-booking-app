@@ -1,79 +1,172 @@
 .index-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 120px;
-
-  margin-top: 140px;
   width: 100%;
 }
 
 .index-article-container {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  justify-content: center;
-
-  margin: 0 40px;
-  width: calc(100% - 180px);
-  background-color: aliceblue;
-}
-
-.index-article-container:last-of-type {
-  margin-bottom: 80px;
-}
-
-.index-article {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-
-  padding: 20px 20px 20px 80px;
-  max-width: 900px;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 7em 3em;
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 45%;
 }
 
-.index-article h2 {
-  font-size: 50px;
+.index-article-container.main {
+  gap: 2em;
 }
 
-.index-article h3 {
-  font-size: 36px;
-}
-
-.index-article p {
-  font-size: 24px;
-  text-align: justify;
-}
-
-.index-article div {
-  flex-grow: 1;
+.index-title {
   display: flex;
-  gap: 20px;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  width: 100%;
+  height: fit-content;
+  max-width: 1300px;
 }
 
-.index-article div button {
-  padding: 10px;
-  height: 40px;
-  font-size: 20px;
+.index-btn {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
 }
 
-.index-article-container img {
-  grid-column: 2 / 3;
+.index-btn button {
+  padding: 0.8rem 1.5em;
+  width: fit-content;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
 
-  content: url("https://dummyimage.com/640x480/000/fff.png&text=image+640x480");
+  font-weight: bold;
+  font-family: "Lato";
+  letter-spacing: 0.5px;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    scale: 1.1;
+  }
 }
 
-.left img {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+.index-btn button:nth-child(1) {
+  color: var(--background);
+  background-color: var(--primary);
+  border: 2px solid transparent;
+
+  &:active {
+    background-color: var(--accent);
+    scale: 1;
+    border: 2px solid transparent;
+  }
 }
 
-.left div {
-  grid-column: 2/ 3;
+.index-btn button:nth-child(2) {
+  color: var(--text);
+  background-color: var(--background);
+  border: 2px solid var(--primary);
+
+  &:active {
+    background-color: var(--accent);
+    scale: 1;
+    border: 2px solid transparent;
+    color: var(--background);
+  }
 }
 
-.left .index-article {
-  padding: 20px 80px 20px 20px;
+.index-img {
+  display: block;
+  border-radius: 40px;
+  width: 100%;
+  max-width: 1320px;
+  height: auto;
+}
+
+/* second & card */
+.index-article-container.second {
+  gap: 0.5rem;
+}
+
+.index-article-container.second small {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--text2);
+}
+.second h2 {
+  text-align: center;
+  width: 100%;
+  height: fit-content;
+  max-width: 1300px;
+}
+
+.index-card-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+
+  padding: 2rem 0;
+}
+
+.index-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  max-width: 100%;
+  padding: 2rem;
+  border-radius: 32px;
+
+  box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+}
+
+.index-card-details {
+  font-size: 14px;
+}
+.index-card-details span {
+  color: var(--accent);
+}
+
+.pic-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+}
+
+.card-btn {
+  display: flex;
+  height: 100%;
+  max-height: 100%;
+}
+
+.card-btn button {
+  align-self: flex-end;
+
+  display: inline-block;
+  padding: 0.8rem 1.5em;
+  cursor: pointer;
+
+  font-family: "Lato";
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  background-color: var(--background);
+
+  border: 2px solid var(--primary);
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    scale: 1.05;
+  }
+}
+
+.card-btn button:active {
+  background-color: var(--accent);
+  border: 2px solid transparent;
+  color: var(--background);
 }

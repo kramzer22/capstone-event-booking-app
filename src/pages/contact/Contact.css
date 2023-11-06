@@ -96,11 +96,12 @@ form {
   text-transform: uppercase;
 }
 
-.contact-form input {
-  padding: 0 16px 0 12px;
+.contact-form input,
+textarea {
+  resize: none;
   width: 100%;
+  padding: 0 16px 0 12px;
   line-height: 30px;
-  height: 32px;
   border: 1px solid #dddbda;
   border-radius: 4px;
   background-color: #fff;

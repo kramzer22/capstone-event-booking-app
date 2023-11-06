@@ -43,40 +43,40 @@ function Header({ logInState, selectedPageViewState }) {
       <div className="navigation-links">
         <ul>
           <li>
-            <a className="nav-link" onClick={() => selectPage("/")}>
+            <a className="nav-link" onClick={() => selectPage("/")} tabindex="0">
               Home
             </a>
           </li>
 
           <li>
-            <a href="" className="nav-link">
+            <a href="#" className="nav-link" tabindex="0">
               Venues
             </a>
           </li>
 
           <li>
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="#" tabindex="0">
               Promos
             </a>
           </li>
 
           <li>
-            <a className="nav-link" onClick={() => selectPage("/about")}>
+            <a className="nav-link" onClick={() => selectPage("/about")} tabindex="0">
               About Us
             </a>
           </li>
 
           <li>
-            <a className="nav-link book-btn">Book Now</a>
+            <a className="nav-link book-btn" tabindex="0">Book Now</a>
           </li>
 
           <li>
-            <a className="nav-link" onClick={showLoginForm}>
+            <a className="nav-link" onClick={showLoginForm} >
               Log in
             </a>
           </li>
           <li>
-            <a className="nav-link" onClick={() => selectPage("/sign-up")}>
+            <a className="nav-link" onClick={() => selectPage("/sign-up")} tabindex="0">
               Register
             </a>
           </li>
@@ -89,7 +89,7 @@ function Header({ logInState, selectedPageViewState }) {
           </div>
           <form className="login-form">
             <input type="email" placeholder="email address" />
-            <input type="password" placeholder="passowrd" />
+            <input type="password" placeholder="password" />
             <a href="#" target="_self">
               Forgot password?
             </a>
@@ -97,7 +97,7 @@ function Header({ logInState, selectedPageViewState }) {
           </form>
           <div className="sign-up">
             <span>Not a member?</span>
-            <a>Sign Up</a>
+            <a href="#">Sign Up</a>
           </div>
         </div>
       </div>

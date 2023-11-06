@@ -1,21 +1,3 @@
-/* Font Color */
-:root {
-  --text: #020005;
-  --text2: #646464;
-  --background: #fcfaff;
-  --primary: #fc985a;
-  --secondary: #c19bfd;
-  --accent: #03c94f;
-}
-:root[data-theme="dark"] {
-  --text: #fcfaff;
-  --text2: #646464;
-  --background: #020005;
-  --primary: #a54103;
-  --secondary: #280264;
-  --accent: #36fc82;
-}
-
 .navigation-container {
   display: flex;
   flex-direction: row;
@@ -52,6 +34,7 @@
   display: flex;
   align-items: center;
   height: 100%;
+  width: fit-content;
   /* color: #d3d3d3; */
 }
 
@@ -66,6 +49,7 @@
 }
 
 .nav-link {
+  display: inline-block;
   padding: 0.2rem;
   cursor: pointer;
 
@@ -73,21 +57,30 @@
   font-size: 14px;
   text-decoration: none;
 
-  transition: all 0.55s ease;
-  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+
+  &:hover,
+  &:focus {
+    color: var(--accent);
+    border-bottom: 3px solid var(--accent);
+    transform: translateY(-5px);
+  }
 }
 
 .nav-link.book-btn {
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   border-radius: 10px;
-  color: #020128;
+  color: var(--background);
   background-color: var(--primary);
   cursor: pointer;
-  /* transition: font-size 0.15s ease-in-out; */
-}
 
+  &:hover {
+    border-bottom: 3px solid var(--accent);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+      rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  }
 .nav-link:hover {
-<<<<<<< HEAD
   color: #d3d3d3;
   border-bottom: 2px solid #d3d3d3;
   /* font-size: 16px; */
@@ -97,10 +90,8 @@
 .nav-link:visited {
   text-decoration: none;
   color: #d3d3d3;
-=======
   color: var(--accent);
   border-bottom: 2px solid var(--accent);
->>>>>>> fbf07514e29567904b93428cba77510bab6fbb8a
 }
 
 /* login form styling */

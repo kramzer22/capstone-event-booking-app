@@ -64,7 +64,7 @@ function AboutUs() {
 
       <div className="history-container">
         <div className="history-img">
-          <img src="https://dummyimage.com/1500x700/000/fff" alt="" />
+          <img src="/src/assets/about/1500x700.svg" alt="" />
         </div>
 
         <div className="history-details">

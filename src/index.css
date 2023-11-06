@@ -10,12 +10,16 @@
 
 /* Font Color */
 :root {
-  --text: #020005;
+  --text: #00040a;
   --text2: #646464;
-  --background: #fcfaff;
-  --primary: #fc985a;
-  --secondary: #c19bfd;
-  --accent: #03c94f;
+  --background: #ffffff;
+  --primary: #3385ff;
+  --secondary: #c3c3fd;
+  --accent: #3434cb;
+
+  --primary-trans: #3434cbc3;
+  --secondary-trans: #c3c3fd84;
+  --accent-trans: #3434cbad;
 }
 :root[data-theme="dark"] {
   --text: #fcfaff;
