@@ -1,13 +1,46 @@
+import { useRef } from "react";
+
 function RegFormOne({
   currentFormState,
   emailState,
   reEmailState,
   passwordState,
+  errorState,
 }) {
+  const rePasswordInput = useRef(null);
+
+  function isValidEmail(email) {
+    const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    return emailPattern.test(email);
+  }
+
+  const errorDisplayTimer = () => {
+    setTimeout(() => {
+      errorState.setErrorDisplay("");
+    }, 3000);
+  };
+
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
-    currentFormState.setCurrentForm(2);
+    if (!isValidEmail(emailState.email.trim())) {
+      errorState.setErrorDisplay("Invalid email address");
+      errorDisplayTimer();
+    } else if (emailState.email !== reEmailState.reEmail) {
+      errorState.setErrorDisplay("Email mismatch");
+      errorDisplayTimer();
+    } else if (passwordState.password.trim().length < 6) {
+      errorState.setErrorDisplay("Password must be at least 6 character");
+      errorDisplayTimer();
+    } else if (
+      passwordState.password.trim() !== rePasswordInput.current.value.trim()
+    ) {
+      errorState.setErrorDisplay("Password mismatch");
+      errorDisplayTimer();
+    } else {
+      setErrorDisplay("");
+      currentFormState.setCurrentForm(2);
+    }
   };
 
   const formInputOnChangeHandler = (e) => {
@@ -24,6 +57,7 @@ function RegFormOne({
   return (
     <form onSubmit={formSubmitHandler}>
       <h2>Registration Form</h2>
+      <p>{errorState.errorDisplay}</p>
       <div>
         <p>Email</p>
         <input
@@ -37,7 +71,7 @@ function RegFormOne({
       <div>
         <p>Retype email</p>
         <input
-          type="email"
+          type="text"
           placeholder="re-email address"
           name="remail"
           onChange={formInputOnChangeHandler}
@@ -56,7 +90,7 @@ function RegFormOne({
       </div>
       <div>
         <p>Retype password</p>
-        <input type="password" />
+        <input ref={rePasswordInput} type="password" />
       </div>
       <div>
         <button type="submit">Next</button>

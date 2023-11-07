@@ -3,12 +3,30 @@ function RegFormTwo({
   firstNameState,
   lastNameState,
   mobileState,
+  errorState,
   submitClientFormHandler,
 }) {
-  const formSubmitHandler = (e) => {
+  const errorDisplayTimer = () => {
+    setTimeout(() => {
+      errorState.setErrorDisplay("");
+    }, 3000);
+  };
+
+  const formSubmitHandler = async (e) => {
     e.preventDefault();
 
-    submitClientFormHandler();
+    if (firstNameState.firstName.trim() < 1) {
+      errorState.setErrorDisplay("Enter your first name");
+      errorDisplayTimer();
+    } else if (lastNameState.lastName.trim() < 1) {
+      errorState.setErrorDisplay("Enter your last name");
+      errorDisplayTimer();
+    } else if (mobileState.mobile.replace(" ", "").length > 11) {
+      errorState.setErrorDisplay("Enter a valid mobile number");
+      errorDisplayTimer();
+    } else {
+      submitClientFormHandler();
+    }
   };
 
   const backClickHandler = () => {
@@ -29,6 +47,7 @@ function RegFormTwo({
   return (
     <form onSubmit={formSubmitHandler}>
       <h2>Registration Form</h2>
+      <p>{errorState.errorDisplay}</p>
       <div>
         <p>First name</p>
         <input

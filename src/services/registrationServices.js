@@ -1,14 +1,14 @@
 import axios from "axios";
 
 const baseURL = "http://localhost:3001/api/client/";
-const tokenURL = "http://localhost:3001/api/key/register/";
+const tokenURL = "http://localhost:3001/api/token/register-client/";
 
-function create(newObject, registrationToken) {
-  return axios.post(`${baseURL}?key_id=${registrationToken}`, newObject);
+function createClient(registrationToken) {
+  return axios.post(`${baseURL}register-client/?token_id=${registrationToken}`);
 }
 
-function getCreateRegistrationToken() {
-  return axios.get(tokenURL);
+function getCreateRegistrationToken(clientData) {
+  return axios.post(tokenURL, clientData);
 }
 
-export default { create, getCreateRegistrationToken };
+export default { createClient, getCreateRegistrationToken };
