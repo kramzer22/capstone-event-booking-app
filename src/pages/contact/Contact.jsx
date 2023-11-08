@@ -1,4 +1,7 @@
 import { useRef, useState } from "react";
+
+import contactServices from "../../services/contactServices";
+
 import "./Contact.css";
 
 function Contact({}) {
@@ -16,6 +19,17 @@ function Contact({}) {
 
   const [errorDisplay, setErrorDisplay] = useState("");
 
+  const clearAllInput = () => {
+    setEmail("");
+    setContactNumber("");
+    setFirstName("");
+    setLastName("");
+    setNote("");
+
+    setErrorDisplay("Inquiry sent");
+    errorDisplayTimer();
+  };
+
   function isValidEmail(email) {
     const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     return emailPattern.test(email);
@@ -32,27 +46,93 @@ function Contact({}) {
     }, 3000);
   };
 
-  const submitClientFormHandler = async (e) => {
-    e.preventDefault();
+  const checkForInputErrors = () => {
     if (firstName.trim() === "") {
       firstNameInput.current.focus();
       setErrorDisplay("Enter your first name");
       errorDisplayTimer();
+
+      return true;
     } else if (lastName.trim() === "") {
       lastNameInput.current.focus();
       setErrorDisplay("Enter your last name");
       errorDisplayTimer();
+
+      return true;
     } else if (!isValidMobileNumber(contactNumber)) {
       contactInput.current.focus();
       setErrorDisplay("Enter a valid mobile number");
       errorDisplayTimer();
+
+      return true;
     } else if (!isValidEmail(email)) {
+      emailInput.current.focus();
       setErrorDisplay("Invalid email address");
       errorDisplayTimer();
+
+      return true;
     } else if (note.trim() === "") {
       noteInput.current.focus();
       setErrorDisplay("Add message information for your inquiry");
       errorDisplayTimer();
+
+      return true;
+    }
+
+    return false;
+  };
+
+  const submitClientFormHandler = async (e) => {
+    e.preventDefault();
+
+    if (!checkForInputErrors()) {
+      const newInquiry = {
+        first_name: firstName,
+        last_name: lastName,
+        number: contactNumber,
+        email: email,
+        note: note,
+      };
+
+      contactServices
+        .getCreateInquiryToken(newInquiry)
+        .then((response) => {
+          console.log(response);
+          if (response.status === 201) {
+            contactServices
+              .createInquiry(response.data.token)
+              .then((response) => {
+                if (response.status === 201) {
+                  console.log("Inquiry successfully registered", response.data);
+                  clearAllInput();
+                }
+              })
+              .catch((error) => {
+                const errorData = error.response;
+                if (errorData) {
+                  if (errorData.status === 400) {
+                    console.log("Bad request", errorData.data);
+                  } else if (errorData.status === 403) {
+                    console.log("Request denied", errorData.data);
+                  }
+                } else {
+                  console.log("Network problem.");
+                }
+              });
+          }
+        })
+        .catch((error) => {
+          const errorData = error.response;
+          if (errorData) {
+            if (errorData.status === 400) {
+              console.log("Bad request", errorData.data);
+            } else if (errorData.status === 403) {
+              console.log("Request denied", errorData.data);
+            }
+          } else {
+            console.log("Network problem.");
+          }
+        });
     }
   };
 

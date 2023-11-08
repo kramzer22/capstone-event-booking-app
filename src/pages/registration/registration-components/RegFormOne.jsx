@@ -38,7 +38,7 @@ function RegFormOne({
       errorState.setErrorDisplay("Password mismatch");
       errorDisplayTimer();
     } else {
-      setErrorDisplay("");
+      errorState.setErrorDisplay("");
       currentFormState.setCurrentForm(2);
     }
   };

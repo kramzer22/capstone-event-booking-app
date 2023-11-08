@@ -29,7 +29,7 @@ function Registration({}) {
     setErrorDisplay("");
   };
 
-  const submitClientFormHandler = async () => {
+  const submitClientFormHandler = () => {
     const newClient = {
       email: email,
       password: password,
@@ -38,11 +38,10 @@ function Registration({}) {
       number: mobile,
     };
 
-    return registrationServices
+    registrationServices
       .getCreateRegistrationToken(newClient)
       .then((response) => {
         if (response.status === 201) {
-          console.log(response);
           registrationServices
             .createClient(response.data.token)
             .then((response) => {
