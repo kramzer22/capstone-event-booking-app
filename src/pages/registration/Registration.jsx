@@ -29,7 +29,7 @@ function Registration({}) {
     setErrorDisplay("");
   };
 
-  const submitClientFormHandler = () => {
+  const submitClientFormHandler = async () => {
     const newClient = {
       email: email,
       password: password,

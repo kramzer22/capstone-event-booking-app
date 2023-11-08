@@ -1,6 +1,77 @@
+import { useRef, useState } from "react";
 import "./Contact.css";
 
 function Contact({}) {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [contactNumber, setContactNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [note, setNote] = useState("");
+
+  const firstNameInput = useRef(null);
+  const lastNameInput = useRef(null);
+  const contactInput = useRef(null);
+  const emailInput = useRef(null);
+  const noteInput = useRef(null);
+
+  const [errorDisplay, setErrorDisplay] = useState("");
+
+  function isValidEmail(email) {
+    const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    return emailPattern.test(email);
+  }
+
+  function isValidMobileNumber(number) {
+    const mobilePattern = /^\d{11}$/;
+    return mobilePattern.test(number);
+  }
+
+  const errorDisplayTimer = () => {
+    setTimeout(() => {
+      setErrorDisplay("");
+    }, 3000);
+  };
+
+  const submitClientFormHandler = async (e) => {
+    e.preventDefault();
+    if (firstName.trim() === "") {
+      firstNameInput.current.focus();
+      setErrorDisplay("Enter your first name");
+      errorDisplayTimer();
+    } else if (lastName.trim() === "") {
+      lastNameInput.current.focus();
+      setErrorDisplay("Enter your last name");
+      errorDisplayTimer();
+    } else if (!isValidMobileNumber(contactNumber)) {
+      contactInput.current.focus();
+      setErrorDisplay("Enter a valid mobile number");
+      errorDisplayTimer();
+    } else if (!isValidEmail(email)) {
+      setErrorDisplay("Invalid email address");
+      errorDisplayTimer();
+    } else if (note.trim() === "") {
+      noteInput.current.focus();
+      setErrorDisplay("Add message information for your inquiry");
+      errorDisplayTimer();
+    }
+  };
+
+  const formInputOnChangeHandler = (e) => {
+    const name = e.target.name;
+
+    if (name === "FirstName") {
+      setFirstName(e.target.value);
+    } else if (name === "LastName") {
+      setLastName(e.target.value);
+    } else if (name === "Mobile") {
+      setContactNumber(e.target.value);
+    } else if (name === "Email") {
+      setEmail(e.target.value);
+    } else if (name === "Note") {
+      setNote(e.target.value);
+    }
+  };
+
   return (
     <div className="contact-container">
       <div className="contact-form-ctr">
@@ -24,16 +95,24 @@ function Contact({}) {
           <p>Get in touch with our team to learn more about "company name".</p>
         </div>
 
-        <form action="" className="contact-form">
+        <form
+          action=""
+          className="contact-form"
+          onSubmit={submitClientFormHandler}
+        >
+          <p>{errorDisplay}</p>
           <div className="contact-name">
             <div className="contact fname">
               <label className="contact-label" htmlFor="FirstName">
                 First Name: <span>*</span>
               </label>
               <input
+                ref={firstNameInput}
                 type="text"
                 name="FirstName"
                 placeholder="First Name"
+                onChange={formInputOnChangeHandler}
+                value={firstName}
                 required
               />
             </div>
@@ -42,24 +121,55 @@ function Contact({}) {
                 Last Name: <span>*</span>
               </label>
               <input
+                ref={lastNameInput}
                 type="text"
                 name="LastName"
                 placeholder="Last Name"
+                onChange={formInputOnChangeHandler}
+                value={lastName}
                 required
               />
             </div>
+          </div>
+          <div className="contact mobile">
+            <label className="contact-label" htmlFor="Mobile">
+              Mobile Number: <span>*</span>
+            </label>
+            <input
+              ref={contactInput}
+              type="text"
+              name="Mobile"
+              onChange={formInputOnChangeHandler}
+              value={contactNumber}
+              required
+            />
           </div>
           <div className="contact email">
             <label className="contact-label" htmlFor="eMail">
               Email Address: <span>*</span>
             </label>
-            <input type="email" required />
+            <input
+              useRef={emailInput}
+              type="email"
+              name="Email"
+              onChange={formInputOnChangeHandler}
+              value={email}
+              required
+            />
           </div>
           <div className="contact notes">
             <label className="contact-label" htmlFor="notes">
               Notes: <span>*</span>
             </label>
-            <textarea name="" id="" cols="30" rows="6"></textarea>
+            <textarea
+              ref={noteInput}
+              id=""
+              cols="30"
+              rows="6"
+              name="Note"
+              onChange={formInputOnChangeHandler}
+              value={note}
+            ></textarea>
           </div>
 
           <button className="contact-submit-btn" type="submit">
