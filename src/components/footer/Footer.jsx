@@ -1,9 +1,9 @@
+import { Link } from "react-router-dom";
+
 import "./footer.css";
 
-function Footer({ selectedPageViewState }) {
-  const selectPage = (pageLink) => {
-    selectedPageViewState.setSelectedPageView(pageLink);
-
+function Footer() {
+  const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -43,11 +43,11 @@ function Footer({ selectedPageViewState }) {
               simple.
             </p>
             <div className="social-links">
-              <a href="#">
+              <a>
                 <i class="ri-facebook-fill"></i>
               </a>
 
-              <a href="#">
+              <a>
                 <i class="ri-twitter-x-line"></i>
               </a>
               <a href="#">
@@ -67,10 +67,13 @@ function Footer({ selectedPageViewState }) {
               </div>
             </h6>
             <a href="#">Sign in</a>
+            <Link to="/contact" onClick={scrollToTop}>
+              <a>Contact Us</a>
+            </Link>
 
-            <a onClick={() => selectPage("/contact")}>Contact Us</a>
-
-            <a onClick={() => selectPage("/about")}>About Us</a>
+            <Link to="/about" onClick={scrollToTop}>
+              <a>About Us</a>
+            </Link>
           </div>
 
           <div className="footer-page-links">
@@ -92,7 +95,10 @@ function Footer({ selectedPageViewState }) {
                 <span></span>
               </div>
             </h6>
-            <a onClick={() => selectPage("/disclaimer")}>Privacy Policy</a>
+            <Link to="/disclaimer">
+              {" "}
+              <a>Privacy Policy</a>
+            </Link>
           </div>
 
           <div className="footer-newsletter">

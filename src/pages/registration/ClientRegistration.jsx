@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 import registrationServices from "../../services/registrationServices.js";
-import "./registration.css";
+import "./clientRegistration.css";
 
-import RegFormOne from "./registration-components/RegFormOne";
-import RegFormTwo from "./registration-components/RegFormTwo";
+import RegFormOne from "./registration-components/RegFormOne.jsx";
+import RegFormTwo from "./registration-components/RegFormTwo.jsx";
 import SuccessFulRegistration from "./registration-components/SuccessfulRegistration.jsx";
 
-function Registration({}) {
+function ClientRegistration({}) {
   const [email, setEmail] = useState("");
   const [reEmail, setReEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -122,4 +122,4 @@ function Registration({}) {
   return <div className="registration-container">{formDisplay}</div>;
 }
 
-export default Registration;
+export default ClientRegistration;

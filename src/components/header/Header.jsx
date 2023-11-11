@@ -1,25 +1,14 @@
+import { React } from "react";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 import "./header.css";
 
-function Header({ logInState, selectedPageViewState }) {
+function Header({ userLoginState }) {
   const loginContainerRef = useRef(null);
 
   const showLoginForm = () => {
-    logInState.login_function(logInState.login_value ? false : true);
-  };
-
-  const selectPage = (pageLink) => {
-    selectedPageViewState.setSelectedPageView(pageLink);
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  if (loginContainerRef.current) {
-    if (logInState.login_value) {
+    if (loginContainerRef.current.style.display === "none") {
       loginContainerRef.current.style.display = "flex";
       setTimeout(() => {
         loginContainerRef.current.style.right = "20px";
@@ -30,55 +19,55 @@ function Header({ logInState, selectedPageViewState }) {
         loginContainerRef.current.style.display = "none";
       }, 300);
     }
-  }
+  };
 
   return (
     <div className="navigation-container">
-      <div
-        className="logo-container"
-        onClick={() => selectedPageState.selectedpage_function("/")}
-      >
+      <div className="logo-container">
         <p>Logo here or App name</p>
       </div>
       <div className="navigation-links">
         <ul>
           <li>
-            <a className="nav-link" onClick={() => selectPage("/")} tabindex="0">
+            <Link className="nav-link" to="/">
               Home
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="#" className="nav-link" tabindex="0">
+            <a className="nav-link" tabIndex="0">
               Venues
             </a>
           </li>
 
           <li>
-            <a className="nav-link" href="#" tabindex="0">
+            <a className="nav-link" tabIndex="0">
               Promos
             </a>
           </li>
 
           <li>
-            <a className="nav-link" onClick={() => selectPage("/about")} tabindex="0">
+            <Link className="nav-link" to="/about">
               About Us
+            </Link>
+            <a tabindex="0"></a>
+          </li>
+
+          <li>
+            <a className="nav-link book-btn" tabIndex="0">
+              Book Now
             </a>
           </li>
 
           <li>
-            <a className="nav-link book-btn" tabindex="0">Book Now</a>
-          </li>
-
-          <li>
-            <a className="nav-link" onClick={showLoginForm} >
+            <a className="nav-link" onClick={showLoginForm}>
               Log in
             </a>
           </li>
           <li>
-            <a className="nav-link" onClick={() => selectPage("/sign-up")} tabindex="0">
+            <Link className="nav-link" to="/register/?user=client">
               Register
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -90,14 +79,12 @@ function Header({ logInState, selectedPageViewState }) {
           <form className="login-form">
             <input type="email" placeholder="email address" />
             <input type="password" placeholder="password" />
-            <a href="#" target="_self">
-              Forgot password?
-            </a>
+            <a target="_self">Forgot password?</a>
             <button type="submit">Login</button>
           </form>
           <div className="sign-up">
             <span>Not a member?</span>
-            <a href="#">Sign Up</a>
+            <a>Sign Up</a>
           </div>
         </div>
       </div>
