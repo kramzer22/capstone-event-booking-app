@@ -1,52 +1,65 @@
 .registration-container {
   display: flex;
+  justify-content: space-around;
+  gap: 1em;
+  padding: 130px 0 3em;
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 45%;
+  background-color: var(--background);
+}
+
+.registration-container-form {
+  flex: 1;
+}
+
+.registration-container-platform {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 
-  padding-top: 180px;
+  gap: 4rem;
 }
 
-.registration-container form {
+.platform-title {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-
-  padding: 40px;
-  background-color: antiquewhite;
+  justify-content: center;
+  align-items: center;
 }
 
-.registration-container form h2 {
-  align-self: center;
-  font-size: 38px;
+.platform-details-ctr {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: repeat(3, 200px);
 }
 
-.registration-container form div {
+.platform-details {
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 1rem;
 }
 
-.registration-container form div p {
-  font-size: 26px;
+.platform-details i {
+  font-size: 35px;
+  color: var(--accent);
 }
 
-.registration-container form div input {
-  padding: 10px;
-  height: 40px;
-  width: 580px;
-  font-size: 18px;
+.platform-details p {
+  font-size: 13px;
+  color: var(--text2);
 }
 
-.registration-container form button {
-  height: 42px;
-  width: 200px;
-  font-size: 24px;
-}
-
-.registration-container form button:nth-of-type(-1) {
-  align-self: flex-end;
-}
-
-.registration-container form div:last-of-type {
+.platform-additional-details {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  gap: 1rem;
+
+  font-size: 13px;
+  color: var(--text2);
 }

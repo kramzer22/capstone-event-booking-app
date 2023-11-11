@@ -121,9 +121,55 @@ function ClientRegistration({}) {
   }
 
   return (
-    <>
-      <div className="registration-container">{formDisplay}</div>
-    </>
+    <div className="registration-container">
+      <div className="registration-container-form">{formDisplay}</div>
+      <div className="registration-container-platform">
+        <div className="platform-title">
+          <h4>your</h4>
+          <span>ALL-IN-ONE</span>
+          <h4>platform</h4>
+        </div>
+        <div className="platform-details-ctr">
+          <div className="platform-details">
+            <i class="ri-calendar-event-line"></i>
+            <p>Event Organizer Registration</p>
+          </div>
+
+          <div className="platform-details">
+            <i class="ri-presentation-line"></i>
+            <p>Comprehensive Event Management</p>
+          </div>
+
+          <div className="platform-details">
+            <i class="ri-user-heart-line"></i>
+            <p>User-Friendly Experience</p>
+          </div>
+
+          <div className="platform-details">
+            <i class="ri-book-2-line"></i>
+            <p>Effortless Booking</p>
+          </div>
+
+          <div className="platform-details">
+            <i class="ri-admin-line"></i>
+            <p>Admin Support</p>
+          </div>
+
+          <div className="platform-details">
+            <i class="ri-bank-line"></i>
+            <p>Security Deposit</p>
+          </div>
+        </div>
+        <div className="platform-additional-details">
+          <p>Join for Free</p>
+          <span>&bull;</span>
+          <p>Join for Free</p>
+          <span>&bull;</span>
+          <p>Join for Free</p>
+        </div>
+      </div>
+    </div>
+
   );
 }
 
