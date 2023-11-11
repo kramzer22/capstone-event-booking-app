@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const baseURL = "http://localhost:3001/api/client/";
+const hostURL = "http://localhost:3001/api/host/";
 const tokenURL = "http://localhost:3001/api/token/register-client/";
 
 function createClient(registrationToken) {
@@ -11,4 +12,12 @@ function getCreateRegistrationToken(clientData) {
   return axios.post(tokenURL, clientData);
 }
 
-export default { createClient, getCreateRegistrationToken };
+function checkHostRegistrationTokenValidity(registrationToken) {
+  return axios.get(`${hostURL}check?token_id=${registrationToken}`);
+}
+
+export default {
+  createClient,
+  getCreateRegistrationToken,
+  checkHostRegistrationTokenValidity,
+};

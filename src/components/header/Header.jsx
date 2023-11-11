@@ -7,6 +7,13 @@ import "./header.css";
 function Header({ userLoginState }) {
   const loginContainerRef = useRef(null);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const showLoginForm = () => {
     if (loginContainerRef.current.style.display === "none") {
       loginContainerRef.current.style.display = "flex";
@@ -29,7 +36,7 @@ function Header({ userLoginState }) {
       <div className="navigation-links">
         <ul>
           <li>
-            <Link className="nav-link" to="/">
+            <Link className="nav-link" to="/" onClick={scrollToTop}>
               Home
             </Link>
           </li>
@@ -47,7 +54,7 @@ function Header({ userLoginState }) {
           </li>
 
           <li>
-            <Link className="nav-link" to="/about">
+            <Link className="nav-link" to="/about" onClick={scrollToTop}>
               About Us
             </Link>
             <a tabindex="0"></a>
@@ -65,7 +72,11 @@ function Header({ userLoginState }) {
             </a>
           </li>
           <li>
-            <Link className="nav-link" to="/register/?user=client">
+            <Link
+              className="nav-link"
+              to="/register/?user=client"
+              onClick={scrollToTop}
+            >
               Register
             </Link>
           </li>
