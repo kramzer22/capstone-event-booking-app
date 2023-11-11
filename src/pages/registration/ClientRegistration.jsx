@@ -122,7 +122,6 @@ function ClientRegistration({}) {
 
   return (
     <>
-      <Header />
       <div className="registration-container">{formDisplay}</div>
     </>
   );
