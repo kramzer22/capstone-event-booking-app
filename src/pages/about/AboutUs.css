@@ -1,6 +1,7 @@
 .about-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1em;
   padding: 130px 7em 3em;
   width: 100%;
@@ -14,6 +15,7 @@
   flex-direction: column;
   width: 800px;
   max-width: 100%;
+  flex: 1.3;
 }
 
 .about-title {
@@ -25,8 +27,8 @@
 
 .about-description {
   color: var(--text);
-  width: 65%;
-  max-width: 100%;
+  width: 100%;
+  max-width: 500px;
 }
 
 .about-paragraph {
@@ -44,36 +46,44 @@
   gap: 0.5em;
 }
 
-.about-btns button {
+.about-btns button,
+.ad-btn {
   padding: 0.8rem 1.5em;
   width: fit-content;
   cursor: pointer;
-  border: none;
-  border-radius: 5px;
+  border: 2px solid var(--primary);
+  border-radius: 20px;
 
   font-weight: bold;
   letter-spacing: 0.5px;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    scale: 1.05;
+  }
 }
 
-.learn-btn {
-  color: var(--text);
-  background-color: var(--secondary);
+.learn-btn,
+.ad-btn {
+  color: var(--background);
+  background-color: var(--primary);
 }
 
 .book-btn {
-  background-color: var(--primary);
-  color: var(--background);
+  background-color: var(--background);
+  color: var(--text);
 }
 
 .about-img {
   display: flex;
+  flex: 1;
 }
 
 .about-img > img {
   width: 100%;
   height: 400px;
-  max-width: 600px;
   flex: 0 0 50%;
+  object-fit: cover;
 }
 
 /* start of section */
@@ -137,19 +147,6 @@
   border-radius: 5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
-
-.ad-btn {
-  padding: 0.8rem 1.5em;
-  width: fit-content;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  color: var(--background);
-  background-color: var(--primary);
 }
 
 /* start of history */

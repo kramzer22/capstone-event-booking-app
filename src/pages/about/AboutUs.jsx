@@ -36,8 +36,8 @@ function AboutUs({ loginUserState }) {
 
           <div className="about-img">
             <img
-              src="https://dummyimage.com/600x400/000/fff"
-              alt="sample-img"
+              src="/src/assets/about/600x400.png"
+              alt="600x400"
             />
           </div>
         </div>
