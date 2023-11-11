@@ -184,9 +184,9 @@ function ClientRegistration({}) {
         <div className="platform-additional-details">
           <p>Join for Free</p>
           <span>&bull;</span>
-          <p>Join for Free</p>
+          <p>Book an Event</p>
           <span>&bull;</span>
-          <p>Join for Free</p>
+          <p>Enjoy Services</p>
         </div>
       </div>
     </div>
