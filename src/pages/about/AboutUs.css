@@ -52,7 +52,6 @@
   border-radius: 5px;
 
   font-weight: bold;
-  font-family: "Lato";
   letter-spacing: 0.5px;
 }
 
@@ -148,7 +147,6 @@
   border-radius: 5px;
 
   font-weight: bold;
-  font-family: "Lato";
   letter-spacing: 0.5px;
   color: var(--background);
   background-color: var(--primary);

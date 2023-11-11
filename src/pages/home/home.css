@@ -41,7 +41,6 @@
   border-radius: 20px;
 
   font-weight: bold;
-  font-family: "Lato";
   letter-spacing: 0.5px;
 
   &:hover {
@@ -152,7 +151,6 @@
   padding: 0.8rem 1.5em;
   cursor: pointer;
 
-  font-family: "Lato";
   font-weight: bold;
   letter-spacing: 0.5px;
   color: var(--text);

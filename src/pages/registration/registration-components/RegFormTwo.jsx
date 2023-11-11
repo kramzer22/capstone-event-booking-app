@@ -45,11 +45,12 @@ function RegFormTwo({
   };
 
   return (
-    <form onSubmit={formSubmitHandler}>
-      <h2>Registration Form</h2>
+    <form className="registration-form" onSubmit={formSubmitHandler}>
       <p>{errorState.errorDisplay}</p>
-      <div>
-        <p>First name</p>
+      <div className="registration fname">
+        <label className="registration-label" htmlFor="fName">
+          First Name: <span>*</span>
+        </label>
         <input
           type="text"
           placeholder="first name"
@@ -58,8 +59,10 @@ function RegFormTwo({
           value={firstNameState.firstName}
         />
       </div>
-      <div>
-        <p>last name</p>
+      <div className="registration lname">
+        <label htmlFor="lName" className="registration-label">
+          Last Name: <span>*</span>
+        </label>
         <input
           type="text"
           placeholder="last name"
@@ -68,8 +71,10 @@ function RegFormTwo({
           value={lastNameState.lastName}
         />
       </div>
-      <div>
-        <p>Mobile number</p>
+      <div className="registration number">
+        <label className="registration-label" htmlFor="">
+          Mobile Number: <span>*</span>
+        </label>
         <input
           type="text"
           placeholder="mobile number"
@@ -79,9 +84,11 @@ function RegFormTwo({
         />
       </div>
 
-      <div>
-        <button onClick={backClickHandler}>Back</button>
-        <button type="submit">Next</button>
+      <div className="registration-buttons two">
+        <button className="back-btn" onClick={backClickHandler}>Back</button>
+        <button className="next two" type="submit">
+          Next
+        </button>
       </div>
     </form>
   );
