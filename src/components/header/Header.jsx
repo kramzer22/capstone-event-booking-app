@@ -75,6 +75,7 @@ function Header({ userLoginState }) {
             <Link
               className="nav-link"
               to="/register/?user=client"
+              target="_blank"
               onClick={scrollToTop}
             >
               Register
