@@ -3,6 +3,7 @@ import { useState } from "react";
 import registrationServices from "../../services/registrationServices.js";
 import "./clientRegistration.css";
 
+import Header from "../../components/header/Header.jsx";
 import RegFormOne from "./registration-components/RegFormOne.jsx";
 import RegFormTwo from "./registration-components/RegFormTwo.jsx";
 import SuccessFulRegistration from "./registration-components/SuccessfulRegistration.jsx";
@@ -168,6 +169,7 @@ function ClientRegistration({}) {
         </div>
       </div>
     </div>
+
   );
 }
 
