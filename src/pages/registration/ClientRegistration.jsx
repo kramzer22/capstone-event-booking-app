@@ -117,7 +117,7 @@ function ClientRegistration({}) {
       />
     );
   } else {
-    <SuccessFulRegistration />;
+    formDisplay = <SuccessFulRegistration />;
   }
 
   return (
