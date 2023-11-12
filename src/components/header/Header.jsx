@@ -96,7 +96,7 @@ function Header({ userLoginState }) {
           </form>
           <div className="sign-up">
             <span>Not a member?</span>
-            <a>Sign Up</a>
+            <a href="#">Sign Up</a>
           </div>
         </div>
       </div>

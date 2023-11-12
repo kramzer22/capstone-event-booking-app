@@ -122,6 +122,8 @@
   font-size: 0.8rem;
   text-decoration: none;
   color: var(--text);
+
+  cursor: pointer;
 }
 
 .login-form > a:hover {
@@ -166,8 +168,25 @@
 }
 
 .login-form button {
-  height: 36px;
+  padding: 0.5rem;
+  border: 2px solid transparent;
   border-radius: 5px;
+
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text2);
+
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    scale: 1.02;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  &:active{
+    scale: 1;
+  }
 }
 
 .login-container div:last-of-type {
@@ -184,4 +203,9 @@
 
 .sign-up > a {
   text-decoration: none;
+  color: var(--text2);
+
+  &:hover{
+    color: var(--accent);
+  }
 }
