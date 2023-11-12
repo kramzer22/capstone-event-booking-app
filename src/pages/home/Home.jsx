@@ -25,8 +25,8 @@ function Home({ loginUserState }) {
           </div>
           <img
             className="index-img"
-            src="https://dummyimage.com/1320x680/000/fff&text=1320x680"
-            alt=""
+            src="/src/assets/home/1320x680.png"
+            alt="book-now 1320x680"
           />
         </div>
 
@@ -49,7 +49,7 @@ function Home({ loginUserState }) {
               </div>
               <div className="pic-btn">
                 <picture>
-                  <img src="https://dummyimage.com/240x240/000/fff" alt="" />
+                  <img src="/src/assets/home/client240x240.png" alt="240x240" />
                 </picture>
                 <div className="card-btn">
                   <button>
@@ -68,7 +68,7 @@ function Home({ loginUserState }) {
               </div>
               <div className="pic-btn">
                 <picture>
-                  <img src="https://dummyimage.com/240x240/000/fff" alt="" />
+                  <img src="/src/assets/home/user240x240.png" alt="240x240" />
                 </picture>
                 <div className="card-btn">
                   <button>
