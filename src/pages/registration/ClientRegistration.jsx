@@ -124,7 +124,6 @@ function ClientRegistration({}) {
     <div className="registration-container">
       <div className="registration-container-form">
         <div className="registration-logo">
-          LOGO HERE goes home when clicked
         </div>
         <h5>Create an account now</h5>
         {formDisplay}

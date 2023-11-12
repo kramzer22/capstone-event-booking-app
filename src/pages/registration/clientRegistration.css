@@ -16,12 +16,25 @@
   gap: 0.5rem;
 
   min-height: 100vh;
-  padding: 130px 2rem 0;
+  /* padding: 130px 2rem 0; */
+  padding: 2rem;
 
   background-color: var(--primary);
-  /* place-content: center; */
+  place-content: center;
 
   color: var(--background);
+}
+
+.registration-logo {
+  width: 100px;
+  height: 100px;
+
+  scale: 1.5;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(/src/assets/registration/iconlogo.svg);
 }
 
 .registration-details {
@@ -53,10 +66,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  place-content: center;
 
   gap: 2rem;
-  padding: 130px 2rem 0;
-
+  /* padding: 130px 2rem 0; */
+  padding: 2rem;
 }
 
 .registration-container-platform::before {
