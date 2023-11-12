@@ -93,7 +93,6 @@
   letter-spacing: 1.6px;
   text-transform: uppercase;
 
-
   &:hover {
     transition: all 0.2s ease;
     box-shadow: 0 0 0 0 #fff, 0 0 0 3px var(--background);
@@ -107,4 +106,57 @@
 
 .next.two {
   background-color: var(--accent);
+}
+
+/* hostformtwo.jsx */
+.registration-select {
+  display: flex;
+  gap: 10px;
+}
+
+.registration-select select,
+.registration.gender select {
+  resize: none;
+  padding: 8px;
+  line-height: 30px;
+  border: 1px solid #dddbda;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #080707;
+}
+
+/* hostformthree.jsx */
+.registration-select.baddress {
+  padding: 0.2rem 0;
+}
+
+.registration-select.baddress select {
+  width: 100%;
+}
+
+.registration-buttons.three {
+  display: flex;
+  gap: 1rem;
+}
+
+.registration-buttons.three .next.three {
+  outline: none;
+  cursor: pointer;
+  border-radius: 30px;
+  border: 0;
+  padding: 0.1rem 12px;
+  width: 100%;
+  max-width: 300px;
+
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--background);
+  background-color: var(--primary-trans);
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+
+  &:hover {
+    transition: all 0.2s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 3px var(--background);
+  }
 }

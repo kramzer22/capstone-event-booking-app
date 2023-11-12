@@ -55,11 +55,12 @@ function HostFormOne({
   };
 
   return (
-    <form onSubmit={formSubmitHandler}>
-      <h2>Registration Form</h2>
+    <form className="registration-form" onSubmit={formSubmitHandler}>
       <p>{errorState.errorDisplay}</p>
-      <div>
-        <p>Email</p>
+      <div className="registration email">
+        <label className="registration-label" htmlFor="eMail">
+          Email: <span>*</span>
+        </label>
         <input
           type="email"
           placeholder="email address"
@@ -68,18 +69,22 @@ function HostFormOne({
           value={emailState.email}
         />
       </div>
-      <div>
-        <p>Retype email</p>
+      <div className="registration email">
+        <label className="registration-label" htmlFor="eMail">
+          Re-enter Email: <span>*</span>
+        </label>
         <input
           type="text"
-          placeholder="re-email address"
+          placeholder="re-enter email address"
           name="remail"
           onChange={formInputOnChangeHandler}
           value={reEmailState.reEmail}
         />
       </div>
-      <div>
-        <p>Password</p>
+      <div className="registration password">
+        <label className="registration-label" htmlFor="password">
+          Password: <span>*</span>
+        </label>
         <input
           type="password"
           placeholder="password"
@@ -88,12 +93,20 @@ function HostFormOne({
           value={passwordState.password}
         />
       </div>
-      <div>
-        <p>Retype password</p>
-        <input ref={rePasswordInput} type="password" />
+      <div className="registration password">
+        <label className="registration-label" htmlFor="password">
+          Re-enter Password: <span>*</span>
+        </label>
+        <input
+          ref={rePasswordInput}
+          type="password"
+          placeholder="re-enter password"
+        />
       </div>
-      <div>
-        <button type="submit">Next</button>
+      <div className="registration-buttons">
+        <button className="next one" type="submit">
+          Next
+        </button>
       </div>
     </form>
   );
