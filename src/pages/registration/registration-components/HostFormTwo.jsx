@@ -70,11 +70,12 @@ function HostFormTwo({
   };
 
   return (
-    <form onSubmit={formSubmitHandler}>
-      <h2>Registration Form</h2>
+    <form className="registration-form" onSubmit={formSubmitHandler}>
       <p>{errorState.errorDisplay}</p>
-      <div>
-        <p>First name</p>
+      <div className="registration fname">
+        <label className="registration-label" htmlFor="fName">
+          First Name: <span>*</span>
+        </label>
         <input
           type="text"
           placeholder="first name"
@@ -83,8 +84,10 @@ function HostFormTwo({
           value={firstNameState.firstName}
         />
       </div>
-      <div>
-        <p>last name</p>
+      <div className="registration lname">
+        <label htmlFor="lName" className="registration-label">
+          Last Name: <span>*</span>
+        </label>
         <input
           type="text"
           placeholder="last name"
@@ -93,9 +96,12 @@ function HostFormTwo({
           value={lastNameState.lastName}
         />
       </div>
-      <div>
-        <p>Birthdate</p>
-        <div>
+      <div className="registration DOB">
+        <label className="registration-label" htmlFor="">
+          Date of Birth: <span>*</span>
+        </label>
+
+        <div className="registration-select">
           <select value={day} onChange={(e) => setDay(e.target.value)}>
             <option value="">Day</option>
             {daysInMonth.map((d) => (
@@ -122,19 +128,25 @@ function HostFormTwo({
           </select>
         </div>
       </div>
-      <div>
-        <p>Gender</p>
+
+      <div className="registration gender">
+        <label className="registration-label" htmlFor="">
+          Gender: <span>*</span>
+        </label>
         <div>
           <select value={day} onChange={(e) => setDay(e.target.value)}>
             <option value="">Male</option>
             <option value="">Female</option>
+            <option value="">Other</option>
           </select>
         </div>
       </div>
 
-      <div>
-        <button onClick={backClickHandler}>Back</button>
-        <button type="submit">Next</button>
+      <div className="registration-buttons two">
+        <button className="back-btn" onClick={backClickHandler}>Back</button>
+        <button className="next two" type="submit">
+          Next
+        </button>
       </div>
     </form>
   );

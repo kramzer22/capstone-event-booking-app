@@ -4,49 +4,64 @@ function HostFormThree({ currentFormState, errorState }) {
   };
 
   return (
-    <form>
-      <h2>Registration Form</h2>
+    <form className="registration-form">
       <p>{errorState.errorDisplay}</p>
-      <div>
-        <p>Business name</p>
+      <div className="registration bname">
+        <label className="registration-label" htmlFor="">
+          Business Name: <span>*</span>
+        </label>
         <input type="text" placeholder="business name" name="email" />
       </div>
-      <div>
-        <p>Business address</p>
-        <div>
-          <p>Province</p>
-          <select name="" id="">
+      <div className="registration">
+        <label className="registration-label" htmlFor="">
+          Business Address: <span>*</span>
+        </label>
+        <div className="registration-select baddress">
+          <select baddress name="" id="">
             <option value="">Province</option>
           </select>
         </div>
-        <div>
-          <p>City</p>
-          <select name="" id="">
+        <div className="registration-select baddress">
+          <select baddress name="" id="">
             <option value="">City</option>
           </select>
         </div>
-        <div>
-          <p>Barangay</p>
-          <select name="" id="">
+        <div className="registration-select baddress">
+          <select baddress name="" id="">
             <option value="">Barangay</option>
           </select>
         </div>
-        <div>
-          <p>Street address</p>
+        <div className="registration">
+          <label className="registration-label" htmlFor="">
+            Street Address: <span>*</span>
+          </label>
           <input type="text" placeholder="address" />
         </div>
       </div>
-      <div>
-        <p>Mobile</p>
-        <input type="text" placeholder="contact" name="password" />
+      <div className="registration">
+        <label className="registration-label" htmlFor="">
+          Mobile Number: <span>*</span>
+        </label>
+        <input
+          type="text"
+          placeholder="11 - digit mobile number"
+          name="mobile"
+        />
       </div>
-      <div>
-        <p>Landline</p>
-        <input type="text" />
+      <div className="registration">
+        <label className="registration-label" htmlFor="">
+          Landline Number: <span>*</span>
+        </label>
+        <input type="text" placeholder="landline number" name="mobile" />
       </div>
-      <div>
-        <button onClick={backClickHandler}>Back</button>
-        <button type="submit">Next</button>
+
+      <div className="registration-buttons three">
+        <button className="back-btn" onClick={backClickHandler}>
+          Back
+        </button>
+        <button className="next three" type="submit">
+          Create Account
+        </button>
       </div>
     </form>
   );

@@ -36,7 +36,10 @@ function InstantMessaging({}) {
           <button onClick={hideMessagingPopUp}>X</button>
         </div>
 
-        <ul></ul>
+        <form action="">
+          <textarea name="" id="" cols="30" rows="13"></textarea>
+        </form>
+
         <div className="message-input-container">
           <input type="text" placeholder="message here" />
           <button>send</button>
@@ -47,11 +50,11 @@ function InstantMessaging({}) {
         className="instant-messaging-button"
         onClick={showMessagingPopUp}
       >
-        <div className="instant-messaging-box">
-          <p>• • •</p>
-        </div>
-        <div className="instant-messaging-tail"></div>
+        {/* <div className="instant-messaging-box"> */}
+        {/* <p>• • •</p> */}
       </div>
+      {/* <div className="instant-messaging-tail"></div> */}
+      {/* </div> */}
     </div>
   );
 }
