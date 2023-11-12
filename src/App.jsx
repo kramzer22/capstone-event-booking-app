@@ -8,6 +8,7 @@ import Home from "./pages/home/Home";
 import AboutUs from "./pages/about/AboutUs";
 import Register from "./pages/registration/Register";
 import ClientRegistration from "./pages/registration/ClientRegistration";
+import HostRegistration from "./pages/registration/hostRegistration";
 import Redicrecting from "./pages/redirecting/Redirecting";
 
 import Contact from "./pages/contact/Contact";
@@ -47,6 +48,7 @@ function App() {
           <Route path="/redirect" element={<Redicrecting />} />
           <Route path="/register" element={<Register />} />
           <Route path="/register/client" element={<ClientRegistration />} />
+          <Route path="/register/host" element={<HostRegistration />} />
           <Route
             path="/contact"
             element={
