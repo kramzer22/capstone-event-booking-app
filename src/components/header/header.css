@@ -28,13 +28,14 @@
   align-items: center;
 }
 .logo-container img:nth-child(1) {
-  width: 70px;
+  width: 40px;
+  padding: 10px 0;
 }
 .logo-container::after {
   content: "EasyGig";
   position: absolute;
-  left: 65px;
-  bottom: 7px;
+  left: 105%;
+  bottom: -1px;
 
   font-family: "Source Sans 3", sans-serif;
   font-size: 30px;
