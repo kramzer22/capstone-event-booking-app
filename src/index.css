@@ -13,11 +13,11 @@
   --text2: #646464;
   --background: #ffffff;
   --primary: #3385ff;
-  --secondary: #c3c3fd;
+  --secondary: #8c52ff;
   --accent: #3434cb;
 
   --primary-trans: #3434cbc3;
-  --secondary-trans: #c3c3fd84;
+  --secondary-trans: #8c52ff84;
   --accent-trans: #3434cbad;
 }
 :root[data-theme="dark"] {
