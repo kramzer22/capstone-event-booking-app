@@ -1,4 +1,51 @@
+import { useEffect, useState } from "react";
+import * as geoAdmin from "ph-geo-admin-divisions";
+
+import locationServices from "../../../services/locationServices";
+
 function HostFormThree({ currentFormState, errorState }) {
+  const [provinces, setProvinces] = useState([]);
+  const [selectedProvince, setSelectedProvince] = useState("");
+  const [cities, setCities] = useState([]);
+  const [selectedCity, setSelectedCity] = useState("");
+  const [barangays, setBarangays] = useState([]);
+
+  useEffect(() => {
+    const result = geoAdmin.searchProvince({ name: "" });
+
+    console.log(result);
+    setProvinces(result);
+  }, []);
+
+  // setProvinces(response.data);
+
+  const selectProvinceHandler = (e) => {
+    if (e.target.value !== "") {
+      setSelectedProvince(e.target.value);
+      const result = geoAdmin.searchMunicipality({
+        provinceId: e.target.value,
+      });
+
+      setCities(result);
+    } else {
+      setCities([]);
+      setBarangays([]);
+    }
+  };
+
+  const selectCityHandler = (e) => {
+    if (e.target.value !== "") {
+      setSelectedCity(e.target.value);
+      const result = geoAdmin.searchBaranggay({
+        municipalityId: e.target.value,
+      });
+
+      setBarangays(result);
+    } else {
+      setBarangays([]);
+    }
+  };
+
   const backClickHandler = () => {
     currentFormState.setCurrentForm(2);
   };
@@ -17,18 +64,48 @@ function HostFormThree({ currentFormState, errorState }) {
           Business Address: <span>*</span>
         </label>
         <div className="registration-select baddress">
-          <select baddress name="" id="">
-            <option value="">Province</option>
+          <select
+            className=""
+            id=""
+            value={selectedProvince}
+            onChange={selectProvinceHandler}
+          >
+            <option value="" disabled>
+              Province
+            </option>
+            {provinces.map((province, index) => {
+              return (
+                <option key={index} value={province.provinceId}>
+                  {province.name.toLowerCase()}
+                </option>
+              );
+            })}
           </select>
         </div>
         <div className="registration-select baddress">
-          <select baddress name="" id="">
-            <option value="">City</option>
+          <select className="" id="" onChange={selectCityHandler}>
+            <option value="" disabled>
+              City
+            </option>
+            {cities.map((city, index) => {
+              return (
+                <option key={index} value={city.municipalityId}>
+                  {city.name.toLowerCase()}
+                </option>
+              );
+            })}
           </select>
         </div>
         <div className="registration-select baddress">
-          <select baddress name="" id="">
+          <select className="" id="" value={selectedCity}>
             <option value="">Barangay</option>
+            {barangays.map((barangay, index) => {
+              return (
+                <option key={index} value={barangay.baranggayId}>
+                  {barangay.name.toLowerCase()}
+                </option>
+              );
+            })}
           </select>
         </div>
         <div className="registration">

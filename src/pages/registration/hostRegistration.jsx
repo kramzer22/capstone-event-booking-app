@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./clientRegistration.css";
 
-import HostFormOne from "./registration-components/HostFormOne";
+import RegFormOne from "./registration-components/RegFormOne";
 import HostFormTwo from "./registration-components/HostFormTwo";
 import HostFormThree from "./registration-components/HostFormThree";
 
@@ -11,7 +11,7 @@ function HostRegistration({ token }) {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [birthdate, setBirthdate] = useState("");
+  const [birthdate, setBirthdate] = useState({ day: "", month: "", year: "" });
   const [gender, setGender] = useState("");
 
   const [errorDisplay, setErrorDisplay] = useState("");
@@ -21,7 +21,7 @@ function HostRegistration({ token }) {
 
   if (currentForm === 1) {
     formDisplay = (
-      <HostFormOne
+      <RegFormOne
         currentFormState={{
           currentForm: currentForm,
           setCurrentForm: setCurrentForm,
