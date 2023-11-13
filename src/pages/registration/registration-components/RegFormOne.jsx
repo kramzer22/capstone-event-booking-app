@@ -1,7 +1,9 @@
 import { useRef } from "react";
+
+import inputChekerModule from "../../../helpers/inputChekerModule";
 import "./RegFormAll.css";
 
-function RegFormOne({
+function HostFormOne({
   currentFormState,
   emailState,
   reEmailState,
@@ -9,49 +11,40 @@ function RegFormOne({
   errorState,
 }) {
   const rePasswordInput = useRef(null);
-
-  function isValidEmail(email) {
-    const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-    return emailPattern.test(email);
-  }
-
-  const errorDisplayTimer = () => {
-    setTimeout(() => {
-      errorState.setErrorDisplay("");
-    }, 3000);
-  };
+  const ERROR_DISPLAY_TIME = 4000;
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
-    if (!isValidEmail(emailState.email.trim())) {
-      errorState.setErrorDisplay("Invalid email address");
-      errorDisplayTimer();
+    if (!inputChekerModule.isValidEmail(emailState.email.trim())) {
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Invalid email address",
+        ERROR_DISPLAY_TIME
+      );
     } else if (emailState.email !== reEmailState.reEmail) {
-      errorState.setErrorDisplay("Email mismatch");
-      errorDisplayTimer();
+      inputChekerModule.setErrorDisplay(errorState, "Email mismatch", dTime);
     } else if (passwordState.password.trim().length < 6) {
-      errorState.setErrorDisplay("Password must be at least 6 character");
-      errorDisplayTimer();
-    } else if (
-      passwordState.password.trim() !== rePasswordInput.current.value.trim()
-    ) {
-      errorState.setErrorDisplay("Password mismatch");
-      errorDisplayTimer();
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Password must be at least 6 character",
+        ERROR_DISPLAY_TIME
+      );
+    } else if (passwordState.password.length < 6) {
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Password length must be at least 6 char",
+        ERROR_DISPLAY_TIME
+      );
+    } else if (passwordState.password !== rePasswordInput.current.value) {
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Password mismatch",
+        ERROR_DISPLAY_TIME
+      );
     } else {
       errorState.setErrorDisplay("");
       currentFormState.setCurrentForm(2);
-    }
-  };
-
-  const formInputOnChangeHandler = (e) => {
-    const name = e.target.name;
-    if (name === "email") {
-      emailState.setEmail(e.target.value);
-    } else if (name === "remail") {
-      reEmailState.setReEmail(e.target.value);
-    } else if (name === "password") {
-      passwordState.setPassword(e.target.value);
     }
   };
 
@@ -65,8 +58,7 @@ function RegFormOne({
         <input
           type="email"
           placeholder="email address"
-          name="email"
-          onChange={formInputOnChangeHandler}
+          onChange={(e) => emailState.setEmail(e.target.value)}
           value={emailState.email}
         />
       </div>
@@ -77,8 +69,7 @@ function RegFormOne({
         <input
           type="text"
           placeholder="re-enter email address"
-          name="remail"
-          onChange={formInputOnChangeHandler}
+          onChange={(e) => reEmailState.setReEmail(e.target.value)}
           value={reEmailState.reEmail}
         />
       </div>
@@ -89,8 +80,7 @@ function RegFormOne({
         <input
           type="password"
           placeholder="password"
-          name="password"
-          onChange={formInputOnChangeHandler}
+          onChange={(e) => passwordState.setPassword(e.target.value)}
           value={passwordState.password}
         />
       </div>
@@ -113,4 +103,4 @@ function RegFormOne({
   );
 }
 
-export default RegFormOne;
+export default HostFormOne;

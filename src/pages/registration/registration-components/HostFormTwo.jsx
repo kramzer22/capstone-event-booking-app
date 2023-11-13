@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import inputChekerModule from "../../../helpers/inputChekerModule";
+import objectHelperModule from "../../../helpers/objectHelperModule";
 
 function HostFormTwo({
   currentFormState,
@@ -8,65 +11,107 @@ function HostFormTwo({
   genderState,
   errorState,
 }) {
-  const [day, setDay] = useState("");
-  const [month, setMonth] = useState("");
-  const [year, setYear] = useState("");
+  const [days, setDays] = useState([]);
+  const [months, setMonths] = useState([]);
+  const [years, setYears] = useState([]);
 
-  const daysInMonth = Array.from({ length: 31 }, (_, i) => i + 1);
+  const ERROR_DISPLAY_TIME = 4000;
 
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+  useEffect(() => {
+    setMonths(objectHelperModule.monthBuilder());
+    setYears(objectHelperModule.yearBuilder());
+    if (birthdateState.birthdate.month !== "") {
+      setDays(
+        objectHelperModule.dayBuilder(
+          birthdateState.birthdate.month,
+          birthdateState.birthdate.year
+        )
+      );
+    }
+  }, []);
 
-  const years = Array.from(
-    { length: 120 },
-    (_, i) => new Date().getFullYear() - i
-  );
+  const dayChangeHandler = (value) => {
+    if (value !== "") {
+      const newBirthdate = { ...birthdateState.birthdate, day: value };
+      birthdateState.setBirthdate(newBirthdate);
+      console.log(newBirthdate);
+    } else {
+      const newBirthdate = { ...birthdateState.birthdate, day: "" };
+      birthdateState.setBirthdate(newBirthdate);
+    }
+  };
 
-  const errorDisplayTimer = () => {
-    setTimeout(() => {
-      errorState.setErrorDisplay("");
-    }, 3000);
+  const monthChangeHandler = (value) => {
+    if (value !== "") {
+      setDays(objectHelperModule.dayBuilder(value));
+      const newBirthdate = { ...birthdateState.birthdate, month: value };
+      birthdateState.setBirthdate(newBirthdate);
+
+      console.log(newBirthdate);
+    } else {
+      const newBirthdate = { ...birthdateState.birthdate, month: value };
+      birthdateState.setBirthdate(newBirthdate);
+      setDays([]);
+    }
+  };
+
+  const yearChangeHandler = (value) => {
+    if (value !== "") {
+      setDays(
+        objectHelperModule.dayBuilder(birthdateState.birthdate.month, value)
+      );
+
+      const newBirthdate = { ...birthdateState.birthdate, year: value };
+      birthdateState.setBirthdate(newBirthdate);
+
+      console.log(newBirthdate);
+    } else {
+      const newBirthdate = { ...birthdateState.birthdate, year: value };
+      newBirthdate.year = "";
+      birthdateState.setBirthdate(newBirthdate);
+    }
   };
 
   const formSubmitHandler = async (e) => {
     e.preventDefault();
 
     if (firstNameState.firstName.trim() < 1) {
-      errorState.setErrorDisplay("Enter your first name");
-      errorDisplayTimer();
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Enter your first name",
+        ERROR_DISPLAY_TIME
+      );
     } else if (lastNameState.lastName.trim() < 1) {
-      errorState.setErrorDisplay("Enter your last name");
-      errorDisplayTimer();
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Enter your last name",
+        ERROR_DISPLAY_TIME
+      );
+    } else if (
+      !inputChekerModule.isValidBirthDate(
+        birthdateState.birthdate.day,
+        birthdateState.birthdate.month,
+        birthdateState.birthdate.year
+      )
+    ) {
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Invalid birthdate",
+        ERROR_DISPLAY_TIME
+      );
+    } else if (genderState.gender === "") {
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Select a gender",
+        ERROR_DISPLAY_TIME
+      );
+    } else {
+      currentFormState.setCurrentForm(3);
     }
-
-    currentFormState.setCurrentForm(3);
   };
 
   const backClickHandler = () => {
     currentFormState.setCurrentForm(1);
-  };
-
-  const formInputOnChangeHandler = (e) => {
-    const name = e.target.name;
-    if (name === "first") {
-      firstNameState.setFirstName(e.target.value);
-    } else if (name === "last") {
-      lastNameState.setLastName(e.target.value);
-    } else if (name === "mobile") {
-      mobileState.setMobile(e.target.value);
-    }
   };
 
   return (
@@ -80,7 +125,7 @@ function HostFormTwo({
           type="text"
           placeholder="first name"
           name="first"
-          onChange={formInputOnChangeHandler}
+          onChange={(e) => firstNameState.setFirstName(e.target.value)}
           value={firstNameState.firstName}
         />
       </div>
@@ -92,7 +137,7 @@ function HostFormTwo({
           type="text"
           placeholder="last name"
           name="last"
-          onChange={formInputOnChangeHandler}
+          onChange={(e) => lastNameState.setLastName(e.target.value)}
           value={lastNameState.lastName}
         />
       </div>
@@ -102,27 +147,37 @@ function HostFormTwo({
         </label>
 
         <div className="registration-select">
-          <select value={day} onChange={(e) => setDay(e.target.value)}>
-            <option value="">Day</option>
-            {daysInMonth.map((d) => (
-              <option key={d} value={d}>
-                {d}
-              </option>
-            ))}
-          </select>
-          <select value={month} onChange={(e) => setMonth(e.target.value)}>
+          <select
+            value={birthdateState.birthdate.month}
+            onChange={(e) => monthChangeHandler(e.target.value)}
+          >
             <option value="">Month</option>
-            {months.map((m, index) => (
-              <option key={index} value={index + 1}>
-                {m}
+            {months.map((month, index) => (
+              <option key={index} value={month}>
+                {month}
               </option>
             ))}
           </select>
-          <select value={year} onChange={(e) => setYear(e.target.value)}>
+          <select
+            value={birthdateState.birthdate.day}
+            onChange={(e) => dayChangeHandler(e.target.value)}
+          >
+            <option value="">Day</option>
+            {days.map((day) => (
+              <option key={day} value={day}>
+                {day}
+              </option>
+            ))}
+          </select>
+
+          <select
+            value={birthdateState.birthdate.year}
+            onChange={(e) => yearChangeHandler(e.target.value)}
+          >
             <option value="">Year</option>
-            {years.map((y) => (
-              <option key={y} value={y}>
-                {y}
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year}
               </option>
             ))}
           </select>
@@ -134,16 +189,22 @@ function HostFormTwo({
           Gender: <span>*</span>
         </label>
         <div>
-          <select value={day} onChange={(e) => setDay(e.target.value)}>
-            <option value="">Male</option>
-            <option value="">Female</option>
-            <option value="">Other</option>
+          <select
+            value={genderState.gender}
+            onChange={(e) => genderState.setGender(e.target.value)}
+          >
+            <option value="">Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
           </select>
         </div>
       </div>
 
       <div className="registration-buttons two">
-        <button className="back-btn" onClick={backClickHandler}>Back</button>
+        <button className="back-btn" onClick={backClickHandler}>
+          Back
+        </button>
         <button className="next two" type="submit">
           Next
         </button>
