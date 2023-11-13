@@ -9,10 +9,19 @@ function HostRegistration({ token }) {
   const [email, setEmail] = useState("");
   const [reEmail, setReEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [birthdate, setBirthdate] = useState({ day: "", month: "", year: "" });
   const [gender, setGender] = useState("");
+
+  const [businessName, setBusinessName] = useState("");
+  const [province, setProvince] = useState({ id: "", name: "" });
+  const [city, setCity] = useState({ id: "", name: "" });
+  const [barangay, setBarangay] = useState({ id: "", name: "" });
+  const [address, setAddress] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [landLine, setLandLine] = useState("");
 
   const [errorDisplay, setErrorDisplay] = useState("");
   const [currentForm, setCurrentForm] = useState(1);
@@ -59,6 +68,16 @@ function HostRegistration({ token }) {
           currentForm: currentForm,
           setCurrentForm: setCurrentForm,
         }}
+        businessNameState={{
+          businessName: businessName,
+          setBusinessName: setBusinessName,
+        }}
+        provinceState={{ province: province, setProvince: setProvince }}
+        cityState={{ city: city, setCity: setCity }}
+        barangayState={{ barangay: barangay, setBarangay: setBarangay }}
+        addressState={{ address: address, setAddress: setAddress }}
+        mobileState={{ mobile: mobile, setMobile: setMobile }}
+        landLineState={{ landLine: landLine, setLandLine: setLandLine }}
         errorState={{
           errorDisplay: errorDisplay,
           setErrorDisplay: setErrorDisplay,

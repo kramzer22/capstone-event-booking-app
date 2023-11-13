@@ -23,7 +23,12 @@ function HostFormOne({
         ERROR_DISPLAY_TIME
       );
     } else if (emailState.email !== reEmailState.reEmail) {
-      inputChekerModule.setErrorDisplay(errorState, "Email mismatch", dTime);
+      console.log("wawawee");
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Email mismatch",
+        ERROR_DISPLAY_TIME
+      );
     } else if (passwordState.password.trim().length < 6) {
       inputChekerModule.setErrorDisplay(
         errorState,
