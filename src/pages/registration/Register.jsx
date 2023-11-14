@@ -29,12 +29,14 @@ function Register() {
                 await registrationServices.checkHostRegistrationTokenValidity(
                   registrationToken
                 );
-              console.log("wawqawee");
               if (tokenValidityResponse.status === 200) {
-                navigate("/register/host");
+                navigate(`/register/host/?token_id=${registrationToken}`);
+              } else {
+                throw new Error("navigate to home");
               }
             } catch (error) {
-              console.log("wawqawee");
+              console.log(error);
+              navigate("/");
             }
           }
         }

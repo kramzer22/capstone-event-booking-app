@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./clientRegistration.css";
 
 import RegFormOne from "./registration-components/RegFormOne";
 import HostFormTwo from "./registration-components/HostFormTwo";
 import HostFormThree from "./registration-components/HostFormThree";
+
+import inputChekerModule from "../../helpers/inputChekerModule";
+import registrationServices from "../../services/registrationServices";
+import { Navigate } from "react-router-dom";
 
 function HostRegistration({ token }) {
   const [email, setEmail] = useState("");
@@ -25,6 +29,76 @@ function HostRegistration({ token }) {
 
   const [errorDisplay, setErrorDisplay] = useState("");
   const [currentForm, setCurrentForm] = useState(1);
+
+  const ERROR_DISPLAY_TIME = 4000;
+
+  useEffect(() => {
+    if (!checkTokenValidity()) {
+      Navigate("/");
+    }
+  }, []);
+
+  const checkTokenValidity = async () => {
+    try {
+      const registrationToken = searchParams.get("token");
+      if (registrationToken) {
+        const tokenValidityResponse =
+          await registrationServices.checkHostRegistrationTokenValidity(
+            registrationToken
+          );
+        if (tokenValidityResponse.status !== 200) {
+          return false;
+        } else {
+          return true;
+        }
+      } else {
+        return false;
+      }
+    } catch (error) {
+      return false;
+    }
+  };
+
+  const submitClientFormHandler = async () => {
+    const newHost = {
+      email: email,
+      password: password,
+      name: {
+        first_name: firstName.trim().toLowerCase(),
+        last_name: lastName.trim().toLowerCase(),
+      },
+      dob: birthdate,
+      gender: gender.toLowerCase(),
+      business_name: businessName.trim().toLowerCase(),
+      address: {
+        province: province,
+        city: city,
+        barangay: barangay,
+        street: address,
+      },
+      number: { mobile: mobile, landline: landLine },
+    };
+
+    try {
+      const token = await registrationServices.getCreateRegistrationToken(
+        newHost,
+        "host"
+      );
+
+      const registrationResult = await registrationServices.registerHost(
+        token.data.token,
+        registrationToken
+      );
+
+      console.log(registrationResult);
+    } catch (error) {
+      inputChekerModule.setErrorDisplay(
+        { errorDisplay: errorDisplay, setErrorDisplay: setErrorDisplay },
+        "Unable to process transaction. Try again!",
+        ERROR_DISPLAY_TIME
+      );
+    }
+  };
 
   let formDisplay;
 
@@ -82,6 +156,7 @@ function HostRegistration({ token }) {
           errorDisplay: errorDisplay,
           setErrorDisplay: setErrorDisplay,
         }}
+        submitClientFormHandler={submitClientFormHandler}
       />
     );
   }
@@ -118,32 +193,32 @@ function HostRegistration({ token }) {
         </div>
         <div className="platform-details-ctr">
           <div className="platform-details">
-            <i class="ri-calendar-event-line"></i>
+            <i className="ri-calendar-event-line"></i>
             <p>Event Organizer Registration</p>
           </div>
 
           <div className="platform-details">
-            <i class="ri-presentation-line"></i>
+            <i className="ri-presentation-line"></i>
             <p>Comprehensive Event Management</p>
           </div>
 
           <div className="platform-details">
-            <i class="ri-user-heart-line"></i>
+            <i className="ri-user-heart-line"></i>
             <p>User-Friendly Experience</p>
           </div>
 
           <div className="platform-details">
-            <i class="ri-book-2-line"></i>
+            <i className="ri-book-2-line"></i>
             <p>Effortless Booking</p>
           </div>
 
           <div className="platform-details">
-            <i class="ri-admin-line"></i>
+            <i className="ri-admin-line"></i>
             <p>Admin Support</p>
           </div>
 
           <div className="platform-details">
-            <i class="ri-bank-line"></i>
+            <i className="ri-bank-line"></i>
             <p>Security Deposit</p>
           </div>
         </div>

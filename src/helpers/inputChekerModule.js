@@ -10,6 +10,11 @@ const isValidEmail = (email) => {
   return emailPattern.test(email);
 };
 
+function isValidMobile(number) {
+  const regex = /^\d{11}$/;
+  return regex.test(number);
+}
+
 const setErrorDisplay = (errorState, message, t) => {
   errorState.setErrorDisplay(message);
 
@@ -18,4 +23,9 @@ const setErrorDisplay = (errorState, message, t) => {
   }, t);
 };
 
-export default { isValidBirthDate, isValidEmail, setErrorDisplay };
+export default {
+  isValidBirthDate,
+  isValidEmail,
+  isValidMobile,
+  setErrorDisplay,
+};

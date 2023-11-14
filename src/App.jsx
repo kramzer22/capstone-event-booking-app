@@ -11,6 +11,8 @@ import ClientRegistration from "./pages/registration/ClientRegistration";
 import HostRegistration from "./pages/registration/hostRegistration";
 import Redicrecting from "./pages/redirecting/Redirecting";
 
+import EventPlacemanager from "./pages/host/EventPlaceManager";
+
 import Contact from "./pages/contact/Contact";
 import Error from "./pages/404-error/Error";
 
@@ -71,6 +73,8 @@ function App() {
               />
             }
           />
+
+          <Route path="/host/event-place" element={<EventPlacemanager />} />
         </Routes>
         <InstantMessaging />
       </div>

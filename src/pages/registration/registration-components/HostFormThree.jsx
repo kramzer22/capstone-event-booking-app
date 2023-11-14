@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import * as geoAdmin from "ph-geo-admin-divisions";
 
-import locationServices from "../../../services/locationServices";
+import inputChekerModule from "../../../helpers/inputChekerModule";
 
 function HostFormThree({
   currentFormState,
@@ -13,10 +13,13 @@ function HostFormThree({
   mobileState,
   landLineState,
   errorState,
+  submitClientFormHandler,
 }) {
   const [provinces, setProvinces] = useState([]);
   const [cities, setCities] = useState([]);
   const [barangays, setBarangays] = useState([]);
+
+  const ERROR_DISPLAY_TIME = 4000;
 
   useEffect(() => {
     const result = geoAdmin.searchProvince({ name: "" });
@@ -57,9 +60,47 @@ function HostFormThree({
 
   const selectBarangayHandler = (value, name) => {
     if (value !== "") {
-      cityState.setBarangay({ id: value, name: name });
+      barangayState.setBarangay({ id: value, name: name });
     } else {
       barangayState.setBarangay({ id: "", name: "" });
+    }
+  };
+
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+
+    if (businessNameState.businessName.trim() < 1) {
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Enter your registered business name",
+        ERROR_DISPLAY_TIME
+      );
+    } else if (provinceState.province.name === "") {
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Select province",
+        ERROR_DISPLAY_TIME
+      );
+    } else if (cityState.city.name === "") {
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Select city",
+        ERROR_DISPLAY_TIME
+      );
+    } else if (barangayState.barangay.name === "") {
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Select barangay",
+        ERROR_DISPLAY_TIME
+      );
+    } else if (addressState.address.trim() < 5) {
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Enter street/lot/bldg address",
+        ERROR_DISPLAY_TIME
+      );
+    } else {
+      submitClientFormHandler();
     }
   };
 
@@ -68,7 +109,7 @@ function HostFormThree({
   };
 
   return (
-    <form className="registration-form">
+    <form className="registration-form" onSubmit={formSubmitHandler}>
       <p>{errorState.errorDisplay}</p>
       <div className="registration bname">
         <label className="registration-label" htmlFor="">
