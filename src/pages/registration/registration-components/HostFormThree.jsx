@@ -3,46 +3,63 @@ import * as geoAdmin from "ph-geo-admin-divisions";
 
 import locationServices from "../../../services/locationServices";
 
-function HostFormThree({ currentFormState, errorState }) {
+function HostFormThree({
+  currentFormState,
+  businessNameState,
+  provinceState,
+  cityState,
+  barangayState,
+  addressState,
+  mobileState,
+  landLineState,
+  errorState,
+}) {
   const [provinces, setProvinces] = useState([]);
-  const [selectedProvince, setSelectedProvince] = useState("");
   const [cities, setCities] = useState([]);
-  const [selectedCity, setSelectedCity] = useState("");
   const [barangays, setBarangays] = useState([]);
 
   useEffect(() => {
     const result = geoAdmin.searchProvince({ name: "" });
-
-    console.log(result);
     setProvinces(result);
   }, []);
 
-  // setProvinces(response.data);
-
-  const selectProvinceHandler = (e) => {
-    if (e.target.value !== "") {
-      setSelectedProvince(e.target.value);
+  const selectProvinceHandler = (value, name) => {
+    if (value !== "") {
+      provinceState.setProvince({ id: value, name: name });
       const result = geoAdmin.searchMunicipality({
-        provinceId: e.target.value,
+        provinceId: value,
       });
 
       setCities(result);
     } else {
+      provinceState.setProvince({ id: "", name: "" });
       setCities([]);
+      cityState.setCity({ id: "", name: "" });
       setBarangays([]);
+      barangayState.setBarangay({ id: "", name: "" });
     }
   };
 
-  const selectCityHandler = (e) => {
-    if (e.target.value !== "") {
-      setSelectedCity(e.target.value);
+  const selectCityHandler = (value, name) => {
+    if (value !== "") {
+      cityState.setCity({ id: value, name: name });
       const result = geoAdmin.searchBaranggay({
-        municipalityId: e.target.value,
+        municipalityId: value,
       });
 
       setBarangays(result);
     } else {
+      cityState.setCity({ id: "", name: "" });
       setBarangays([]);
+      barangayState.setBarangay({ id: "", name: "" });
+    }
+  };
+
+  const selectBarangayHandler = (value, name) => {
+    if (value !== "") {
+      cityState.setBarangay({ id: value, name: name });
+    } else {
+      barangayState.setBarangay({ id: "", name: "" });
     }
   };
 
@@ -57,7 +74,12 @@ function HostFormThree({ currentFormState, errorState }) {
         <label className="registration-label" htmlFor="">
           Business Name: <span>*</span>
         </label>
-        <input type="text" placeholder="business name" name="email" />
+        <input
+          type="text"
+          placeholder="business name"
+          value={businessNameState.businessName}
+          onChange={(e) => businessNameState.setBusinessName(e.target.value)}
+        />
       </div>
       <div className="registration">
         <label className="registration-label" htmlFor="">
@@ -67,12 +89,15 @@ function HostFormThree({ currentFormState, errorState }) {
           <select
             className=""
             id=""
-            value={selectedProvince}
-            onChange={selectProvinceHandler}
+            value={provinceState.province.id}
+            onChange={(e) =>
+              selectProvinceHandler(
+                e.target.value,
+                e.target.options[e.target.selectedIndex].textContent
+              )
+            }
           >
-            <option value="" disabled>
-              Province
-            </option>
+            <option value="">Province</option>
             {provinces.map((province, index) => {
               return (
                 <option key={index} value={province.provinceId}>
@@ -83,10 +108,18 @@ function HostFormThree({ currentFormState, errorState }) {
           </select>
         </div>
         <div className="registration-select baddress">
-          <select className="" id="" onChange={selectCityHandler}>
-            <option value="" disabled>
-              City
-            </option>
+          <select
+            className=""
+            id=""
+            value={cityState.city.id}
+            onChange={(e) =>
+              selectCityHandler(
+                e.target.value,
+                e.target.options[e.target.selectedIndex].textContent
+              )
+            }
+          >
+            <option value="">City</option>
             {cities.map((city, index) => {
               return (
                 <option key={index} value={city.municipalityId}>
@@ -97,7 +130,16 @@ function HostFormThree({ currentFormState, errorState }) {
           </select>
         </div>
         <div className="registration-select baddress">
-          <select className="" id="" value={selectedCity}>
+          <select
+            className=""
+            id=""
+            onChange={(e) =>
+              selectBarangayHandler(
+                e.target.value,
+                e.target.options[e.target.selectedIndex].textContent
+              )
+            }
+          >
             <option value="">Barangay</option>
             {barangays.map((barangay, index) => {
               return (
@@ -112,7 +154,12 @@ function HostFormThree({ currentFormState, errorState }) {
           <label className="registration-label" htmlFor="">
             Street Address: <span>*</span>
           </label>
-          <input type="text" placeholder="address" />
+          <input
+            type="text"
+            placeholder="address"
+            value={addressState.address}
+            onChange={(e) => addressState.setAddress(e.target.value)}
+          />
         </div>
       </div>
       <div className="registration">
@@ -122,14 +169,20 @@ function HostFormThree({ currentFormState, errorState }) {
         <input
           type="text"
           placeholder="11 - digit mobile number"
-          name="mobile"
+          value={mobileState.mobile}
+          onChange={(e) => mobileState.setMobile(e.target.value)}
         />
       </div>
       <div className="registration">
         <label className="registration-label" htmlFor="">
           Landline Number: <span>*</span>
         </label>
-        <input type="text" placeholder="landline number" name="mobile" />
+        <input
+          type="text"
+          placeholder="landline number"
+          value={landLineState.landLine}
+          onChange={(e) => landLineState.setLandLine(e.target.value)}
+        />
       </div>
 
       <div className="registration-buttons three">
