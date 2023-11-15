@@ -96,7 +96,7 @@ function RegFormTwo({
           Back
         </button>
         <button className="next two" type="submit">
-          Next
+          Create Account
         </button>
       </div>
     </form>

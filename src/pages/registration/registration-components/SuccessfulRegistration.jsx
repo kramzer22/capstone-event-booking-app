@@ -1,6 +1,6 @@
 function SuccessFulRegistration({}) {
   return (
-    <div>
+    <div className="successful-registration">
       <p>Successful Registration</p>
       <p>
         return home or <span>log in</span>
