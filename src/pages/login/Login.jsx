@@ -1,3 +1,5 @@
+import "./Login.css";
+
 function Login() {
   return (
     <div className="login-page-main">
@@ -10,14 +12,24 @@ function Login() {
             </p>
           </div>
           <form action="">
-            <label htmlFor="">Email Address:</label>
-            <input type="email" placeholder="enter email" />
+            <div className="login-section-email">
+              <label htmlFor="">Email Address:</label>
+              <input
+                className="login-input"
+                type="email"
+                placeholder="you@example.com"
+              />
+            </div>
 
-            <div>
+            <div className="login-section-password">
               <label htmlFor="">Password:</label>
               <a href="#">Forgot Password?</a>
             </div>
-            <input type="password" placeholder="enter 6 characters or more" />
+            <input
+              className="login-input"
+              type="password"
+              placeholder="enter 6 characters or more"
+            />
 
             <div className="remember-me">
               <input type="checkbox" name="" id="" />
@@ -27,9 +39,11 @@ function Login() {
             <button>Sign-in</button>
           </form>
         </div>
-        <div className="login-image-section">
-          <img src="" alt="" />
-        </div>
+        <img
+          className="login-section-img"
+          src="/src/assets/login/login-img.svg"
+          alt=""
+        />
       </div>
     </div>
   );
