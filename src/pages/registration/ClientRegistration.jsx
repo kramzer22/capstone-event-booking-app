@@ -132,7 +132,7 @@ function ClientRegistration({}) {
           <p>
             Already have an account?{" "}
             <span>
-              <Link to="/login">
+              <Link to="/Login">
                 <a>Log-in</a>
               </Link>
             </span>
