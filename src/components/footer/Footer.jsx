@@ -122,7 +122,7 @@ function Footer() {
           <p>&gt; general terms and agreement</p> */}
         </div>
         <div className="footer-copyright">
-          <p>Copyright &copy;2023 "COMPANY"</p>
+          <p>Copyright &copy;2023 EasyGig&trade;</p>
         </div>
       </div>
     </div>

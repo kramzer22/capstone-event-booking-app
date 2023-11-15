@@ -31,7 +31,7 @@ function Header({ userLoginState }) {
   return (
     <div className="navigation-container">
       <div className="logo-container">
-        <p>Logo here or App name</p>
+        <img src="/src/assets/header/iconlogo.svg" alt="" />
       </div>
       <div className="navigation-links">
         <ul>

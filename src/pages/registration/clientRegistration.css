@@ -16,12 +16,39 @@
   gap: 0.5rem;
 
   min-height: 100vh;
-  padding: 130px 2rem 0;
+  /* padding: 130px 2rem 0; */
+  padding: 2rem;
 
   background-color: var(--primary);
-  /* place-content: center; */
+  place-content: center;
 
   color: var(--background);
+}
+
+.registration-logo {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 2rem;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(/src/assets/registration/iconlogo.svg);
+
+  &::after{
+    content: "EasyGig";
+    position: absolute;
+    height: 45px;
+    width: 100px;
+    bottom: -45px;
+
+    font-size: 25px;
+    font-weight: 900;
+    font-family: "Source Sans 3", sans-serif;
+    text-align: center;
+    letter-spacing: 1px;
+  }
 }
 
 .registration-details {
@@ -53,10 +80,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  place-content: center;
 
   gap: 2rem;
-  padding: 130px 2rem 0;
-
+  /* padding: 130px 2rem 0; */
+  padding: 2rem;
 }
 
 .registration-container-platform::before {

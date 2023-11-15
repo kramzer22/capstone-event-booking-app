@@ -221,6 +221,7 @@
 
   padding-bottom: 1rem;
   font-size: 12px;
+  letter-spacing: 1px;
   background-color: #3586ff;
   color: var(--background);
 }

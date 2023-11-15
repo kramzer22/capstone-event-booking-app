@@ -172,7 +172,6 @@ function ClientRegistration({}) {
     <div className="registration-container">
       <div className="registration-container-form">
         <div className="registration-logo">
-          LOGO HERE goes home when clicked
         </div>
         <h5>Create an account now</h5>
         {formDisplay}
@@ -180,7 +179,7 @@ function ClientRegistration({}) {
           <p>
             Already have an account?{" "}
             <span>
-              <Link to="/login">
+              <Link to="/Login">
                 <a>Log-in</a>
               </Link>
             </span>
