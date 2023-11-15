@@ -7,6 +7,7 @@ import InstantMessaging from "./components/instant-messaging/InstantMessaging";
 import Home from "./pages/home/Home";
 import AboutUs from "./pages/about/AboutUs";
 import Register from "./pages/registration/Register";
+import LoginPage from "./pages/loginpage/LoginPage";
 import ClientRegistration from "./pages/registration/ClientRegistration";
 import HostRegistration from "./pages/registration/hostRegistration";
 import Redicrecting from "./pages/redirecting/Redirecting";
@@ -48,6 +49,7 @@ function App() {
             }
           />
           <Route path="/redirect" element={<Redicrecting />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<Register />} />
           <Route path="/register/client" element={<ClientRegistration />} />
           <Route path="/register/host" element={<HostRegistration />} />

@@ -7,7 +7,7 @@ import HostFormThree from "./registration-components/HostFormThree";
 
 import inputChekerModule from "../../helpers/inputChekerModule";
 import registrationServices from "../../services/registrationServices";
-import { Navigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 function HostRegistration({ token }) {
   const [email, setEmail] = useState("");
@@ -30,17 +30,24 @@ function HostRegistration({ token }) {
   const [errorDisplay, setErrorDisplay] = useState("");
   const [currentForm, setCurrentForm] = useState(1);
 
+  const navigate = useNavigate();
+  const searchParams = new URLSearchParams(useLocation().search);
+
   const ERROR_DISPLAY_TIME = 4000;
+  const registrationToken = searchParams.get("token_id");
 
   useEffect(() => {
-    if (!checkTokenValidity()) {
-      Navigate("/");
-    }
+    const checkValidityAndNavigate = async () => {
+      if (!(await checkTokenValidity())) {
+        navigate("/");
+      }
+    };
+
+    checkValidityAndNavigate();
   }, []);
 
   const checkTokenValidity = async () => {
     try {
-      const registrationToken = searchParams.get("token");
       if (registrationToken) {
         const tokenValidityResponse =
           await registrationServices.checkHostRegistrationTokenValidity(
@@ -80,13 +87,8 @@ function HostRegistration({ token }) {
     };
 
     try {
-      const token = await registrationServices.getCreateRegistrationToken(
-        newHost,
-        "host"
-      );
-
       const registrationResult = await registrationServices.registerHost(
-        token.data.token,
+        newHost,
         registrationToken
       );
 
@@ -173,7 +175,9 @@ function HostRegistration({ token }) {
           <p>
             Already have an account?{" "}
             <span>
-              <a href="#">Log-in</a>
+              <Link to="/login">
+                <a>Log-in</a>
+              </Link>
             </span>
           </p>
           <p>
