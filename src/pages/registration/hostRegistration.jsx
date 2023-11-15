@@ -4,6 +4,7 @@ import "./clientRegistration.css";
 import RegFormOne from "./registration-components/RegFormOne";
 import HostFormTwo from "./registration-components/HostFormTwo";
 import HostFormThree from "./registration-components/HostFormThree";
+import SuccessFulRegistration from "./registration-components/SuccessfulRegistration";
 
 import inputChekerModule from "../../helpers/inputChekerModule";
 import registrationServices from "../../services/registrationServices";
@@ -92,6 +93,10 @@ function HostRegistration({ token }) {
         registrationToken
       );
 
+      if (registrationResult.status === 201) {
+        setCurrentForm(4);
+      }
+
       console.log(registrationResult);
     } catch (error) {
       inputChekerModule.setErrorDisplay(
@@ -161,12 +166,15 @@ function HostRegistration({ token }) {
         submitClientFormHandler={submitClientFormHandler}
       />
     );
+  } else {
+    formDisplay = <SuccessFulRegistration />;
   }
 
   return (
     <div className="registration-container">
       <div className="registration-container-form">
         <div className="registration-logo">
+          LOGO HERE goes home when clicked
         </div>
         <h5>Create an account now</h5>
         {formDisplay}

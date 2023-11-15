@@ -55,6 +55,8 @@ function ClientRegistration({}) {
         );
         if (response.status === 201) {
           console.log(clientRegistration);
+          clearAllInput();
+          setCurrentForm(3);
         } else {
           throw new Error("Something went wrong");
         }
@@ -171,8 +173,7 @@ function ClientRegistration({}) {
   return (
     <div className="registration-container">
       <div className="registration-container-form">
-        <div className="registration-logo">
-        </div>
+        <div className="registration-logo"></div>
         <h5>Create an account now</h5>
         {formDisplay}
         <div className="registration-details">
