@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import registrationServices from "../../services/registrationServices.js";
 import "./clientRegistration.css";
@@ -131,7 +132,9 @@ function ClientRegistration({}) {
           <p>
             Already have an account?{" "}
             <span>
-              <a href="#">Log-in</a>
+              <Link to="/login">
+                <a>Log-in</a>
+              </Link>
             </span>
           </p>
           <p>

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { redirect, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import Redirect from "../../components/redirect/Redirect";
 import registrationServices from "../../services/registrationServices";
@@ -25,16 +25,18 @@ function Register() {
             navigate("/register/client");
           } else {
             try {
-              const tokenValidityResponse =
+              const response =
                 await registrationServices.checkHostRegistrationTokenValidity(
                   registrationToken
                 );
-              console.log("wawqawee");
-              if (tokenValidityResponse.status === 200) {
-                navigate("/register/host");
+              if (response.status === 200) {
+                navigate(`/register/host/?token_id=${registrationToken}`);
+              } else {
+                throw new Error("navigate to home");
               }
             } catch (error) {
-              console.log("wawqawee");
+              console.log(error);
+              navigate("/");
             }
           }
         }

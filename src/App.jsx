@@ -7,9 +7,12 @@ import InstantMessaging from "./components/instant-messaging/InstantMessaging";
 import Home from "./pages/home/Home";
 import AboutUs from "./pages/about/AboutUs";
 import Register from "./pages/registration/Register";
+import Login from "./pages/login/Login";
 import ClientRegistration from "./pages/registration/ClientRegistration";
 import HostRegistration from "./pages/registration/hostRegistration";
 import Redicrecting from "./pages/redirecting/Redirecting";
+
+import EventPlacemanager from "./pages/host/EventPlaceManager";
 
 import Contact from "./pages/contact/Contact";
 import Error from "./pages/404-error/Error";
@@ -46,6 +49,7 @@ function App() {
             }
           />
           <Route path="/redirect" element={<Redicrecting />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/register/client" element={<ClientRegistration />} />
           <Route path="/register/host" element={<HostRegistration />} />
@@ -71,6 +75,8 @@ function App() {
               />
             }
           />
+
+          <Route path="/host/event-place" element={<EventPlacemanager />} />
         </Routes>
         <InstantMessaging />
       </div>

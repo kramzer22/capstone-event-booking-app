@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./clientRegistration.css";
 
 import RegFormOne from "./registration-components/RegFormOne";
 import HostFormTwo from "./registration-components/HostFormTwo";
 import HostFormThree from "./registration-components/HostFormThree";
+
+import inputChekerModule from "../../helpers/inputChekerModule";
+import registrationServices from "../../services/registrationServices";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 function HostRegistration({ token }) {
   const [email, setEmail] = useState("");
@@ -25,6 +29,78 @@ function HostRegistration({ token }) {
 
   const [errorDisplay, setErrorDisplay] = useState("");
   const [currentForm, setCurrentForm] = useState(1);
+
+  const navigate = useNavigate();
+  const searchParams = new URLSearchParams(useLocation().search);
+
+  const ERROR_DISPLAY_TIME = 4000;
+  const registrationToken = searchParams.get("token_id");
+
+  useEffect(() => {
+    const checkValidityAndNavigate = async () => {
+      if (!(await checkTokenValidity())) {
+        navigate("/");
+      }
+    };
+
+    checkValidityAndNavigate();
+  }, []);
+
+  const checkTokenValidity = async () => {
+    try {
+      if (registrationToken) {
+        const tokenValidityResponse =
+          await registrationServices.checkHostRegistrationTokenValidity(
+            registrationToken
+          );
+        if (tokenValidityResponse.status !== 200) {
+          return false;
+        } else {
+          return true;
+        }
+      } else {
+        return false;
+      }
+    } catch (error) {
+      return false;
+    }
+  };
+
+  const submitClientFormHandler = async () => {
+    const newHost = {
+      email: email,
+      password: password,
+      name: {
+        first_name: firstName.trim().toLowerCase(),
+        last_name: lastName.trim().toLowerCase(),
+      },
+      dob: birthdate,
+      gender: gender.toLowerCase(),
+      business_name: businessName.trim().toLowerCase(),
+      address: {
+        province: province,
+        city: city,
+        barangay: barangay,
+        street: address,
+      },
+      number: { mobile: mobile, landline: landLine },
+    };
+
+    try {
+      const registrationResult = await registrationServices.registerHost(
+        newHost,
+        registrationToken
+      );
+
+      console.log(registrationResult);
+    } catch (error) {
+      inputChekerModule.setErrorDisplay(
+        { errorDisplay: errorDisplay, setErrorDisplay: setErrorDisplay },
+        "Unable to process transaction. Try again!",
+        ERROR_DISPLAY_TIME
+      );
+    }
+  };
 
   let formDisplay;
 
@@ -82,6 +158,7 @@ function HostRegistration({ token }) {
           errorDisplay: errorDisplay,
           setErrorDisplay: setErrorDisplay,
         }}
+        submitClientFormHandler={submitClientFormHandler}
       />
     );
   }
@@ -97,7 +174,9 @@ function HostRegistration({ token }) {
           <p>
             Already have an account?{" "}
             <span>
-              <a href="#">Log-in</a>
+              <Link to="/login">
+                <a>Log-in</a>
+              </Link>
             </span>
           </p>
           <p>
@@ -117,32 +196,32 @@ function HostRegistration({ token }) {
         </div>
         <div className="platform-details-ctr">
           <div className="platform-details">
-            <i class="ri-calendar-event-line"></i>
+            <i className="ri-calendar-event-line"></i>
             <p>Event Organizer Registration</p>
           </div>
 
           <div className="platform-details">
-            <i class="ri-presentation-line"></i>
+            <i className="ri-presentation-line"></i>
             <p>Comprehensive Event Management</p>
           </div>
 
           <div className="platform-details">
-            <i class="ri-user-heart-line"></i>
+            <i className="ri-user-heart-line"></i>
             <p>User-Friendly Experience</p>
           </div>
 
           <div className="platform-details">
-            <i class="ri-book-2-line"></i>
+            <i className="ri-book-2-line"></i>
             <p>Effortless Booking</p>
           </div>
 
           <div className="platform-details">
-            <i class="ri-admin-line"></i>
+            <i className="ri-admin-line"></i>
             <p>Admin Support</p>
           </div>
 
           <div className="platform-details">
-            <i class="ri-bank-line"></i>
+            <i className="ri-bank-line"></i>
             <p>Security Deposit</p>
           </div>
         </div>
