@@ -1,7 +1,9 @@
 import { useRef } from "react";
 
-import inputChekerModule from "../../../helpers/inputChekerModule";
 import "./RegFormAll.css";
+
+import inputChekerModule from "../../../helpers/inputChekerModule";
+import registrationServices from "../../../services/registrationServices";
 
 function HostFormOne({
   currentFormState,
@@ -13,7 +15,7 @@ function HostFormOne({
   const rePasswordInput = useRef(null);
   const ERROR_DISPLAY_TIME = 4000;
 
-  const formSubmitHandler = (e) => {
+  const formSubmitHandler = async (e) => {
     e.preventDefault();
 
     if (!inputChekerModule.isValidEmail(emailState.email.trim())) {
@@ -48,8 +50,32 @@ function HostFormOne({
         ERROR_DISPLAY_TIME
       );
     } else {
-      errorState.setErrorDisplay("");
-      currentFormState.setCurrentForm(2);
+      try {
+        const response = await registrationServices.checkEmail(
+          emailState.email.trim()
+        );
+        if (response.status === 200) {
+          errorState.setErrorDisplay("");
+          currentFormState.setCurrentForm(2);
+        }
+      } catch (error) {
+        const errorData = error.response.data;
+        if (error.response.status === 401) {
+          if (errorData.error === "invalidEmail") {
+            inputChekerModule.setErrorDisplay(
+              errorState,
+              errorData.message,
+              ERROR_DISPLAY_TIME
+            );
+          }
+        } else {
+          inputChekerModule.setErrorDisplay(
+            errorState,
+            "Unable to process transaction. Try again!",
+            ERROR_DISPLAY_TIME
+          );
+        }
+      }
     }
   };
 

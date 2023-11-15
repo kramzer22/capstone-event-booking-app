@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import registrationServices from "../../services/registrationServices.js";
 import "./clientRegistration.css";
 
-import Header from "../../components/header/Header.jsx";
 import RegFormOne from "./registration-components/RegFormOne.jsx";
 import RegFormTwo from "./registration-components/RegFormTwo.jsx";
 import SuccessFulRegistration from "./registration-components/SuccessfulRegistration.jsx";
+
+import registrationServices from "../../services/registrationServices.js";
+import inputChekerModule from "../../helpers/inputChekerModule.js";
 
 function ClientRegistration({}) {
   const [email, setEmail] = useState("");
@@ -21,6 +22,8 @@ function ClientRegistration({}) {
 
   const [currentForm, setCurrentForm] = useState(1);
 
+  const ERROR_DISPLAY_TIME = 4000;
+
   const clearAllInput = () => {
     setEmail("");
     setReEmail("");
@@ -31,55 +34,99 @@ function ClientRegistration({}) {
     setErrorDisplay("");
   };
 
-  const submitClientFormHandler = () => {
+  const submitClientFormHandler = async () => {
     const newClient = {
       email: email,
       password: password,
-      first_name: firstName,
-      last_name: lastName,
+      name: {
+        first_name: firstName,
+        last_name: lastName,
+      },
       number: mobile,
     };
 
-    registrationServices
-      .getCreateRegistrationToken(newClient)
-      .then((response) => {
+    try {
+      const response = await registrationServices.createUserRegistrationToken(
+        newClient
+      );
+      if (response.status === 201) {
+        const clientRegistration = await registrationServices.registerClient(
+          response.data.token
+        );
         if (response.status === 201) {
-          registrationServices
-            .createClient(response.data.token)
-            .then((response) => {
-              if (response.status === 201) {
-                console.log("Client successfully registered", response.data);
-                clearAllInput();
-
-                setCurrentForm(3);
-              }
-            })
-            .catch((error) => {
-              const errorData = error.response;
-              if (errorData) {
-                if (errorData.status === 400) {
-                  console.log("Bad request", errorData.data);
-                } else if (errorData.status === 403) {
-                  console.log("Request denied", errorData.data);
-                }
-              } else {
-                console.log("Network problem.");
-              }
-            });
-        }
-      })
-      .catch((error) => {
-        const errorData = error.response;
-        if (errorData) {
-          if (errorData.status === 400) {
-            console.log("Bad request", errorData.data);
-          } else if (errorData.status === 403) {
-            console.log("Request denied", errorData.data);
-          }
+          console.log(clientRegistration);
         } else {
-          console.log("Network problem.");
+          throw new Error("Something went wrong");
         }
-      });
+      } else {
+        throw new Error("Something went wrong");
+      }
+    } catch (error) {
+      const errorData = error.response.data;
+      if (error.response.status === 401) {
+        if (errorData.error === "invalidEmail") {
+          setCurrentForm(1);
+          inputChekerModule.setErrorDisplay(
+            { errorState: errorState, setErrorDisplay: setErrorDisplay },
+            errorData.message,
+            ERROR_DISPLAY_TIME
+          );
+        } else {
+          inputChekerModule.setErrorDisplay(
+            { errorDisplay: errorDisplay, setErrorDisplay: setErrorDisplay },
+            "Unable to process transaction. Try again!",
+            ERROR_DISPLAY_TIME
+          );
+        }
+      } else {
+        inputChekerModule.setErrorDisplay(
+          { errorDisplay: errorDisplay, setErrorDisplay: setErrorDisplay },
+          "Unable to process transaction. Try again!",
+          ERROR_DISPLAY_TIME
+        );
+      }
+    }
+
+    // registrationServices
+    //   .getCreateRegistrationToken(newClient)
+    //   .then((response) => {
+    //     if (response.status === 201) {
+    //       registrationServices
+    //         .createClient(response.data.token)
+    //         .then((response) => {
+    //           if (response.status === 201) {
+    //             console.log("Client successfully registered", response.data);
+    //             clearAllInput();
+
+    //             setCurrentForm(3);
+    //           }
+    //         })
+    //         .catch((error) => {
+    //           const errorData = error.response;
+    //           if (errorData) {
+    //             if (errorData.status === 400) {
+    //               console.log("Bad request", errorData.data);
+    //             } else if (errorData.status === 403) {
+    //               console.log("Request denied", errorData.data);
+    //             }
+    //           } else {
+    //             console.log("Network problem.");
+    //           }
+    //         });
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     const errorData = error.response;
+    //     if (errorData) {
+    //       if (errorData.status === 400) {
+    //         console.log("Bad request", errorData.data);
+    //       } else if (errorData.status === 403) {
+    //         console.log("Request denied", errorData.data);
+    //       }
+    //     } else {
+    //       console.log("Network problem.");
+    //     }
+    //   });
   };
 
   let formDisplay;

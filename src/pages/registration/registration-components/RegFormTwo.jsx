@@ -1,3 +1,5 @@
+import inputChekerModule from "../../../helpers/inputChekerModule";
+
 function RegFormTwo({
   currentFormState,
   firstNameState,
@@ -6,24 +8,29 @@ function RegFormTwo({
   errorState,
   submitClientFormHandler,
 }) {
-  const errorDisplayTimer = () => {
-    setTimeout(() => {
-      errorState.setErrorDisplay("");
-    }, 3000);
-  };
+  const ERROR_DISPLAY_TIME = 4000;
 
   const formSubmitHandler = async (e) => {
     e.preventDefault();
 
     if (firstNameState.firstName.trim() < 1) {
-      errorState.setErrorDisplay("Enter your first name");
-      errorDisplayTimer();
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Enter your first name",
+        ERROR_DISPLAY_TIME
+      );
     } else if (lastNameState.lastName.trim() < 1) {
-      errorState.setErrorDisplay("Enter your last name");
-      errorDisplayTimer();
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Enter your last name",
+        ERROR_DISPLAY_TIME
+      );
     } else if (mobileState.mobile.replace(" ", "").length > 11) {
-      errorState.setErrorDisplay("Enter a valid mobile number");
-      errorDisplayTimer();
+      inputChekerModule.setErrorDisplay(
+        errorState,
+        "Enter a valid mobile number",
+        ERROR_DISPLAY_TIME
+      );
     } else {
       submitClientFormHandler();
     }
@@ -85,7 +92,9 @@ function RegFormTwo({
       </div>
 
       <div className="registration-buttons two">
-        <button className="back-btn" onClick={backClickHandler}>Back</button>
+        <button className="back-btn" onClick={backClickHandler}>
+          Back
+        </button>
         <button className="next two" type="submit">
           Next
         </button>

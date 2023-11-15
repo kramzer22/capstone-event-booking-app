@@ -1,23 +1,28 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:3001/api/client/";
+const clientURL = "http://localhost:3001/api/client/";
+const userURL = "http://localhost:3001/api/user/";
 const hostURL = "http://localhost:3001/api/host/";
 const tokenURL = "http://localhost:3001/api/token/";
 
-function createClient(registrationToken) {
-  return axios.post(`${baseURL}register-client/?token_id=${registrationToken}`);
+function registerClient(registrationToken) {
+  return axios.post(`${clientURL}register/?token_id=${registrationToken}`);
 }
 
-function registerHost(clientData, registrationToken) {
+function registerHost(hostData, registrationToken) {
   return axios.post(
-    `${hostURL}register/host-invite/?token_id=${registrationToken}`,
-    clientData
+    `${hostURL}register/?token_id=${registrationToken}`,
+    hostData
   );
 }
 
-function getCreateRegistrationToken(registrationData, type, inviteToken) {
+function checkEmail(email) {
+  return axios.get(`${userURL}check/${email}`);
+}
+
+function createUserRegistrationToken(registrationData) {
   return axios.post(
-    `${tokenURL}?register=${type}&invite_token=${inviteToken}`,
+    `${tokenURL}register/client-registration`,
     registrationData
   );
 }
@@ -27,8 +32,9 @@ function checkHostRegistrationTokenValidity(registrationToken) {
 }
 
 export default {
-  createClient,
+  registerClient,
   registerHost,
-  getCreateRegistrationToken,
+  createUserRegistrationToken,
   checkHostRegistrationTokenValidity,
+  checkEmail,
 };
