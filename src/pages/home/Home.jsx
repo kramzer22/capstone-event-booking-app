@@ -3,10 +3,10 @@ import "./home.css";
 import IndexReview from "./home-components/IndexReview";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-function Home({ loginUserState }) {
+function Home({ userCookieState }) {
   return (
     <>
-      <Header loginUserState={loginUserState} />
+      <Header userCookieState={userCookieState} />
       <div className="index-container">
         <div className="index-article-container main">
           <div className="index-title">

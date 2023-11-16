@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import InstantMessaging from "./components/instant-messaging/InstantMessaging";
 
 // Pages
 import Home from "./pages/home/Home";
+import HostHome from "./pages/user-home/HostHome";
 import AboutUs from "./pages/about/AboutUs";
 import Register from "./pages/registration/Register";
 import Login from "./pages/login/Login";
@@ -17,33 +18,54 @@ import EventPlacemanager from "./pages/host/EventPlaceManager";
 import Contact from "./pages/contact/Contact";
 import Error from "./pages/404-error/Error";
 
+import tokenServices from "./services/tokenServices";
+
 import "./App.css";
 
 function App() {
-  const [loginUser, setLoginUser] = useState(false);
+  const [userCookie, setUserCookie] = useState("");
+
+  useEffect(() => {
+    tokenServices.checkUserCookieCredentials({
+      userCookie: userCookie,
+      setUserCookie: setUserCookie,
+    });
+  }, []);
+
+  console.log(userCookie);
+  let homeDisplay;
+  if (userCookie !== "") {
+    homeDisplay = (
+      <HostHome
+        userCookieState={{
+          userCookie: userCookie,
+          setUserCookie: setUserCookie,
+        }}
+      />
+    );
+  } else {
+    homeDisplay = (
+      <Home
+        userCookieState={{
+          userCookie: userCookie,
+          setUserCookie: setUserCookie,
+        }}
+      />
+    );
+  }
 
   return (
     <Router>
       <div className="app-container">
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                loginUserState={{
-                  loginUser: loginUser,
-                  setLoginUser: setLoginUser,
-                }}
-              />
-            }
-          />
+          <Route path="/" element={homeDisplay} />
           <Route
             path="/about"
             element={
               <AboutUs
                 loginUserState={{
-                  loginUser: loginUser,
-                  setLoginUser: setLoginUser,
+                  userCookie: userCookie,
+                  setUserCookie: setUserCookie,
                 }}
               />
             }
@@ -57,9 +79,9 @@ function App() {
             path="/contact"
             element={
               <Contact
-                loginUserState={{
-                  loginUser: loginUser,
-                  setLoginUser: setLoginUser,
+                userCookie={{
+                  userCookie: userCookie,
+                  setUserCookie: setUserCookie,
                 }}
               />
             }
@@ -69,8 +91,8 @@ function App() {
             element={
               <Error
                 loginUserState={{
-                  loginUser: loginUser,
-                  setLoginUser: setLoginUser,
+                  userCookie: userCookie,
+                  setUserCookie: setUserCookie,
                 }}
               />
             }

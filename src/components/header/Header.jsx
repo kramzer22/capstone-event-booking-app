@@ -1,11 +1,68 @@
 import { React } from "react";
-import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./header.css";
 
-function Header({ userLoginState }) {
+import registrationServices from "../../services/registrationServices";
+import objectHelperModule from "../../helpers/objectHelperModule";
+
+function Header({ userCookieState }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorDisplay, setErrorDisplay] = useState("");
+
+  const navigate = useNavigate();
+
   const loginContainerRef = useRef(null);
+
+  const ERROR_DISPLAY_TIME = 5000;
+
+  const loginHandler = async (e) => {
+    e.preventDefault();
+
+    const userData = { email: email, password: password };
+
+    try {
+      const response = await registrationServices.checkLoginCredentials(
+        userData
+      );
+      if (response.status === 201) {
+        objectHelperModule.createCookie({
+          name: "userToken",
+          value: response.data.token,
+        });
+        navigate("/");
+        window.location.reload();
+      }
+    } catch (error) {
+      const errorData = error.response.data;
+      if (error.response.status === 401) {
+        if (
+          errorData.error === "invalidUser" ||
+          errorData.error === "invalidCredentials"
+        ) {
+          inputChekerModule.setErrorDisplay(
+            { errorDisplay: errorDisplay, setErrorDisplay: setErrorDisplay },
+            errorData.message,
+            ERROR_DISPLAY_TIME
+          );
+        } else {
+          inputChekerModule.setErrorDisplay(
+            { errorDisplay: errorDisplay, setErrorDisplay: setErrorDisplay },
+            "Unable to process transaction. Try again!",
+            ERROR_DISPLAY_TIME
+          );
+        }
+      } else {
+        inputChekerModule.setErrorDisplay(
+          { errorDisplay: errorDisplay, setErrorDisplay: setErrorDisplay },
+          "Unable to process transaction. Try again!",
+          ERROR_DISPLAY_TIME
+        );
+      }
+    }
+  };
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -27,6 +84,24 @@ function Header({ userLoginState }) {
       }, 300);
     }
   };
+
+  let loginLink = <></>;
+  if (userCookieState.userCookie === "") {
+    loginLink = (
+      <>
+        <li>
+          <a className="nav-link" onClick={showLoginForm}>
+            Log in
+          </a>
+        </li>
+        <li>
+          <Link className="nav-link" to="/register" target="_blank">
+            Register
+          </Link>
+        </li>
+      </>
+    );
+  }
 
   return (
     <div className="navigation-container">
@@ -65,38 +140,37 @@ function Header({ userLoginState }) {
               Book Now
             </a>
           </li>
-
-          <li>
-            <a className="nav-link" onClick={showLoginForm}>
-              Log in
-            </a>
-          </li>
-          <li>
-            <Link
-              className="nav-link"
-              to="/register/?user=client"
-              target="_blank"
-              onClick={scrollToTop}
-            >
-              Register
-            </Link>
-          </li>
+          {loginLink}
         </ul>
 
-        <div ref={loginContainerRef} className="login-container">
+        <div
+          ref={loginContainerRef}
+          className="login-container"
+          onSubmit={loginHandler}
+        >
           <div className="login-header">
             <h4>Login</h4>
             <button onClick={showLoginForm}>✖</button>
           </div>
           <form className="login-form">
-            <input type="email" placeholder="email address" />
-            <input type="password" placeholder="password" />
+            <input
+              type="email"
+              placeholder="email address"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <a target="_self">Forgot password?</a>
             <button type="submit">Login</button>
           </form>
           <div className="sign-up">
             <span>Not a member?</span>
-            <a href="#">Sign Up</a>
+            <Link to="/register" target="_blank">
+              <a>Sign Up</a>
+            </Link>
           </div>
         </div>
       </div>
