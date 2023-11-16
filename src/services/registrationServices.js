@@ -31,10 +31,15 @@ function checkHostRegistrationTokenValidity(registrationToken) {
   return axios.get(`${tokenURL}host-invite/?token_id=${registrationToken}`);
 }
 
+function checkLoginCredentials(userData) {
+  return axios.post(`${userURL}login`, userData);
+}
+
 export default {
   registerClient,
   registerHost,
   createUserRegistrationToken,
   checkHostRegistrationTokenValidity,
   checkEmail,
+  checkLoginCredentials,
 };

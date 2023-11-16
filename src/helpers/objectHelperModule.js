@@ -53,4 +53,26 @@ const dayBuilder = (month, year = "") => {
   }
 };
 
-export default { yearBuilder, monthBuilder, dayBuilder };
+const createCookie = (cookie) => {
+  document.cookie = `${cookie.name}=${cookie.value}`;
+};
+
+const getCookie = (name) => {
+  const cookies = document.cookie.split("; ");
+  for (let cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.split("=");
+    if (cookieName === name) {
+      return cookieValue;
+    }
+  }
+
+  return null;
+};
+
+export default {
+  yearBuilder,
+  monthBuilder,
+  dayBuilder,
+  createCookie,
+  getCookie,
+};
