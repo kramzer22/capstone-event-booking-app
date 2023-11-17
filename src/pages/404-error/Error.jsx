@@ -4,10 +4,10 @@ import "./error.css";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 
-function Error({ loginUserState }) {
+function Error({ userCookieState }) {
   return (
     <>
-      <Header loginUserState={loginUserState} />
+      <Header userCookieState={userCookieState} />
       <div className="error-container">
         <div>
           <h1>404</h1>

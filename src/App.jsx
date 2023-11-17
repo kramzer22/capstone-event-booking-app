@@ -5,15 +5,14 @@ import InstantMessaging from "./components/instant-messaging/InstantMessaging";
 
 // Pages
 import Home from "./pages/home/Home";
-import HostHome from "./pages/user-home/HostHome";
+import HostHome from "./pages/user-home/host/HostHome";
+import EventPlaceManager from "./pages/user-home/host/EventPlaceManager";
 import AboutUs from "./pages/about/AboutUs";
 import Register from "./pages/registration/Register";
 import Login from "./pages/login/Login";
 import ClientRegistration from "./pages/registration/ClientRegistration";
 import HostRegistration from "./pages/registration/hostRegistration";
 import Redicrecting from "./pages/redirecting/Redirecting";
-
-import EventPlacemanager from "./pages/host/EventPlaceManager";
 
 import Contact from "./pages/contact/Contact";
 import Error from "./pages/404-error/Error";
@@ -60,10 +59,21 @@ function App() {
         <Routes>
           <Route path="/" element={homeDisplay} />
           <Route
+            path="host/event-manager"
+            element={
+              <EventPlaceManager
+                userCookieState={{
+                  userCookie: userCookie,
+                  setUserCookie: setUserCookie,
+                }}
+              />
+            }
+          />
+          <Route
             path="/about"
             element={
               <AboutUs
-                loginUserState={{
+                userCookieState={{
                   userCookie: userCookie,
                   setUserCookie: setUserCookie,
                 }}
@@ -79,7 +89,7 @@ function App() {
             path="/contact"
             element={
               <Contact
-                userCookie={{
+                userCookieState={{
                   userCookie: userCookie,
                   setUserCookie: setUserCookie,
                 }}
@@ -90,15 +100,13 @@ function App() {
             path="*"
             element={
               <Error
-                loginUserState={{
+                userCookieState={{
                   userCookie: userCookie,
                   setUserCookie: setUserCookie,
                 }}
               />
             }
           />
-
-          <Route path="/host/event-place" element={<EventPlacemanager />} />
         </Routes>
         <InstantMessaging />
       </div>

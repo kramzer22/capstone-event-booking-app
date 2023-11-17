@@ -14,6 +14,7 @@ function Header({ userCookieState }) {
 
   const navigate = useNavigate();
 
+  const profileDropDownRef = useRef(null);
   const loginContainerRef = useRef(null);
 
   const ERROR_DISPLAY_TIME = 5000;
@@ -85,8 +86,39 @@ function Header({ userCookieState }) {
     }
   };
 
-  let loginLink = <></>;
-  if (userCookieState && userCookieState.userCookie === "") {
+  const showProfileDropDown = () => {
+    if (profileDropDownRef.current.style.display === "none") {
+      profileDropDownRef.current.style.display = "flex";
+    } else {
+      profileDropDownRef.current.style.display = "none";
+    }
+  };
+
+  let loginLink = (
+    <>
+      <li className="profile-nav-container">
+        <a className="nav-link profile-nav" onClick={showProfileDropDown}>
+          User Name
+        </a>
+        <div ref={profileDropDownRef} className="profile-manager-container">
+          <ul>
+            <li>
+              <a className="nav-link">Profile</a>
+            </li>
+            <li>
+              <a className="nav-link">Booking Manager</a>
+            </li>
+            <li>
+              <Link to="host/event-manager">
+                <a className="nav-link">Event Manager</a>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </>
+  );
+  if (userCookieState.userCookie === "") {
     loginLink = (
       <>
         <li>
@@ -109,7 +141,7 @@ function Header({ userCookieState }) {
         <img src="/src/assets/header/iconlogo.svg" alt="" />
       </div>
       <div className="navigation-links">
-        <ul>
+        <ul className="navigation-links-container">
           <li>
             <Link className="nav-link" to="/" onClick={scrollToTop}>
               Home

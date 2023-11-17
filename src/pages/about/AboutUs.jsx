@@ -4,10 +4,10 @@ import "./AboutUs.css";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 
-function AboutUs({ loginUserState }) {
+function AboutUs({ userCookieState }) {
   return (
     <>
-      <Header loginUserState={loginUserState} />
+      <Header userCookieState={userCookieState} />
       <div>
         <div className="about-container">
           <div className="about-details">
