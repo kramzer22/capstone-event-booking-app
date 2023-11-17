@@ -4,10 +4,10 @@ import "./AboutUs.css";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 
-function AboutUs({ loginUserState }) {
+function AboutUs({ userCookieState }) {
   return (
     <>
-      <Header loginUserState={loginUserState} />
+      <Header userCookieState={userCookieState} />
       <div>
         <div className="about-container">
           <div className="about-details">
@@ -16,7 +16,9 @@ function AboutUs({ loginUserState }) {
             </div>
 
             <div className="about-description">
-              <h2><span>Elevating event experiences</span> for everyone.</h2>
+              <h2>
+                <span>Elevating event experiences</span> for everyone.
+              </h2>
             </div>
 
             <div className="about-paragraph">
@@ -35,10 +37,7 @@ function AboutUs({ loginUserState }) {
           </div>
 
           <div className="about-img">
-            <img
-              src="/src/assets/about/600x400.png"
-              alt="600x400"
-            />
+            <img src="/src/assets/about/600x400.png" alt="600x400" />
           </div>
         </div>
 
@@ -82,13 +81,15 @@ function AboutUs({ loginUserState }) {
             </div>
 
             <div className="history-description">
-              <h2>The Story of <span>EasyGig</span></h2>
+              <h2>
+                The Story of <span>EasyGig</span>
+              </h2>
             </div>
 
             <div className="history-paragraph">
               <p>
-                Founded in 2023, <strong>EasyGig</strong> has been on a journey to
-                simplify and enhance the event planning and booking process.
+                Founded in 2023, <strong>EasyGig</strong> has been on a journey
+                to simplify and enhance the event planning and booking process.
                 We've worked tirelessly to develop a user-friendly platform that
                 empowers event organizers and ensures memorable, stress-free
                 event experiences for all, while maintaining our commitment to
@@ -158,7 +159,7 @@ function AboutUs({ loginUserState }) {
                 viewBox="0 0 24 24"
               >
                 <path d="M8 4C8 5.10457 7.10457 6 6 6 4.89543 6 4 5.10457 4 4 4 2.89543 4.89543 2 6 2 7.10457 2 8 2.89543 8 4ZM5 16V22H3V10C3 8.34315 4.34315 7 6 7 6.82059 7 7.56423 7.32946 8.10585 7.86333L10.4803 10.1057 12.7931 7.79289 14.2073 9.20711 10.5201 12.8943 9 11.4587V22H7V16H5ZM6 9C5.44772 9 5 9.44772 5 10V14H7V10C7 9.44772 6.55228 9 6 9ZM19 5H10V3H20C20.5523 3 21 3.44772 21 4V15C21 15.5523 20.5523 16 20 16H16.5758L19.3993 22H17.1889L14.3654 16H10V14H19V5Z"></path>
-              </svg>{" "}
+              </svg>
               <div className="feature-details">
                 <h5>Comprehensive Event Management</h5>
                 <p>

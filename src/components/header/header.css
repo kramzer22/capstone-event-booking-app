@@ -116,10 +116,13 @@
 
   padding: 1em 2em;
   width: 300px;
-  color: #0f0625;
-  background-color: var(--secondary);
+  color: var(--background);
   transition: right 0.3s ease-in-out;
   border-radius: 10px;
+  background-color: var(--secondary);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .login-form {

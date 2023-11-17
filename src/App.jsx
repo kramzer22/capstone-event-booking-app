@@ -73,7 +73,7 @@ function App() {
             path="/about"
             element={
               <AboutUs
-                loginUserState={{
+                userCookieState={{
                   userCookie: userCookie,
                   setUserCookie: setUserCookie,
                 }}
@@ -89,7 +89,7 @@ function App() {
             path="/contact"
             element={
               <Contact
-                userCookie={{
+                userCookieState={{
                   userCookie: userCookie,
                   setUserCookie: setUserCookie,
                 }}
@@ -100,7 +100,7 @@ function App() {
             path="*"
             element={
               <Error
-                loginUserState={{
+                userCookieState={{
                   userCookie: userCookie,
                   setUserCookie: setUserCookie,
                 }}

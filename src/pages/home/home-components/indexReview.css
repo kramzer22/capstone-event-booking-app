@@ -2,52 +2,105 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
 
-  margin: 0 160px 80px;
-  padding: 40px 100px 60px;
-  width: calc(100% - 320px);
+  padding: 0 7em 3em;
 }
 
-.review-container h2 {
-  font-size: 50px;
-  color: #252323;
+.review-container small {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--text2);
+}
+
+.review-container span {
+  color: var(--primary);
+}
+
+.review-container h3 {
+  padding-bottom: 4rem;
+}
+
+.test {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+
+    background-image: url(/src/assets/home/quote.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transform: scaleX(-1);
+    box-sizing: border-box;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: -60px;
+    left: -40px;
+    width: 150px;
+    height: 150px;
+
+    background-image: url(/src/assets/home/quote2.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    box-sizing: border-box;
+  }
 }
 
 .review-carousel-container {
   display: flex;
-  width: calc(100%);
-  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+
+  overflow-x: hidden;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border-radius: 20px;
 }
 
 .index-review {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   flex: 0 0 100%;
-  gap: 40px;
-
-  padding: 50px 80px 40px 80px;
-  color: #252323;
-  background-color: rgba(51, 50, 49, 0.4);
-
-  transition: transform 0.5s;
+  gap: 2rem;
+  padding: 3rem;
+  transition: 0.5s linear;
 }
 
-.index-review p:first-of-type {
-  font-size: 30px;
+.index-review p {
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
 }
 
 .index-review div {
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+
   align-items: end;
 }
 
-.index-review div p:last-of-type {
-  font-size: 34px;
+.index-review div p:nth-child(1) {
+  color: gold;
+  font-size: 20px;
   font-weight: bold;
+}
+
+.index-review div small {
+  font-style: italic;
+  font-weight: 400;
 }
 
 .index-review {

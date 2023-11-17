@@ -7,7 +7,7 @@ import contactServices from "../../services/contactServices";
 
 import "./Contact.css";
 
-function Contact({ loginUserState }) {
+function Contact({ userCookieState }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [contactNumber, setContactNumber] = useState("");
@@ -157,7 +157,7 @@ function Contact({ loginUserState }) {
 
   return (
     <>
-      <Header loginUserState={loginUserState} />
+      <Header userCookieState={userCookieState} />
       <div className="contact-container">
         <div className="contact-form-ctr">
           <div className="contact-img-heads">
