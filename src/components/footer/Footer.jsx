@@ -28,16 +28,18 @@ function Footer() {
       </div>
 
       <div className="footer-gap">
+        {/* waves here */}
+        <div className="footer-waves">
+          <div className="wave" id="wave1"></div>
+          <div className="wave" id="wave2"></div>
+          <div className="wave" id="wave3"></div>
+          <div className="wave" id="wave4"></div>
+        </div>
         <div className="footer-container">
-          {/* waves here */}
-          <div className="footer-waves">
-            <div className="wave" id="wave1"></div>
-            <div className="wave" id="wave2"></div>
-            <div className="wave" id="wave3"></div>
-            <div className="wave" id="wave4"></div>
-          </div>
           <div className="footer-about-container">
-            <h5>LOGO HERE</h5>
+            <div className="footer-logo">
+              <img src="/src/assets/registration/iconlogo.svg" alt="" />
+            </div>
             <p>
               Hassle-free, worry-free, stress-free &ndash; it&apos;s that
               simple.
@@ -61,7 +63,7 @@ function Footer() {
 
           <div className="footer-page-links">
             <h6>
-              LEARN MORE{" "}
+              LEARN MORE
               <div className="underline">
                 <span></span>
               </div>
@@ -96,12 +98,11 @@ function Footer() {
               </div>
             </h6>
             <Link to="/disclaimer">
-              {" "}
               <a>Privacy Policy</a>
             </Link>
           </div>
 
-          <div className="footer-newsletter">
+          <div className="footer-page-links">
             <h6>
               News Letter
               <div className="underline">
@@ -109,8 +110,9 @@ function Footer() {
               </div>
             </h6>
             <p>
-              Want to know what we're up to? Sign up for the newsletter and join
-              our fam!
+              Want to know what we're up to?
+              <br />
+              Sign up for the newsletter and join our fam!
             </p>
             <div className="newsletter-input">
               <input type="email" name="" id="" />
