@@ -27,6 +27,25 @@
   max-width: 1300px;
 }
 
+.title-design {
+  color: var(--primary);
+  position: relative;
+}
+
+.title-design::after {
+  position: absolute;
+  content: "";
+  top: 40px;
+  left: -10px;
+  height: 100%;
+  width: 100%;
+
+  background: url(/src/assets/home/primary-brush-stroke.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .index-btn {
   display: flex;
   flex-direction: row;
@@ -169,4 +188,102 @@
   background-color: var(--accent);
   border: 2px solid transparent;
   color: var(--background);
+}
+
+.index-article-container.third {
+  padding: 4rem 7em 3em;
+  gap: 0.5rem;
+}
+
+.index-article-container.third small {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--text2);
+}
+
+.index-article-container.third img {
+  max-width: 100%;
+}
+
+.index-section-ctr {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.index-section-details {
+  display: flex;
+  gap: 3rem;
+  padding: 3rem 0;
+
+  justify-content: center;
+}
+
+.index-section-details p {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 0;
+
+  color: var(--text2);
+  font-size: 16px;
+
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+}
+
+.index-section-details strong {
+  color: var(--primary);
+  font-family: "Source Sans 3", sans-serif !important;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.index-section-details img {
+  max-width: 400px !important;
+  width: 100% !important;
+  height: auto;
+
+  border-radius: 20px;
+}
+
+.index-section-details.one,
+.index-section-details.three,
+.index-section-details.five {
+  flex-direction: row-reverse;
+}
+
+.index-article-container.third h4 {
+  padding: 3rem 0;
+  text-align: center;
+  line-height: 2;
+}
+
+.index-article-container.third h4 span {
+  color: var(--primary);
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 20px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    background: url(/src/assets/home/primary-brush-stroke.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.index-article-container.third a {
+  text-decoration: none;
+  color: var(--primary);
 }

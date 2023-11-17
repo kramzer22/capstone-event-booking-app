@@ -86,7 +86,7 @@ function Header({ userCookieState }) {
   };
 
   let loginLink = <></>;
-  if (userCookieState.userCookie === "") {
+  if (userCookieState && userCookieState.userCookie === "") {
     loginLink = (
       <>
         <li>

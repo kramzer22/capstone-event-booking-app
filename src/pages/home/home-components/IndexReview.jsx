@@ -50,7 +50,7 @@ function IndexReview({}) {
           <p>&ldquo;{review.comment}&rdquo;</p>
           <div>
             {<p>{stars}</p>}
-            <p>-{review.name}</p>
+            <small>{review.name}</small>
           </div>
         </div>
       );
@@ -59,8 +59,15 @@ function IndexReview({}) {
 
   return (
     <div className="review-container">
-      <h2>What people say about us</h2>
-      <div className="review-carousel-container">{createReviewCarousel()}</div>
+      <small>TESTIMONIALS</small>
+      <h3>
+        What people say about <span>EasyGig</span> services
+      </h3>
+      <div className="test">
+        <div className="review-carousel-container">
+          {createReviewCarousel()}
+        </div>
+      </div>
     </div>
   );
 }
