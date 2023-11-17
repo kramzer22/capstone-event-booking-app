@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react";
 import * as geoAdmin from "ph-geo-admin-divisions";
 
+import hostServices from "../../../../services/hostServices";
+import objectHelperModule from "../../../../helpers/objectHelperModule";
+
 function VenueEditor({ formRef, showFormHandler }) {
+  const [venue, setVenue] = useState("");
   const [province, setProvince] = useState({ id: "", name: "" });
   const [city, setCity] = useState({ id: "", name: "" });
   const [barangay, setBarangay] = useState({ id: "", name: "" });
   const [provinces, setProvinces] = useState([]);
   const [cities, setCities] = useState([]);
   const [barangays, setBarangays] = useState([]);
+  const [street, setStreet] = useState("");
+  const [venueDescription, setVenueDescription] = useState("");
 
   useEffect(() => {
     const result = geoAdmin.searchProvince({ name: "" });
@@ -53,17 +59,44 @@ function VenueEditor({ formRef, showFormHandler }) {
       setBarangay({ id: "", name: "" });
     }
   };
+
+  const formSubmitHandler = async (e) => {
+    e.preventDefault();
+
+    const newVenue = {
+      venue_name: venue,
+      address: {
+        province: province,
+        ciry: city,
+        barangay: barangay,
+        street: street,
+      },
+      description: venueDescription,
+    };
+    const userToken = objectHelperModule.getCookie("userToken");
+    try {
+      const response = await hostServices.registerVenue(userToken, newVenue);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div ref={formRef} className="event-editor-container">
-      <form className="event-editor-form">
+      <form className="event-editor-form" onSubmit={formSubmitHandler}>
         <h3>Event Place Editor</h3>
         <div className="registration">
           <label className="registration-label" htmlFor="">
-            Name: <span>*</span>
+            Venue name: <span>*</span>
           </label>
+          <input
+            type="text"
+            value={venue}
+            onChange={(e) => setVenue(e.target.value)}
+          />
         </div>
 
-        <input type="text" />
         <div className="registration">
           <label className="registration-label" htmlFor="">
             Business Address: <span>*</span>
@@ -137,18 +170,30 @@ function VenueEditor({ formRef, showFormHandler }) {
             <label className="registration-label" htmlFor="">
               Street Address: <span>*</span>
             </label>
-            <input type="text" placeholder="address" />
+            <input
+              type="text"
+              placeholder="address"
+              value={street}
+              onChange={(e) => setStreet(e.target.value)}
+            />
           </div>
         </div>
         <div className="registration">
           <label className="registration-label" htmlFor="">
             Description: <span>*</span>
           </label>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            value={venueDescription}
+            onChange={(e) => setVenueDescription(e.target.value)}
+          ></textarea>
         </div>
 
         <div>
-          <button>save</button>
+          <button type="submit">save</button>
         </div>
         <div className="event-manager-close-container">
           <button type="button" onClick={showFormHandler}>

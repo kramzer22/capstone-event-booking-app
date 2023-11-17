@@ -94,6 +94,16 @@ function Header({ userCookieState }) {
     }
   };
 
+  const logoutHandler = () => {
+    objectHelperModule.createCookie({
+      name: "userToken",
+      value: "",
+    });
+
+    navigate("/");
+    window.location.reload();
+  };
+
   let loginLink = (
     <>
       <li className="profile-nav-container">
@@ -112,6 +122,11 @@ function Header({ userCookieState }) {
               <Link to="host/event-manager">
                 <a className="nav-link">Event Manager</a>
               </Link>
+            </li>
+            <li>
+              <a className="nav-link" onClick={logoutHandler}>
+                Logout
+              </a>
             </li>
           </ul>
         </div>
