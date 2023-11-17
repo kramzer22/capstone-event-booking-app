@@ -11,12 +11,9 @@ function Home({ userCookieState }) {
         <div className="index-article-container main">
           <div className="index-title">
             <h1>
-              Hassle-free{" "}
-              <span className="title-design">
-                event &amp; booking management
-              </span>{" "}
-              for<span className="title-design"> organizers, attendees, </span>
-              &amp;<span className="title-design"> event enthusiasts.</span>
+              <span className="title-design">Hassle-free </span> event &amp;
+              booking management for organizers, attendees, &amp; event
+              enthusiasts.
             </h1>
           </div>
           <div className="index-btn">
@@ -80,24 +77,66 @@ function Home({ userCookieState }) {
           </div>
         </div>
 
-        <div className="index-article-container">
-          <div className="index-article">
-            <h3>Effortless Event Management</h3>
-            <p>
-              Organizing an event? We've got you covered. Our suite of powerful
-              tools simplifies event creation, ticket management, and promotion,
-              so you can focus on what you do best.
-            </p>
-            <p>
-              We prioritize your safety and the security of event organizers.
-              Our platform offers robust payment protection and verification
-              processes, ensuring every transaction is as safe as it is
-              convenient.
-            </p>
-            <div>
-              <button>Apply now</button>
+        <div className="index-article-container third">
+          <small>WHY CHOOSE US</small>
+          <img src="/src/assets/home/home-main.gif" alt="" />
+          <div className="index-section-ctr">
+            <div className="index-section-details one">
+              <p>
+                <strong>Effortless Booking Experience:</strong> Enjoy a
+                user-friendly platform that simplifies the event booking
+                process, allowing you to explore and reserve your preferred
+                events with ease.
+              </p>
+              <img src="/src/assets/home/wcu-one.png" alt="" />
+            </div>
+
+            <div className="index-section-details two">
+              <p>
+                <strong>Diverse Event Options:</strong> Discover a wide range of
+                events tailored to your preferences. Whether you're a host
+                looking to showcase your venue or an attendee seeking exciting
+                experiences, our platform caters to all.
+              </p>
+              <img src="/src/assets/home/wcu-two.png" alt="" />
+            </div>
+
+            <div className="index-section-details three">
+              <p>
+                <strong>Transparent and Secure Transactions:</strong> We
+                prioritize your security. Benefit from transparent transactions,
+                secure payments, and the assurance that your personal
+                information is safeguarded throughout the booking process.
+              </p>
+              <img src="/src/assets/home/wcu-three.png" alt="" />
+            </div>
+
+            <div className="index-section-details four">
+              <p>
+                <strong>Dedicated Support:</strong> Our dedicated support team
+                is here to assist you at every step. From answering queries to
+                addressing concerns, we are committed to ensuring a smooth and
+                enjoyable experience for both hosts and users.
+              </p>
+              <img src="/src/assets/home/wcu-four.png" alt="" />
+            </div>
+
+            <div className="index-section-details five">
+              <p>
+                <strong>Innovative Features:</strong> Stay ahead with our
+                innovative features designed to enhance your event journey. From
+                flexible booking options to real-time updates, we continuously
+                strive to provide cutting-edge solutions.
+              </p>
+              <img src="/src/assets/home/wcu-five.png" alt="" />
             </div>
           </div>
+          <h4>
+            Choose <span>EasyGig</span> for a stress-free and enjoyable event
+            experience.
+            <br /> <a href="#">Join us</a> in redefining the way events are
+            planned and enjoyed.
+          </h4>
         </div>
 
         <IndexReview />
