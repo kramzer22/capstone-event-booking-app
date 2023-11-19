@@ -11,6 +11,7 @@ function VenuePackageEditor({ transactionType, setPackageEditor }) {
     if (inclusionInput.trim() !== "") {
       setInclusions([...inclusions, inclusionInput]);
       setInclusionInput("");
+      setSelectedInclusionIndex(-1);
     }
   };
 
@@ -22,10 +23,11 @@ function VenuePackageEditor({ transactionType, setPackageEditor }) {
     }
   };
 
-  const removeInclusionHandle = (index) => {
+  const removeInclusionHandle = () => {
     const updatedInclusions = [...inclusions];
-    updatedInclusions.splice(index, 1);
+    updatedInclusions.splice(selectedInclusionIndex, 1);
     setInclusions(updatedInclusions);
+    setSelectedInclusionIndex(-1);
   };
 
   return (
@@ -103,7 +105,9 @@ function VenuePackageEditor({ transactionType, setPackageEditor }) {
             <button type="button" onClick={addInclusionHandle}>
               Add
             </button>
-            <button type="button">remove</button>
+            <button type="button" onClick={removeInclusionHandle}>
+              remove
+            </button>
           </div>
         </div>
         <div className="venue-package-submit-container">
