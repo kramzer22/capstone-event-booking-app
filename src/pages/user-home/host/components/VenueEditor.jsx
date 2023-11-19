@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import * as geoAdmin from "ph-geo-admin-divisions";
 
 import hostServices from "../../../../services/hostServices";
 import objectHelperModule from "../../../../helpers/objectHelperModule";
+
+import "./venueEditor.css";
 
 function VenueEditor({ formRef, showFormHandler }) {
   const [venue, setVenue] = useState("");
@@ -14,6 +17,8 @@ function VenueEditor({ formRef, showFormHandler }) {
   const [barangays, setBarangays] = useState([]);
   const [street, setStreet] = useState("");
   const [venueDescription, setVenueDescription] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const result = geoAdmin.searchProvince({ name: "" });
@@ -67,7 +72,7 @@ function VenueEditor({ formRef, showFormHandler }) {
       venue_name: venue,
       address: {
         province: province,
-        ciry: city,
+        city: city,
         barangay: barangay,
         street: street,
       },
@@ -76,7 +81,10 @@ function VenueEditor({ formRef, showFormHandler }) {
     const userToken = objectHelperModule.getCookie("userToken");
     try {
       const response = await hostServices.registerVenue(userToken, newVenue);
-      console.log(response);
+      if (response.status === 201) {
+        navigate("/host/event-manager");
+        window.location.reload();
+      }
     } catch (error) {
       console.log(error);
     }

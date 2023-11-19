@@ -10,7 +10,6 @@ function checkLoginCredentials(userToken) {
 
 const checkUserCookieCredentials = async (userCookieState) => {
   const userToken = objectHelperModule.getCookie("userToken");
-  console.log(userToken);
   if (userToken && userToken !== "") {
     try {
       const response = await checkLoginCredentials(userToken);

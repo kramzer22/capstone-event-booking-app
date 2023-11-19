@@ -23,9 +23,15 @@ const setErrorDisplay = (errorState, message, t) => {
   }, t);
 };
 
+const isValidImageType = (file) => {
+  const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
+  return allowedTypes.includes(file.type);
+};
+
 export default {
   isValidBirthDate,
   isValidEmail,
   isValidMobile,
+  isValidImageType,
   setErrorDisplay,
 };
