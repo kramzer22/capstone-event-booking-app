@@ -52,14 +52,13 @@
   list-style: none;
   background-color: aliceblue;
 
-  padding: 10px;
+  padding: 4px;
 }
 
 .venue-package-inlcusion-container ul li {
   display: flex;
   align-items: center;
 
-  padding: 0 10px;
   height: 40px;
 }
 
