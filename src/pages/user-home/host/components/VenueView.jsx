@@ -69,7 +69,11 @@ function VenueView({ venue, setVenueView }) {
         <div className="venue-content-container">
           <h2>{selectedVenue.venue_name}</h2>
           <p>{venueAddress()}</p>
-          <p>{selectedVenue.description}</p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: selectedVenue.description.replace(/\n/g, "<br>"),
+            }}
+          />
           <div className="venue-image-control-container">
             <div className="venue-image-container">
               <img
