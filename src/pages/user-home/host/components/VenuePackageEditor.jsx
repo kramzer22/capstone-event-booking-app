@@ -1,7 +1,36 @@
+import { useState } from "react";
+
+import "./venuePackageEditor.css";
+
 function VenuePackageEditor({ transactionType, setPackageEditor }) {
+  const [inclusions, setInclusions] = useState([]);
+  const [selectedInclusionIndex, setSelectedInclusionIndex] = useState(-1);
+  const [inclusionInput, setInclusionInput] = useState("");
+
+  const addInclusionHandle = () => {
+    if (inclusionInput.trim() !== "") {
+      setInclusions([...inclusions, inclusionInput]);
+      setInclusionInput("");
+    }
+  };
+
+  const selectInclusionHandle = (index) => {
+    if (selectedInclusionIndex !== index) {
+      setSelectedInclusionIndex(index);
+    } else {
+      setSelectedInclusionIndex(-1);
+    }
+  };
+
+  const removeInclusionHandle = (index) => {
+    const updatedInclusions = [...inclusions];
+    updatedInclusions.splice(index, 1);
+    setInclusions(updatedInclusions);
+  };
+
   return (
-    <div>
-      <form className="event-editor-form">
+    <div className="venue-package-editor-container">
+      <form className="venue-package-editor-form">
         <h3>Package Editor</h3>
         <div className="registration">
           <label className="registration-label" htmlFor="">
@@ -33,25 +62,54 @@ function VenuePackageEditor({ transactionType, setPackageEditor }) {
             // onChange={(e) => setVenue(e.target.value)}
           />
         </div>
-        <div className="registration">
+        <div className="venue-package-inlcusion-container">
           <div>
             <label className="registration-label" htmlFor="">
               Inclusions: <span>*</span>
             </label>
             <ul>
-              <li>wawawee</li>
+              {inclusions.map((inclusion, index) => (
+                <li
+                  key={index}
+                  onClick={() => selectInclusionHandle(index)}
+                  style={{
+                    cursor: "pointer",
+                    backgroundColor:
+                      index === selectedInclusionIndex
+                        ? "rgba(63, 57, 57, 0.5)"
+                        : "",
+                    fontWeight:
+                      index === selectedInclusionIndex ? "bold" : "normal",
+                  }}
+                >
+                  {inclusion}
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div>
-            <button>Add</button>
-            <button>remove</button>
+          <div className="venue-package-inclusion-controls">
+            <div className="venue-package-inclusion-input">
+              <label className="registration-label" htmlFor="">
+                Entry field:
+              </label>
+              <input
+                type="text"
+                value={inclusionInput}
+                onChange={(e) => setInclusionInput(e.target.value)}
+              />
+            </div>
+
+            <button type="button" onClick={addInclusionHandle}>
+              Add
+            </button>
+            <button type="button">remove</button>
           </div>
         </div>
-        <div>
+        <div className="venue-package-submit-container">
           <button type="submit">save</button>
         </div>
-        <div>
+        <div className="venue-package-close-container">
           <button type="button" onClick={() => setPackageEditor(null)}>
             X
           </button>
