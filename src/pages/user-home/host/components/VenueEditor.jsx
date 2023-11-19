@@ -7,7 +7,7 @@ import objectHelperModule from "../../../../helpers/objectHelperModule";
 
 import "./venueEditor.css";
 
-function VenueEditor({ formRef, showFormHandler }) {
+function VenueEditor({ selectedVenue, transactionType, setVenueEditor }) {
   const [venue, setVenue] = useState("");
   const [province, setProvince] = useState({ id: "", name: "" });
   const [city, setCity] = useState({ id: "", name: "" });
@@ -21,8 +21,50 @@ function VenueEditor({ formRef, showFormHandler }) {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log(selectedVenue);
     const result = geoAdmin.searchProvince({ name: "" });
     setProvinces(result);
+    if (selectedVenue) {
+      setVenue(selectedVenue.venue_name);
+      const provinceResult = geoAdmin.searchProvince({
+        name: selectedVenue.address.province,
+      });
+
+      const singleOutProvince = provinceResult.find(
+        (province) =>
+          province.name.toLowerCase() ===
+          selectedVenue.address.province.toLowerCase()
+      );
+      selectProvinceHandler(
+        singleOutProvince.provinceId,
+        singleOutProvince.name.toLowerCase()
+      );
+      const cityResult = geoAdmin.searchMunicipality({
+        name: selectedVenue.address.city,
+      });
+      const singleOutCity = cityResult.find(
+        (city) =>
+          city.name.toLowerCase() === selectedVenue.address.city.toLowerCase()
+      );
+      selectCityHandler(
+        singleOutCity.municipalityId,
+        singleOutCity.name.toLowerCase()
+      );
+      const barangayResult = geoAdmin.searchBaranggay({
+        name: selectedVenue.address.barangay,
+      });
+      const singleOutBarangay = barangayResult.find(
+        (barangay) =>
+          barangay.name.toLowerCase() ===
+          selectedVenue.address.barangay.toLowerCase()
+      );
+      setBarangay({
+        id: singleOutBarangay.baranggayId,
+        name: singleOutBarangay.name.toLowerCase(),
+      });
+      setStreet(selectedVenue.address.street);
+      setVenueDescription(selectedVenue.description);
+    }
   }, []);
 
   const selectProvinceHandler = (value, name) => {
@@ -68,22 +110,44 @@ function VenueEditor({ formRef, showFormHandler }) {
   const formSubmitHandler = async (e) => {
     e.preventDefault();
 
-    const newVenue = {
-      venue_name: venue,
-      address: {
-        province: province,
-        city: city,
-        barangay: barangay,
-        street: street,
-      },
-      description: venueDescription,
-    };
-    const userToken = objectHelperModule.getCookie("userToken");
     try {
-      const response = await hostServices.registerVenue(userToken, newVenue);
-      if (response.status === 201) {
-        navigate("/host/event-manager");
-        window.location.reload();
+      if (transactionType === "addnew") {
+        const venueData = {
+          venue_name: venue,
+          address: {
+            province: province,
+            city: city,
+            barangay: barangay,
+            street: street.toLowerCase(),
+          },
+          description: venueDescription,
+        };
+        const response = await hostServices.registerVenue(venueData);
+
+        if (response.status === 201) {
+          navigate("/host/event-manager");
+          window.location.reload();
+        }
+      } else if (transactionType === "update") {
+        const venueData = {
+          venue_id: selectedVenue.id,
+          venue_name: venue,
+          address: {
+            province: province,
+            city: city,
+            barangay: barangay,
+            street: street.toLowerCase(),
+          },
+          description: venueDescription,
+        };
+        console.log(venueData);
+
+        const response = await hostServices.updateVenue(venueData);
+
+        if (response.status === 200) {
+          navigate("/host/event-manager");
+          window.location.reload();
+        }
       }
     } catch (error) {
       console.log(error);
@@ -91,9 +155,9 @@ function VenueEditor({ formRef, showFormHandler }) {
   };
 
   return (
-    <div ref={formRef} className="event-editor-container">
+    <div className="event-editor-container">
       <form className="event-editor-form" onSubmit={formSubmitHandler}>
-        <h3>Event Place Editor</h3>
+        <h3>Venue Editor</h3>
         <div className="registration">
           <label className="registration-label" htmlFor="">
             Venue name: <span>*</span>
@@ -157,6 +221,7 @@ function VenueEditor({ formRef, showFormHandler }) {
             <select
               className=""
               id=""
+              value={barangay.id}
               onChange={(e) =>
                 selectBarangayHandler(
                   e.target.value,
@@ -204,7 +269,7 @@ function VenueEditor({ formRef, showFormHandler }) {
           <button type="submit">save</button>
         </div>
         <div className="event-manager-close-container">
-          <button type="button" onClick={showFormHandler}>
+          <button type="button" onClick={() => setVenueEditor(null)}>
             X
           </button>
         </div>

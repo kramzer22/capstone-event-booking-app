@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
 
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(63, 57, 57, 0.5);

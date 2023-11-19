@@ -1,0 +1,27 @@
+.venue-manager-contanier {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  padding: 100px 80px;
+}
+
+.venue-manager-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px;
+}
+
+.venue-manager-header-container button {
+  height: 60px;
+  width: 160px;
+}
+
+.venue-manager-venues-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+}

@@ -1,16 +1,31 @@
-function Venue({ venuewViewDisplayHandler, venue }) {
+import "./venue.css";
+
+function Venue({
+  venueEditorDisplayHandler,
+  venuewViewDisplayHandler,
+  packageEditorDisplayHandler,
+  venue,
+}) {
   const address = `${venue.address.street} ${venue.address.barangay}, ${venue.address.city}, ${venue.address.province}`;
 
   return (
-    <div>
+    <div className="venue-list-container">
       <div>
         <h2>{venue.venue_name}</h2>
-        <p>Address: {address}</p>
+        <div className="venue-list-conent">
+          <p>Address: {address}</p>
+          <p>Description: {venue.description}</p>
+        </div>
       </div>
-      <div>
+      <div className="venue-list-control-container">
+        <button onClick={() => venueEditorDisplayHandler("update", venue)}>
+          Update
+        </button>
         <button onClick={() => venuewViewDisplayHandler(venue)}>View</button>
         <button>View Packages</button>
-        <button>Add package</button>
+        <button onClick={() => packageEditorDisplayHandler("addnew")}>
+          Add package
+        </button>
       </div>
     </div>
   );

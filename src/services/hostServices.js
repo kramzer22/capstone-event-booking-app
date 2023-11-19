@@ -6,8 +6,12 @@ const hostURL = "http://localhost:3001/api/host/";
 
 const getUserToken = () => objectHelperModule.getCookie("userToken");
 
-function registerVenue(userToken, data) {
-  return axios.post(`${hostURL}venue/?token_id=${userToken}`, data);
+function registerVenue(venueData) {
+  return axios.post(`${hostURL}venue/?token_id=${getUserToken()}`, venueData);
+}
+
+function updateVenue(venueData) {
+  return axios.patch(`${hostURL}venue/?token_id=${getUserToken()}`, venueData);
 }
 
 function uploadVenueImage(formData) {
@@ -22,7 +26,7 @@ function getVenues() {
 }
 
 function getVenue(venueId) {
-  return axios.get(`${hostURL}venue/id?token_id=${getUserToken()}`);
+  return axios.get(`${hostURL}venue/${venueId}?token_id=${getUserToken()}`);
 }
 
-export default { registerVenue, getVenues, uploadVenueImage };
+export default { registerVenue, updateVenue, getVenues, uploadVenueImage };
