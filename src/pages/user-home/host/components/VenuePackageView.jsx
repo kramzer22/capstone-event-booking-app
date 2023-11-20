@@ -27,9 +27,9 @@ function VenuePackageView({
   return (
     <div className="venue-package-view-container">
       <div className="venue-package-view">
-        <h1>{venue.venue_name}</h1>
+        <h4>{venue.venue_name}</h4>
         <div className="venue-package-list-container">
-          <h2>Total packages:{venue.packages.length}</h2>
+          <h5>Total packages:{venue.packages.length}</h5>
           <ul>
             {venue.packages.map((item, index) => (
               <li key={index}>
