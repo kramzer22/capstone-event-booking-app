@@ -159,7 +159,7 @@ function VenueEditor({ selectedVenue, transactionType, setVenueEditor }) {
   return (
     <div className="event-editor-container">
       <form className="event-editor-form" onSubmit={formSubmitHandler}>
-        <h3>Venue Editor</h3>
+        <h5>Venue Editor</h5>
         <div className="registration">
           <label className="registration-label" htmlFor="">
             Venue name: <span>*</span>
@@ -168,6 +168,7 @@ function VenueEditor({ selectedVenue, transactionType, setVenueEditor }) {
             type="text"
             value={venue}
             onChange={(e) => setVenue(e.target.value)}
+            placeholder="enter name of venue"
           />
         </div>
 
@@ -247,7 +248,7 @@ function VenueEditor({ selectedVenue, transactionType, setVenueEditor }) {
             </label>
             <input
               type="text"
-              placeholder="address"
+              placeholder="enter street address"
               value={street}
               onChange={(e) => setStreet(e.target.value)}
             />
@@ -261,18 +262,19 @@ function VenueEditor({ selectedVenue, transactionType, setVenueEditor }) {
             name=""
             id=""
             cols="30"
-            rows="10"
+            rows="7"
             value={venueDescription}
             onChange={(e) => setVenueDescription(e.target.value)}
+            required
           ></textarea>
         </div>
 
-        <div>
+        <div className="event-manager-save-container">
           <button type="submit">save</button>
         </div>
         <div className="event-manager-close-container">
           <button type="button" onClick={() => setVenueEditor(null)}>
-            X
+            ✖
           </button>
         </div>
       </form>
