@@ -108,7 +108,7 @@ function App() {
             }
           />
         </Routes>
-        {/* <InstantMessaging /> */}
+        <InstantMessaging />
       </div>
     </Router>
   );
