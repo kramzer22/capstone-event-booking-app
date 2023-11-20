@@ -68,7 +68,10 @@ function VenueView({ venue, setVenueView }) {
   const removeImageHandler = async () => {
     const imageId = venue.images[selectedImageIndex].name;
     try {
-      const response = await hostServices.removeVenueImage(imageId);
+      const response = await hostServices.removeVenueImage(
+        selectedVenue.id,
+        imageId
+      );
       if (response.status === 200) {
         setSelectedVenue(response.data);
         setSelectedImageIndex(-1);
