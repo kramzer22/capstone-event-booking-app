@@ -20,7 +20,7 @@ function Header({ userCookieState }) {
   const ERROR_DISPLAY_TIME = 5000;
 
   useEffect(() => {
-    //profileDropDownRef.current.style.display = "none";
+    //profileDropDownRef.current.display = "none";
   }, []);
 
   const loginHandler = async (e) => {
@@ -77,7 +77,9 @@ function Header({ userCookieState }) {
   };
 
   const showLoginForm = () => {
-    if (loginContainerRef.current.style.display === "none") {
+    const styles = window.getComputedStyle(loginContainerRef.current);
+    const display = styles.getPropertyValue("display");
+    if (display === "none") {
       loginContainerRef.current.style.display = "flex";
       setTimeout(() => {
         loginContainerRef.current.style.right = "20px";
@@ -91,7 +93,9 @@ function Header({ userCookieState }) {
   };
 
   const showProfileDropDown = () => {
-    if (profileDropDownRef.current.style.display === "none") {
+    const styles = window.getComputedStyle(profileDropDownRef.current);
+    const display = styles.getPropertyValue("display");
+    if (display === "none") {
       profileDropDownRef.current.style.display = "flex";
     } else {
       profileDropDownRef.current.style.display = "none";
