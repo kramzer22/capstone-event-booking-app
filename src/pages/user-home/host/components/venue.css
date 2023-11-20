@@ -1,35 +1,89 @@
 .venue-list-container {
   display: flex;
-  gap: 40px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
 
-  padding: 20px;
   width: 100%;
+  min-width: 500px;
+  max-width: 800px;
 
-  overflow: hidden;
+  padding: 2rem;
 
-  background-color: antiquewhite;
+  background-color: var(--background);
+  border-radius: 5px;
+
+  box-shadow: 0px 16px 48px 0px rgba(0, 0, 0, 0.176);
 }
 
-.venue-list-conent {
+.venue-list-container h4 {
+  text-transform: capitalize;
+}
+
+.venue-list-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1rem;
+
+  padding: 1rem 0;
+
+  width: 100%;
+  max-width: 500px;
 }
 
-.venue-list-conent p:last-of-type {
+.venue-list-content p {
+  color: var(--text2);
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+
+.venue-list-content strong {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.venue-list-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.venue-list-details.description p {
   height: 120px;
-  width: auto;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   text-overflow: ellipsis;
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
 }
 
 .venue-list-control-container {
+  align-self: center;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
 }
 
 .venue-list-control-container button {
-  flex-grow: 1;
-  width: 140px;
+  width: 100%;
+  min-width: max-content;
+  padding: 0.5rem;
+
+  font-weight: 500;
+  color: var(--background);
+
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: var(--primary-trans);
+
+  transition: 0.2s ease-in;
+
+  &:hover {
+    box-shadow: 0 -20px 10px -20px rgba(0, 0, 0, 0.45) inset,
+      -20px 0 10px -20px rgba(0, 0, 0, 0.45) inset;
+  }
 }
