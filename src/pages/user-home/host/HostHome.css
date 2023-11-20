@@ -1,0 +1,35 @@
+.host-user-main {
+  height: 100dvh;
+}
+
+.host-home-main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "transaction transaction notification"
+    "transaction transaction message";
+
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+.transaction-container {
+  grid-area: transaction;
+
+  padding-top: 100px;
+  background-color: aqua;
+}
+
+.notification-container {
+  grid-area: notification;
+  background-color: azure;
+
+  padding-top: 100px;
+}
+
+.message-container {
+  grid-area: message;
+  background-color: aquamarine;
+}

@@ -96,7 +96,7 @@ form {
   text-transform: uppercase;
 }
 
-.contact-form input,
+/* .contact-form input,
 textarea {
   resize: none;
   width: 100%;
@@ -112,7 +112,7 @@ textarea {
     border-color: var(--accent);
     box-shadow: var(--accent) 0px 0px 5px 0px;
   }
-}
+} */
 
 .contact-label span {
   color: red;

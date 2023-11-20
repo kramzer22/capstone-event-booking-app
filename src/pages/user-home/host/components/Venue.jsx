@@ -12,10 +12,17 @@ function Venue({
   return (
     <div className="venue-list-container">
       <div>
-        <h2>{venue.venue_name}</h2>
-        <div className="venue-list-conent">
-          <p>Address: {address}</p>
-          <p>Description: {venue.description}</p>
+        <h4>{venue.venue_name}</h4>
+        <div className="venue-list-content">
+          <div className="venue-list-details address">
+            <strong>Address:</strong>
+            <p>{address}</p>
+          </div>
+
+          <div className="venue-list-details description">
+            <strong>Description:</strong>
+            <p>{venue.description}</p>
+          </div>
         </div>
       </div>
       <div className="venue-list-control-container">
