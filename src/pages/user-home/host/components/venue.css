@@ -13,7 +13,7 @@
   background-color: var(--background);
   border-radius: 5px;
 
-  box-shadow: 0px 16px 48px 0px rgba(0, 0, 0, 0.176);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1);  
 }
 
 .venue-list-container h4 {
@@ -74,11 +74,12 @@
 
   font-weight: 500;
   color: var(--background);
+  text-transform: capitalize;
 
   outline: none;
   border: 1px solid transparent;
   border-radius: 5px;
-  background-color: var(--primary-trans);
+  background-color: var(--primary);
 
   transition: 0.2s ease-in;
 

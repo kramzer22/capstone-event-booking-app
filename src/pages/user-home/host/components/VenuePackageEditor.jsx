@@ -68,7 +68,7 @@ function VenuePackageEditor({ transactionType, setPackageEditor, venueId }) {
         className="venue-package-editor-form"
         onSubmit={submitPackageDateHandle}
       >
-        <h3>Package Editor</h3>
+        <h5>Package Editor</h5>
         <div className="registration">
           <label className="registration-label" htmlFor="">
             Package name: <span>*</span>
@@ -99,7 +99,7 @@ function VenuePackageEditor({ transactionType, setPackageEditor, venueId }) {
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
-        <div className="venue-package-inlcusion-container">
+        <div className="venue-package-inclusion-container">
           <div>
             <label className="registration-label" htmlFor="">
               Inclusions: <span>*</span>
@@ -137,12 +137,14 @@ function VenuePackageEditor({ transactionType, setPackageEditor, venueId }) {
               />
             </div>
 
-            <button type="button" onClick={addInclusionHandle}>
-              Add
-            </button>
-            <button type="button" onClick={removeInclusionHandle}>
-              remove
-            </button>
+            <div className="venue-package-inclusion-buttons">
+              <button type="button" onClick={addInclusionHandle}>
+                Add
+              </button>
+              <button type="button" onClick={removeInclusionHandle}>
+                remove
+              </button>
+            </div>
           </div>
         </div>
         <div className="venue-package-submit-container">
@@ -150,7 +152,7 @@ function VenuePackageEditor({ transactionType, setPackageEditor, venueId }) {
         </div>
         <div className="venue-package-close-container">
           <button type="button" onClick={() => setPackageEditor(null)}>
-            X
+            ✖
           </button>
         </div>
       </form>
