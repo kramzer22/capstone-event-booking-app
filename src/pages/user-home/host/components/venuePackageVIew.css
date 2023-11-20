@@ -1,0 +1,89 @@
+.venue-package-view-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(63, 57, 57, 0.5);
+
+  z-index: 1;
+}
+
+.venue-package-view {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+
+  width: 1000px;
+  height: 900px;
+
+  background-color: antiquewhite;
+}
+
+.venue-package-list-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.venue-package-list-container ul {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.venue-package-list-container ul li {
+  display: flex;
+  flex-direction: row;
+
+  padding: 20px;
+  height: 240px;
+  max-height: 240px;
+  overflow: hidden;
+  background-color: aliceblue;
+}
+
+.venue-package-list-container ul li div:first-of-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.venue-package-list-container ul li p {
+  padding: 10px 40px 10px 10px;
+  text-align: justify;
+}
+
+.venue-package-list-container ul li div:last-of-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+
+  gap: 10px;
+}
+
+.venue-package-list-container ul li button {
+  width: 160px;
+  height: 50px;
+}
+
+.package-view-close-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.package-view-close-container button {
+  width: 60px;
+  height: 60px;
+}

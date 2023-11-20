@@ -44,15 +44,17 @@
 .venue-package-inlcusion-container ul {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 19px;
 
   width: 100%;
   height: 200px;
   max-height: 200px;
+
+  overflow-y: scroll;
   list-style: none;
   background-color: aliceblue;
 
-  padding: 4px;
+  padding: 4px 4px;
 }
 
 .venue-package-inlcusion-container ul li {

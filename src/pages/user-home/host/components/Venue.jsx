@@ -4,6 +4,7 @@ function Venue({
   venueEditorDisplayHandler,
   venuewViewDisplayHandler,
   packageEditorDisplayHandler,
+  packageViewDisplayHandler,
   venue,
 }) {
   const address = `${venue.address.street} ${venue.address.barangay}, ${venue.address.city}, ${venue.address.province}`;
@@ -22,7 +23,9 @@ function Venue({
           Update
         </button>
         <button onClick={() => venuewViewDisplayHandler(venue)}>View</button>
-        <button>View Packages</button>
+        <button onClick={() => packageViewDisplayHandler(venue)}>
+          View Packages
+        </button>
         <button onClick={() => packageEditorDisplayHandler("addnew", venue.id)}>
           Add package
         </button>

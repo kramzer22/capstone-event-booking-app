@@ -10,13 +10,6 @@ function VenueView({ venue, setVenueView }) {
   const [selectedVenue, setSelectedVenue] = useState(venue);
   const uploadImageRef = useRef(null);
 
-  const venueImages = selectedVenue.images
-    ? selectedVenue.images.map((images) => images)
-    : [];
-
-  const displayImage =
-    venueImages.length > 0 ? venueImages[0].image.link : null;
-
   const activateSelectImageHandle = () => {
     uploadImageRef.current.click();
   };
@@ -85,12 +78,20 @@ function VenueView({ venue, setVenueView }) {
           />
           <div className="venue-image-control-container">
             <div className="venue-image-container">
-              <img className="venue-image-main" src={displayImage} alt="" />
+              <img
+                className="venue-image-main"
+                src={
+                  selectedVenue.images.length > 0
+                    ? selectedVenue.images[0].link
+                    : ""
+                }
+                alt=""
+              />
               <ul>
-                {venueImages.map((item) => {
+                {selectedVenue.images.map((image) => {
                   return (
-                    <li key={item.image.name}>
-                      <img src={item.image.link} alt="" />
+                    <li key={image.name}>
+                      <img src={image.link} alt="" />
                     </li>
                   );
                 })}
