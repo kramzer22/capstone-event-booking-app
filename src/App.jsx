@@ -108,7 +108,6 @@ function App() {
             }
           />
         </Routes>
-        <InstantMessaging />
       </div>
     </Router>
   );
