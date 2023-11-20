@@ -10,7 +10,7 @@
   width: 100vw;
   height: 100vh;
 
-  z-index: 9999;
+  z-index: 2;
 }
 
 .venue-package-editor-form {
@@ -53,6 +53,7 @@
   border-radius: 5px;
 
   margin-top: 4px;
+
 
   &::-webkit-scrollbar {
     width: 0.5em;

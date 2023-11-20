@@ -43,16 +43,26 @@ function EventPlaceManager({ userCookieState }) {
 
   const packageViewDisplayHandler = (venue) => {
     setPackageView(
-      <VenuePackageView venue={venue} setPackageView={setPackageView} />
+      <VenuePackageView
+        venue={venue}
+        setPackageView={setPackageView}
+        packageEditorDisplayHandler={packageEditorDisplayHandler}
+      />
     );
   };
 
-  const packageEditorDisplayHandler = (transactionType, venueId) => {
+  const packageEditorDisplayHandler = (
+    venueId,
+    transactionType,
+    selectedPackage = null
+  ) => {
+    console.log("wawawee");
     setPackageEditor(
       <VenuePackageEditor
         transactionType={transactionType}
         setPackageEditor={setPackageEditor}
         venueId={venueId}
+        selectedPackage={selectedPackage}
       />
     );
   };
