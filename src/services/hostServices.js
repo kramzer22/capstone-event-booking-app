@@ -62,6 +62,7 @@ export default {
   registerVenue,
   updateVenue,
   getVenues,
+  getVenue,
   uploadVenueImage,
   removeVenueImage,
   registerPackage,

@@ -16,6 +16,17 @@ function VenueView({ venue, setVenueView }) {
     uploadImageRef.current.click();
   };
 
+  const loadNewVenueData = async () => {
+    try {
+      const response = await hostServices.getVenue(selectedVenue.id);
+
+      if (response.status === 200) {
+        console.log(response.data);
+        setSelectedVenue(response.data[0]);
+      }
+    } catch (error) {}
+  };
+
   const selectedImageHandler = (index, imgLink) => {
     if (setSelectedImageIndex !== index) {
       mainImageref.current.src = imgLink;
@@ -56,8 +67,9 @@ function VenueView({ venue, setVenueView }) {
         formData
       );
       if (response.status === 200) {
-        setSelectedVenue(response.data);
         setImageUploader(null);
+        setSelectedImageIndex(-1);
+        await loadNewVenueData();
       }
       console.log(response);
     } catch (error) {
@@ -73,8 +85,8 @@ function VenueView({ venue, setVenueView }) {
         imageId
       );
       if (response.status === 200) {
-        setSelectedVenue(response.data);
         setSelectedImageIndex(-1);
+        await loadNewVenueData();
       }
     } catch (error) {
       console.log(error);
