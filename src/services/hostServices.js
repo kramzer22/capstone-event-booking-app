@@ -26,8 +26,7 @@ function uploadVenueImage(venueId, formData) {
 
 function removeVenueImage(venueId, imageId) {
   return axios.delete(
-    `${hostURL}venue/${venueId}/images/${imageId}/?token_id=${getUserToken()}`,
-    formData
+    `${hostURL}venue/${venueId}/images/${imageId}/?token_id=${getUserToken()}`
   );
 }
 

@@ -19,6 +19,7 @@ function VenueView({ venue, setVenueView }) {
   const selectedImageHandler = (index, imgLink) => {
     if (setSelectedImageIndex !== index) {
       mainImageref.current.src = imgLink;
+      setSelectedImageIndex(index);
     } else {
       setSelectedImageIndex(-1);
     }
@@ -46,7 +47,6 @@ function VenueView({ venue, setVenueView }) {
     }
   };
   const uploadImageHandle = async (imgFile) => {
-    console.log(selectedVenue);
     const formData = new FormData();
     formData.append("image", imgFile);
 
@@ -65,8 +65,17 @@ function VenueView({ venue, setVenueView }) {
     }
   };
 
-  const removeImageHandler = async (imgId) => {
-    console.log(imgId);
+  const removeImageHandler = async () => {
+    const imageId = venue.images[selectedImageIndex].name;
+    try {
+      const response = await hostServices.removeVenueImage(imageId);
+      if (response.status === 200) {
+        setSelectedVenue(response.data);
+        setSelectedImageIndex(-1);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const closeImageUploadHandle = () => {
@@ -74,7 +83,6 @@ function VenueView({ venue, setVenueView }) {
     setImageUploader(null);
   };
 
-  console.log(selectedVenue);
   const venueAddress = () => {
     const address = selectedVenue.address;
     return `${address.street} ${address.barangay}, ${address.city}, ${address.province}`;
@@ -110,12 +118,10 @@ function VenueView({ venue, setVenueView }) {
                       onClick={() => selectedImageHandler(index, image.link)}
                       style={{
                         cursor: "pointer",
-                        background:
+                        border:
                           index === selectedImageIndex
-                            ? "2px solid rgb(63, 57, 57)"
-                            : "",
-                        fontWeight:
-                          index === selectedImageIndex ? "bold" : "normal",
+                            ? "3px solid rgb(0, 0, 250)"
+                            : "none",
                       }}
                     >
                       <img src={image.link} alt="" />
@@ -125,7 +131,7 @@ function VenueView({ venue, setVenueView }) {
               </ul>
             </div>
             <div>
-              <button>remove</button>
+              <button onClick={removeImageHandler}>remove</button>
               <button onClick={activateSelectImageHandle}>select image</button>
               <input
                 className="uplaod-image-input"
