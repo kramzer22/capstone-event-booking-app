@@ -81,7 +81,7 @@ function EventPlaceManager({ userCookieState }) {
     <>
       <Header userCookieState={userCookieState} />
 
-      <div className="venue-manager-contanier">
+      <div className="venue-manager-container">
         <div className="venue-manager-header-container">
           <h3>Venues</h3>
           <button onClick={() => venueEditorDisplayHandler("addnew")}>
