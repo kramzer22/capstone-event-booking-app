@@ -110,7 +110,10 @@ function VenueView({ venue, setVenueView }) {
           <p>{venueAddress()}</p>
           <div
             dangerouslySetInnerHTML={{
-              __html: selectedVenue.description.replace(/\n/g, "<br>"),
+              __html: `<div class="description-container">${selectedVenue.description.replace(
+                /\n/g,
+                "<br>"
+              )}</div>`,
             }}
           />
           <div className="venue-image-control-container">
@@ -135,7 +138,7 @@ function VenueView({ venue, setVenueView }) {
                         cursor: "pointer",
                         border:
                           index === selectedImageIndex
-                            ? "3px solid rgb(0, 0, 250)"
+                            ? "1px solid var(--accent)"
                             : "none",
                       }}
                     >
@@ -146,21 +149,24 @@ function VenueView({ venue, setVenueView }) {
               </ul>
             </div>
             <div>
-              <button onClick={removeImageHandler}>remove</button>
-              <button onClick={activateSelectImageHandle}>select image</button>
-              <input
-                className="uplaod-image-input"
-                ref={uploadImageRef}
-                type="file"
-                onChange={selectImageHandle}
-              />
+              <div className="venue-image-btns">
+                <button onClick={removeImageHandler}>remove</button>
+                <button onClick={activateSelectImageHandle}>
+                  Upload
+                </button>
+                <input
+                  className="uplaod-image-input"
+                  ref={uploadImageRef}
+                  type="file"
+                  onChange={selectImageHandle}
+                />
+              </div>
             </div>
-            <div></div>
           </div>
 
           <div className="venue-content-close-container">
             <button type="button" onClick={() => setVenueView(null)}>
-              X
+              ✖
             </button>
           </div>
         </div>
