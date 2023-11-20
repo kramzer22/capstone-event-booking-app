@@ -64,21 +64,23 @@
 .event-manager-save-container button {
   padding: 5px 10px;
 
-  color: var(--text);
+  color: var(--background);
   text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0.5px;
 
-  background-color: var(--background);
-  border: 2px solid var(--primary);
+  background-color: var(--primary);
+  border: 1px solid transparent;
   border-radius: 5px;
   outline: none;
 
-  transition: all 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
+
+  box-shadow: 0 -20px 10px -20px rgba(0,0,0,0.45) inset, -20px 0 10px -20px rgba(0,0,0,0.45) inset;
 
   &:hover {
-    background-color: var(--primary);
-    color: var(--background);
     scale: 1.1;
   }
 
@@ -101,6 +103,7 @@
   border-radius: 50%;
   outline: none;
 
+  font-size: 20px;
   font-weight: bold;
   color: var(--background);
   background-color: #ff5f5f;

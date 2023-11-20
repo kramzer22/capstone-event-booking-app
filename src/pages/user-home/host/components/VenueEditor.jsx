@@ -262,7 +262,7 @@ function VenueEditor({ selectedVenue, transactionType, setVenueEditor }) {
             name=""
             id=""
             cols="30"
-            rows="7"
+            rows="10"
             value={venueDescription}
             onChange={(e) => setVenueDescription(e.target.value)}
             required

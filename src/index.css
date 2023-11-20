@@ -18,9 +18,9 @@
   --accent: #3434cb;
 
   --background-trans: #ffffffae;
-  --primary-trans: #3434cbc3;
+  --primary-trans: #3385ffc3;
   --secondary-trans: #8c52ff84;
-  --accent-trans: #3434cbad;
+  --accent-trans: #3434cbab;
 }
 :root[data-theme="dark"] {
   --text: #fcfaff;
@@ -84,26 +84,36 @@ button {
 }
 
 /* textarea and input */
-textarea,
 input {
-  font-family: "Roboto", sans-serif;
-  letter-spacing: 0.5px;
+  line-height: 30px;
+  padding: 0 12px;
 }
+
+textarea {
+  padding: 10px 12px;
+}
+
 input,
 textarea {
   resize: none;
   width: 100%;
-  padding: 0 16px 0 12px;
-  line-height: 30px;
+
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.1px;
+  color: #080707;
+  background-color: #fff;
+
+  outline: none;
   border: 1px solid #dddbda;
   border-radius: 4px;
-  background-color: #fff;
-  color: #080707;
   transition: border 0.5s linear, background-color 0.5s linear;
-  outline: none;
 
   &:focus {
     border-color: var(--primary);
     box-shadow: var(--accent) 0px 0px 5px 0px;
   }
+}
+
+option{
+  text-transform: capitalize;
 }

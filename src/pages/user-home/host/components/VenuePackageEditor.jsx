@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -84,6 +85,11 @@ function VenuePackageEditor({
         );
       }
 
+      if (response.status == 201) {
+        navigate("/host/event-manager");
+        window.location.reload();
+      }
+
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -96,7 +102,7 @@ function VenuePackageEditor({
         className="venue-package-editor-form"
         onSubmit={submitPackageDateHandle}
       >
-        <h3>Package Editor</h3>
+        <h5>Package Editor</h5>
         <div className="registration">
           <label className="registration-label" htmlFor="">
             Package name: <span>*</span>
@@ -127,7 +133,7 @@ function VenuePackageEditor({
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
-        <div className="venue-package-inlcusion-container">
+        <div className="venue-package-inclusion-container">
           <div>
             <label className="registration-label" htmlFor="">
               Inclusions: <span>*</span>
@@ -165,12 +171,14 @@ function VenuePackageEditor({
               />
             </div>
 
-            <button type="button" onClick={addInclusionHandle}>
-              Add
-            </button>
-            <button type="button" onClick={removeInclusionHandle}>
-              remove
-            </button>
+            <div className="venue-package-inclusion-buttons">
+              <button type="button" onClick={addInclusionHandle}>
+                Add
+              </button>
+              <button type="button" onClick={removeInclusionHandle}>
+                remove
+              </button>
+            </div>
           </div>
         </div>
         <div className="venue-package-submit-container">
@@ -178,7 +186,7 @@ function VenuePackageEditor({
         </div>
         <div className="venue-package-close-container">
           <button type="button" onClick={() => setPackageEditor(null)}>
-            X
+            ✖
           </button>
         </div>
       </form>
