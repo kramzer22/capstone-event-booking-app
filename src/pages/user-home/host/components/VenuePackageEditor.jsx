@@ -20,10 +20,12 @@ function VenuePackageEditor({
   const navigate = useNavigate();
 
   useEffect(() => {
-    setPackageName(selectedPackage.name);
-    setDescription(selectedPackage.description);
-    setPrice(selectedPackage.price);
-    setInclusions(selectedPackage.inclusions);
+    if (selectedPackage) {
+      setPackageName(selectedPackage.name);
+      setDescription(selectedPackage.description);
+      setPrice(selectedPackage.price);
+      setInclusions(selectedPackage.inclusions);
+    }
   }, []);
 
   const addInclusionHandle = () => {
@@ -72,6 +74,7 @@ function VenuePackageEditor({
         }
       } else if (transactionType === "update") {
         const pacakageData = {
+          id: selectedPackage.id,
           name: packageName,
           description: description,
           price: price,
@@ -82,6 +85,11 @@ function VenuePackageEditor({
           venueId,
           pacakageData
         );
+
+        if (response.status == 200) {
+          navigate("/host/event-manager");
+          window.location.reload();
+        }
       }
 
       console.log(response);
