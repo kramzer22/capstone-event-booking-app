@@ -71,13 +71,18 @@
 }
 
 .venue-image-container ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
-  width: 300px;
+  width: 270px;
+  background-color: rgb(200, 219, 238);
 }
 
 .venue-image-container ul li img {
-  width: 100%;
-  height: 100%;
+  width: 96%;
+  height: 96%;
+  object-fit: contain;
 }
 
 .uplaod-image-input {

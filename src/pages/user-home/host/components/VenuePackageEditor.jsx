@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -54,7 +53,6 @@ function VenuePackageEditor({
 
   const submitPackageDateHandle = async (e) => {
     e.preventDefault();
-
     try {
       if (transactionType === "addnew") {
         const pacakageData = {
@@ -75,7 +73,6 @@ function VenuePackageEditor({
         }
       } else if (transactionType === "update") {
         const pacakageData = {
-          id: selectedPackage.id,
           name: packageName,
           description: description,
           price: price,
@@ -84,6 +81,7 @@ function VenuePackageEditor({
 
         const response = await hostServices.updatePackage(
           venueId,
+          selectedPackage.id,
           pacakageData
         );
 
@@ -92,13 +90,6 @@ function VenuePackageEditor({
           window.location.reload();
         }
       }
-
-      if (response.status == 201) {
-        navigate("/host/event-manager");
-        window.location.reload();
-      }
-
-      console.log(response);
     } catch (error) {
       console.log(error);
     }

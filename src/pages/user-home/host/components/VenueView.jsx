@@ -8,10 +8,20 @@ import "./venueView.css";
 function VenueView({ venue, setVenueView }) {
   const [imageUploader, setImageUploader] = useState(null);
   const [selectedVenue, setSelectedVenue] = useState(venue);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(-1);
   const uploadImageRef = useRef(null);
+  const mainImageref = useRef(null);
 
   const activateSelectImageHandle = () => {
     uploadImageRef.current.click();
+  };
+
+  const selectedImageHandler = (index, imgLink) => {
+    if (setSelectedImageIndex !== index) {
+      mainImageref.current.src = imgLink;
+    } else {
+      setSelectedImageIndex(-1);
+    }
   };
 
   const selectImageHandle = (e) => {
@@ -55,6 +65,10 @@ function VenueView({ venue, setVenueView }) {
     }
   };
 
+  const removeImageHandler = async (imgId) => {
+    console.log(imgId);
+  };
+
   const closeImageUploadHandle = () => {
     uploadImageRef.current.value = null;
     setImageUploader(null);
@@ -80,6 +94,7 @@ function VenueView({ venue, setVenueView }) {
             <div className="venue-image-container">
               <img
                 className="venue-image-main"
+                ref={mainImageref}
                 src={
                   selectedVenue.images.length > 0
                     ? selectedVenue.images[0].link
@@ -88,9 +103,21 @@ function VenueView({ venue, setVenueView }) {
                 alt=""
               />
               <ul>
-                {selectedVenue.images.map((image) => {
+                {selectedVenue.images.map((image, index) => {
                   return (
-                    <li key={image.name}>
+                    <li
+                      key={image.name}
+                      onClick={() => selectedImageHandler(index, image.link)}
+                      style={{
+                        cursor: "pointer",
+                        background:
+                          index === selectedImageIndex
+                            ? "2px solid rgb(63, 57, 57)"
+                            : "",
+                        fontWeight:
+                          index === selectedImageIndex ? "bold" : "normal",
+                      }}
+                    >
                       <img src={image.link} alt="" />
                     </li>
                   );

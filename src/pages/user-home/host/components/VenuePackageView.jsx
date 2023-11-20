@@ -1,3 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
+import hostServices from "../../../../services/hostServices";
+
 import "./venuePackageView.css";
 
 function VenuePackageView({
@@ -5,6 +9,21 @@ function VenuePackageView({
   setPackageView,
   packageEditorDisplayHandler,
 }) {
+  const navigate = useNavigate();
+
+  const removeVenuePackageHandler = async (packageId) => {
+    try {
+      const response = await hostServices.removePackage(venue.id, packageId);
+
+      if (response.status === 200) {
+        navigate("/host/event-manager");
+        window.location.reload();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="venue-package-view-container">
       <div className="venue-package-view">
@@ -30,7 +49,9 @@ function VenuePackageView({
                   >
                     Update
                   </button>
-                  <button>Remove</button>
+                  <button onClick={() => removeVenuePackageHandler(item.id)}>
+                    Remove
+                  </button>
                 </div>
               </li>
             ))}

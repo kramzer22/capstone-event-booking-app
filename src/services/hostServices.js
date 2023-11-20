@@ -24,6 +24,13 @@ function uploadVenueImage(venueId, formData) {
   );
 }
 
+function removeVenueImage(venueId, imageId) {
+  return axios.delete(
+    `${hostURL}venue/${venueId}/images/${imageId}/?token_id=${getUserToken()}`,
+    formData
+  );
+}
+
 function getVenues() {
   return axios.get(`${hostURL}venue/?token_id=${getUserToken()}`);
 }
@@ -39,10 +46,26 @@ function registerPackage(venueId, packageData) {
   );
 }
 
+function updatePackage(venueId, packageId, packageData) {
+  return axios.patch(
+    `${hostURL}venue/${venueId}/package/${packageId}?token_id=${getUserToken()}`,
+    packageData
+  );
+}
+
+function removePackage(venueId, packageId) {
+  return axios.delete(
+    `${hostURL}venue/${venueId}/package/${packageId}?token_id=${getUserToken()}`
+  );
+}
+
 export default {
   registerVenue,
   updateVenue,
   getVenues,
   uploadVenueImage,
+  removeVenueImage,
   registerPackage,
+  updatePackage,
+  removePackage,
 };
