@@ -183,7 +183,7 @@ function Header({ userCookieState }) {
             <Link className="nav-link" to="/about" onClick={scrollToTop}>
               About Us
             </Link>
-            <a tabindex="0"></a>
+            <a tabIndex="0"></a>
           </li>
 
           <li>

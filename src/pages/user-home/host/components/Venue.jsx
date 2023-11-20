@@ -23,7 +23,7 @@ function Venue({
         </button>
         <button onClick={() => venuewViewDisplayHandler(venue)}>View</button>
         <button>View Packages</button>
-        <button onClick={() => packageEditorDisplayHandler("addnew")}>
+        <button onClick={() => packageEditorDisplayHandler("addnew", venue.id)}>
           Add package
         </button>
       </div>

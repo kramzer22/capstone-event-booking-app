@@ -130,7 +130,6 @@ function VenueEditor({ selectedVenue, transactionType, setVenueEditor }) {
         }
       } else if (transactionType === "update") {
         const venueData = {
-          venue_id: selectedVenue.id,
           venue_name: venue,
           address: {
             province: province,
@@ -142,7 +141,10 @@ function VenueEditor({ selectedVenue, transactionType, setVenueEditor }) {
         };
         console.log(venueData);
 
-        const response = await hostServices.updateVenue(venueData);
+        const response = await hostServices.updateVenue(
+          selectedVenue.id,
+          venueData
+        );
 
         if (response.status === 200) {
           navigate("/host/event-manager");

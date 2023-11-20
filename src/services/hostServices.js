@@ -10,13 +10,16 @@ function registerVenue(venueData) {
   return axios.post(`${hostURL}venue/?token_id=${getUserToken()}`, venueData);
 }
 
-function updateVenue(venueData) {
-  return axios.patch(`${hostURL}venue/?token_id=${getUserToken()}`, venueData);
+function updateVenue(venueId, venueData) {
+  return axios.patch(
+    `${hostURL}venue/${venueId}?token_id=${getUserToken()}`,
+    venueData
+  );
 }
 
-function uploadVenueImage(formData) {
+function uploadVenueImage(venueId, formData) {
   return axios.patch(
-    `${hostURL}venue/images/?token_id=${getUserToken()}`,
+    `${hostURL}venue/${venueId}/images/?token_id=${getUserToken()}`,
     formData
   );
 }
@@ -29,4 +32,17 @@ function getVenue(venueId) {
   return axios.get(`${hostURL}venue/${venueId}?token_id=${getUserToken()}`);
 }
 
-export default { registerVenue, updateVenue, getVenues, uploadVenueImage };
+function registerPackage(venueId, packageData) {
+  return axios.post(
+    `${hostURL}venue/${venueId}/package?token_id=${getUserToken()}`,
+    packageData
+  );
+}
+
+export default {
+  registerVenue,
+  updateVenue,
+  getVenues,
+  uploadVenueImage,
+  registerPackage,
+};

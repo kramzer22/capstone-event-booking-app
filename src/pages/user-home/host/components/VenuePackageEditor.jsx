@@ -1,11 +1,15 @@
 import { useState } from "react";
 
 import "./venuePackageEditor.css";
+import hostServices from "../../../../services/hostServices";
 
-function VenuePackageEditor({ transactionType, setPackageEditor }) {
+function VenuePackageEditor({ transactionType, setPackageEditor, venueId }) {
   const [inclusions, setInclusions] = useState([]);
   const [selectedInclusionIndex, setSelectedInclusionIndex] = useState(-1);
   const [inclusionInput, setInclusionInput] = useState("");
+  const [packageName, setPackageName] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState(0);
 
   const addInclusionHandle = () => {
     if (inclusionInput.trim() !== "") {
@@ -30,9 +34,35 @@ function VenuePackageEditor({ transactionType, setPackageEditor }) {
     setSelectedInclusionIndex(-1);
   };
 
+  const submitPackageDateHandle = async (e) => {
+    e.preventDefault();
+    const saveInclusions = inclusions.map((inclusion) => {
+      return { description: inclusion };
+    });
+    const pacakageData = {
+      name: packageName,
+      description: description,
+      price: price,
+      inclusions: saveInclusions,
+    };
+    try {
+      const response = await hostServices.registerPackage(
+        venueId,
+        pacakageData
+      );
+
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="venue-package-editor-container">
-      <form className="venue-package-editor-form">
+      <form
+        className="venue-package-editor-form"
+        onSubmit={submitPackageDateHandle}
+      >
         <h3>Package Editor</h3>
         <div className="registration">
           <label className="registration-label" htmlFor="">
@@ -40,8 +70,8 @@ function VenuePackageEditor({ transactionType, setPackageEditor }) {
           </label>
           <input
             type="text"
-            // value={venue}
-            // onChange={(e) => setVenue(e.target.value)}
+            value={packageName}
+            onChange={(e) => setPackageName(e.target.value)}
           />
         </div>
         <div className="registration">
@@ -50,8 +80,8 @@ function VenuePackageEditor({ transactionType, setPackageEditor }) {
           </label>
           <input
             type="text"
-            // value={venue}
-            // onChange={(e) => setVenue(e.target.value)}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
         <div className="registration">
@@ -60,8 +90,8 @@ function VenuePackageEditor({ transactionType, setPackageEditor }) {
           </label>
           <input
             type="number"
-            // value={venue}
-            // onChange={(e) => setVenue(e.target.value)}
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
           />
         </div>
         <div className="venue-package-inlcusion-container">

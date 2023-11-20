@@ -37,11 +37,12 @@ function EventPlaceManager({ userCookieState }) {
     );
   };
 
-  const packageEditorDisplayHandler = (transactionType) => {
+  const packageEditorDisplayHandler = (transactionType, venueId) => {
     setPackageEditor(
       <VenuePackageEditor
         transactionType={transactionType}
         setPackageEditor={setPackageEditor}
+        venueId={venueId}
       />
     );
   };
