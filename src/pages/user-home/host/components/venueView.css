@@ -7,31 +7,28 @@
   justify-content: center;
   align-items: center;
 
-  width: 100vw;
-  height: 100vh;
-  overflow: auto;
-  background-color: rgba(63, 57, 57, 0.5);
+  width: 100dvw;
+  height: 100dvh;
 
-  z-index: 1;
+  background-color: var(--background-trans);
+  overflow: scroll;
+
+  z-index: 9994;
 }
 
 .upload-container {
-  z-index: 2;
+  z-index: 9995;
 }
 
 .venue-content-container {
-  position: absolute;
-  top: 120px;
-
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1rem;
 
-  padding: 20px;
-  margin-bottom: 140px;
+  padding: 2rem;
   width: 1200px;
 
-  background-color: antiquewhite;
+  background-color: red;
 }
 
 .venue-image-container {

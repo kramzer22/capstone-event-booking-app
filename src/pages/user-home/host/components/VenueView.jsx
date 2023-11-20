@@ -94,7 +94,7 @@ function VenueView({ venue, setVenueView }) {
     <>
       <div className="venue-view-container">
         <div className="venue-content-container">
-          <h2>{selectedVenue.venue_name}</h2>
+          <h4>{selectedVenue.venue_name}</h4>
           <p>{venueAddress()}</p>
           <div
             dangerouslySetInnerHTML={{

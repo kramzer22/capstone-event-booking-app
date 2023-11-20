@@ -10,9 +10,8 @@
   width: 100vw;
   height: 100vh;
   overflow: auto;
-  background-color: rgba(63, 57, 57, 0.5);
 
-  z-index: 1;
+  z-index: 9993;
 }
 
 .venue-package-view {

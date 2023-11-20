@@ -10,7 +10,7 @@
   width: 100vw;
   height: 100vh;
 
-  z-index: 9999;
+  z-index: 9990;
 }
 
 .event-editor-form {
@@ -78,7 +78,8 @@
 
   transition: 0.1s ease-in-out;
 
-  box-shadow: 0 -20px 10px -20px rgba(0,0,0,0.45) inset, -20px 0 10px -20px rgba(0,0,0,0.45) inset;
+  box-shadow: 0 -20px 10px -20px rgba(0, 0, 0, 0.45) inset,
+    -20px 0 10px -20px rgba(0, 0, 0, 0.45) inset;
 
   &:hover {
     scale: 1.1;
