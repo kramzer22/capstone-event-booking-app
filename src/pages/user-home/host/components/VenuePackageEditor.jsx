@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./venuePackageEditor.css";
 import hostServices from "../../../../services/hostServices";
@@ -10,6 +11,8 @@ function VenuePackageEditor({ transactionType, setPackageEditor, venueId }) {
   const [packageName, setPackageName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
+
+  const navigate = useNavigate();
 
   const addInclusionHandle = () => {
     if (inclusionInput.trim() !== "") {
@@ -36,20 +39,22 @@ function VenuePackageEditor({ transactionType, setPackageEditor, venueId }) {
 
   const submitPackageDateHandle = async (e) => {
     e.preventDefault();
-    const saveInclusions = inclusions.map((inclusion) => {
-      return { description: inclusion };
-    });
     const pacakageData = {
       name: packageName,
       description: description,
       price: price,
-      inclusions: saveInclusions,
+      inclusions: inclusions,
     };
     try {
       const response = await hostServices.registerPackage(
         venueId,
         pacakageData
       );
+
+      if (response.status == 201) {
+        navigate("/host/event-manager");
+        window.location.reload();
+      }
 
       console.log(response);
     } catch (error) {

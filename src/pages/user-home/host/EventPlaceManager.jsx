@@ -5,6 +5,7 @@ import VenueView from "./components/VenueView";
 import VenueEditor from "./components/VenueEditor";
 import Venue from "./components/Venue";
 import VenuePackageEditor from "./components/VenuePackageEditor";
+import VenuePackageView from "./components/VenuePackageView";
 
 import hostServices from "../../../services/hostServices";
 
@@ -15,6 +16,7 @@ function EventPlaceManager({ userCookieState }) {
   const [venueEditor, setVenueEditor] = useState(null);
   const [venueView, setVenueView] = useState(null);
   const [packageEditor, setPackageEditor] = useState(null);
+  const [packageView, setPackageView] = useState(null);
 
   useEffect(() => {
     const getUserVenues = async () => {
@@ -27,6 +29,8 @@ function EventPlaceManager({ userCookieState }) {
     };
     getUserVenues();
   }, []);
+
+  console.log(venues);
   const venueEditorDisplayHandler = (transactionType, venue = null) => {
     setVenueEditor(
       <VenueEditor
@@ -34,6 +38,12 @@ function EventPlaceManager({ userCookieState }) {
         transactionType={transactionType}
         setVenueEditor={setVenueEditor}
       />
+    );
+  };
+
+  const packageViewDisplayHandler = (venue) => {
+    setPackageView(
+      <VenuePackageView venue={venue} setPackageView={setPackageView} />
     );
   };
 
@@ -59,6 +69,7 @@ function EventPlaceManager({ userCookieState }) {
           venueEditorDisplayHandler={venueEditorDisplayHandler}
           venuewViewDisplayHandler={venuewViewDisplayHandler}
           packageEditorDisplayHandler={packageEditorDisplayHandler}
+          packageViewDisplayHandler={packageViewDisplayHandler}
           venue={venue}
           key={index}
         />
@@ -83,6 +94,7 @@ function EventPlaceManager({ userCookieState }) {
       {venueEditor}
       {venueView}
       {packageEditor}
+      {packageView}
     </>
   );
 }
