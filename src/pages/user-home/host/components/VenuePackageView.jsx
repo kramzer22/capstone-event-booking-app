@@ -1,6 +1,10 @@
 import "./venuePackageView.css";
 
-function VenuePackageView({ venue, setPackageView }) {
+function VenuePackageView({
+  venue,
+  setPackageView,
+  packageEditorDisplayHandler,
+}) {
   return (
     <div className="venue-package-view-container">
       <div className="venue-package-view">
@@ -19,7 +23,13 @@ function VenuePackageView({ venue, setPackageView }) {
                   </p>
                 </div>
                 <div>
-                  <button>Update</button>
+                  <button
+                    onClick={() =>
+                      packageEditorDisplayHandler(venue.id, "update", item)
+                    }
+                  >
+                    Update
+                  </button>
                   <button>Remove</button>
                 </div>
               </li>

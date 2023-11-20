@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./venuePackageEditor.css";
 import hostServices from "../../../../services/hostServices";
 
-function VenuePackageEditor({ transactionType, setPackageEditor, venueId }) {
+function VenuePackageEditor({
+  transactionType,
+  setPackageEditor,
+  venueId,
+  selectedPackage,
+}) {
   const [inclusions, setInclusions] = useState([]);
   const [selectedInclusionIndex, setSelectedInclusionIndex] = useState(-1);
   const [inclusionInput, setInclusionInput] = useState("");
@@ -13,6 +18,13 @@ function VenuePackageEditor({ transactionType, setPackageEditor, venueId }) {
   const [price, setPrice] = useState(0);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setPackageName(selectedPackage.name);
+    setDescription(selectedPackage.description);
+    setPrice(selectedPackage.price);
+    setInclusions(selectedPackage.inclusions);
+  }, []);
 
   const addInclusionHandle = () => {
     if (inclusionInput.trim() !== "") {
@@ -39,21 +51,37 @@ function VenuePackageEditor({ transactionType, setPackageEditor, venueId }) {
 
   const submitPackageDateHandle = async (e) => {
     e.preventDefault();
-    const pacakageData = {
-      name: packageName,
-      description: description,
-      price: price,
-      inclusions: inclusions,
-    };
-    try {
-      const response = await hostServices.registerPackage(
-        venueId,
-        pacakageData
-      );
 
-      if (response.status == 201) {
-        navigate("/host/event-manager");
-        window.location.reload();
+    try {
+      if (transactionType === "addnew") {
+        const pacakageData = {
+          name: packageName,
+          description: description,
+          price: price,
+          inclusions: inclusions,
+        };
+
+        const response = await hostServices.registerPackage(
+          venueId,
+          pacakageData
+        );
+
+        if (response.status == 201) {
+          navigate("/host/event-manager");
+          window.location.reload();
+        }
+      } else if (transactionType === "update") {
+        const pacakageData = {
+          name: packageName,
+          description: description,
+          price: price,
+          inclusions: inclusions,
+        };
+
+        const response = await hostServices.updatePackage(
+          venueId,
+          pacakageData
+        );
       }
 
       console.log(response);
