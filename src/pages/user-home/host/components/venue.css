@@ -1,0 +1,35 @@
+.venue-list-container {
+  display: flex;
+  gap: 40px;
+
+  padding: 20px;
+  width: 100%;
+
+  overflow: hidden;
+
+  background-color: antiquewhite;
+}
+
+.venue-list-conent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.venue-list-conent p:last-of-type {
+  height: 120px;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.venue-list-control-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.venue-list-control-container button {
+  flex-grow: 1;
+  width: 140px;
+}

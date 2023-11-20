@@ -1,5 +1,5 @@
 import { React } from "react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import "./header.css";
@@ -18,6 +18,10 @@ function Header({ userCookieState }) {
   const loginContainerRef = useRef(null);
 
   const ERROR_DISPLAY_TIME = 5000;
+
+  useEffect(() => {
+    //profileDropDownRef.current.style.display = "none";
+  }, []);
 
   const loginHandler = async (e) => {
     e.preventDefault();
@@ -99,7 +103,7 @@ function Header({ userCookieState }) {
       name: "userToken",
       value: "",
     });
-
+    userCookieState.setUserCookie("");
     navigate("/");
     window.location.reload();
   };
@@ -179,7 +183,7 @@ function Header({ userCookieState }) {
             <Link className="nav-link" to="/about" onClick={scrollToTop}>
               About Us
             </Link>
-            <a tabindex="0"></a>
+            <a tabIndex="0"></a>
           </li>
 
           <li>

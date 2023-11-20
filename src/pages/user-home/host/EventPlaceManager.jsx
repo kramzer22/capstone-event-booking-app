@@ -1,38 +1,88 @@
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 
 import Header from "../../../components/header/Header";
+import VenueView from "./components/VenueView";
 import VenueEditor from "./components/VenueEditor";
+import Venue from "./components/Venue";
+import VenuePackageEditor from "./components/VenuePackageEditor";
+
+import hostServices from "../../../services/hostServices";
 
 import "./eventPlaceManager.css";
 
 function EventPlaceManager({ userCookieState }) {
-  const venueEditorRef = useRef(null);
+  const [venues, setVenues] = useState([]);
+  const [venueEditor, setVenueEditor] = useState(null);
+  const [venueView, setVenueView] = useState(null);
+  const [packageEditor, setPackageEditor] = useState(null);
 
-  const ERROR_DISPLAY_TIME = 4000;
-
-  const setEventPlaceEditorVisibility = () => {
-    if (venueEditorRef.current.style.display === "none") {
-      venueEditorRef.current.style.display = "flex";
-    } else {
-      venueEditorRef.current.style.display = "none";
-    }
+  useEffect(() => {
+    const getUserVenues = async () => {
+      try {
+        const response = await hostServices.getVenues();
+        setVenues(response.data);
+      } catch (error) {
+        setVenues([]);
+      }
+    };
+    getUserVenues();
+  }, []);
+  const venueEditorDisplayHandler = (transactionType, venue = null) => {
+    setVenueEditor(
+      <VenueEditor
+        selectedVenue={venue}
+        transactionType={transactionType}
+        setVenueEditor={setVenueEditor}
+      />
+    );
   };
+
+  const packageEditorDisplayHandler = (transactionType, venueId) => {
+    setPackageEditor(
+      <VenuePackageEditor
+        transactionType={transactionType}
+        setPackageEditor={setPackageEditor}
+        venueId={venueId}
+      />
+    );
+  };
+
+  const venuewViewDisplayHandler = (venue) => {
+    setVenueView(<VenueView venue={venue} setVenueView={setVenueView} />);
+  };
+
+  let venueListDisplay;
+  if (venues.length > 0) {
+    venueListDisplay = venues.map((venue, index) => {
+      return (
+        <Venue
+          venueEditorDisplayHandler={venueEditorDisplayHandler}
+          venuewViewDisplayHandler={venuewViewDisplayHandler}
+          packageEditorDisplayHandler={packageEditorDisplayHandler}
+          venue={venue}
+          key={index}
+        />
+      );
+    });
+  }
+
   return (
     <>
       <Header userCookieState={userCookieState} />
-      <div>
-        <div>
-          <div>
-            <h1>Event Places</h1>
-            <button onClick={setEventPlaceEditorVisibility}>Add New</button>
-          </div>
-          <ul></ul>
+
+      <div className="venue-manager-contanier">
+        <div className="venue-manager-header-container">
+          <h1>Venues</h1>
+          <button onClick={() => venueEditorDisplayHandler("addnew")}>
+            Add New
+          </button>
         </div>
+        <ul className="venue-manager-venues-container">{venueListDisplay}</ul>
       </div>
-      <VenueEditor
-        formRef={venueEditorRef}
-        showFormHandler={setEventPlaceEditorVisibility}
-      />
+
+      {venueEditor}
+      {venueView}
+      {packageEditor}
     </>
   );
 }

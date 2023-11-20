@@ -1,62 +1,27 @@
-.event-editor-container {
-  position: fixed;
-  top: 0;
-  left: 0;
+.venue-manager-contanier {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 
-  display: none;
-  justify-content: center;
+  padding: 100px 80px;
+}
+
+.venue-manager-header-container {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  background-color: rgba(63, 57, 57, 0.5);
-  width: 100vw;
-  height: 100vh;
-
-  z-index: 1;
-}
-
-.event-editor-form {
-  position: inherit;
-  padding: 40px;
-  width: 600px;
-  background-color: antiquewhite;
-}
-
-.event-place-image-container {
-  display: grid;
-  grid-template-rows: 1fr 80px;
 
   padding: 10px;
-  height: 300px;
-  width: 100%;
-  background-color: white;
-
-  margin-top: 10px;
 }
 
-.event-place-img {
-  height: 100%;
-  width: 100%;
-  background-color: aquamarine;
-}
-
-.event-place-img-list {
-  display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-}
-
-.event-place-img-list li {
-  height: 40px;
-  width: 40px;
-  background-color: rgb(81, 112, 112);
-}
-
-.event-manager-close-container {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.event-manager-close-container button {
-  width: 60px;
+.venue-manager-header-container button {
   height: 60px;
+  width: 160px;
+}
+
+.venue-manager-venues-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
 }
