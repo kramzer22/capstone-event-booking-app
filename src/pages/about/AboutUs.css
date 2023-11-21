@@ -181,6 +181,8 @@
   width: 60%;
   max-width: 100%;
   padding: 3em 0;
+
+  text-align: center;
 }
 
 .history-title {
@@ -412,16 +414,19 @@
   }
 
   .feature-container {
-    padding: 2rem;
+    padding: 0 1rem !important;
   }
 
   .feature-card-ctr {
-    grid-template-rows: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 
   .feature-card {
-    padding: 1rem;
-    height: min-content;
+    padding: 2rem !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 }
 
@@ -502,7 +507,7 @@
     width: 100%;
     padding: 2rem 4rem 0;
   }
-  .feature-container{
+  .feature-container {
     padding: 2rem 4rem;
   }
   .feature-card-ctr {
