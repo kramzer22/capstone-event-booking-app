@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
-import InstantMessaging from "./components/instant-messaging/InstantMessaging";
-
 // Pages
 import Home from "./pages/home/Home";
 import HostHome from "./pages/user-home/host/HostHome";
 import EventPlaceManager from "./pages/user-home/host/EventPlaceManager";
+import Venues from "./pages/venue/Venues";
 import AboutUs from "./pages/about/AboutUs";
 import Register from "./pages/registration/Register";
 import Login from "./pages/login/Login";
@@ -23,25 +21,54 @@ import "./App.css";
 
 function App() {
   const [userCookie, setUserCookie] = useState("");
+  const [userRole, setUserRole] = useState("");
 
   useEffect(() => {
-    tokenServices.checkUserCookieCredentials({
-      userCookie: userCookie,
-      setUserCookie: setUserCookie,
-    });
+    const checkUserCookie = async () => {
+      try {
+        const result = await tokenServices.checkUserCookieCredentials({
+          userCookie: userCookie,
+          setUserCookie: setUserCookie,
+        });
+
+        if (result) {
+          console.log(result);
+          setUserRole(result.user_role);
+        } else {
+          console.log("no user");
+          setUserRole("");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    checkUserCookie();
   }, []);
 
   console.log(userCookie);
+
   let homeDisplay;
   if (userCookie !== "") {
-    homeDisplay = (
-      <HostHome
-        userCookieState={{
-          userCookie: userCookie,
-          setUserCookie: setUserCookie,
-        }}
-      />
-    );
+    if (userRole === "host") {
+      homeDisplay = (
+        <HostHome
+          userCookieState={{
+            userCookie: userCookie,
+            setUserCookie: setUserCookie,
+          }}
+        />
+      );
+    } else if (userRole === "client") {
+      homeDisplay = (
+        <Venues
+          userCookieState={{
+            userCookie: userCookie,
+            setUserCookie: setUserCookie,
+          }}
+        />
+      );
+    }
   } else {
     homeDisplay = (
       <Home
@@ -59,9 +86,20 @@ function App() {
         <Routes>
           <Route path="/" element={homeDisplay} />
           <Route
-            path="host/event-manager"
+            path="/host/event-manager"
             element={
               <EventPlaceManager
+                userCookieState={{
+                  userCookie: userCookie,
+                  setUserCookie: setUserCookie,
+                }}
+              />
+            }
+          />
+          <Route
+            path="/venue"
+            element={
+              <Venues
                 userCookieState={{
                   userCookie: userCookie,
                   setUserCookie: setUserCookie,

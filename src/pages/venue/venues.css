@@ -1,0 +1,246 @@
+.venues-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  padding: 0 50px;
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+}
+
+.venues-featured-container {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 200px;
+  padding: 20px;
+  min-width: 1400px;
+  max-width: 1400px;
+  background-color: antiquewhite;
+}
+
+.venue-hero-description {
+  max-height: 300px;
+  min-height: 300px;
+
+  padding: 0 20px;
+  overflow-y: auto;
+  text-overflow: ellipsis;
+  text-align: justify;
+
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.venue-hero-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 40px;
+  width: 100%;
+}
+
+.venue-hero-image {
+  min-height: 400px;
+  max-height: 400px;
+  min-width: 620px;
+  max-width: 620px;
+  background-color: aquamarine;
+}
+
+.venue-hero-image-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  width: 100%;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.venue-hero-image-list img {
+  padding: 0 6px;
+  min-height: 220px;
+  max-height: 220px;
+  min-width: 260px;
+  max-width: 260px;
+  object-fit: contain;
+  background-color: rgb(228, 232, 235);
+  border: 2px solid rgb(156, 157, 158);
+}
+
+.venues-body-container {
+  display: grid;
+  grid-template-columns: 44% 1fr;
+
+  gap: 60px;
+  padding: 20px;
+  width: 100%;
+}
+
+.venues-body-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 40px;
+  padding: 40px 20px 60px 20px;
+  width: 100%;
+
+  background-color: azure;
+}
+
+.venues-body-list-container input {
+  margin-top: 20px;
+  width: 90%;
+  height: 40px;
+}
+
+.venues-body-venue-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  padding-top: 40px;
+  padding-right: 40px;
+
+  min-height: 1200px;
+  max-height: 1200px;
+  overflow-y: auto;
+}
+
+.venues-body-venue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  min-height: 400px;
+  max-height: 400px;
+  padding: 20px 20px 40px 20px;
+
+  background-color: blanchedalmond;
+}
+
+.venues-body-venue-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.venues-body-venue-list div:last-of-type {
+  flex-grow: 1;
+
+  display: flex;
+  gap: 20px;
+}
+
+.venues-body-venue-list div img {
+  min-width: 300px;
+  min-width: 300px;
+  min-height: 220px;
+  max-height: 220px;
+
+  background-color: rgb(81, 84, 87);
+}
+
+.venues-body-venue-list div p {
+  flex-grow: 1;
+  display: flex;
+
+  padding: 0 20px 0 0;
+  min-height: 220px;
+  max-height: 220px;
+  overflow-y: auto;
+  text-align: justify;
+  text-overflow: ellipsis;
+}
+
+.venues-package-item-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 20px;
+
+  padding: 20px 20px 40px 20px;
+  width: 100%;
+  min-height: 560px;
+  max-height: 560px;
+  background-color: antiquewhite;
+}
+
+.venues-package-body-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  min-height: 240px;
+  max-height: 240px;
+  width: 100%;
+}
+
+.venues-package-body-container img {
+  min-height: 100%;
+  max-height: 100%;
+  min-width: 300px;
+  min-width: 300px;
+
+  background-color: rgb(81, 84, 87);
+}
+
+.venues-package-body-container div {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.venues-package-body-container ul {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+  list-style: circle !important;
+  background-color: aliceblue;
+}
+
+.venues-package-body-container ul li {
+  margin-left: 40px;
+}
+
+.venue-package-description {
+  flex-grow: 1;
+
+  padding-right: 20px;
+  width: 100%;
+  text-align: justify;
+  text-overflow: ellipsis;
+}
+
+.package-item-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.venue-search-container {
+  position: fixed;
+  top: 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.venue-search-container input {
+  width: 1200px;
+  height: 50px;
+}
