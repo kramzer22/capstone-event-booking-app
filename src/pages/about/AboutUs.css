@@ -439,10 +439,7 @@
   .about-details {
     flex: 1;
   }
-  .about-btns button,
-  .ad-btn {
-    padding: 0.3rem 0.9rem;
-  }
+
   .about-img img {
     height: 300px;
   }
