@@ -282,9 +282,9 @@ function Contact({ userCookieState }) {
             <div className="map-office">
               <h4>Office Location</h4>
               <p>123 Main St,</p>
-              <p>Anytown USA</p>
-              <p>Zip Code Here</p>
-              <p>+6391234567</p>
+              <p>White Plains, NY</p>
+              <p>USA 10601</p>
+              <p>+639123456789</p>
             </div>
 
             <div className="map-cti">
