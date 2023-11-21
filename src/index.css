@@ -136,8 +136,20 @@ option{
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 768px) {
+  html {font-size: 100%;} /* 16px */
 
+  h1 {font-size: 1.802rem; /* 28.8px */}
+  
+  h2 {font-size: 1.602rem; /* 25.6px */}
+  
+  h3 {font-size: 1.424rem; /* 22.72px */}
+  
+  h4 {font-size: 1.266rem; /* 20.32px */}
+  
+  h5 {font-size: 1.125rem; /* 18.08px */}
+  
+  small {font-size: 0.889rem; /* 14.24px */}
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
