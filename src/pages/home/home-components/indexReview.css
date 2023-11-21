@@ -19,6 +19,7 @@
 
 .review-container h3 {
   padding-bottom: 4rem;
+  text-align: center;
 }
 
 .test {
@@ -140,5 +141,14 @@
   }
   100% {
     transform: translateX(0%);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .review-container {
+    padding: 0 2rem 0.5rem;
+  }
+  .review-container h3 {
+    font-size: 25px;
   }
 }
