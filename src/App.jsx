@@ -50,16 +50,25 @@ function App() {
 
   let homeDisplay;
   if (userCookie !== "") {
-    // if (userRole === "host") {
-    homeDisplay = (
-      <HostHome
-        userCookieState={{
-          userCookie: userCookie,
-          setUserCookie: setUserCookie,
-        }}
-      />
-    );
-    // }
+    if (userRole === "host") {
+      homeDisplay = (
+        <HostHome
+          userCookieState={{
+            userCookie: userCookie,
+            setUserCookie: setUserCookie,
+          }}
+        />
+      );
+    } else if (userRole === "client") {
+      homeDisplay = (
+        <Venues
+          userCookieState={{
+            userCookie: userCookie,
+            setUserCookie: setUserCookie,
+          }}
+        />
+      );
+    }
   } else {
     homeDisplay = (
       <Home

@@ -56,7 +56,13 @@ function Venues({ userCookieState }) {
     );
 
     const itemPackages = filteredVenues.flatMap((venue) =>
-      venue.packages.map((item) => item)
+      venue.packages.map((item) => ({
+        id: venue.id,
+        image: venue.images[0],
+        address: `${venue.address.street} ${venue.address.barangay}, ${venue.address.city}, ${venue.address.province}`,
+        venue_name: venue.venue_name,
+        package: item,
+      }))
     );
 
     console.log(itemPackages);
@@ -68,7 +74,27 @@ function Venues({ userCookieState }) {
     heroDisplay = (
       <>
         <h1>{heroVenue.venue_name}</h1>
-        <p>{heroVenue.description}</p>
+        <p className="venue-hero-description">{heroVenue.description}</p>
+        {heroVenue.images.length === 0 ? (
+          <div className="venue-hero-image-container">
+            <img className="venue-hero-image" src="" alt="" />
+          </div>
+        ) : (
+          <div className="venue-hero-image-container">
+            <img
+              className="venue-hero-image"
+              src={heroVenue.images[0].link}
+              alt=""
+            />
+            <ul className="venue-hero-image-list">
+              {heroVenue.images.map((image, index) => (
+                <li key={index}>
+                  <img src={image.link} alt="" />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </>
     );
   }
@@ -77,15 +103,18 @@ function Venues({ userCookieState }) {
       <Header userCookieState={userCookieState} />
       <div className="venues-container">
         <div className="venues-featured-container">{heroDisplay}</div>
-        <div className="venues-package-container">
-          <div className="venues-list-container">
+        <div className="venues-body-container">
+          <div className="venues-body-list-container">
             <input type="text" placeholder="search" />
             <h3>Venue List</h3>
-            <ul>
+            <ul className="venues-body-venue-list-container">
               {venueList.map((venue, index) => (
-                <li className="venues-venue-item-container" key={index}>
-                  <h4>{venue.venue_name}</h4>
-                  <h5>{`${venue.address.street} ${venue.address.barangay}, ${venue.address.city}, ${venue.address.province}`}</h5>
+                <li className="venues-body-venue-list" key={index}>
+                  <div className="venues-body-venue-container">
+                    <h4>{venue.venue_name}</h4>
+                    <h5>{`${venue.address.street} ${venue.address.barangay}, ${venue.address.city}, ${venue.address.province}`}</h5>
+                  </div>
+
                   <div>
                     <img
                       src={venue.images[0] ? venue.images[0].link : ""}
@@ -97,13 +126,35 @@ function Venues({ userCookieState }) {
               ))}
             </ul>
           </div>
-          <div className="packages-list-container">
+          <div className="venues-body-list-container">
             <input type="text" placeholder="search" />
             <h3>Package List</h3>
-            <ul>
+            <ul className="venues-body-venue-list-container">
               {packageList.map((itemPackage, index) => (
                 <li className="venues-package-item-container" key={index}>
-                  <h4>{itemPackage.name}</h4>
+                  <h4>{itemPackage.package.name}</h4>
+                  <div className="venues-package-body-container">
+                    <img
+                      src={itemPackage.image ? itemPackage.image.link : ""}
+                      alt=""
+                    />
+                    <div>
+                      <h5>Inclusions</h5>
+                      <ul className="venue-package-inclusion-container">
+                        {itemPackage.package.inclusions.map((inclusion, i) => (
+                          <li key={i}>{inclusion}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <p className="venue-package-description">
+                    {itemPackage.package.description}
+                  </p>
+                  <h5>cost:₱ {itemPackage.package.price}</h5>
+                  <div className="package-item-footer">
+                    <h5>{itemPackage.venue_name}</h5>
+                    <p>{itemPackage.address}</p>
+                  </div>
                 </li>
               ))}
             </ul>
