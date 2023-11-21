@@ -201,3 +201,25 @@ textarea {
     gap: 1rem;
   }
 }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+  .map-details-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 0rem;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 840px) {
+  .map-details-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 0rem;
+    align-items: center;
+    text-align: center;
+  }
+}
