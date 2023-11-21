@@ -267,10 +267,16 @@ function Contact({ userCookieState }) {
 
         <div className="map-details-container">
           <div className="google-map">
-            <img
-              src="https://dummyimage.com/555x358/000/fff.png&text=image+555x358+Google+Map+Here"
-              alt=""
-            />
+            <gmp-map
+              center="41.03277587890625,-73.76931762695312"
+              zoom="14"
+              map-id="DEMO_MAP_ID"
+            >
+              <gmp-advanced-marker
+                position="41.03277587890625,-73.76931762695312"
+                title="My location"
+              ></gmp-advanced-marker>
+            </gmp-map>
           </div>
           <div className="map-details">
             <div className="map-office">

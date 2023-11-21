@@ -148,8 +148,8 @@ textarea {
 }
 
 .google-map{
-  width: 100%;
-  max-width: 100%;
+  width: 555px;
+  height: 358px;
 }
 
 .google-map img {
