@@ -150,12 +150,13 @@
   flex-grow: 1;
   display: flex;
 
-  padding: 0 20px 0 0;
+  padding: 10px 20px 10px 10px;
   min-height: 220px;
   max-height: 220px;
   overflow-y: auto;
   text-align: justify;
   text-overflow: ellipsis;
+  background-color: aliceblue;
 }
 
 .venues-package-item-container {
@@ -166,8 +167,8 @@
 
   padding: 20px 20px 40px 20px;
   width: 100%;
-  min-height: 560px;
-  max-height: 560px;
+  min-height: 590px;
+  max-height: 590px;
   background-color: antiquewhite;
 }
 
@@ -215,11 +216,14 @@
 }
 
 .venue-package-description {
-  flex-grow: 1;
-
-  padding-right: 20px;
+  padding: 20px;
   width: 100%;
+  min-height: 120px;
+  max-height: 120px;
+
+  overflow-y: auto;
   text-align: justify;
+  white-space: normal;
   text-overflow: ellipsis;
 }
 
