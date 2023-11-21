@@ -91,6 +91,7 @@
   height: 400px;
   flex: 0 0 50%;
   object-fit: cover;
+  object-position: center;
 }
 
 /* start of section */
@@ -444,14 +445,14 @@
     padding: 3rem;
     align-items: center;
   }
-  .section-details{
+  .section-details {
     gap: 1rem;
   }
-  .section-description{
+  .section-description {
     width: fit-content;
     flex: 1;
   }
-  .section-paragraph{
+  .section-paragraph {
     width: fit-content;
     flex: 1;
     padding: 0;
@@ -482,7 +483,31 @@
   }
 }
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 840px) {
+  .about-container {
+    padding: 120px 4rem 4rem;
+    gap: 2rem;
+  }
+  .about-details {
+    flex: 1;
+  }
+  .about-img img {
+    height: 350px;
+    object-position: center;
+  }
+  .section-container {
+    padding: 4rem;
+  }
+  .history-details {
+    width: 100%;
+    padding: 2rem 4rem 0;
+  }
+  .feature-container{
+    padding: 2rem 4rem;
+  }
+  .feature-card-ctr {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
 }
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
