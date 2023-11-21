@@ -172,9 +172,9 @@ function Header({ userCookieState }) {
           </li>
 
           <li>
-            <a className="nav-link" tabIndex="0">
+            <Link className="nav-link" to="/venue" onClick={scrollToTop}>
               Venues
-            </a>
+            </Link>
           </li>
 
           <li>

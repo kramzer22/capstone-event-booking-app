@@ -46,17 +46,17 @@ function Footer() {
             </p>
             <div className="social-links">
               <a>
-                <i class="ri-facebook-fill"></i>
+                <i className="ri-facebook-fill"></i>
               </a>
 
               <a>
-                <i class="ri-twitter-x-line"></i>
+                <i className="ri-twitter-x-line"></i>
               </a>
               <a href="#">
-                <i class="ri-messenger-line"></i>
+                <i className="ri-messenger-line"></i>
               </a>
               <a href="#">
-                <i class="ri-google-fill"></i>
+                <i className="ri-google-fill"></i>
               </a>
             </div>
           </div>
