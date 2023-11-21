@@ -93,6 +93,7 @@
 
 .venue-package-buttons h5 {
   font-size: 17px;
+  width: max-content;
 }
 
 .venue-package-buttons button {
