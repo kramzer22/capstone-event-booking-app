@@ -50,7 +50,7 @@ function Home({ userCookieState }) {
                 </picture>
                 <div className="card-btn">
                   <button>
-                    For Clients <i class="ri-arrow-right-s-line"></i>
+                    For Clients <i className="ri-arrow-right-s-line"></i>
                   </button>
                 </div>
               </div>
@@ -69,7 +69,7 @@ function Home({ userCookieState }) {
                 </picture>
                 <div className="card-btn">
                   <button>
-                    For Users <i class="ri-arrow-right-s-line"></i>
+                    For Users <i className="ri-arrow-right-s-line"></i>
                   </button>
                 </div>
               </div>
@@ -134,8 +134,8 @@ function Home({ userCookieState }) {
           <h4>
             Choose <span>EasyGig</span> for a stress-free and enjoyable event
             experience.
-            <br /> <a href="#">Join us</a> in redefining the way events are
-            planned and enjoyed.
+            <br /> <a>Join us</a> in redefining the way events are planned and
+            enjoyed.
           </h4>
         </div>
 
