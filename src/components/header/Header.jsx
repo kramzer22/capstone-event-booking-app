@@ -202,7 +202,9 @@ function Header({ userCookieState }) {
         <ul className="navigation-links-container">
           <li>
             <Link className="nav-link" to="/" onClick={scrollToTop}>
-              Home
+              {objectHelperModule.getCookie("userRole") === "host"
+                ? "Dashboard"
+                : "Home"}
             </Link>
           </li>
           {objectHelperModule.getCookie("userRole") === "client" ? null : (
