@@ -38,11 +38,16 @@ function HostHome({ userCookieState }) {
     getBookingList();
   }, []);
 
-  const approveBooking = async (bookId) => {
+  const setBookingTransaction = async (bookId, transaction) => {
     try {
-      const response = await bookingServices.acceptBookingTransaction(bookId);
+      const response = await bookingServices.setBookingTransaction(
+        bookId,
+        transaction
+      );
 
-      console.log(response);
+      if (response.status === 200) {
+        window.location.reload();
+      }
     } catch (error) {
       console.log(error);
     }
@@ -72,12 +77,22 @@ function HostHome({ userCookieState }) {
                     })}
                   </p>
                   {booking.booking_status === "approval_pending" ? (
-                    <button
-                      className="transaction-accept-booking"
-                      onClick={() => approveBooking(booking.id)}
-                    >
-                      Accept
-                    </button>
+                    <div className="transaction-booking-controls">
+                      <button
+                        onClick={() =>
+                          setBookingTransaction(booking.id, "decline")
+                        }
+                      >
+                        Decline
+                      </button>
+                      <button
+                        onClick={() =>
+                          setBookingTransaction(booking.id, "accept")
+                        }
+                      >
+                        Accept
+                      </button>
+                    </div>
                   ) : null}
                   <p className="transaction-status">
                     Status: {booking.booking_status.split("_").join(" ")}

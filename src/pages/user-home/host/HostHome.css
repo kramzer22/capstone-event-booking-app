@@ -53,11 +53,16 @@
   top: 10px;
 }
 
-.transaction-accept-booking {
+.transaction-booking-controls {
   position: absolute;
   right: 10px;
   bottom: 10px;
 
+  display: flex;
+  gap: 10px;
+}
+
+.transaction-booking-controls button {
   height: 40px;
   width: 140px;
 }

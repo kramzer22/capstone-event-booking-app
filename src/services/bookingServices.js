@@ -14,12 +14,12 @@ function getBookingTransactions() {
   );
 }
 
-function acceptBookingTransaction(bookId) {
+function setBookingTransaction(bookId, instruction) {
   return axios.patch(
     `${bookingURL}${objectHelperModule.getCookie(
       "userRole"
-    )}/${bookId}/?token_id=${getUserToken()}`
+    )}/${bookId}/${instruction}/?token_id=${getUserToken()}`
   );
 }
 
-export default { getBookingTransactions, acceptBookingTransaction };
+export default { getBookingTransactions, setBookingTransaction };
