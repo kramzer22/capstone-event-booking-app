@@ -107,40 +107,75 @@ function Header({ userCookieState }) {
       name: "userToken",
       value: "",
     });
+    objectHelperModule.createCookie({
+      name: "uerRole",
+      value: "",
+    });
     userCookieState.setUserCookie("");
     navigate("/");
     window.location.reload();
   };
+  let loginLink;
+  if (objectHelperModule.getCookie("userRole") === "host") {
+    loginLink = (
+      <>
+        <li className="profile-nav-container">
+          <a className="nav-link profile-nav" onClick={showProfileDropDown}>
+            User Name
+          </a>
+          <div ref={profileDropDownRef} className="profile-manager-container">
+            <ul>
+              <li>
+                <a className="nav-link">Profile</a>
+              </li>
+              <li>
+                <a className="nav-link">Booking Manager</a>
+              </li>
+              <li>
+                <Link to="host/event-manager">
+                  <a className="nav-link">Event Manager</a>
+                </Link>
+              </li>
+              <li>
+                <a className="nav-link" onClick={logoutHandler}>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </>
+    );
+  } else {
+    loginLink = (
+      <>
+        <li className="profile-nav-container">
+          <a className="nav-link profile-nav" onClick={showProfileDropDown}>
+            User Name
+          </a>
+          <div ref={profileDropDownRef} className="profile-manager-container">
+            <ul>
+              <li>
+                <a className="nav-link">Profile</a>
+              </li>
+              <li>
+                <a className="nav-link">Booking</a>
+              </li>
+              <li>
+                <a className="nav-link">Messages</a>
+              </li>
+              <li>
+                <a className="nav-link" onClick={logoutHandler}>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </>
+    );
+  }
 
-  let loginLink = (
-    <>
-      <li className="profile-nav-container">
-        <a className="nav-link profile-nav" onClick={showProfileDropDown}>
-          User Name
-        </a>
-        <div ref={profileDropDownRef} className="profile-manager-container">
-          <ul>
-            <li>
-              <a className="nav-link">Profile</a>
-            </li>
-            <li>
-              <a className="nav-link">Booking Manager</a>
-            </li>
-            <li>
-              <Link to="host/event-manager">
-                <a className="nav-link">Event Manager</a>
-              </Link>
-            </li>
-            <li>
-              <a className="nav-link" onClick={logoutHandler}>
-                Logout
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-    </>
-  );
   if (userCookieState.userCookie === "") {
     loginLink = (
       <>
@@ -170,12 +205,13 @@ function Header({ userCookieState }) {
               Home
             </Link>
           </li>
-
-          <li>
-            <Link className="nav-link" to="/venue" onClick={scrollToTop}>
-              Venues
-            </Link>
-          </li>
+          {objectHelperModule.getCookie("userRole") === "client" ? null : (
+            <li>
+              <Link className="nav-link" to="/venue" onClick={scrollToTop}>
+                Venues
+              </Link>
+            </li>
+          )}
 
           <li>
             <a className="nav-link" tabIndex="0">
