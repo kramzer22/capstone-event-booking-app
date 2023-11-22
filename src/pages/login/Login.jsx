@@ -31,6 +31,7 @@ function Login({}) {
           value: response.data.token,
         });
         navigate("/");
+        window.location.reload();
       }
     } catch (error) {
       const errorData = error.response.data;
