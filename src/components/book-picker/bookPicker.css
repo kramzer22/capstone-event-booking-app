@@ -1,0 +1,59 @@
+.book-picker-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-trans);
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 5;
+}
+
+.book-picker-body-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 30px;
+  width: 500px;
+  height: 400px;
+
+  background-color: aliceblue;
+}
+
+.date-picker-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+
+  padding: 40px 40px 0;
+  height: 100%;
+  width: 100%;
+}
+
+.selected-date {
+  font-weight: bold;
+  color: green;
+}
+
+.book-picker-button-proceed {
+  height: 50px;
+  width: 120px;
+}
+
+.book-picker-button-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  height: 50px;
+  width: 50px;
+}
