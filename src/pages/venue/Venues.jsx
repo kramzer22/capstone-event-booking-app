@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import Header from "../../components/header/Header";
 import VenueViewItem from "./components/VenueViewItem";
@@ -15,6 +15,8 @@ function Venues({ userCookieState }) {
   const [packageList, setPackageList] = useState([]);
   const [packageDisplayList, setPackageDisplayList] = useState([]);
   const [viewDisplay, setViewDisplay] = useState(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(-1);
+  const mainHeroImageref = useRef(null);
 
   useEffect(() => {
     getVenues();
@@ -33,6 +35,15 @@ function Venues({ userCookieState }) {
     } catch (error) {
       console.log(error);
       return [];
+    }
+  };
+
+  const selectImageHandler = (index) => {
+    if (selectedImageIndex !== index) {
+      setSelectedImageIndex(index);
+      mainHeroImageref.current.src = heroVenue.images[index].link;
+    } else {
+      setSelectedImageIndex(-1);
     }
   };
 
@@ -125,28 +136,39 @@ function Venues({ userCookieState }) {
   if (heroVenue) {
     heroDisplay = (
       <>
-        <h2>{heroVenue.venue_name}</h2>
-        <p className="venue-hero-description">{heroVenue.description}</p>
         {heroVenue.images.length === 0 ? (
-          <div className="venue-hero-image-container">
-            <img className="venue-hero-image" src="" alt="" />
-          </div>
+          <img
+            ref={mainHeroImageref}
+            className="venue-hero-image"
+            src=""
+            alt=""
+          />
         ) : (
-          <div className="venue-hero-image-container">
-            <img
-              className="venue-hero-image"
-              src={heroVenue.images[0].link}
-              alt=""
-            />
-            <ul className="venue-hero-image-list">
-              {heroVenue.images.map((image, index) => (
-                <li key={index}>
-                  <img src={image.link} alt="" />
-                </li>
-              ))}
-            </ul>
-          </div>
+          <img
+            ref={mainHeroImageref}
+            className="venue-hero-image"
+            src={heroVenue.images[0].link}
+            alt=""
+          />
         )}
+        <h2>{heroVenue.venue_name}</h2>
+        <div
+          className="venue-hero-description"
+          dangerouslySetInnerHTML={{
+            __html: `<div class="description-container">${heroVenue.description.replace(
+              /\n/g,
+              "<br>"
+            )}</div>`,
+          }}
+        />
+
+        <ul className="venue-hero-image-list">
+          {heroVenue.images.map((image, index) => (
+            <li onClick={() => selectImageHandler(index)} key={index}>
+              <img src={image.link} alt="" />
+            </li>
+          ))}
+        </ul>
       </>
     );
   }
