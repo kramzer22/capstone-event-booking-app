@@ -20,10 +20,12 @@
   max-width: 600px;
 
   background-color: #fff;
-  padding: 0 3.5em 3em;
+  padding: 1.5rem 3.5em 3em;
   border-radius: 7px;
 
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  position: relative;
 }
 
 .contact-img-heads {
@@ -31,12 +33,13 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
-  position: relative;
-  margin-top: -50px;
+  position: absolute;
+  top: -50px;
 }
 
 .contact-img-heads > img {
   object-fit: cover;
+  object-position: center;
   height: 90px;
   width: 90px;
   background-color: var(--secondary);
@@ -144,6 +147,15 @@ textarea {
   padding: 10em 3em;
 }
 
+.google-map{
+  width: 555px;
+  height: 358px;
+}
+
+.google-map img {
+  width: 100%;
+}
+
 .map-details {
   display: flex;
   gap: 2em;
@@ -160,4 +172,54 @@ textarea {
   color: var(--text2);
   font-size: 14px;
   line-height: 1.5;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .contact-container {
+    padding: 160px 1rem 0;
+  }
+  .contact-form-ctr {
+    padding: 2rem;
+  }
+  .contact-details {
+    padding: 1rem;
+  }
+  .contact-img-heads {
+    top: -30px;
+  }
+  .contact-img-heads img {
+    width: 70px;
+    height: 70px;
+  }
+  .map-details-container{
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0.5rem;
+    text-align: center;
+    width: 100%;
+    gap: 1rem;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+  .map-details-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 0rem;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 840px) {
+  .map-details-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 0rem;
+    align-items: center;
+    text-align: center;
+  }
 }

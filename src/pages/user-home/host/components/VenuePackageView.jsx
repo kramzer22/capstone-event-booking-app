@@ -29,19 +29,20 @@ function VenuePackageView({
       <div className="venue-package-view">
         <h4>{venue.venue_name}</h4>
         <div className="venue-package-list-container">
-          <h5>Total packages:{venue.packages.length}</h5>
+          <h5>Total packages: {venue.packages.length}</h5>
           <ul>
             {venue.packages.map((item, index) => (
               <li key={index}>
-                <div>
-                  <h3>{item.name}</h3>
+                <div className="venue-packages-details">
+                  <h5>{item.name}</h5>
                   <p>{item.description}</p>
-                  <p>
-                    Total inclusion:
-                    {item.inclusions.length}
-                  </p>
                 </div>
-                <div>
+                <div className="venue-package-buttons">
+                  <h5>
+                    Total inclusion: {""}
+                    {item.inclusions.length}
+                  </h5>
+
                   <button
                     onClick={() =>
                       packageEditorDisplayHandler(venue.id, "update", item)
@@ -49,6 +50,7 @@ function VenuePackageView({
                   >
                     Update
                   </button>
+
                   <button onClick={() => removeVenuePackageHandler(item.id)}>
                     Remove
                   </button>
