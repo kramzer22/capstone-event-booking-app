@@ -179,12 +179,14 @@ function Venues({ userCookieState }) {
         <div className="venues-featured-container">{heroDisplay}</div>
         <div className="venues-body-container">
           <div className="venues-body-list-container">
-            <input
-              type="text"
-              placeholder="search"
-              onChange={searchVenueList}
-            />
-            <h3>Venue List</h3>
+            <div className="venue-fixed">
+              <h3>Venue List</h3>
+              <input
+                type="text"
+                placeholder="search"
+                onChange={searchVenueList}
+              />
+            </div>
             <ul className="venues-body-venue-list-container">
               {venueList.map((venue, index) => (
                 <li
@@ -193,11 +195,11 @@ function Venues({ userCookieState }) {
                   onClick={() => viewSelectedVenueHandler(venue)}
                 >
                   <div className="venues-body-venue-container">
-                    <h4>{venue.venue_name}</h4>
-                    <h5>{`${venue.address.street} ${venue.address.barangay}, ${venue.address.city}, ${venue.address.province}`}</h5>
+                    <h5>{venue.venue_name}</h5>
+                    <h6>{`${venue.address.street}  ${venue.address.barangay}, ${venue.address.city}, ${venue.address.province}`}</h6>
                   </div>
 
-                  <div>
+                  <div className="venues-body-venue-details">
                     <img
                       src={venue.images[0] ? venue.images[0].link : ""}
                       alt=""
