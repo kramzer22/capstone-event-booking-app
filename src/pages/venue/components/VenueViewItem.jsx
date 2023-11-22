@@ -20,9 +20,15 @@ function VenueViewItem({ setViewDisplay, venue }) {
     }
   };
 
-  const bookPickerHandler = () => {
+  const bookPickerHandler = (packageId) => {
     if (objectHelperModule.getCookie("userRole") === "client") {
-      setBookDisplay(<BookPicker setBookDisplay={setBookDisplay} />);
+      setBookDisplay(
+        <BookPicker
+          setBookDisplay={setBookDisplay}
+          venueId={venue.id}
+          packageId={packageId}
+        />
+      );
     }
   };
 
@@ -94,7 +100,7 @@ function VenueViewItem({ setViewDisplay, venue }) {
                       </h5>
                       <button
                         className="venue-view-package-book-request"
-                        onClick={() => bookPickerHandler()}
+                        onClick={() => bookPickerHandler(item.id)}
                       >
                         request book
                       </button>
