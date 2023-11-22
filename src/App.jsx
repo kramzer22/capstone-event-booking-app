@@ -15,13 +15,13 @@ import Redicrecting from "./pages/redirecting/Redirecting";
 import Contact from "./pages/contact/Contact";
 import Error from "./pages/404-error/Error";
 
+import objectHelperModule from "./helpers/objectHelperModule";
 import tokenServices from "./services/tokenServices";
 
 import "./App.css";
 
 function App() {
   const [userCookie, setUserCookie] = useState("");
-  const [userRole, setUserRole] = useState("");
 
   useEffect(() => {
     const checkUserCookie = async () => {
@@ -32,11 +32,9 @@ function App() {
         });
 
         if (result) {
-          console.log(result);
-          setUserRole(result.user_role);
+          console.log("valid cookie token");
         } else {
           console.log("no user");
-          setUserRole("");
         }
       } catch (error) {
         console.log(error);
@@ -45,12 +43,11 @@ function App() {
 
     checkUserCookie();
   }, []);
-
-  console.log(userCookie);
-
+  console.log(objectHelperModule.getCookie("userRole"));
   let homeDisplay;
   if (userCookie !== "") {
-    if (userRole === "host") {
+    console.log(objectHelperModule.getCookie("userToken"));
+    if (objectHelperModule.getCookie("userRole") === "host") {
       homeDisplay = (
         <HostHome
           userCookieState={{
@@ -59,7 +56,7 @@ function App() {
           }}
         />
       );
-    } else if (userRole === "client") {
+    } else if (objectHelperModule.getCookie("userRole") === "client") {
       homeDisplay = (
         <Venues
           userCookieState={{

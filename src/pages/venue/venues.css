@@ -48,7 +48,7 @@
   max-height: 400px;
   min-width: 620px;
   max-width: 620px;
-  background-color: aquamarine;
+  background-color: rgb(81, 84, 87);
 }
 
 .venue-hero-image-list {
@@ -150,12 +150,13 @@
   flex-grow: 1;
   display: flex;
 
-  padding: 0 20px 0 0;
+  padding: 10px 20px 10px 10px;
   min-height: 220px;
   max-height: 220px;
   overflow-y: auto;
   text-align: justify;
   text-overflow: ellipsis;
+  background-color: aliceblue;
 }
 
 .venues-package-item-container {
@@ -166,8 +167,8 @@
 
   padding: 20px 20px 40px 20px;
   width: 100%;
-  min-height: 560px;
-  max-height: 560px;
+  min-height: 590px;
+  max-height: 590px;
   background-color: antiquewhite;
 }
 
@@ -215,11 +216,14 @@
 }
 
 .venue-package-description {
-  flex-grow: 1;
-
-  padding-right: 20px;
+  padding: 20px;
   width: 100%;
+  min-height: 120px;
+  max-height: 120px;
+
+  overflow-y: auto;
   text-align: justify;
+  white-space: normal;
   text-overflow: ellipsis;
 }
 
@@ -234,6 +238,7 @@
   top: 80px;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -243,4 +248,49 @@
 .venue-search-container input {
   width: 1200px;
   height: 50px;
+}
+
+.venue-search-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-top: 30px;
+
+  width: 1200px;
+  max-height: 600px;
+  list-style: none;
+  overflow-y: auto;
+  background-color: azure;
+}
+
+.venue-search-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 20px;
+}
+
+.venue-search-list li:hover {
+  background-color: rgb(161, 169, 175);
+}
+
+.venue-search-list div:last-of-type {
+  display: flex;
+  gap: 20px;
+  min-height: 140px;
+  max-height: 140px;
+}
+
+.venue-search-list div img {
+  min-width: 200px;
+  max-width: 200px;
+
+  background-color: rgb(81, 84, 87);
+}
+
+.venue-search-list div p {
+  overflow-y: hidden;
+  text-align: justify;
 }

@@ -14,6 +14,10 @@ const checkUserCookieCredentials = async (userCookieState) => {
     try {
       const response = await checkLoginCredentials(userToken);
       if (response.status === 200) {
+        objectHelperModule.createCookie({
+          name: "userRole",
+          value: response.data.user_role,
+        });
         userCookieState.setUserCookie(userToken);
         return response.data;
       }
