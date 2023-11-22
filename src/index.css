@@ -33,6 +33,7 @@
   --primary-trans: #3385ffc3;
   --secondary-trans: #8c52ff84;
   --accent-trans: #3434cbab;
+  --graybg: #eaeaea;
 }
 :root[data-theme="dark"] {
   --text: #fcfaff;

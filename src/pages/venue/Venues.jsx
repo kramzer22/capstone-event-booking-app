@@ -125,7 +125,7 @@ function Venues({ userCookieState }) {
   if (heroVenue) {
     heroDisplay = (
       <>
-        <h1>{heroVenue.venue_name}</h1>
+        <h2>{heroVenue.venue_name}</h2>
         <p className="venue-hero-description">{heroVenue.description}</p>
         {heroVenue.images.length === 0 ? (
           <div className="venue-hero-image-container">
