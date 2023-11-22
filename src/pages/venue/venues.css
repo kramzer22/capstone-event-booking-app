@@ -4,11 +4,13 @@
   justify-content: center;
   align-items: center;
   gap: 5rem;
-  padding: 150px 0 0;
+  padding: 150px 0 3rem;
   width: 100%;
   max-width: 100%;
   flex: 0 0 45%;
   background: linear-gradient(to right, var(--primary), var(--secondary));
+
+  position: relative;
 }
 
 .venues-featured-container {
@@ -19,10 +21,11 @@
 
   gap: 1.5rem;
 
-  padding: 2rem;
-  max-width: 800px;
+  padding: 3rem 7em;
+  margin: 0 1.5rem;
+  width: 100%;
+  /* max-width: 1300px; */
 
-  border-radius: 10px;
   background-color: var(--background);
 
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4),
@@ -38,13 +41,13 @@
 .venue-hero-description {
   color: var(--text2);
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
 
   padding: 0 1rem;
   width: 100%;
   height: 100%;
-  max-height: 120px;
+  max-height: 150px;
   overflow-y: auto;
 
   scrollbar-width: thin;
@@ -65,24 +68,23 @@
 }
 
 .venue-hero-image {
-  width: 800px;
-  height: 300px;
-  max-height: 100%;
+  width: 100%;
+  height: 50%;
+  max-height: 450px;
   max-width: 100%;
 
   object-fit: cover;
   object-position: center;
 
-  border-radius: 10px;
+  border-radius: 5px;
 
   transition: all 0.5s ease-in-out;
 
   &:active {
     padding: 0 1rem;
-    object-fit: contain;
+    /* object-fit: contain; */
     background-color: var(--background);
-    width: fit-content;
-    scale: 0.9;
+    scale: 0.8;
   }
 }
 
@@ -124,8 +126,8 @@
 
   &:hover {
     border-radius: 0px;
-    background-color: var(--text2);
-    scale: 1.2;
+    background-color: var(--graybg);
+    scale: 1.7;
   }
 }
 
@@ -151,10 +153,15 @@
   width: 100%;
   height: 550px;
 
-  overflow: scroll;
+  padding-bottom: 2rem;
+
+  overflow-y: scroll;
 
   background-color: var(--background);
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 50px 100px -20px rgba(50, 50, 93, 0.25),
+    0px 30px 60px -30px rgba(0, 0, 0, 0.3),
+    inset 0px -2px 6px 0px rgba(10, 37, 64, 0.35);
 
   position: relative;
 
@@ -175,7 +182,9 @@
   position: sticky;
   top: 0;
 
-  background-color: var(--background);
+  background-color: var(--background-trans);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -210,7 +219,7 @@
 .venues-body-venue-container {
   text-transform: capitalize;
 }
-.venues-body-venue-container h5{
+.venues-body-venue-container h5 {
   color: var(--primary);
 }
 
@@ -251,68 +260,102 @@
 .venues-package-item-container {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  gap: 20px;
+  gap: 1rem;
 
-  width: min-content;
-  min-height: 590px;
-  max-height: 590px;
-  background-color: antiquewhite;
+  padding: 1rem;
+  margin: 0 3rem;
+
+  background-color: var(--background);
+  box-shadow: 0px 4px 8px -2px rgba(9, 30, 66, 0.25),
+    0px 0px 0px 1px rgba(9, 30, 66, 0.08);
+}
+
+.venues-package-item-container > h5 {
+  text-transform: capitalize;
+  color: var(--primary);
 }
 
 .venues-package-body-container {
   display: flex;
   flex-direction: row;
-  gap: 20px;
-
-  min-height: 240px;
-  max-height: 240px;
-  width: 100%;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .venues-package-body-container img {
-  min-height: 100%;
-  max-height: 100%;
-  min-width: 300px;
-  min-width: 300px;
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  max-height: 250px;
 
-  background-color: rgb(81, 84, 87);
+  object-fit: cover;
+  object-position: center;
+
+  background-color: var(--graybg);
+
+  transition: all 0.5s linear;
+  &:hover {
+    padding: 1rem 0;
+    object-fit: contain;
+  }
 }
 
-.venues-package-body-container div {
-  flex-grow: 1;
+.venue-inclusions {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-.venues-package-body-container ul {
-  flex-grow: 1;
+.venue-inclusions > h5 {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  align-self: center;
+}
+
+.venue-package-inclusion-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
+  min-width: fit-content;
+  max-width: 100%;
 
   padding: 20px;
   height: 100%;
+  max-height: 200px;
   overflow-y: auto;
   list-style: circle !important;
-  background-color: aliceblue;
+  background-color: var(--accent2);
 }
 
-.venues-package-body-container ul li {
+.venue-package-inclusion-container li {
   margin-left: 40px;
+
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .venue-package-description {
-  padding: 20px;
   width: 100%;
-  min-height: 120px;
-  max-height: 120px;
+  padding: 1rem;
 
-  overflow-y: auto;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 1px;
   text-align: justify;
-  white-space: normal;
-  text-overflow: ellipsis;
+
+  background-color: var(--graybg);
+}
+
+.venues-package-item-container > h5 {
+  color: var(--text);
+  font-weight: ;
+}
+.venues-package-item-container > h5 span {
+  color: var(--primary);
 }
 
 .package-item-footer {
@@ -334,51 +377,79 @@
 }
 
 .venue-search-container input {
-  width: 1200px;
+  width: 100%;
+  max-width: 1000px;
   height: 50px;
 }
 
 .venue-search-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 
-  margin-top: 30px;
+  border-radius: 3px;
 
-  width: 1200px;
-  max-height: 600px;
+  width: 100%;
+  max-width: 1000px;
+  height: 300px;
   list-style: none;
   overflow-y: auto;
-  background-color: azure;
+
+  background-color: var(--background);
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px; /* Adjust the border-radius to change the scrollbar thumb radius */
+  }
 }
 
 .venue-search-list li {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: center;
+  gap: 1rem;
 
-  padding: 20px;
+  padding: 2rem 3rem;
+
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--primary2);
+  }
 }
 
-.venue-search-list li:hover {
-  background-color: rgb(161, 169, 175);
+.venue-search-list div > h5 {
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 
 .venue-search-list div:last-of-type {
   display: flex;
+  justify-content: center;
   gap: 20px;
-  min-height: 140px;
-  max-height: 140px;
 }
 
 .venue-search-list div img {
-  min-width: 200px;
-  max-width: 200px;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  max-height: 200px;
 
-  background-color: rgb(81, 84, 87);
+  object-fit: cover;
+  object-position: center;
+
+  background-color: var(--graybg);
+
+  transition: all 0.5s ease-in-out;
 }
 
 .venue-search-list div p {
   overflow-y: hidden;
   text-align: justify;
+
+  font-size: 12px;
+  font-weight: 300;
+
+  width: 100%;
+  max-height: 200px;
 }
