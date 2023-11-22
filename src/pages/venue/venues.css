@@ -71,19 +71,27 @@
   object-position: center;
 
   border-radius: 10px;
+
+  transition: all 0.5s linear;
+
+  &:hover{
+    padding: 1rem;
+    object-fit: contain;
+    background-color: var(--graybg);
+  }
 }
 
 .venue-hero-image-list {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   gap: 1.5rem;
   padding: 0.5rem 0;
 
   width: 100%;
-  overflow: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
   list-style: none;
-
 
   background-color: var(--graybg);
   border-radius: 10px;
@@ -99,11 +107,21 @@
 .venue-hero-image-list img {
   padding: 0 0.5rem;
 
-  height: 150px;
+  height: 120px;
   width: 150px;
 
   object-fit: contain;
   background-color: var(--background);
+
+  transition: all 0.5s ease-in-out;
+
+  border-radius: 5px;
+
+  &:hover {
+    border-radius: 0px;
+    background-color: var(--text2);
+    scale: 1.2;
+  }
 }
 
 .venues-body-container {
