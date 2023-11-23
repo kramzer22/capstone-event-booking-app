@@ -8,6 +8,10 @@
   width: 100%;
   max-width: 100%;
   flex: 0 0 45%;
+
+  background: url(/src/assets/venue/host/host-background.svg);
+  background-position: center;
+  background-size: cover;
 }
 
 .venue-manager-header-container {

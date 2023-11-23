@@ -58,6 +58,9 @@
   &::-webkit-scrollbar {
     width: 0.5rem;
   }
+&::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
 }
 
 .venue-list-control-container {

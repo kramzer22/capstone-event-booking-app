@@ -55,11 +55,16 @@ function Messaging({ setMessagingDisplay, recipient }) {
     <div className="messaging-container">
       {!messageData ? null : (
         <div className="messaging-body-container">
-          <h5>
-            {objectHelperModule.getCookie("userRole") === "client"
-              ? messageData.host_name
-              : messageData.users.client_email}
-          </h5>
+          <div className="messaging-title">
+            <div className="messaging-icon">
+              <i class="ri-user-3-line"></i>
+            </div>
+            <h5>
+              {objectHelperModule.getCookie("userRole") === "client"
+                ? messageData.host_name
+                : messageData.users.client_email}
+            </h5>
+          </div>
           <ul className="message-history-container">
             {messageData.messages
               ? messageData.messages.map((message, index) => (
@@ -78,21 +83,23 @@ function Messaging({ setMessagingDisplay, recipient }) {
           <div className="messaging-control-container">
             <input
               type="text"
-              placeholder="message"
+              placeholder="Write a message..."
               value={textMessage}
               onChange={(e) => setTextMessage(e.target.value)}
             />
             <button onClick={sendMessageHandler}>send</button>
           </div>
 
-          <button
-            className="message-button-close"
-            onClick={() => {
-              setMessagingDisplay(null);
-            }}
-          >
-            X
-          </button>
+          <div className="messaging-close-container">
+            <button
+              className="message-button-close"
+              onClick={() => {
+                setMessagingDisplay(null);
+              }}
+            >
+              ✖
+            </button>
+          </div>
         </div>
       )}
     </div>
