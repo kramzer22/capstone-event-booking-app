@@ -67,8 +67,8 @@ function VenueViewItem({ setViewDisplay, venueId }) {
       <div className="venue-view-container">
         <div className="venue-view-body-container">
           <div className="venue-view-body">
-            <div>
-              <h2>{venue.venue_name}</h2>
+            <div className="venue-view-body-details">
+              <h4>{venue.venue_name}</h4>
               <p>{venue.complete_address}</p>
             </div>
             <div className="venue-view-content-container">
@@ -116,6 +116,7 @@ function VenueViewItem({ setViewDisplay, venueId }) {
               />
             </div>
             <div className="venue-view-package">
+
               <div className="venue-view-package-header-main">
                 <h3>Packages offer: {venue.packages.length}</h3>
                 <button onClick={() => messagingDisplayHandler(venue.email)}>
@@ -128,18 +129,20 @@ function VenueViewItem({ setViewDisplay, venueId }) {
                   <li className="venue-view-package-item" key={index}>
                     <div className="venue-view-package-header">
                       <h4>{item.name}</h4>
-                      <h5>
-                        price: ₱
-                        {item.price.toLocaleString("en-US", {
-                          minimumFractionDigits: 2,
-                        })}
-                      </h5>
-                      <button
-                        className="venue-view-package-book-request"
-                        onClick={() => bookPickerHandler(item.id)}
-                      >
-                        request book
-                      </button>
+                      <div className="venue-view-package-header details">
+                        <h5>
+                          price: ₱
+                          {item.price.toLocaleString("en-US", {
+                            minimumFractionDigits: 2,
+                          })}
+                        </h5>
+                        <button
+                          className="venue-view-package-book-request"
+                          onClick={() => bookPickerHandler(item.id)}
+                        >
+                          Request Book
+                        </button>
+                      </div>
                     </div>
                     <div className="venue-view-package-body">
                       <p>{item.description}</p>
@@ -154,14 +157,16 @@ function VenueViewItem({ setViewDisplay, venueId }) {
               </ul>
             </div>
           </div>
-          <button
-            className="venue-view-button-close"
-            onClick={() => {
-              setViewDisplay(null);
-            }}
-          >
-            X
-          </button>
+          <div className="venue-content-close-container">
+            <button
+              className="venue-view-button-close"
+              onClick={() => {
+                setViewDisplay(null);
+              }}
+            >
+              ✖
+            </button>
+          </div>
         </div>
       </div>
     );

@@ -182,12 +182,14 @@ function Venues({ userCookieState }) {
         <div className="venues-featured-container">{heroDisplay}</div>
         <div className="venues-body-container">
           <div className="venues-body-list-container">
-            <input
-              type="text"
-              placeholder="search"
-              onChange={searchVenueList}
-            />
-            <h3>Venue List</h3>
+              <h3>Venue List</h3>
+            <div className="venue-fixed">
+              <input
+                type="text"
+                placeholder="search"
+                onChange={searchVenueList}
+              />
+            </div>
             <ul className="venues-body-venue-list-container">
               {venueList.map((venue, index) => (
                 <li
@@ -196,11 +198,11 @@ function Venues({ userCookieState }) {
                   onClick={() => viewSelectedVenueHandler(venue.id)}
                 >
                   <div className="venues-body-venue-container">
-                    <h4>{venue.venue_name}</h4>
-                    <h5>{`${venue.address.street} ${venue.address.barangay}, ${venue.address.city}, ${venue.address.province}`}</h5>
+                    <h5>{venue.venue_name}</h5>
+                    <h6>{`${venue.address.street}  ${venue.address.barangay}, ${venue.address.city}, ${venue.address.province}`}</h6>
                   </div>
 
-                  <div>
+                  <div className="venues-body-venue-details">
                     <img
                       src={venue.images[0] ? venue.images[0].link : ""}
                       alt=""
@@ -212,12 +214,14 @@ function Venues({ userCookieState }) {
             </ul>
           </div>
           <div className="venues-body-list-container">
-            <input
-              type="text"
-              placeholder="search"
-              onChange={searchPackageList}
-            />
-            <h3>Package List</h3>
+              <h3>Package List</h3>
+            <div className="venue-fixed">
+              <input
+                type="text"
+                placeholder="search"
+                onChange={searchPackageList}
+              />
+            </div>
             <ul className="venues-body-venue-list-container">
               {packageDisplayList.map((itemPackage, index) => (
                 <li
@@ -225,13 +229,13 @@ function Venues({ userCookieState }) {
                   key={index}
                   onClick={() => viewSelectedVenueHandler(itemPackage.id)}
                 >
-                  <h4>{itemPackage.package.name}</h4>
+                  <h5>{itemPackage.package.name}</h5>
                   <div className="venues-package-body-container">
                     <img
                       src={itemPackage.image ? itemPackage.image.link : ""}
                       alt=""
                     />
-                    <div>
+                    <div className="venue-inclusions">
                       <h5>Inclusions</h5>
                       <ul className="venue-package-inclusion-container">
                         {itemPackage.package.inclusions.map((inclusion, i) => (
@@ -243,9 +247,11 @@ function Venues({ userCookieState }) {
                   <p className="venue-package-description">
                     {itemPackage.package.description}
                   </p>
-                  <h5>cost:₱ {itemPackage.package.price}</h5>
+                  <h5>
+                    cost: <span>₱{itemPackage.package.price}</span>
+                  </h5>
                   <div className="package-item-footer">
-                    <h5>{itemPackage.venue_name}</h5>
+                    <h6>{itemPackage.venue_name}</h6>
                     <p>{itemPackage.address}</p>
                   </div>
                 </li>
@@ -255,13 +261,13 @@ function Venues({ userCookieState }) {
         </div>
       </div>
       <div className="venue-search-container">
-        <input type="text" placeholder="search" onChange={mainSearchVenue} />
+        <input type="text" placeholder="Search" onChange={mainSearchVenue} />
         {searchVenue.length === 0 ? null : (
           <ul className="venue-search-list">
             {searchVenue.map((item, index) => (
               <li key={index} onClick={() => viewSelectedVenueHandler(item.id)}>
                 <div>
-                  <h4>{item.venue_name}</h4>
+                  <h5>{item.venue_name}</h5>
                   <p className="venue-search-address">
                     {item.complete_address}
                   </p>

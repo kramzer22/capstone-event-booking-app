@@ -12,11 +12,11 @@
 
   /* overflow: scroll; */
 
-  z-index: 9994;
+  z-index: 1001;
 }
 
 .upload-container {
-  z-index: 9995;
+  z-index: 2000;
 }
 
 .venue-content-container {

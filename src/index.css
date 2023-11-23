@@ -26,14 +26,18 @@
   --text2: #646464;
   --background: #ffffff;
   --primary: #3385ff;
-  --secondary: #8c52ff;
+  --secondary: #b4eeee;
   --accent: #3434cb;
+
+  --primary2: #e0edfe;
+  --secondary2: #f1fcfd;
+  --accent2: #ebf2fe;
 
   --background-trans: #ffffffae;
   --primary-trans: #3385ffc3;
-  --secondary-trans: #8c52ff84;
+  --secondary-trans: #b4eeee84;
   --accent-trans: #3434cbab;
-  --graybg: #eaeaea;
+  --graybg: #f2f2f3;
 }
 :root[data-theme="dark"] {
   --text: #fcfaff;
@@ -133,50 +137,92 @@ option {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  html {font-size: 100%;} /* 16px */
+  html {
+    font-size: 100%;
+  } /* 16px */
 
-  h1 {font-size: 1.382rem; /* 22.08px */}
-  
-  h2 {font-size: 1.295rem; /* 20.8px */}
-  
-  h3 {font-size: 1.214rem; /* 19.36px */}
-  
-  h4 {font-size: 1.138rem; /* 18.24px */}
-  
-  h5 {font-size: 1.067rem; /* 17.12px */}
-  
-  small {font-size: 0.937rem; /* 15.04px */}
+  h1 {
+    font-size: 1.382rem; /* 22.08px */
+  }
+
+  h2 {
+    font-size: 1.295rem; /* 20.8px */
+  }
+
+  h3 {
+    font-size: 1.214rem; /* 19.36px */
+  }
+
+  h4 {
+    font-size: 1.138rem; /* 18.24px */
+  }
+
+  h5 {
+    font-size: 1.067rem; /* 17.12px */
+  }
+
+  small {
+    font-size: 0.937rem; /* 15.04px */
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 768px) {
-  html {font-size: 100%;} /* 16px */
+  html {
+    font-size: 100%;
+  } /* 16px */
 
-  h1 {font-size: 1.802rem; /* 28.8px */}
-  
-  h2 {font-size: 1.602rem; /* 25.6px */}
-  
-  h3 {font-size: 1.424rem; /* 22.72px */}
-  
-  h4 {font-size: 1.266rem; /* 20.32px */}
-  
-  h5 {font-size: 1.125rem; /* 18.08px */}
-  
-  small {font-size: 0.889rem; /* 14.24px */}
+  h1 {
+    font-size: 1.802rem; /* 28.8px */
+  }
+
+  h2 {
+    font-size: 1.602rem; /* 25.6px */
+  }
+
+  h3 {
+    font-size: 1.424rem; /* 22.72px */
+  }
+
+  h4 {
+    font-size: 1.266rem; /* 20.32px */
+  }
+
+  h5 {
+    font-size: 1.125rem; /* 18.08px */
+  }
+
+  small {
+    font-size: 0.889rem; /* 14.24px */
+  }
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 840px) {
-  html {font-size: 100%;} /* 16px */
+  html {
+    font-size: 100%;
+  } /* 16px */
 
-  h1 {font-size: 3.053rem; /* 48.8px */}
-  
-  h2 {font-size: 2.442rem; /* 39.04px */}
-  
-  h3 {font-size: 1.954rem; /* 31.2px */}
-  
-  h4 {font-size: 1.563rem; /* 24.96px */}
-  
-  h5 {font-size: 1.250rem; /* 20px */}
-  
-  small {font-size: 0.800rem; /* 12.8px */}
+  h1 {
+    font-size: 3.053rem; /* 48.8px */
+  }
+
+  h2 {
+    font-size: 2.442rem; /* 39.04px */
+  }
+
+  h3 {
+    font-size: 1.954rem; /* 31.2px */
+  }
+
+  h4 {
+    font-size: 1.563rem; /* 24.96px */
+  }
+
+  h5 {
+    font-size: 1.25rem; /* 20px */
+  }
+
+  small {
+    font-size: 0.8rem; /* 12.8px */
+  }
 }
