@@ -165,6 +165,16 @@
   gap: 2rem;
 }
 
+.venue-view-package-header-main {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.venue-view-package-header-main button {
+  width: 160px;
+}
+
 .venue-view-package-item {
   display: flex;
   flex-direction: column;

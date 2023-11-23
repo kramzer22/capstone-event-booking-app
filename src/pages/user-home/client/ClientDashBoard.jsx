@@ -5,12 +5,15 @@ import Header from "../../../components/header/Header";
 
 import notificationServices from "../../../services/notificationServices";
 import bookingServices from "../../../services/bookingServices";
+import messagingServices from "../../../services/messagingServices";
 
 import "../host/hostHome.css";
+import objectHelperModule from "../../../helpers/objectHelperModule";
 
 function ClientDashBoard({ userCookieState }) {
   const [notifications, setNotifications] = useState([]);
   const [bookingHistory, setBookingHistory] = useState([]);
+  const [messageList, setMessageList] = useState([]);
   const [paymentDisplay, setPaymentDisplay] = useState(null);
 
   const getNotificationList = async () => {
@@ -25,8 +28,6 @@ function ClientDashBoard({ userCookieState }) {
     }
   };
 
-  console.log(notifications);
-
   const getBookingList = async () => {
     try {
       const response = await bookingServices.getBookingTransactions();
@@ -37,9 +38,20 @@ function ClientDashBoard({ userCookieState }) {
       console.log(error);
     }
   };
+
+  const getAllMessage = async () => {
+    try {
+      const response = await messagingServices.getAllMessage();
+      setMessageList(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getNotificationList();
     getBookingList();
+    getAllMessage();
   }, []);
 
   const setBookingTransaction = async (bookId, transaction) => {
@@ -62,6 +74,8 @@ function ClientDashBoard({ userCookieState }) {
       <Payment setPaymentDisplay={setPaymentDisplay} bookId={bookId} />
     );
   };
+
+  console.log(messageList);
 
   return (
     <>
@@ -121,7 +135,21 @@ function ClientDashBoard({ userCookieState }) {
           </div>
           <div className="message-container">
             <h2>messages</h2>
-            <ul></ul>
+            <ul>
+              {messageList.map((data, index) => (
+                <li key={index}>
+                  <h4>
+                    {objectHelperModule.getCookie("userRole") === "client"
+                      ? data.host_name
+                      : data.users.client_email}
+                  </h4>
+                  <p>{`${
+                    data.message.who_is === "sender" ? "You:" : "Recipient"
+                  }: ${data.message.content}`}</p>
+                  <p>{data.message.elapsed}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
