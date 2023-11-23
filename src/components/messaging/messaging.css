@@ -10,7 +10,7 @@
   width: 100vw;
   height: 100vh;
 
-  z-index: 10;
+  z-index: 9999;
 }
 
 .messaging-body-container {
@@ -53,6 +53,11 @@
 .sender {
   align-self: flex-end;
   background-color: aqua;
+}
+
+.recipient {
+  align-self: flex-start;
+  background-color: rgb(240, 145, 224);
 }
 
 .messaging-control-container {
