@@ -11,6 +11,7 @@ import Login from "./pages/login/Login";
 import ClientRegistration from "./pages/registration/ClientRegistration";
 import HostRegistration from "./pages/registration/hostRegistration";
 import Redicrecting from "./pages/redirecting/Redirecting";
+import ClientDashBoard from "./pages/user-home/client/ClientDashBoard";
 
 import Contact from "./pages/contact/Contact";
 import Error from "./pages/404-error/Error";
@@ -83,9 +84,20 @@ function App() {
         <Routes>
           <Route path="/" element={homeDisplay} />
           <Route
-            path="/host/event-manager"
+            path="/host/venue-manager"
             element={
               <EventPlaceManager
+                userCookieState={{
+                  userCookie: userCookie,
+                  setUserCookie: setUserCookie,
+                }}
+              />
+            }
+          />
+          <Route
+            path="/client/dashboard"
+            element={
+              <ClientDashBoard
                 userCookieState={{
                   userCookie: userCookie,
                   setUserCookie: setUserCookie,

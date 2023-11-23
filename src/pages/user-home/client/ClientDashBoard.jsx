@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
 
+import Payment from "../../../components/payment/Payment";
 import Header from "../../../components/header/Header";
 
 import notificationServices from "../../../services/notificationServices";
 import bookingServices from "../../../services/bookingServices";
 
-import "./hostHome.css";
+import "../host/hostHome.css";
 
-function HostHome({ userCookieState }) {
+function ClientDashBoard({ userCookieState }) {
   const [notifications, setNotifications] = useState([]);
   const [bookingHistory, setBookingHistory] = useState([]);
+  const [paymentDisplay, setPaymentDisplay] = useState(null);
 
   const getNotificationList = async () => {
     try {
@@ -22,6 +24,8 @@ function HostHome({ userCookieState }) {
       console.log(error);
     }
   };
+
+  console.log(notifications);
 
   const getBookingList = async () => {
     try {
@@ -53,7 +57,11 @@ function HostHome({ userCookieState }) {
     }
   };
 
-  console.log(bookingHistory);
+  const showPaymentFormHandler = (bookId) => {
+    setPaymentDisplay(
+      <Payment setPaymentDisplay={setPaymentDisplay} bookId={bookId} />
+    );
+  };
 
   return (
     <>
@@ -65,7 +73,7 @@ function HostHome({ userCookieState }) {
             <ul className="transaction-container-list">
               {bookingHistory.map((booking, index) => (
                 <li key={index}>
-                  <h5>Client: {booking.client_email}</h5>
+                  <h5>Host: {booking.host_email}</h5>
                   <p>{`Venue: ${booking.venue_name} ${booking.book_date}`}</p>
                   <p>Address: {booking.complete_address}</p>
                   <p>Package: {booking.package.name}</p>
@@ -76,21 +84,19 @@ function HostHome({ userCookieState }) {
                       minimumFractionDigits: 2,
                     })}
                   </p>
-                  {booking.booking_status === "approval_pending" ? (
+                  {booking.booking_status === "payment" ? (
                     <div className="transaction-booking-controls">
-                      <button
-                        onClick={() =>
-                          setBookingTransaction(booking.id, "decline")
-                        }
-                      >
-                        Decline
-                      </button>
                       <button
                         onClick={() =>
                           setBookingTransaction(booking.id, "accept")
                         }
                       >
-                        Accept
+                        Cancel
+                      </button>
+                      <button
+                        onClick={() => showPaymentFormHandler(booking.id)}
+                      >
+                        Proceed to payment
                       </button>
                     </div>
                   ) : null}
@@ -102,7 +108,7 @@ function HostHome({ userCookieState }) {
             </ul>
           </div>
           <div className="notification-container">
-            <h2>Notfications</h2>
+            <h3>Notfications</h3>
             <ul className="notification-container-list">
               {notifications.map((item, index) => (
                 <li key={index}>
@@ -119,8 +125,9 @@ function HostHome({ userCookieState }) {
           </div>
         </div>
       </div>
+      {paymentDisplay}
     </>
   );
 }
 
-export default HostHome;
+export default ClientDashBoard;

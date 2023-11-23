@@ -126,9 +126,9 @@ function Venues({ userCookieState }) {
     );
   };
 
-  const viewSelectedVenueHandler = (selectedVenue) => {
+  const viewSelectedVenueHandler = (venueId) => {
     setViewDisplay(
-      <VenueViewItem setViewDisplay={setViewDisplay} venue={selectedVenue} />
+      <VenueViewItem setViewDisplay={setViewDisplay} venueId={venueId} />
     );
   };
 
@@ -190,7 +190,7 @@ function Venues({ userCookieState }) {
                 <li
                   className="venues-body-venue-list"
                   key={index}
-                  onClick={() => viewSelectedVenueHandler(venue)}
+                  onClick={() => viewSelectedVenueHandler(venue.id)}
                 >
                   <div className="venues-body-venue-container">
                     <h4>{venue.venue_name}</h4>
