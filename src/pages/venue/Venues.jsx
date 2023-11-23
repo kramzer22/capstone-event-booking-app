@@ -176,7 +176,12 @@ function Venues({ userCookieState }) {
     <>
       <Header userCookieState={userCookieState} />
       <div className="venues-container">
-        <div className="venues-featured-container">{heroDisplay}</div>
+        <div
+          className="venues-featured-container"
+          onClick={() => viewSelectedVenueHandler(heroVenue.id)}
+        >
+          {heroDisplay}
+        </div>
         <div className="venues-body-container">
           <div className="venues-body-list-container">
             <input
@@ -217,7 +222,11 @@ function Venues({ userCookieState }) {
             <h3>Package List</h3>
             <ul className="venues-body-venue-list-container">
               {packageDisplayList.map((itemPackage, index) => (
-                <li className="venues-package-item-container" key={index}>
+                <li
+                  className="venues-package-item-container"
+                  key={index}
+                  onClick={() => viewSelectedVenueHandler(itemPackage.id)}
+                >
                   <h4>{itemPackage.package.name}</h4>
                   <div className="venues-package-body-container">
                     <img
@@ -252,7 +261,7 @@ function Venues({ userCookieState }) {
         {searchVenue.length === 0 ? null : (
           <ul className="venue-search-list">
             {searchVenue.map((item, index) => (
-              <li key={index}>
+              <li key={index} onClick={() => viewSelectedVenueHandler(item.id)}>
                 <div>
                   <h4>{item.venue_name}</h4>
                   <p className="venue-search-address">
