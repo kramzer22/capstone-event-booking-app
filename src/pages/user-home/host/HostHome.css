@@ -16,17 +16,96 @@
 }
 
 .transaction-container {
+  display: flex;
+  flex-direction: column;
   grid-area: transaction;
 
   padding-top: 100px;
   background-color: aqua;
 }
 
+.transaction-container-list {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-direction: column;
+  gap: 10px;
+
+  margin: 10px 20px 20px;
+  padding: 10px;
+  min-width: calc(100% - 40px);
+  min-width: calc(100% - 40px);
+  list-style: none;
+  background-color: antiquewhite;
+}
+
+.transaction-container-list li {
+  position: relative;
+  padding: 10px;
+  height: 220px;
+  background-color: aliceblue;
+  border: 1px groove;
+}
+
+.transaction-status {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.transaction-booking-controls {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  display: flex;
+  gap: 10px;
+}
+
+.transaction-booking-controls button {
+  height: 40px;
+  width: 140px;
+}
+
 .notification-container {
   grid-area: notification;
   background-color: azure;
+  display: flex;
+  flex-direction: column;
 
+  min-width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
   padding-top: 100px;
+}
+
+.notification-container-list {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+
+  width: 100%;
+
+  overflow-y: auto;
+  background-color: antiquewhite;
+}
+
+.notification-container-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px;
+  border: 1px groove;
+  background-color: aliceblue;
+}
+
+.notification-container-list li p:first-of-type {
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .message-container {

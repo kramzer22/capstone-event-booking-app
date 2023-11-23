@@ -1,0 +1,95 @@
+.payment-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-trans);
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 5;
+}
+
+.payment-body-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+
+  padding: 30px;
+  width: 600px;
+  height: 500px;
+
+  background-color: aliceblue;
+}
+
+.payment-selection-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.payment-selection-container select {
+  height: 30px;
+}
+
+.payment-selection-container select option {
+  padding: 4px;
+}
+.payment-form-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+
+  min-height: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+.payment-gcash-qr {
+  width: 40%;
+}
+
+.payment-form-card-date {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.payment-form-card-date div {
+  flex-grow: 1;
+  display: flex;
+  width: 100%;
+}
+
+.paypal-date {
+  height: 50px;
+  width: 50px;
+}
+
+.cvv {
+  height: 50px;
+  width: 60px;
+}
+
+.payment-form-container button {
+  height: 50px;
+  width: 160px;
+}
+
+.payment-button-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  height: 50px;
+  width: 50px;
+}

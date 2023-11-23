@@ -10,8 +10,12 @@ const getVenues = () => {
   return axios.get(`${venueURL}`);
 };
 
+const getVenue = (venueId) => {
+  return axios.get(`${venueURL}${venueId}`);
+};
+
 const postClientBooking = (data) => {
   return axios.post(`${venueURL}booking/?token_id=${getUserToken()}`, data);
 };
 
-export default { getVenues, postClientBooking };
+export default { getVenue, getVenues, postClientBooking };

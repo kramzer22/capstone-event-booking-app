@@ -1,15 +1,32 @@
-import { useState, useRef } from "react";
-
+import { useState, useRef, useEffect } from "react";
 import BookPicker from "../../../components/book-picker/BookPicker";
+
+import venueServices from "../../../services/venueServices";
 
 import objectHelperModule from "../../../helpers/objectHelperModule";
 
 import "./venueViewItem.css";
 
-function VenueViewItem({ setViewDisplay, venue }) {
+function VenueViewItem({ setViewDisplay, venueId }) {
+  const [venue, setVenue] = useState(null);
   const [bookDisplay, setBookDisplay] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(-1);
   const mainImageref = useRef(null);
+  const getSelectedVenue = async () => {
+    try {
+      const response = await venueServices.getVenue(venueId);
+      console.log(response);
+      if (response.status === 200) {
+        setVenue(response.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getSelectedVenue();
+  }, []);
 
   const selectImageHandler = (index) => {
     if (selectedImageIndex !== index) {
@@ -32,8 +49,9 @@ function VenueViewItem({ setViewDisplay, venue }) {
     }
   };
 
-  return (
-    <>
+  let venueDisplay;
+  if (venue) {
+    venueDisplay = (
       <div className="venue-view-container">
         <div className="venue-view-body-container">
           <div className="venue-view-body">
@@ -128,6 +146,12 @@ function VenueViewItem({ setViewDisplay, venue }) {
           </button>
         </div>
       </div>
+    );
+  }
+
+  return (
+    <>
+      {venueDisplay}
       {bookDisplay}
     </>
   );

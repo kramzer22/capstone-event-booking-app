@@ -126,9 +126,9 @@ function Venues({ userCookieState }) {
     );
   };
 
-  const viewSelectedVenueHandler = (selectedVenue) => {
+  const viewSelectedVenueHandler = (venueId) => {
     setViewDisplay(
-      <VenueViewItem setViewDisplay={setViewDisplay} venue={selectedVenue} />
+      <VenueViewItem setViewDisplay={setViewDisplay} venueId={venueId} />
     );
   };
 
@@ -176,7 +176,12 @@ function Venues({ userCookieState }) {
     <>
       <Header userCookieState={userCookieState} />
       <div className="venues-container">
-        <div className="venues-featured-container">{heroDisplay}</div>
+        <div
+          className="venues-featured-container"
+          onClick={() => viewSelectedVenueHandler(heroVenue.id)}
+        >
+          {heroDisplay}
+        </div>
         <div className="venues-body-container">
           <div className="venues-body-list-container">
             <div className="venue-fixed">
@@ -192,7 +197,7 @@ function Venues({ userCookieState }) {
                 <li
                   className="venues-body-venue-list"
                   key={index}
-                  onClick={() => viewSelectedVenueHandler(venue)}
+                  onClick={() => viewSelectedVenueHandler(venue.id)}
                 >
                   <div className="venues-body-venue-container">
                     <h5>{venue.venue_name}</h5>
@@ -221,8 +226,12 @@ function Venues({ userCookieState }) {
             </div>
             <ul className="venues-body-venue-list-container">
               {packageDisplayList.map((itemPackage, index) => (
-                <li className="venues-package-item-container" key={index}>
-                  <h5>{itemPackage.package.name}</h5>
+                <li
+                  className="venues-package-item-container"
+                  key={index}
+                  onClick={() => viewSelectedVenueHandler(itemPackage.id)}
+                >
+                  <h4>{itemPackage.package.name}</h4>
                   <div className="venues-package-body-container">
                     <img
                       src={itemPackage.image ? itemPackage.image.link : ""}
@@ -258,7 +267,7 @@ function Venues({ userCookieState }) {
         {searchVenue.length === 0 ? null : (
           <ul className="venue-search-list">
             {searchVenue.map((item, index) => (
-              <li key={index}>
+              <li key={index} onClick={() => viewSelectedVenueHandler(item.id)}>
                 <div>
                   <h5>{item.venue_name}</h5>
                   <p className="venue-search-address">

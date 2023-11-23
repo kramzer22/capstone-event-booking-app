@@ -126,14 +126,8 @@ function Header({ userCookieState }) {
           <div ref={profileDropDownRef} className="profile-manager-container">
             <ul>
               <li>
-                <a className="nav-link">Profile</a>
-              </li>
-              <li>
-                <a className="nav-link">Booking Manager</a>
-              </li>
-              <li>
-                <Link to="host/event-manager">
-                  <a className="nav-link">Event Manager</a>
+                <Link className="nav-link" to="host/venue-manager">
+                  Venue Manager
                 </Link>
               </li>
               <li>
@@ -156,13 +150,9 @@ function Header({ userCookieState }) {
           <div ref={profileDropDownRef} className="profile-manager-container">
             <ul>
               <li>
-                <a className="nav-link">Profile</a>
-              </li>
-              <li>
-                <a className="nav-link">Booking</a>
-              </li>
-              <li>
-                <a className="nav-link">Messages</a>
+                <Link className="nav-link" to="/client/dashboard">
+                  Dashboard
+                </Link>
               </li>
               <li>
                 <a className="nav-link" onClick={logoutHandler}>
@@ -202,7 +192,9 @@ function Header({ userCookieState }) {
         <ul className="navigation-links-container">
           <li>
             <Link className="nav-link" to="/" onClick={scrollToTop}>
-              Home
+              {objectHelperModule.getCookie("userRole") === "host"
+                ? "Dashboard"
+                : "Home"}
             </Link>
           </li>
           {objectHelperModule.getCookie("userRole") === "client" ? null : (
