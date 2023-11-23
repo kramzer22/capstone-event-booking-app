@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
+
 import BookPicker from "../../../components/book-picker/BookPicker";
+import Messaging from "../../../components/messaging/Messaging";
 
 import venueServices from "../../../services/venueServices";
 
@@ -10,6 +12,7 @@ import "./venueViewItem.css";
 function VenueViewItem({ setViewDisplay, venueId }) {
   const [venue, setVenue] = useState(null);
   const [bookDisplay, setBookDisplay] = useState(null);
+  const [messagingDisplay, setMessagingDisplay] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(-1);
   const mainImageref = useRef(null);
   const getSelectedVenue = async () => {
@@ -47,6 +50,15 @@ function VenueViewItem({ setViewDisplay, venueId }) {
         />
       );
     }
+  };
+
+  const messagingDisplayHandler = (recipient) => {
+    setMessagingDisplay(
+      <Messaging
+        setMessagingDisplay={setMessagingDisplay}
+        recipient={recipient}
+      />
+    );
   };
 
   let venueDisplay;
@@ -104,7 +116,13 @@ function VenueViewItem({ setViewDisplay, venueId }) {
               />
             </div>
             <div className="venue-view-package">
-              <h3>Packages offer: {venue.packages.length}</h3>
+              <div className="venue-view-package-header-main">
+                <h3>Packages offer: {venue.packages.length}</h3>
+                <button onClick={() => messagingDisplayHandler(venue.email)}>
+                  Message
+                </button>
+              </div>
+
               <ul className="venue-view-package-container">
                 {venue.packages.map((item, index) => (
                   <li className="venue-view-package-item" key={index}>
@@ -153,6 +171,7 @@ function VenueViewItem({ setViewDisplay, venueId }) {
     <>
       {venueDisplay}
       {bookDisplay}
+      {messagingDisplay}
     </>
   );
 }
