@@ -17,6 +17,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
+  border-radius: 20px;
   background-color: rgba(51, 51, 51, 0.5);
 }
 
@@ -33,19 +34,11 @@
   --secondary2: #f1fcfd;
   --accent2: #ebf2fe;
 
-  --background-trans: #ffffffae;
+  --background-trans: #ffffffc0;
   --primary-trans: #3385ffc3;
   --secondary-trans: #b4eeee84;
   --accent-trans: #3434cbab;
   --graybg: #f2f2f3;
-}
-:root[data-theme="dark"] {
-  --text: #fcfaff;
-  --text2: #646464;
-  --background: #020005;
-  --primary: #a54103;
-  --secondary: #280264;
-  --accent: #36fc82;
 }
 
 /* Body */

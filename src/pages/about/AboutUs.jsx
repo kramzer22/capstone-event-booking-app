@@ -64,7 +64,7 @@ function AboutUs({ userCookieState }) {
         <div className="ad-ctr">
           <div className="ad-details">
             <h5>
-              Curious about “CName’s” platform, pricing, and integrations?
+              Curious about EasyGig&apos;s platform, pricing, and integrations?
             </h5>
             <button className="ad-btn">Contact Us</button>
           </div>
