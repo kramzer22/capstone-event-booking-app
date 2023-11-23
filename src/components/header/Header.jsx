@@ -108,7 +108,7 @@ function Header({ userCookieState }) {
       value: "",
     });
     objectHelperModule.createCookie({
-      name: "uerRole",
+      name: "userRole",
       value: "",
     });
     userCookieState.setUserCookie("");

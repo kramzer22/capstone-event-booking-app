@@ -136,16 +136,19 @@ function ClientDashBoard({ userCookieState }) {
           <div className="message-container">
             <h2>messages</h2>
             <ul>
-              {messageList.map((data, index) => {
+              {messageList.map((data, index) => (
                 <li key={index}>
                   <h4>
                     {objectHelperModule.getCookie("userRole") === "client"
                       ? data.host_name
                       : data.users.client_email}
                   </h4>
-                  <p>data.content</p>
-                </li>;
-              })}
+                  <p>{`${
+                    data.message.who_is === "sender" ? "You:" : "Recipient"
+                  }: ${data.message.content}`}</p>
+                  <p>{data.message.elapsed}</p>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
