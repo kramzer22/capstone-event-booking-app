@@ -169,6 +169,9 @@ function Venues({ userCookieState }) {
             </li>
           ))}
         </ul>
+        <p onClick={() => viewSelectedVenueHandler(heroVenue.id)}>
+          see more...
+        </p>
       </>
     );
   }
@@ -176,12 +179,7 @@ function Venues({ userCookieState }) {
     <>
       <Header userCookieState={userCookieState} />
       <div className="venues-container">
-        <div
-          className="venues-featured-container"
-          onClick={() => viewSelectedVenueHandler(heroVenue.id)}
-        >
-          {heroDisplay}
-        </div>
+        <div className="venues-featured-container">{heroDisplay}</div>
         <div className="venues-body-container">
           <div className="venues-body-list-container">
               <h3>Venue List</h3>

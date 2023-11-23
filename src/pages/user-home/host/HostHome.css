@@ -110,5 +110,12 @@
 
 .message-container {
   grid-area: message;
+  display: flex;
+  flex-direction: column;
   background-color: aquamarine;
+}
+
+.message-container ul {
+  flex-grow: 1;
+  background-color: antiquewhite;
 }
