@@ -184,8 +184,8 @@ function Venues({ userCookieState }) {
         </div>
         <div className="venues-body-container">
           <div className="venues-body-list-container">
-            <div className="venue-fixed">
               <h3>Venue List</h3>
+            <div className="venue-fixed">
               <input
                 type="text"
                 placeholder="search"
@@ -216,8 +216,8 @@ function Venues({ userCookieState }) {
             </ul>
           </div>
           <div className="venues-body-list-container">
-            <div className="venue-fixed">
               <h3>Package List</h3>
+            <div className="venue-fixed">
               <input
                 type="text"
                 placeholder="search"
@@ -231,7 +231,7 @@ function Venues({ userCookieState }) {
                   key={index}
                   onClick={() => viewSelectedVenueHandler(itemPackage.id)}
                 >
-                  <h4>{itemPackage.package.name}</h4>
+                  <h5>{itemPackage.package.name}</h5>
                   <div className="venues-package-body-container">
                     <img
                       src={itemPackage.image ? itemPackage.image.link : ""}
@@ -253,7 +253,7 @@ function Venues({ userCookieState }) {
                     cost: <span>₱{itemPackage.package.price}</span>
                   </h5>
                   <div className="package-item-footer">
-                    <h5>{itemPackage.venue_name}</h5>
+                    <h6>{itemPackage.venue_name}</h6>
                     <p>{itemPackage.address}</p>
                   </div>
                 </li>
@@ -263,7 +263,7 @@ function Venues({ userCookieState }) {
         </div>
       </div>
       <div className="venue-search-container">
-        <input type="text" placeholder="search" onChange={mainSearchVenue} />
+        <input type="text" placeholder="Search" onChange={mainSearchVenue} />
         {searchVenue.length === 0 ? null : (
           <ul className="venue-search-list">
             {searchVenue.map((item, index) => (
