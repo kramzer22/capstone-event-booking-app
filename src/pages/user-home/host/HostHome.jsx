@@ -1,15 +1,21 @@
 import { useState, useEffect } from "react";
 
 import Header from "../../../components/header/Header";
+import Messaging from "../../../components/messaging/Messaging";
 
+import messagingServices from "../../../services/messagingServices";
 import notificationServices from "../../../services/notificationServices";
 import bookingServices from "../../../services/bookingServices";
+
+import objectHelperModule from "../../../helpers/objectHelperModule";
 
 import "./hostHome.css";
 
 function HostHome({ userCookieState }) {
   const [notifications, setNotifications] = useState([]);
   const [bookingHistory, setBookingHistory] = useState([]);
+  const [messageList, setMessageList] = useState([]);
+  const [messagingDisplay, setMessagingDisplay] = useState(null);
 
   const getNotificationList = async () => {
     try {
@@ -33,9 +39,20 @@ function HostHome({ userCookieState }) {
       console.log(error);
     }
   };
+
+  const getAllMessage = async () => {
+    try {
+      const response = await messagingServices.getAllMessage();
+      setMessageList(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getNotificationList();
     getBookingList();
+    getAllMessage();
   }, []);
 
   const setBookingTransaction = async (bookId, transaction) => {
@@ -51,6 +68,16 @@ function HostHome({ userCookieState }) {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const messagingDisplayHandler = (recipient) => {
+    console.log("wawawee");
+    setMessagingDisplay(
+      <Messaging
+        setMessagingDisplay={setMessagingDisplay}
+        recipient={recipient}
+      />
+    );
   };
 
   console.log(bookingHistory);
@@ -115,9 +142,29 @@ function HostHome({ userCookieState }) {
           </div>
           <div className="message-container">
             <h2>messages</h2>
-            <ul></ul>
+            <ul>
+              {messageList.map((data, index) => (
+                <li
+                  key={index}
+                  onClick={() =>
+                    messagingDisplayHandler(data.users.client_email)
+                  }
+                >
+                  <h4>
+                    {objectHelperModule.getCookie("userRole") === "client"
+                      ? data.host_name
+                      : data.users.client_email}
+                  </h4>
+                  <p>{`${
+                    data.message.who_is === "sender" ? "You" : "Recipient"
+                  }: ${data.message.content}`}</p>
+                  <p>{data.message.elapsed}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
+        {messagingDisplay}
       </div>
     </>
   );

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import Payment from "../../../components/payment/Payment";
 import Header from "../../../components/header/Header";
+import Messaging from "../../../components/messaging/Messaging";
 
 import notificationServices from "../../../services/notificationServices";
 import bookingServices from "../../../services/bookingServices";
@@ -14,6 +15,7 @@ function ClientDashBoard({ userCookieState }) {
   const [notifications, setNotifications] = useState([]);
   const [bookingHistory, setBookingHistory] = useState([]);
   const [messageList, setMessageList] = useState([]);
+  const [messagingDisplay, setMessagingDisplay] = useState(null);
   const [paymentDisplay, setPaymentDisplay] = useState(null);
 
   const getNotificationList = async () => {
@@ -72,6 +74,16 @@ function ClientDashBoard({ userCookieState }) {
   const showPaymentFormHandler = (bookId) => {
     setPaymentDisplay(
       <Payment setPaymentDisplay={setPaymentDisplay} bookId={bookId} />
+    );
+  };
+
+  const messagingDisplayHandler = (recipient) => {
+    console.log("wawawee");
+    setMessagingDisplay(
+      <Messaging
+        setMessagingDisplay={setMessagingDisplay}
+        recipient={recipient}
+      />
     );
   };
 
@@ -137,14 +149,17 @@ function ClientDashBoard({ userCookieState }) {
             <h2>messages</h2>
             <ul>
               {messageList.map((data, index) => (
-                <li key={index}>
+                <li
+                  key={index}
+                  onClick={() => messagingDisplayHandler(data.users.host_email)}
+                >
                   <h4>
                     {objectHelperModule.getCookie("userRole") === "client"
                       ? data.host_name
                       : data.users.client_email}
                   </h4>
                   <p>{`${
-                    data.message.who_is === "sender" ? "You:" : "Recipient"
+                    data.message.who_is === "sender" ? "You" : "Recipient"
                   }: ${data.message.content}`}</p>
                   <p>{data.message.elapsed}</p>
                 </li>
@@ -152,8 +167,9 @@ function ClientDashBoard({ userCookieState }) {
             </ul>
           </div>
         </div>
+        {messagingDisplay}
+        {paymentDisplay}
       </div>
-      {paymentDisplay}
     </>
   );
 }
