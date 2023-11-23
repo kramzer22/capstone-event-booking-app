@@ -33,6 +33,7 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column-reverse;
+  gap: 4px;
 
   padding: 10px;
   width: 100%;
@@ -49,7 +50,7 @@
   height: auto;
 }
 
-.client {
+.sender {
   align-self: flex-end;
   background-color: aqua;
 }

@@ -58,21 +58,19 @@ function Messaging({ setMessagingDisplay, recipient }) {
           <h5>
             {objectHelperModule.getCookie("userRole") === "client"
               ? messageData.host_name
-              : messageData.messageData.users.client_email}
+              : messageData.users.client_email}
           </h5>
           <ul className="message-history-container">
-            {messageData.messageData
-              ? messageData.messageData.messages.map((message, index) => (
+            {messageData.messages
+              ? messageData.messages.map((message, index) => (
                   <li
                     key={index}
                     className={`message-history ${
-                      objectHelperModule.getCookie("userRole") === "client"
-                        ? "client"
-                        : "host"
+                      message.who_is === "sender" ? "sender" : "recipient"
                     }`}
                   >
                     <p className="message-content">{message.content}</p>
-                    <p>{message.entry_date}</p>
+                    <p>{message.elapsed}</p>
                   </li>
                 ))
               : null}
