@@ -229,9 +229,9 @@ function Header({ userCookieState }) {
             </li>
 
             <li>
-              <a className="nav-link book-btn" tabIndex="0">
+              <Link to="/venue" className="nav-link book-btn" tabIndex="0">
                 Book Now
-              </a>
+              </Link>
             </li>
             {loginLink}
           </ul>
