@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 // Pages
 import Home from "./pages/home/Home";
 import HostHome from "./pages/user-home/host/HostHome";
@@ -44,6 +44,7 @@ function App() {
 
     checkUserCookie();
   }, []);
+
   console.log(objectHelperModule.getCookie("userRole"));
   let homeDisplay;
   if (userCookie !== "") {
@@ -79,7 +80,7 @@ function App() {
   }
 
   return (
-    <Router basename="/capstone-event-booking-app">
+    <Router>
       <div className="app-container">
         <Routes>
           <Route path="/" element={homeDisplay} />
