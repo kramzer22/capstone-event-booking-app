@@ -95,7 +95,7 @@ function ClientDashBoard({ userCookieState }) {
       <div className="host-user-main">
         <div className="host-home-main">
           <div className="transaction-container">
-            <h1>transaction history</h1>
+            <h4><i class="ri-dashboard-line"></i> Transaction History</h4>
             <ul className="transaction-container-list">
               {bookingHistory.map((booking, index) => (
                 <li key={index}>
@@ -126,27 +126,27 @@ function ClientDashBoard({ userCookieState }) {
                       </button>
                     </div>
                   ) : null}
-                  <p className="transaction-status">
+                  <small className="transaction-status">
                     Status: {booking.booking_status.split("_").join(" ")}
-                  </p>
+                  </small>
                 </li>
               ))}
             </ul>
           </div>
           <div className="notification-container">
-            <h3>Notfications</h3>
+            <h5>Notifications <i class="ri-notification-2-line"></i></h5>
             <ul className="notification-container-list">
               {notifications.map((item, index) => (
                 <li key={index}>
                   <h5>{item.notification.title}</h5>
                   <p>{item.notification.message}</p>
-                  <p>{item.elapse_time}</p>
+                  <small>{item.elapse_time}</small>
                 </li>
               ))}
             </ul>
           </div>
           <div className="message-container">
-            <h2>messages</h2>
+            <h5>Messages <i class="ri-message-2-line"></i></h5>
             <ul>
               {messageList.map((data, index) => (
                 <li
@@ -161,7 +161,7 @@ function ClientDashBoard({ userCookieState }) {
                   <p>{`${
                     data.message.who_is === "sender" ? "You" : "Recipient"
                   }: ${data.message.content}`}</p>
-                  <p>{data.message.elapsed}</p>
+                  <small>{data.message.elapsed}</small>
                 </li>
               ))}
             </ul>

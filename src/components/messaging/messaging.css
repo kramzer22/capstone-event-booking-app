@@ -27,6 +27,8 @@
 
   border-radius: 10px;
 
+  background-color: var(--background);
+
   box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
     0 5px 14px 0 rgba(0, 0, 0, 0.18);
 }
@@ -81,24 +83,61 @@
   width: 100%;
   height: 100%;
   list-style: none;
-  background-color: var(--graybg);
+  background-color: var(--background);
+
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
 }
 
 .message-history {
-  padding: 6px;
+  display: flex;
+  flex-direction: column;
+
+  padding: 0.5rem;
   width: auto;
-  max-width: 90%;
+  max-width: 80%;
   height: auto;
+}
+
+.message-content {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+.message-history small {
+  font-size: 10px;
+  color: var(--text2);
 }
 
 .sender {
   align-self: flex-end;
-  background-color: aqua;
+  display: flex;
+  align-items: end;
+}
+.sender p {
+  padding: 0.5rem 0.7rem;
+  color: var(--background);
+
+  border-radius: 10px;
+  background-color: var(--primary);
 }
 
 .recipient {
   align-self: flex-start;
-  background-color: rgb(240, 145, 224);
+  display: flex;
+  align-items: flex-start;
+}
+
+.recipient p {
+  padding: 0.5rem 0.7rem;
+  color: var(--text1);
+
+  border-radius: 10px;
+  background-color: var(--graybg);
 }
 
 .messaging-control-container {

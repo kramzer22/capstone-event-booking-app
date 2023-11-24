@@ -10,7 +10,7 @@
   width: 100vw;
   height: 100vh;
 
-  z-index: 5;
+  z-index: 1006;
 }
 
 .book-picker-body-container {
@@ -21,39 +21,82 @@
   justify-content: space-between;
 
   padding: 30px;
-  width: 500px;
+  width: 400px;
   height: 400px;
 
-  background-color: aliceblue;
+  border-radius: 10px;
+  background-color: var(--background);
+  box-shadow: 0 29px 52px rgba(0, 0, 0, 0.4), 0 25px 16px rgba(0, 0, 0, 0.2);
+
+  text-transform: capitalize;
 }
 
 .date-picker-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  gap: 30px;
+  gap: 2rem;
 
-  padding: 40px 40px 0;
+  padding: 2rem;
   height: 100%;
   width: 100%;
 }
 
+.date-picker-container label {
+  font-weight: 700;
+}
+.date-picker-container input {
+  width: 150px;
+  text-align: center;
+}
+
 .selected-date {
-  font-weight: bold;
-  color: green;
+  font-weight: 900;
+  color: var(--accent);
 }
 
 .book-picker-button-proceed {
   height: 50px;
   width: 120px;
+
+  font-weight: 500;
+  color: var(--background);
+
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary);
+
+  &:hover {
+    box-shadow: 0px -23px 25px 0px rgba(0, 0, 0, 0.17) inset,
+      0px -36px 30px 0px rgba(0, 0, 0, 0.15) inset,
+      0px -79px 40px 0px rgba(0, 0, 0, 0.1) inset,
+      0px 2px 1px rgba(0, 0, 0, 0.06), 0px 4px 2px rgba(0, 0, 0, 0.09),
+      0px 8px 4px rgba(0, 0, 0, 0), 0px 16px 8px rgba(0, 0, 0, 0);
+  }
 }
 
 .book-picker-button-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: -10px;
+  right: -5px;
 
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
+
+  border: 5px solid var(--background);
+  border-radius: 50%;
+  outline: none;
+
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--background);
+  background-color: #ff5f5f;
+
+  transition: all 0.2s ease-in-out;
+  scale: 1;
+
+  &:hover {
+    scale: 1.2;
+  }
 }
