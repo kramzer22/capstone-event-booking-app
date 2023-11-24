@@ -6,6 +6,7 @@ import "./header.css";
 
 import registrationServices from "../../services/registrationServices";
 import objectHelperModule from "../../helpers/objectHelperModule";
+import inputChekerModule from "../../helpers/inputChekerModule";
 
 function Header({ userCookieState }) {
   const [email, setEmail] = useState("");
@@ -41,6 +42,7 @@ function Header({ userCookieState }) {
         window.location.reload();
       }
     } catch (error) {
+      console.log(error);
       const errorData = error.response.data;
       if (error.response.status === 401) {
         if (
