@@ -284,6 +284,13 @@ function Header({ userCookieState }) {
                   : "Home"}
               </Link>
             </li>
+            {objectHelperModule.getCookie("userRole") === "client" ? null : (
+              <li>
+                <Link className="nav-link" to="/venue" onClick={scrollToTop}>
+                  Venues
+                </Link>
+              </li>
+            )}
             <li>
               <Link className="nav-link" to="/about" onClick={scrollToTop}>
                 About Us
