@@ -3,6 +3,17 @@ import "./home.css";
 import IndexReview from "./home-components/IndexReview";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+
+import bookNowImg from "/src/assets/home/1320x680.png";
+import forClientImg from "/src/assets/home/client240x240.png";
+import forUserImg from "/src/assets/home/user240x240.png";
+import chooseUsGif from "/src/assets/home/home-main.gif";
+import efforlessImg from "/src/assets/home/wcu-one.png";
+import diverseImg from "/src/assets/home/wcu-two.png";
+import transparentSupportImg from "/src/assets/home/wcu-three.png";
+import dedicatedSupportImg from "/src/assets/home/wcu-four.png";
+import innovativeImg from "/src/assets/home/wcu-five.png";
+
 function Home({ userCookieState }) {
   return (
     <>
@@ -20,11 +31,7 @@ function Home({ userCookieState }) {
             <button>Get Started</button>
             <button>Book Now</button>
           </div>
-          <img
-            className="index-img"
-            src="/src/assets/home/1320x680.png"
-            alt="book-now 1320x680"
-          />
+          <img className="index-img" src={bookNowImg} alt="book-now 1320x680" />
         </div>
 
         <div className="index-article-container second">
@@ -46,7 +53,7 @@ function Home({ userCookieState }) {
               </div>
               <div className="pic-btn">
                 <picture>
-                  <img src="/src/assets/home/client240x240.png" alt="240x240" />
+                  <img src={forClientImg} alt="240x240" />
                 </picture>
                 <div className="card-btn">
                   <button>
@@ -65,7 +72,7 @@ function Home({ userCookieState }) {
               </div>
               <div className="pic-btn">
                 <picture>
-                  <img src="/src/assets/home/user240x240.png" alt="240x240" />
+                  <img src={forUserImg} alt="240x240" />
                 </picture>
                 <div className="card-btn">
                   <button>
@@ -79,7 +86,7 @@ function Home({ userCookieState }) {
 
         <div className="index-article-container third">
           <small>WHY CHOOSE US</small>
-          <img src="/src/assets/home/home-main.gif" alt="" />
+          <img src={chooseUsGif} alt="" />
           <div className="index-section-ctr">
             <div className="index-section-details one">
               <p>
@@ -88,7 +95,7 @@ function Home({ userCookieState }) {
                 process, allowing you to explore and reserve your preferred
                 events with ease.
               </p>
-              <img src="/src/assets/home/wcu-one.png" alt="" />
+              <img src={efforlessImg} alt="" />
             </div>
 
             <div className="index-section-details two">
@@ -98,7 +105,7 @@ function Home({ userCookieState }) {
                 looking to showcase your venue or an attendee seeking exciting
                 experiences, our platform caters to all.
               </p>
-              <img src="/src/assets/home/wcu-two.png" alt="" />
+              <img src={diverseImg} alt="" />
             </div>
 
             <div className="index-section-details three">
@@ -108,7 +115,7 @@ function Home({ userCookieState }) {
                 secure payments, and the assurance that your personal
                 information is safeguarded throughout the booking process.
               </p>
-              <img src="/src/assets/home/wcu-three.png" alt="" />
+              <img src={transparentSupportImg} alt="" />
             </div>
 
             <div className="index-section-details four">
@@ -118,7 +125,7 @@ function Home({ userCookieState }) {
                 addressing concerns, we are committed to ensuring a smooth and
                 enjoyable experience for both hosts and users.
               </p>
-              <img src="/src/assets/home/wcu-four.png" alt="" />
+              <img src={dedicatedSupportImg} alt="" />
             </div>
 
             <div className="index-section-details five">
@@ -128,7 +135,7 @@ function Home({ userCookieState }) {
                 flexible booking options to real-time updates, we continuously
                 strive to provide cutting-edge solutions.
               </p>
-              <img src="/src/assets/home/wcu-five.png" alt="" />
+              <img src={innovativeImg} alt="" />
             </div>
           </div>
           <h4>
