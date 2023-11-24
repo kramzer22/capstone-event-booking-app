@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 
 import "./footer.css";
 
+import ctaSVG from "/src/assets/footer/cta-img.svg";
+import iconImg from "/src/assets/registration/iconlogo.svg";
+
 function Footer() {
   const scrollToTop = () => {
     window.scrollTo({
@@ -23,7 +26,7 @@ function Footer() {
             src="https://scontent.fdvo5-1.fna.fbcdn.net/v/t1.6435-9/157021501_3792285737545318_3568598696731868493_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=be3454&_nc_eui2=AeGs22zSdJbLebJSDLgBUTd_nRktRD19M8GdGS1EPX0zwRUc3OxXFQ0LwGRMQazCVZskQvPqrMfHp2Gbc7ccA3Wz&_nc_ohc=Iddl_R9RcPoAX-PX6lP&_nc_ht=scontent.fdvo5-1.fna&oh=00_AfCfhof26lkdoIl6_D1X2tc0PJjEasdApwp61KV7GW9kQg&oe=656C3A2E"
             alt=""
           />
-          <img src="/src/assets/footer/cta-img.svg" alt="" />
+          <img src={ctaSVG} alt="" />
         </div>
       </div>
 
@@ -38,7 +41,7 @@ function Footer() {
         <div className="footer-container">
           <div className="footer-about-container">
             <div className="footer-logo">
-              <img src="/src/assets/registration/iconlogo.svg" alt="" />
+              <img src={iconImg} alt="" />
             </div>
             <p>
               Hassle-free, worry-free, stress-free &ndash; it&apos;s that

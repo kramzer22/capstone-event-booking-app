@@ -8,6 +8,8 @@ import registrationServices from "../../services/registrationServices";
 import objectHelperModule from "../../helpers/objectHelperModule";
 import inputChekerModule from "../../helpers/inputChekerModule";
 
+import headerLogoSVG from "/src/assets/header/iconlogo.svg";
+
 function Header({ userCookieState }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -188,7 +190,7 @@ function Header({ userCookieState }) {
   return (
     <div className="navigation-container">
       <div className="logo-container">
-        <img src="/src/assets/header/iconlogo.svg" alt="" />
+        <img src={headerLogoSVG} alt="" />
       </div>
       <div className="navigation-links">
         <ul className="navigation-links-container">
