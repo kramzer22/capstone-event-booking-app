@@ -75,7 +75,7 @@ function Messaging({ setMessagingDisplay, recipient }) {
                     }`}
                   >
                     <p className="message-content">{message.content}</p>
-                    <p>{message.elapsed}</p>
+                    <small>{message.elapsed}</small>
                   </li>
                 ))
               : null}
