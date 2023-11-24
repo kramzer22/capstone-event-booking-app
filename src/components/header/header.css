@@ -1,3 +1,7 @@
+.nav-mobile-container {
+  display: none;
+}
+
 .navigation-container {
   display: flex;
   flex-direction: row;
@@ -98,8 +102,7 @@
 
 .nav-link:visited {
   text-decoration: none;
-  color: #d3d3d3;
-  color: var(--accent);
+  color: var(--text);
   border-bottom: 2px solid var(--accent);
 }
 
@@ -252,4 +255,74 @@
 .profile-manager-container li {
   width: 100%;
   text-align: right;
+}
+
+@media screen and (max-width: 821px) {
+  .navigation-container {
+    display: none;
+  }
+
+  .nav-mobile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    position: fixed;
+    right: 0;
+    top: 0;
+
+    /* height: 4rem; */
+    padding: 0 9%;
+
+    border-end-start-radius: 5px;
+    border-end-end-radius: 5px;
+    background-color: rgba(252, 250, 255, 0.955);
+
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 6px, rgba(0, 0, 0, 0.23) 0px 0px 6px;
+    z-index: 1001;
+  }
+
+  .navigation-links {
+    position: relative;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 140px;
+    max-width: 140px;
+  }
+
+  .navigation-links-container {
+    flex-grow: 1;
+    position: fixed;
+    top: 60px;
+    right: 0;
+
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+    padding-right: 9%;
+
+    min-width: 210px;
+    max-width: 210px;
+
+    height: calc(100% - 60px);
+
+    background-color: rgba(252, 250, 255, 0.955);
+
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 6px, rgba(0, 0, 0, 0.23) 0px 0px 6px;
+  }
+
+  .navigation-links-container li {
+    text-align: center;
+    width: 100%;
+  }
 }

@@ -19,6 +19,7 @@ function Header({ userCookieState }) {
 
   const profileDropDownRef = useRef(null);
   const loginContainerRef = useRef(null);
+  const mobileNavRef = useRef(null);
 
   const ERROR_DISPLAY_TIME = 5000;
 
@@ -106,6 +107,16 @@ function Header({ userCookieState }) {
     }
   };
 
+  const showMobileNavHandler = () => {
+    const styles = window.getComputedStyle(mobileNavRef.current);
+    const display = styles.getPropertyValue("display");
+    if (display === "none") {
+      mobileNavRef.current.style.display = "flex";
+    } else {
+      mobileNavRef.current.style.display = "none";
+    }
+  };
+
   const logoutHandler = () => {
     objectHelperModule.createCookie({
       name: "userToken",
@@ -188,80 +199,145 @@ function Header({ userCookieState }) {
   }
 
   return (
-    <div className="navigation-container">
-      <div className="logo-container">
-        <img src={headerLogoSVG} alt="" />
-      </div>
-      <div className="navigation-links">
-        <ul className="navigation-links-container">
-          <li>
-            <Link className="nav-link" to="/" onClick={scrollToTop}>
-              {objectHelperModule.getCookie("userRole") === "host"
-                ? "Dashboard"
-                : "Home"}
-            </Link>
-          </li>
-          {objectHelperModule.getCookie("userRole") === "client" ? null : (
+    <>
+      <div className="navigation-container">
+        <div className="logo-container">
+          <img src={headerLogoSVG} alt="" />
+        </div>
+        <div className="navigation-links">
+          <ul className="navigation-links-container">
             <li>
-              <Link className="nav-link" to="/venue" onClick={scrollToTop}>
-                Venues
+              <Link className="nav-link" to="/" onClick={scrollToTop}>
+                {objectHelperModule.getCookie("userRole") === "host"
+                  ? "Dashboard"
+                  : "Home"}
               </Link>
             </li>
-          )}
+            {objectHelperModule.getCookie("userRole") === "client" ? null : (
+              <li>
+                <Link className="nav-link" to="/venue" onClick={scrollToTop}>
+                  Venues
+                </Link>
+              </li>
+            )}
 
-          <li>
-            <a className="nav-link" tabIndex="0">
-              Promos
-            </a>
-          </li>
+            <li>
+              <Link className="nav-link" to="/about" onClick={scrollToTop}>
+                About Us
+              </Link>
+              <a tabIndex="0"></a>
+            </li>
 
-          <li>
-            <Link className="nav-link" to="/about" onClick={scrollToTop}>
-              About Us
-            </Link>
-            <a tabIndex="0"></a>
-          </li>
+            <li>
+              <a className="nav-link book-btn" tabIndex="0">
+                Book Now
+              </a>
+            </li>
+            {loginLink}
+          </ul>
 
-          <li>
-            <a className="nav-link book-btn" tabIndex="0">
-              Book Now
-            </a>
-          </li>
-          {loginLink}
-        </ul>
-
-        <div
-          ref={loginContainerRef}
-          className="login-container"
-          onSubmit={loginHandler}
-        >
-          <div className="login-header">
-            <h4>Login</h4>
-            <button onClick={showLoginForm}>✖</button>
-          </div>
-          <form className="login-form">
-            <input
-              type="email"
-              placeholder="email address"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <a target="_self">Forgot password?</a>
-            <button type="submit">Login</button>
-          </form>
-          <div className="sign-up">
-            <span>Not a member?</span>
-            <Link to="/register" target="_blank">
-              <a>Sign Up</a>
-            </Link>
+          <div
+            ref={loginContainerRef}
+            className="login-container"
+            onSubmit={loginHandler}
+          >
+            <div className="login-header">
+              <h4>Login</h4>
+              <button onClick={showLoginForm}>✖</button>
+            </div>
+            <form className="login-form">
+              <input
+                type="email"
+                placeholder="email address"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <a target="_self">Forgot password?</a>
+              <button type="submit">Login</button>
+            </form>
+            <div className="sign-up">
+              <span>Not a member?</span>
+              <Link to="/register" target="_blank">
+                <a>Sign Up</a>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div className="nav-mobile-container">
+        <div className="logo-container">
+          <img src={headerLogoSVG} alt="" />
+        </div>
+        <div className="navigation-links">
+          <a className="nav-link" onClick={showMobileNavHandler}>
+            Menu
+          </a>
+          <ul ref={mobileNavRef} className="navigation-links-container">
+            <li>
+              <Link className="nav-link" to="/" onClick={scrollToTop}>
+                {objectHelperModule.getCookie("userRole") === "host"
+                  ? "Dashboard"
+                  : "Home"}
+              </Link>
+            </li>
+            <li>
+              <Link className="nav-link" to="/about" onClick={scrollToTop}>
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link to="/venue" className="nav-link book-btn" tabIndex="0">
+                Book Now
+              </Link>
+            </li>
+            {objectHelperModule.getCookie("userToken") === "" ? (
+              <>
+                <li>
+                  <Link className="nav-link" to="/login" onClick={scrollToTop}>
+                    login
+                  </Link>
+                </li>
+                <li>
+                  <Link className="nav-link" to="/register">
+                    <a>Sign Up</a>
+                  </Link>
+                </li>
+              </>
+            ) : objectHelperModule.getCookie("userRole") === "client" ? (
+              <>
+                <li>
+                  <Link className="nav-link" to="/client/dashboard">
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <a className="nav-link" onClick={logoutHandler}>
+                    Logout
+                  </a>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link className="nav-link" to="host/venue-manager">
+                    Venue Manager
+                  </Link>
+                </li>
+                <li>
+                  <a className="nav-link" onClick={logoutHandler}>
+                    Logout
+                  </a>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+      </div>
+    </>
   );
 }
 

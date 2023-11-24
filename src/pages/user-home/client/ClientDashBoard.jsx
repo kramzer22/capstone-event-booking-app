@@ -50,10 +50,20 @@ function ClientDashBoard({ userCookieState }) {
     }
   };
 
-  useEffect(() => {
+  const fetchData = () => {
     getNotificationList();
     getBookingList();
     getAllMessage();
+  };
+
+  useEffect(() => {
+    fetchData();
+
+    const intervalId = setInterval(() => {
+      fetchData();
+    }, 600);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   const setBookingTransaction = async (bookId, transaction) => {
@@ -95,7 +105,9 @@ function ClientDashBoard({ userCookieState }) {
       <div className="host-user-main">
         <div className="host-home-main">
           <div className="transaction-container">
-            <h4><i class="ri-dashboard-line"></i> Transaction History</h4>
+            <h4>
+              <i class="ri-dashboard-line"></i> Transaction History
+            </h4>
             <ul className="transaction-container-list">
               {bookingHistory.map((booking, index) => (
                 <li key={index}>
@@ -134,7 +146,9 @@ function ClientDashBoard({ userCookieState }) {
             </ul>
           </div>
           <div className="notification-container">
-            <h5>Notifications <i class="ri-notification-2-line"></i></h5>
+            <h5>
+              Notifications <i class="ri-notification-2-line"></i>
+            </h5>
             <ul className="notification-container-list">
               {notifications.map((item, index) => (
                 <li key={index}>
@@ -146,7 +160,9 @@ function ClientDashBoard({ userCookieState }) {
             </ul>
           </div>
           <div className="message-container">
-            <h5>Messages <i class="ri-message-2-line"></i></h5>
+            <h5>
+              Messages <i class="ri-message-2-line"></i>
+            </h5>
             <ul>
               {messageList.map((data, index) => (
                 <li

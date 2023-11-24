@@ -11,6 +11,12 @@ function Messaging({ setMessagingDisplay, recipient }) {
 
   useEffect(() => {
     getMessageHistory();
+
+    const intervalId = setInterval(() => {
+      getMessageHistory();
+    }, 600);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   const getMessageHistory = async () => {
