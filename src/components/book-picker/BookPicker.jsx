@@ -65,7 +65,7 @@ function BookPicker({ setBookDisplay, venueId, packageId }) {
             setBookDisplay(null);
           }}
         >
-          X
+          ✖
         </button>
       </div>
     </div>
