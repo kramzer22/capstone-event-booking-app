@@ -1,5 +1,6 @@
 .host-user-main {
   height: 100dvh;
+  padding: 120px 7rem 3rem;
 }
 
 .host-home-main {
@@ -13,109 +14,213 @@
   height: 100%;
   width: 100%;
   max-width: 100%;
+
+  grid-gap: 1rem;
 }
 
 .transaction-container {
-  display: flex;
-  flex-direction: column;
   grid-area: transaction;
 
-  padding-top: 100px;
-  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem 2rem 2rem;
+
+  border-radius: 5px;
+  background-color: var(--primary);
+}
+
+.transaction-container h4 {
+  color: var(--background);
 }
 
 .transaction-container-list {
-  flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
 
-  margin: 10px 20px 20px;
-  padding: 10px;
-  min-width: calc(100% - 40px);
-  min-width: calc(100% - 40px);
+  padding: 1rem;
+  width: 100%;
+
   list-style: none;
-  background-color: antiquewhite;
+
+  border-radius: 5px;
+  background-color: var(--background);
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 .transaction-container-list li {
   position: relative;
-  padding: 10px;
-  height: 220px;
-  background-color: aliceblue;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  /* height: 220px; */
+  background-color: var(--primary2);
   border: 1px groove;
+
+  width: 100%;
+}
+
+.transaction-container-list li h5 {
+  font-size: 17px;
+  font-weight: 700;
+}
+.transaction-container-list li p {
+  font-size: 14px;
+  color: var(--text2);
 }
 
 .transaction-status {
   position: absolute;
-  right: 10px;
-  top: 10px;
+  top: 5px;
+  right: 5px;
+
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .transaction-booking-controls {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-
   display: flex;
+  justify-content: center;
   gap: 10px;
+  margin-top: 1rem;
 }
 
 .transaction-booking-controls button {
   height: 40px;
-  width: 140px;
+  width: 100px;
+
+  outline: none;
+  border: none;
+
+  font-weight: 700;
+
+  border-radius: 10px;
+
+  &:hover {
+    box-shadow: -12px -8px 40px rgba(70, 70, 70, 0.5) inset;
+  }
+  &:active {
+    scale: 0.9;
+  }
+}
+
+.transaction-booking-controls button:nth-child(1) {
+  background-color: #ff5f5f;
+}
+
+.transaction-booking-controls button:nth-child(2) {
+  background-color: var(--primary);
 }
 
 .notification-container {
   grid-area: notification;
-  background-color: azure;
+  background-color: var(--secondary);
   display: flex;
   flex-direction: column;
+
+  padding: 1rem;
+
+  border-radius: 5px;
 
   min-width: 100%;
   min-width: 100%;
   min-height: 100%;
   max-height: 100%;
-  padding-top: 100px;
 }
 
 .notification-container-list {
-  flex-grow: 1;
-
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 0.2rem;
 
   width: 100%;
+  border-radius: 5px;
 
   overflow-y: auto;
-  background-color: antiquewhite;
 }
 
 .notification-container-list li {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 6px;
-  border: 1px groove;
-  background-color: aliceblue;
+  gap: 0.2rem;
+  padding: 0.2rem 0.5rem;
+  background-color: var(--secondary2);
+
+  &:hover {
+    background-color: var(--background);
+    border-radius: 5px;
+  }
+}
+.notification-container-list li h5 {
+  font-size: 17px;
+  text-transform: capitalize;
 }
 
 .notification-container-list li p:first-of-type {
   text-wrap: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  font-size: 14px;
 }
 
 .message-container {
   grid-area: message;
   display: flex;
   flex-direction: column;
-  background-color: aquamarine;
+
+  padding: 1rem;
+
+  min-height: 100%;
+  max-height: 100%;
+
+  border-radius: 5px;
+
+  background-color: var(--primary);
+}
+.message-container h5 {
+  color: var(--background);
+  font-weight: 600;
 }
 
 .message-container ul {
-  flex-grow: 1;
-  background-color: antiquewhite;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0.2rem;
+
+  list-style-type: none;
+
+  background-color: var(--primary);
+  border-radius: 5px;
+
+  overflow: auto;
+}
+
+.message-container ul li{
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.2rem 0.5rem;
+
+  background-color: var(--graybg);
+
+  &:hover{
+    background-color: var(--background);
+  }
+}
+
+.message-container ul li h4{
+  text-transform: capitalize;
+  font-size: 18px;
+}
+.message-container ul li p{
+  font-size: 14px;
 }

@@ -88,7 +88,7 @@ function HostHome({ userCookieState }) {
       <div className="host-user-main">
         <div className="host-home-main">
           <div className="transaction-container">
-            <h1>transaction history</h1>
+            <h4>transaction history</h4>
             <ul className="transaction-container-list">
               {bookingHistory.map((booking, index) => (
                 <li key={index}>
@@ -171,5 +171,3 @@ function HostHome({ userCookieState }) {
 }
 
 export default HostHome;
-
-
