@@ -71,6 +71,12 @@ function Login({}) {
           <div className="login-section-details">
             <h4>Login</h4>
             <p>
+              <Link to="/">
+                <a>Back to homepage</a>
+              </Link>
+            </p>
+
+            <p>
               Don't have an account yet?{" "}
               <Link to="/register">
                 <a>Sign Up</a>
