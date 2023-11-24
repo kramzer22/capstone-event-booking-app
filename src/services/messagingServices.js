@@ -2,7 +2,8 @@ import axios from "axios";
 
 import objectHelperModule from "../helpers/objectHelperModule";
 
-const messagingURL = "http://localhost:3001/api/messaging/";
+const messagingURL =
+  "https://capstone-backend-4pv2.onrender.com/api/messaging/";
 
 const getUserToken = () => objectHelperModule.getCookie("userToken");
 const getUserRole = () => objectHelperModule.getCookie("userRole");

@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:3001/api/inquiry/";
-const tokenURL = "http://localhost:3001/api/token/contact-inquiry/";
+const baseURL = "https://capstone-backend-4pv2.onrender.com/api/inquiry/";
+const tokenURL =
+  "https://capstone-backend-4pv2.onrender.com/api/token/contact-inquiry/";
 
 function createInquiry(registrationToken) {
   return axios.post(
