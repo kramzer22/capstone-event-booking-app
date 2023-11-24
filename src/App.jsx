@@ -82,7 +82,7 @@ function App() {
     <Router>
       <div className="app-container">
         <Routes>
-          <Route path="/" element={homeDisplay} />
+          <Route path="/capstone-event-booking-app" element={homeDisplay} />
           <Route
             path="/host/venue-manager"
             element={
