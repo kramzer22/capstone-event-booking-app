@@ -4,6 +4,9 @@ import "./AboutUs.css";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 
+import aboutMainImg from "/src/assets/about/600x400.png";
+import historySVG from "/src/assets/about/1500x700.svg";
+
 function AboutUs({ userCookieState }) {
   return (
     <>
@@ -37,7 +40,7 @@ function AboutUs({ userCookieState }) {
           </div>
 
           <div className="about-img">
-            <img src="/src/assets/about/600x400.png" alt="600x400" />
+            <img src={aboutMainImg} alt="600x400" />
           </div>
         </div>
 
@@ -72,7 +75,7 @@ function AboutUs({ userCookieState }) {
 
         <div className="history-container">
           <div className="history-img">
-            <img src="/src/assets/about/1500x700.svg" alt="" />
+            <img src={historySVG} alt="" />
           </div>
 
           <div className="history-details">
