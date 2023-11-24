@@ -71,8 +71,9 @@ function Login({}) {
           <div className="login-section-details">
             <h4>Login</h4>
             <p>
+              Return to
               <Link to="/">
-                <a>Back to homepage</a>
+                <a>homepage</a>
               </Link>
             </p>
 
