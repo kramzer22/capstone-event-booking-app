@@ -404,7 +404,7 @@
   .index-section-details.one,
   .index-section-details.three,
   .index-section-details.five {
-    flex-direction: row;
+    /* flex-direction: row; */
   }
   .index-section-details p {
     padding: 0;
