@@ -80,7 +80,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <Router hashType="noslash">
       <div className="app-container">
         <Routes>
           <Route path="/" element={homeDisplay} />
