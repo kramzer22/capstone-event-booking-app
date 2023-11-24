@@ -153,7 +153,7 @@ function HostHome({ userCookieState }) {
                   <h4>
                     {objectHelperModule.getCookie("userRole") === "client"
                       ? data.host_name
-                      : data.users.client_email}
+                      : data.client_name}
                   </h4>
                   <p>{`${
                     data.message.who_is === "sender" ? "You" : "Recipient"
