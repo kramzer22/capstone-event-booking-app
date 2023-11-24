@@ -17,7 +17,7 @@ function Payment({ setPaymentDisplay, bookId }) {
           src="https://img.freepik.com/premium-vector/sample-qr-code-icon_322958-669.jpg?w=826"
           alt=""
         />
-        <p>scan QR</p>
+        <p>SCAN QR</p>
         <button onClick={() => setBookingTransaction("payment")}>
           Proceed
         </button>
@@ -67,8 +67,8 @@ function Payment({ setPaymentDisplay, bookId }) {
             onChange={(e) => setSelectedPayment(e.target.value)}
           >
             <option value=""></option>
-            <option value="gcash">Gcash</option>
-            <option value="paypal">PayPal</option>
+            <option value="gcash">GCash</option>
+            <option value="paypal">Credit/Debit Card</option>
           </select>
         </div>
         {paymentForm}
@@ -78,7 +78,7 @@ function Payment({ setPaymentDisplay, bookId }) {
             setPaymentDisplay(null);
           }}
         >
-          X
+          ✖
         </button>
       </div>
     </div>

@@ -19,42 +19,63 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  gap: 2rem;
 
-  padding: 30px;
-  width: 600px;
-  height: 500px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 400px;
+  /* height: 500px; */
 
-  background-color: aliceblue;
+  border-top: 10px solid var(--primary);
+  border-radius: 10px;
+  background-color: var(--background);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4),
+    0px 7px 13px -3px rgba(0, 0, 0, 0.3), inset 0px -3px 0px rgba(0, 0, 0, 0.2);
 }
 
 .payment-selection-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.5rem;
+
+  text-transform: uppercase;
+}
+.payment-selection-container label {
+  font-size: 15px;
+  font-weight: 700;
+
+  color: var(--accent);
 }
 
 .payment-selection-container select {
   height: 30px;
 }
 
-.payment-selection-container select option {
-  padding: 4px;
-}
 .payment-form-container {
   flex-grow: 1;
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 10px;
+  gap: 2rem;
 
   min-height: 100%;
   max-height: 100%;
   width: 100%;
 }
 
+.payment-form-container p {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.payment-form-container input {
+  padding: 5px 0.5rem;
+
+  text-transform: uppercase;
+}
+
 .payment-gcash-qr {
-  width: 40%;
+  width: 70%;
 }
 
 .payment-form-card-date {
@@ -65,31 +86,67 @@
 }
 
 .payment-form-card-date div {
-  flex-grow: 1;
   display: flex;
+  gap: 0.5rem;
   width: 100%;
 }
 
 .paypal-date {
-  height: 50px;
-  width: 50px;
+  width: 60px;
+  text-align: center;
 }
 
 .cvv {
-  height: 50px;
   width: 60px;
+  text-align: center;
 }
 
 .payment-form-container button {
   height: 50px;
   width: 160px;
+
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--background);
+
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary);
+
+  &:hover {
+    box-shadow: 0px -23px 25px 0px rgba(0, 0, 0, 0.17) inset,
+      0px -36px 30px 0px rgba(0, 0, 0, 0.15) inset,
+      0px -79px 40px 0px rgba(0, 0, 0, 0.1) inset,
+      0px 2px 1px rgba(0, 0, 0, 0.06), 0px 4px 2px rgba(0, 0, 0, 0.09),
+      0px 8px 4px rgba(0, 0, 0, 0.09), 0px 16px 8px rgba(0, 0, 0, 0);
+  }
+  &:active {
+    scale: 0.9;
+  }
 }
 
 .payment-button-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: -20px;
+  right: -5px;
 
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
+
+  border: 5px solid var(--background);
+  border-radius: 50%;
+  outline: none;
+
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--background);
+  background-color: #ff5f5f;
+
+  transition: all 0.2s ease-in-out;
+  scale: 1;
+
+  &:hover {
+    scale: 1.2;
+  }
 }
