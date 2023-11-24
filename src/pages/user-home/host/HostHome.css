@@ -42,6 +42,9 @@
 .transaction-container h4 {
   color: var(--background);
 }
+.transaction-container h4 i {
+  font-weight: normal;
+}
 
 .transaction-container-list {
   display: grid;
@@ -143,10 +146,15 @@
 
   border-radius: 5px;
   background-color: var(--primary);
-  box-shadow: 0px 50px 100px -20px rgba(50, 50, 93, 0.25), 0px 30px 60px -30px rgba(0, 0, 0, 0.3), inset 0px -2px 6px 0px rgba(10, 37, 64, 0.35);
+  box-shadow: 0px 50px 100px -20px rgba(50, 50, 93, 0.25),
+    0px 30px 60px -30px rgba(0, 0, 0, 0.3),
+    inset 0px -2px 6px 0px rgba(10, 37, 64, 0.35);
 }
 .notification-container > h5 {
   color: var(--background);
+}
+.notification-container i {
+  font-weight: normal;
 }
 
 .notification-container-list {
@@ -165,10 +173,10 @@
   flex-direction: column;
   gap: 0.2rem;
   padding: 0.2rem 0.5rem;
-  background-color: var(--secondary2);
+  background-color: var(--background);
 
   &:hover {
-    background-color: var(--background);
+    background-color: var(--graybg);
     border-radius: 5px;
   }
 }
@@ -183,6 +191,11 @@
   text-overflow: ellipsis;
 
   font-size: 13px;
+  color: var(--text);
+}
+
+.notification-container-list small {
+  font-size: 11px;
   color: var(--text2);
 }
 
@@ -199,11 +212,17 @@
   border-radius: 5px;
 
   background-color: var(--primary);
-  box-shadow: 0px 50px 100px -20px rgba(50, 50, 93, 0.25), 0px 30px 60px -30px rgba(0, 0, 0, 0.3), inset 0px -2px 6px 0px rgba(10, 37, 64, 0.35);
+  box-shadow: 0px 50px 100px -20px rgba(50, 50, 93, 0.25),
+    0px 30px 60px -30px rgba(0, 0, 0, 0.3),
+    inset 0px -2px 6px 0px rgba(10, 37, 64, 0.35);
 }
 .message-container h5 {
   color: var(--background);
   font-weight: 600;
+}
+
+.message-container i {
+  font-weight: normal;
 }
 
 .message-container ul {
@@ -224,11 +243,16 @@
   gap: 0.2rem;
   padding: 0.2rem 0.5rem;
 
-  background-color: var(--graybg);
+  background-color: var(--background);
 
   &:hover {
-    background-color: var(--background);
+    background-color: var(--graybg);
   }
+}
+
+.message-container small {
+  font-size: 11px;
+  color: var(--text2);
 }
 
 .message-container ul li h4 {
