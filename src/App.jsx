@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // Pages
 import Home from "./pages/home/Home";
 import HostHome from "./pages/user-home/host/HostHome";
