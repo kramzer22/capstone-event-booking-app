@@ -29,7 +29,7 @@
   width: 100%;
   max-width: 1300px;
 
-  border-radius: 30px;
+  border-radius: 10px;
 
   background-color: var(--background);
 
@@ -79,14 +79,15 @@
   object-fit: cover;
   object-position: center;
 
-  border-radius: 30px;
+  border-radius: 10px;
+  outline: 5px solid var(--graybg);
+  background-color: var(--graybg);
 
   transition: all 0.5s ease-in-out;
 
   &:active {
     padding: 0 1rem;
     /* object-fit: contain; */
-    background-color: var(--background);
     scale: 0.8;
   }
 }
@@ -165,7 +166,7 @@
   overflow-y: scroll;
 
   background-color: var(--background);
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
   position: relative;
