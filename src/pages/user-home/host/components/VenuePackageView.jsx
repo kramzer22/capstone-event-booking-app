@@ -16,7 +16,7 @@ function VenuePackageView({
       const response = await hostServices.removePackage(venue.id, packageId);
 
       if (response.status === 200) {
-        navigate("/host/event-manager");
+        navigate("/host/venue-manager");
         window.location.reload();
       }
     } catch (error) {

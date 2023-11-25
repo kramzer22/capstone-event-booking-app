@@ -279,7 +279,8 @@ function Header({ userCookieState }) {
           <ul ref={mobileNavRef} className="navigation-links-container mobile">
             <li>
               <Link className="nav-link" to="/" onClick={scrollToTop}>
-                {objectHelperModule.getCookie("userRole") === "host"
+                {objectHelperModule.getCookie("userRole") === "host" &&
+                objectHelperModule.getCookie("userToken") !== ""
                   ? "Dashboard"
                   : "Home"}
               </Link>

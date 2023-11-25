@@ -68,7 +68,7 @@ function VenuePackageEditor({
         );
 
         if (response.status == 201) {
-          navigate("/host/event-manager");
+          navigate("/host/venue-manager");
           window.location.reload();
         }
       } else if (transactionType === "update") {
@@ -86,7 +86,7 @@ function VenuePackageEditor({
         );
 
         if (response.status == 200) {
-          navigate("/host/event-manager");
+          navigate("/host/venue-manager");
           window.location.reload();
         }
       }
