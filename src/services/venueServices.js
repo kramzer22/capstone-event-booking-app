@@ -2,7 +2,7 @@ import axios from "axios";
 
 import objectHelperModule from "../helpers/objectHelperModule";
 
-const venueURL = "https://capstone-backend-4pv2.onrender.com/api/venues/";
+const venueURL = `http://localhost:3001/api/venues/`;
 
 const getUserToken = () => objectHelperModule.getCookie("userToken");
 

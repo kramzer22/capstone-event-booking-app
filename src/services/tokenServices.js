@@ -2,7 +2,7 @@ import axios from "axios";
 
 import objectHelperModule from "../helpers/objectHelperModule";
 
-const userURL = "https://capstone-backend-4pv2.onrender.com/api/user/";
+const userURL = `http://localhost:3001/api/user/`;
 
 function checkLoginCredentials(userToken) {
   return axios.get(`${userURL}token/user-cookie/?token_id=${userToken}`);

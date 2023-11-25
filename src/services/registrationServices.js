@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const clientURL = "https://capstone-backend-4pv2.onrender.com/api/client/";
-const userURL = "https://capstone-backend-4pv2.onrender.com/api/user/";
-const hostURL = "https://capstone-backend-4pv2.onrender.com/api/host/";
-const tokenURL = "https://capstone-backend-4pv2.onrender.com/api/token/";
+const clientURL = `http://localhost:3001/api/client/`;
+const userURL = `http://localhost:3001/api/user/`;
+const hostURL = `http://localhost:3001/api/host/`;
+const tokenURL = `http://localhost:3001/api/token/`;
 
 function registerClient(registrationToken) {
   return axios.post(`${clientURL}register/?token_id=${registrationToken}`);

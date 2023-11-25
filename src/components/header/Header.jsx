@@ -141,7 +141,7 @@ function Header({ userCookieState }) {
           <div ref={profileDropDownRef} className="profile-manager-container">
             <ul>
               <li>
-                <Link className="nav-link" to="host/venue-manager">
+                <Link className="nav-link" to="/host/venue-manager">
                   Venue Manager
                 </Link>
               </li>
