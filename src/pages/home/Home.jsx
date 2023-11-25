@@ -1,4 +1,5 @@
 import "./home.css";
+import { Link } from "react-router-dom";
 
 import IndexReview from "./home-components/IndexReview";
 import Header from "../../components/header/Header";
@@ -28,8 +29,12 @@ function Home({ userCookieState }) {
             </h1>
           </div>
           <div className="index-btn">
-            <button>Get Started</button>
-            <button>Book Now</button>
+            <Link to="/register" target="_blank">
+              <button>Get Started</button>
+            </Link>
+            <Link to="/venue">
+              <button>Book Now</button>
+            </Link>
           </div>
           <img className="index-img" src={bookNowImg} alt="book-now 1320x680" />
         </div>
