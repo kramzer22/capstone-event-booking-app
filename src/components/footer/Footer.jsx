@@ -71,7 +71,9 @@ function Footer() {
                 <span></span>
               </div>
             </h6>
-            <a href="#">Sign in</a>
+            <Link to="/login">
+              <a href="#">Sign in</a>
+            </Link>
             <Link to="/contact" onClick={scrollToTop}>
               <a>Contact Us</a>
             </Link>
@@ -89,8 +91,12 @@ function Footer() {
               </div>
             </h6>
             <a href="#">Promos</a>
-            <a href="#">Venues</a>
-            <a href="#">Book Now</a>
+            <Link to="/venue" onClick={scrollToTop}>
+              <a href="#">Venues</a>
+            </Link>
+            <Link to="/venue" onClick={scrollToTop}>
+              <a href="#">Book Now</a>
+            </Link>
           </div>
 
           <div className="footer-page-links">

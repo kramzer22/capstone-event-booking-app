@@ -169,10 +169,22 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+
+  padding:0 1rem;
 }
 
 .venue-view-package-header-main button {
-  width: 160px;
+  padding: 0.5rem 1rem;
+
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--background);
+
+  outline: none;
+  border: none;
+  border-radius: 5px;
+
+  background-color: var(--primary);
 }
 
 .venue-view-package-item {

@@ -119,9 +119,10 @@ function VenueViewItem({ setViewDisplay, venueId }) {
             </div>
             <div className="venue-view-package">
               <div className="venue-view-package-header-main">
-                <h3>Packages offer: {venue.packages.length}</h3>
+                <h5>Packages Offered: {venue.packages.length}</h5>
                 <button onClick={() => messagingDisplayHandler(venue.email)}>
                   Message
+                  <i class="ri-send-plane-fill"></i>
                 </button>
               </div>
 

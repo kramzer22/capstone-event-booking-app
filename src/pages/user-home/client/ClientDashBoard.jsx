@@ -106,22 +106,37 @@ function ClientDashBoard({ userCookieState }) {
         <div className="host-home-main">
           <div className="transaction-container">
             <h4>
-              <i class="ri-dashboard-line"></i> Transaction History
+              <i className="ri-dashboard-line"></i> Transaction History
             </h4>
             <ul className="transaction-container-list">
               {bookingHistory.map((booking, index) => (
                 <li key={index}>
                   <h5>Host: {booking.host_email}</h5>
-                  <p>{`Venue: ${booking.venue_name} ${booking.book_date}`}</p>
-                  <p>Address: {booking.complete_address}</p>
-                  <p>Package: {booking.package.name}</p>
-                  <p>Total inclusions: {booking.package.inclusions.length}</p>
+                  <p>
+                    Venue:{" "}
+                    <span>
+                      {booking.venue_name} {booking.book_date}
+                    </span>
+                  </p>
+                  <p>
+                    Address: <span>{booking.complete_address}</span>
+                  </p>
+                  <p>
+                    Package: <span>{booking.package.name}</span>
+                  </p>
+                  <p>
+                    Total inclusions:{" "}
+                    <span>{booking.package.inclusions.length}</span>
+                  </p>
                   <p>
                     Cost: ₱
-                    {booking.package.price.toLocaleString("en-US", {
-                      minimumFractionDigits: 2,
-                    })}
+                    <span>
+                      {booking.package.price.toLocaleString("en-US", {
+                        minimumFractionDigits: 2,
+                      })}
+                    </span>
                   </p>
+
                   {booking.booking_status === "payment" ? (
                     <div className="transaction-booking-controls">
                       <button
@@ -147,7 +162,7 @@ function ClientDashBoard({ userCookieState }) {
           </div>
           <div className="notification-container">
             <h5>
-              Notifications <i class="ri-notification-2-line"></i>
+              Notifications <i className="ri-notification-2-line"></i>
             </h5>
             <ul className="notification-container-list">
               {notifications.map((item, index) => (
@@ -161,7 +176,7 @@ function ClientDashBoard({ userCookieState }) {
           </div>
           <div className="message-container">
             <h5>
-              Messages <i class="ri-message-2-line"></i>
+              Messages <i className="ri-message-2-line"></i>
             </h5>
             <ul>
               {messageList.map((data, index) => (
