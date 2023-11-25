@@ -99,7 +99,7 @@ function HostHome({ userCookieState }) {
         <div className="host-home-main">
           <div className="transaction-container">
             <h4>
-              <i class="ri-dashboard-line"></i> Transaction History
+              <i className="ri-dashboard-line"></i> Transaction History
             </h4>
             <ul className="transaction-container-list">
               {bookingHistory.map((booking, index) => (
@@ -157,7 +157,7 @@ function HostHome({ userCookieState }) {
           </div>
           <div className="notification-container">
             <h5>
-              Notifications <i class="ri-notification-2-line"></i>
+              Notifications <i className="ri-notification-2-line"></i>
             </h5>
             <ul className="notification-container-list">
               {notifications.map((item, index) => (
@@ -171,7 +171,7 @@ function HostHome({ userCookieState }) {
           </div>
           <div className="message-container">
             <h5>
-              Messages <i class="ri-message-2-line"></i>
+              Messages <i className="ri-message-2-line"></i>
             </h5>
             <ul>
               {messageList.map((data, index) => (
