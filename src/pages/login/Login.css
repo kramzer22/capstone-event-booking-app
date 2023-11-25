@@ -136,6 +136,11 @@
   text-transform: none;
   padding: 1rem 0 2rem;
   color: var(--text2);
+
+}
+
+.remember-me input{
+  width: fit-content;
 }
 
 .login-section button {

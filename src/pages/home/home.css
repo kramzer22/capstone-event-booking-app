@@ -401,11 +401,6 @@
     padding: 0 1rem;
     margin-top: 2rem;
   }
-  .index-section-details.one,
-  .index-section-details.three,
-  .index-section-details.five {
-    /* flex-direction: row; */
-  }
   .index-section-details p {
     padding: 0;
     gap: 0;
