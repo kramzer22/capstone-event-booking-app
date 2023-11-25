@@ -35,7 +35,7 @@ function AboutUs({ userCookieState }) {
 
             <div className="about-btns">
               <button className="learn-btn">For Organizers, Click Here</button>
-              <button className="book-btn">Book Now</button>
+              <button className="book-btn" >Book Now</button>
             </div>
           </div>
 
