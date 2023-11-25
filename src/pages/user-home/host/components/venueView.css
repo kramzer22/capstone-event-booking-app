@@ -138,6 +138,11 @@
   object-position: center;
 }
 
+.venue-view-description-container {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
 .uplaod-image-input {
   display: none;
 }

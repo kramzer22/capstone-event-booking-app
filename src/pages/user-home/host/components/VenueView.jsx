@@ -110,7 +110,7 @@ function VenueView({ venue, setVenueView }) {
           <p>{venueAddress()}</p>
           <div
             dangerouslySetInnerHTML={{
-              __html: `<div class="description-container">${selectedVenue.description.replace(
+              __html: `<div class="venue-view-description-container">${selectedVenue.description.replace(
                 /\n/g,
                 "<br>"
               )}</div>`,
@@ -151,9 +151,7 @@ function VenueView({ venue, setVenueView }) {
             <div>
               <div className="venue-image-btns">
                 <button onClick={removeImageHandler}>remove</button>
-                <button onClick={activateSelectImageHandle}>
-                  Upload
-                </button>
+                <button onClick={activateSelectImageHandle}>Upload</button>
                 <input
                   className="uplaod-image-input"
                   ref={uploadImageRef}
