@@ -89,7 +89,12 @@
 }
 .transaction-container-list li p {
   font-size: 14px;
-  color: var(--text2);
+  font-weight: 500;
+  color: var(--text);
+  text-transform: capitalize;
+}
+.transaction-container-list li p span{
+  font-weight: 400;
 }
 
 .transaction-status {

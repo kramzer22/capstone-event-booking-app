@@ -90,7 +90,7 @@ function HostHome({ userCookieState }) {
     );
   };
 
-  console.log(bookingHistory);
+  // console.log(bookingHistory);
 
   return (
     <>
@@ -105,16 +105,31 @@ function HostHome({ userCookieState }) {
               {bookingHistory.map((booking, index) => (
                 <li key={index}>
                   <h5>Client: {booking.client_email}</h5>
-                  <p>{`Venue: ${booking.venue_name} ${booking.book_date}`}</p>
-                  <p>Address: {booking.complete_address}</p>
-                  <p>Package: {booking.package.name}</p>
-                  <p>Total inclusions: {booking.package.inclusions.length}</p>
+                  <p>
+                    Venue:{" "}
+                    <span>
+                      {booking.venue_name} {booking.book_date}
+                    </span>
+                  </p>
+                  <p>
+                    Address: <span>{booking.complete_address}</span>
+                  </p>
+                  <p>
+                    Package: <span>{booking.package.name}</span>
+                  </p>
+                  <p>
+                    Total inclusions:{" "}
+                    <span>{booking.package.inclusions.length}</span>
+                  </p>
                   <p>
                     Cost: ₱
-                    {booking.package.price.toLocaleString("en-US", {
-                      minimumFractionDigits: 2,
-                    })}
+                    <span>
+                      {booking.package.price.toLocaleString("en-US", {
+                        minimumFractionDigits: 2,
+                      })}
+                    </span>
                   </p>
+
                   {booking.booking_status === "approval_pending" ? (
                     <div className="transaction-booking-controls">
                       <button
