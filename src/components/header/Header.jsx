@@ -141,7 +141,7 @@ function Header({ userCookieState }) {
           <div ref={profileDropDownRef} className="profile-manager-container">
             <ul>
               <li>
-                <Link className="nav-link" to="host/venue-manager">
+                <Link className="nav-link" to="/host/venue-manager">
                   Venue Manager
                 </Link>
               </li>
@@ -272,11 +272,11 @@ function Header({ userCookieState }) {
         <div className="logo-container">
           <img src={headerLogoSVG} alt="" />
         </div>
-        <div className="navigation-links">
+        <div className="navigation-links mobile">
           <a className="nav-link" onClick={showMobileNavHandler}>
             Menu
           </a>
-          <ul ref={mobileNavRef} className="navigation-links-container">
+          <ul ref={mobileNavRef} className="navigation-links-container mobile">
             <li>
               <Link className="nav-link" to="/" onClick={scrollToTop}>
                 {objectHelperModule.getCookie("userRole") === "host"
