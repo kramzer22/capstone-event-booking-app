@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import "./AboutUs.css";
 
@@ -34,8 +35,15 @@ function AboutUs({ userCookieState }) {
             </div>
 
             <div className="about-btns">
-              <button className="learn-btn">For Organizers, Click Here</button>
-              <button className="book-btn" >Book Now</button>
+              <Link to="/register" target="_blank">
+                <button className="learn-btn">
+                  For Organizers, Click Here
+                </button>
+              </Link>
+
+              <Link to="/venue">
+                <button className="book-btn">Book Now</button>
+              </Link>
             </div>
           </div>
 
@@ -69,7 +77,10 @@ function AboutUs({ userCookieState }) {
             <h5>
               Curious about EasyGig&apos;s platform, pricing, and integrations?
             </h5>
-            <button className="ad-btn">Contact Us</button>
+
+            <Link to="/contact">
+              <button className="ad-btn">Contact Us</button>
+            </Link>
           </div>
         </div>
 
