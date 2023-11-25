@@ -5,7 +5,8 @@ function SuccessFulRegistration({}) {
     <div className="successful-registration">
       <p>Successful Registration</p>
       <p>
-        return home or{" "}
+        <Link to="/">return home</Link>
+        or{" "}
         <Link to="/login">
           <span>log in</span>
         </Link>

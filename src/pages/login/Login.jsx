@@ -7,6 +7,8 @@ import registrationServices from "../../services/registrationServices";
 import inputChekerModule from "../../helpers/inputChekerModule.js";
 import objectHelperModule from "../../helpers/objectHelperModule.js";
 
+import loginSVG from "/src/assets/login/login-img.svg";
+
 function Login({}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -69,6 +71,13 @@ function Login({}) {
           <div className="login-section-details">
             <h4>Login</h4>
             <p>
+              Return to
+              <Link to="/">
+                <a>homepage</a>
+              </Link>
+            </p>
+
+            <p>
               Don't have an account yet?{" "}
               <Link to="/register">
                 <a>Sign Up</a>
@@ -112,11 +121,7 @@ function Login({}) {
             <button>Sign-in</button>
           </form>
         </div>
-        <img
-          className="login-section-img"
-          src="/src/assets/login/login-img.svg"
-          alt=""
-        />
+        <img className="login-section-img" src={loginSVG} alt="" />
       </div>
     </div>
   );

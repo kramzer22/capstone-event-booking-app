@@ -53,12 +53,14 @@ function VenueViewItem({ setViewDisplay, venueId }) {
   };
 
   const messagingDisplayHandler = (recipient) => {
-    setMessagingDisplay(
-      <Messaging
-        setMessagingDisplay={setMessagingDisplay}
-        recipient={recipient}
-      />
-    );
+    if (objectHelperModule.getCookie("userRole") === "client") {
+      setMessagingDisplay(
+        <Messaging
+          setMessagingDisplay={setMessagingDisplay}
+          recipient={recipient}
+        />
+      );
+    }
   };
 
   let venueDisplay;
@@ -116,7 +118,6 @@ function VenueViewItem({ setViewDisplay, venueId }) {
               />
             </div>
             <div className="venue-view-package">
-
               <div className="venue-view-package-header-main">
                 <h5>Packages Offered: {venue.packages.length}</h5>
                 <button onClick={() => messagingDisplayHandler(venue.email)}>

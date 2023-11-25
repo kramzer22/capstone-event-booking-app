@@ -47,7 +47,7 @@
 }
 
 .login-section {
-position: relative;
+  position: relative;
 
   display: flex;
   flex-direction: column;
@@ -158,5 +158,16 @@ position: relative;
 
   &:hover {
     scale: 1.1;
+  }
+}
+
+@media screen and (max-width: 431px) {
+  .login-page-main {
+    height: auto;
+  }
+
+  .login-section-container {
+    flex-direction: column;
+    height: 100%;
   }
 }

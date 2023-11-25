@@ -11,6 +11,12 @@ function Messaging({ setMessagingDisplay, recipient }) {
 
   useEffect(() => {
     getMessageHistory();
+
+    const intervalId = setInterval(() => {
+      getMessageHistory();
+    }, 600);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   const getMessageHistory = async () => {
@@ -62,7 +68,7 @@ function Messaging({ setMessagingDisplay, recipient }) {
             <h5>
               {objectHelperModule.getCookie("userRole") === "client"
                 ? messageData.host_name
-                : messageData.users.client_email}
+                : messageData.client_name}
             </h5>
           </div>
           <ul className="message-history-container">

@@ -173,7 +173,9 @@ function ClientRegistration({}) {
   return (
     <div className="registration-container">
       <div className="registration-container-form">
-        <div className="registration-logo"></div>
+        <Link to="/">
+          <div className="registration-logo"></div>
+        </Link>
         <h5>Create an account now</h5>
         {formDisplay}
         <div className="registration-details">

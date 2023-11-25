@@ -484,3 +484,30 @@
   width: 100%;
   max-height: 200px;
 }
+
+@media screen and (max-width: 821px) {
+  .venues-container {
+    padding: 10px;
+  }
+
+  .venues-body-container {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0;
+  }
+
+  .venues-package-body-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .venue-package-description {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .venue-inclusions {
+    width: 100%;
+  }
+}
